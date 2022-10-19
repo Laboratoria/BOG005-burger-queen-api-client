@@ -7,7 +7,7 @@
 * [3. Objetivos de aprendizaje](#3-objetivos-de-aprendizaje)
 * [4. Consideraciones](#4-consideraciones)
 * [5. Criterios de aceptación del proyecto](#5-criterios-de-aceptación-del-proyecto)
-* [6. Pistas / tips](#6-pistas--tips)
+* [6. Pistas / tips](#7-pistas--tips)
 
 ***
 
@@ -92,12 +92,13 @@ costo total.
 
 ![out](https://user-images.githubusercontent.com/110297/45984241-b8b51c00-c025-11e8-8fa4-a390016bee9d.gif)
 
-Además la clienta nos ha dado un [link a la documentación](https://laboratoria.github.io/burger-queen-api/)
+Además la clienta nos ha dado un 
+[link a la documentación](https://app.swaggerhub.com/apis/ssinuco/BurgerQueenAPI/2.0.0)
 que especifica el comportamiento esperado de la API HTTP que deberás consumir.
 Ahí puedes encontrar todos los detalles de los _endpoints_, como por ejemplo
 qué parámetros esperan, qué deben responder, etc.
 
-El objetivo principal de es aprender a construir una _interfaz web_ usando
+El objetivo principal es aprender a construir una _interfaz web_ usando
 el _framework_ elegido (React, Angular o Vue). Todos estos frameworks de
 Front-end tratan de solucionar el mismo problema: **cómo mantener la interfaz
 y el estado sincronizados**. Así que esta experiencia espera familiarizarte con
@@ -251,7 +252,7 @@ Reflexiona y luego marca los objetivos que has llegado a entender y aplicar en t
   * [Métodos de petición HTTP - MDN](https://developer.mozilla.org/es/docs/Web/HTTP/Methods)
 </p></details>
 
-- [ ] **Códigos de status de HTTP**
+- [ ] **Codigos de status de HTTP**
 
   <details><summary>Links</summary><p>
 
@@ -290,7 +291,7 @@ Reflexiona y luego marca los objetivos que has llegado a entender y aplicar en t
   * [Writing structural directives - Documentación oficial (en inglés)](https://angular.io/guide/structural-directives)
 </p></details>
 
-- [ ] **@Input | @Output**
+- [ ] **@Input | @Ouput**
 
   <details><summary>Links</summary><p>
 
@@ -311,7 +312,7 @@ Reflexiona y luego marca los objetivos que has llegado a entender y aplicar en t
   * [In-app navigation: routing to views - Documentación oficial (en inglés)](https://angular.io/guide/router)
 </p></details>
 
-- [ ] **Creación y uso de Observables.**
+- [ ] **Creación y uso Observables.**
 
   <details><summary>Links</summary><p>
 
@@ -470,17 +471,17 @@ Reflexiona y luego marca los objetivos que has llegado a entender y aplicar en t
   * [Enlace Clases y Estilos - Documentación oficial](https://es.vuejs.org/v2/guide/class-and-style.html)
 </p></details>
 
-### Centrado en el usuario
+### user-centricity
 
-- [ ] **Diseñar y desarrollar un producto o servicio poniendo a las usuarias en el centro**
+- [ ] **Diseñar un producto o servicio poniendo a la usuaria en el centro**
 
-### Diseño de producto
+### product-design
 
 - [ ] **Crear prototipos de alta fidelidad que incluyan interacciones**
 
 - [ ] **Seguir los principios básicos de diseño visual**
 
-### Investigación
+### research
 
 - [ ] **Planear y ejecutar testeos de usabilidad de prototipos en distintos niveles de fidelidad**
 
@@ -492,11 +493,11 @@ Reflexiona y luego marca los objetivos que has llegado a entender y aplicar en t
 
 ## 4. Consideraciones
 
-Este proyecto se debe "resolver" de a pares. Recuerda que deberas de consumir una
-API que desarrollaran tus compañeras, sin embargo no debes esperar a que esta API
-este terminada para empezar a codear, puedes utilizar herramientas
-como [nock](https://github.com/nock/nock), [json-server](https://www.npmjs.com/package/json-server)
-o [mockoon](https://mockoon.com) para mockear la API.
+Este proyecto se debe "resolver" de a pares. Recuerda que deberás de consumir una
+API que desarrollará otro equipo backend contratado por nuestro cliente. No podemos esperar
+a que este terminada la API para empezar a codear. Por lo que usaremos el siguiente 
+[repositorio](https://github.com/ssinuco/burger-queen-api-mock/blob/main/README.md)
+para crear un mock del API.
 
 Trabaja en una historia hasta terminarla antes de pasar a la siguiente. Trabaja
 hasta la historia que puedas en el tiempo especificado.
@@ -559,13 +560,34 @@ Lo que debe ocurrir para que se satisfagan las necesidades del usuario.
 Lo acordado que debe ocurrir para decir que la historia está terminada.
 
 * Debes haber recibido _code review_ de al menos una compañera.
+* Has testeado tu producto manualmente (validaciones de inputs).
+* Hiciste _tests_ de usabilidad e incorporaste el _feedback_ del usuario.
+* Desplegaste tu aplicación y has etiquetado tu versión (git tag).
+
+***
+
+#### [Historia de usuario 2] Administrador(a) de tienda debe administrar a sus productos
+
+Yo como administrador(a) de tienda quiero gestionar los productos
+para mantener actualizado el menú.
+
+##### Criterios de aceptación
+
+* Ver listado de productos.
+* Agregar productos.
+* Eliminar productos.
+* Actualizar datos de productos.
+
+##### Definición de terminado
+
+* Debes haber recibido _code review_ de al menos una compañera.
 * Haces _test_ unitarios y, además, has testeado tu producto manualmente.
 * Hiciste _tests_ de usabilidad e incorporaste el _feedback_ del usuario.
 * Desplegaste tu aplicación y has etiquetado tu versión (git tag).
 
 ***
 
-#### [Historia de usuario 2] Mesero/a debe poder tomar pedido de cliente/a
+#### [Historia de usuario 3] Mesero/a debe poder tomar pedido de cliente/a
 
 Yo como meserx quiero tomar el pedido de unx clientx para no depender de mi mala
 memoria, para saber cuánto cobrar, y enviarlo a la cocina para evitar errores y
@@ -579,7 +601,7 @@ Lo que debe ocurrir para que se satisfagan las necesidades del usuario
 * Agregar productos al pedido.
 * Eliminar productos.
 * Ver resumen y el total de la compra.
-* Enviar pedido a cocina (guardar en alguna base de datos).
+* Enviar pedido a cocina (usar API para guardar pedido).
 * Se ve y funciona bien en una _tablet_
 
 ##### Definición de terminado
@@ -593,7 +615,7 @@ Lo acordado que debe ocurrir para decir que la historia está terminada.
 
 ***
 
-#### [Historia de usuario 3] Jefe de cocina debe ver los pedidos
+#### [Historia de usuario 4] Jefe de cocina debe ver los pedidos
 
 Yo como jefx de cocina quiero ver los pedidos de lxs clientxs en orden y
 marcar cuáles están listos para saber qué se debe cocinar y avisar a lxs meserxs
@@ -603,7 +625,7 @@ que un pedido está listo para servirlo a un clientx.
 
 * Ver los pedidos ordenados según se van haciendo.
 * Marcar los pedidos que se han preparado y están listos para servirse.
-* Ver el tiempo que tomó prepara el pedido desde que llegó hasta que se
+* Ver el tiempo que tomó preparar el pedido desde que llegó hasta que se
   marcó como completado.
 
 ##### Definición de terminado
@@ -615,7 +637,7 @@ que un pedido está listo para servirlo a un clientx.
 
 ***
 
-#### [Historia de usuario 4] Meserx debe ver pedidos listos para servir
+#### [Historia de usuario 5] Meserx debe ver pedidos listos para servir
 
 Yo como meserx quiero ver los pedidos que están preparados para entregarlos
 rápidamente a lxs clientxs que las hicieron.
@@ -636,7 +658,7 @@ rápidamente a lxs clientxs que las hicieron.
 
 ***
 
-#### [Historia de usuario 5] Administrador(a) de tienda debe administrar a sus trabajadorxs
+#### [Historia de usuario 6] Administrador(a) de tienda debe administrar a sus trabajadorxs
 
 Yo como administrador(a) de tienda quiero gestionar a los usuarios de
 la plataforma para mantener actualizado la informacion de mis trabajadorxs.
@@ -647,27 +669,6 @@ la plataforma para mantener actualizado la informacion de mis trabajadorxs.
 * Agregar trabajadorxs.
 * Eliminar trabajadoxs.
 * Actualizar datos de trabajadorxs.
-
-##### Definición de terminado
-
-* Debes haber recibido _code review_ de al menos una compañera.
-* Haces _test_ unitarios y, además, has testeado tu producto manualmente.
-* Hiciste _tests_ de usabilidad e incorporaste el _feedback_ del usuario.
-* Desplegaste tu aplicación y has etiquetado tu versión (git tag).
-
-***
-
-#### [Historia de usuario 6] Administrador(a) de tienda debe administrar a sus productos
-
-Yo como administrador(a) de tienda quiero gestionar los productos
-para mantener actualizado el menú.
-
-##### Criterios de aceptación
-
-* Ver listado de productos.
-* Agregar productos.
-* Eliminar productos.
-* Actualizar datos de productos.
 
 ##### Definición de terminado
 
@@ -691,8 +692,6 @@ para mantener actualizado el menú.
 * [Babel](https://babeljs.io/)
 * [webpack](https://webpack.js.org/)
 * [json-server](https://www.npmjs.com/package/json-server)
-* [mockoon](https://mockoon.com)
-* [nock](https://github.com/nock/nock)
 
 ### PWA
 
