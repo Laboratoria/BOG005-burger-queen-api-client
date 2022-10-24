@@ -1,0 +1,38 @@
+.home_container {
+  width: 100%;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  gap: 20px;
+  justify-content: center;
+  background-color: $black;
+
+  img {
+    width: 80%;
+    max-width: 500px;
+  }
+
+  button {
+    background-color: $pinkButton;
+    color: $pinkText;
+    border-radius: 50px;
+    width: 40%;
+    max-width: 250px;
+    height: 8vh;
+    border-color: $pinkText;
+    font-size: 0.8rem;
+    &:hover {
+      background-color: $pinkText;
+    }
+  }
+
+}
+
+@media(min-width:768px){
+  .home_container{
+    button{
+      font-size: 1.2rem;
+    }
+  }
+}
