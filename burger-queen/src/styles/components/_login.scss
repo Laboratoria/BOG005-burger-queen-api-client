@@ -3,6 +3,7 @@
     background-size: cover;
     width: 100%;
     min-height: 100vh;
+    gap:30px;
     header {
         img{
             width: 20%;
@@ -18,7 +19,6 @@
     flex-direction: column;
     justify-content: center;
     color: $pinkText;
-    margin-top: 30%;
 
     form {
         display: flex;

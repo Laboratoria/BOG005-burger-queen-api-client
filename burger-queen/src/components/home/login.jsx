@@ -9,7 +9,7 @@ const Login = () => {
                 <img src={logoFondoPizarra} alt="logo" />
             </header>
             <div className="form_container">
-                <form>
+                <form >
                     <label>Correo:</label>
                     <input type='email'></input>
                     <label>Contraseña:</label>
