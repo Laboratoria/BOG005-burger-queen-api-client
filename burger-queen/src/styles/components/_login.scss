@@ -1,3 +1,49 @@
 .login_container{
-    background-color: antiquewhite;
+    background-image: url('../../../src/components/home/images/fondoPizzara.jpg');
+    background-size: cover;
+    width: 100%;
+    min-height: 100vh;
+    header {
+        img{
+            width: 20%;
+        }
+    }
+}
+
+
+
+.form_container {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+    color: $pinkText;
+    margin-top: 30%;
+
+    form {
+        display: flex;
+        flex-direction: column;
+        margin: 15px;
+        width: 70%;
+    }
+
+    input {
+        border-color: $pinkButton;
+        border-radius: 10px;
+        background-color: transparent;
+        color: $pinkText;
+        margin: 5px;
+        height: 5vh;
+    }
+
+    button {
+        background-color: $pinkButton;
+        border-radius: 50px;
+        width: 40%;
+        max-width: 250px;
+        height: 8vh;
+        font-size: 0.8rem;
+        border: solid 2px $pinkText;
+        color: $pinkText;
+    }
 }
