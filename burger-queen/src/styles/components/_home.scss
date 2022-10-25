@@ -13,25 +13,38 @@
     max-width: 500px;
   }
 
-  button {
+  p {
     background-color: $pinkButton;
-    color: $pinkText;
     border-radius: 50px;
     width: 40%;
     max-width: 250px;
     height: 8vh;
-    border-color: $pinkText;
     font-size: 0.8rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: solid 2px $pinkText;
+
     &:hover {
       background-color: $pinkText;
+      border: solid 2px $pinkButton;
+
+      #btnLogin {
+        color: $pinkButton;
+      }
+    }
+
+    #btnLogin {
+      color: $pinkText;
+      text-decoration: none
     }
   }
 
 }
 
-@media(min-width:768px){
-  .home_container{
-    button{
+@media(min-width:768px) {
+  .home_container {
+    p {
       font-size: 1.2rem;
     }
   }
