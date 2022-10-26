@@ -49,13 +49,13 @@
         font-size: 0.8rem;
         border: solid 2px $pinkText;
         color: $white;
-        
+
         &:hover {
             background-color: $pinkText;
             border: solid 2px $pinkButton;
-              color: $pinkButton;
-            }
-          
+            color: $pinkButton;
+        }
+
     }
 
 }
@@ -68,4 +68,4 @@
             font-size: 1.2rem;
         }
     }
-  }
+}
