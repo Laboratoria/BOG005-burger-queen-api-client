@@ -19,7 +19,7 @@
     align-items: center;
     flex-direction: column;
     justify-content: center;
-    color: $pinkText;
+    color: $white;
     margin-top: 20vh;
 
     form {
@@ -35,7 +35,7 @@
         border: solid 2px $pinkButton;
         border-radius: 10px;
         background-color: transparent;
-        color: $pinkText;
+        color: $white;
         margin: 5px;
         height: 5vh;
     }
@@ -48,8 +48,16 @@
         height: 8vh;
         font-size: 0.8rem;
         border: solid 2px $pinkText;
-        color: $pinkText;
+        color: $white;
+        
+        &:hover {
+            background-color: $pinkText;
+            border: solid 2px $pinkButton;
+              color: $pinkButton;
+            }
+          
     }
+
 }
 
 @media(min-width:768px) {
