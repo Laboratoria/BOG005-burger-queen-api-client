@@ -7,7 +7,7 @@ const loginUser = (dataUSER) => {
     
     console.log('peticion', url+'users*')
     console.log('dentro de la funcion', dataUSER);
-    axios.post( url+'login', dataUSER).then( res =>{
+     axios.post(url+'login', dataUSER).then( res =>{
         console.log('res', res);
 
     }

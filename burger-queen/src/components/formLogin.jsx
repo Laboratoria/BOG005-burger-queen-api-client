@@ -1,17 +1,29 @@
-import React from "react";
+import React, { useState } from "react";
+import loginUser from "../petitions/userPetition";
 
 const FormLogin = () => {
-    return(
-        <div >
+    const [dataLogin, setDataLogin] = useState({ email: '', password: '' })
+
+    const handleChange = (e) => {
+        setDataLogin({
+            ...dataLogin,
+            [e.target.name]: e.target.value
+        });
+        return dataLogin
+    }
+
+
+    return (
+        <div className="form_container">
             <form >
                 <div >
-                    <label  htmlFor="email">Correo:</label>
+                    <label htmlFor="email">Correo:</label>
                     <input id="email" // input para el correo
                         type="email"
                         name="email"
                         placeholder="Usuario"
                         className="email"
-                        onChange={handleChenge}
+                        onChange={handleChange}
                         required
                     />
                 </div>
@@ -22,15 +34,15 @@ const FormLogin = () => {
                         type="password"
                         name="password"
                         placeholder="Contraseña"
-                        onChange={handleChenge}
+                        onChange={handleChange}
                         required
                     />
                 </div>
-               
-                <button  type="submit">
+
+            </form>
+                <button onClick={() => loginUser(dataLogin)}>
                     Iniciar Sesión
                 </button>
-            </form>
 
         </div>
     )
