@@ -17,7 +17,9 @@
     align-items: center;
     flex-direction: column;
     justify-content: center;
-    color: $pinkText;
+    color: #ffff;
+    margin-top: 20%;
+    gap: 20px;
 
     form {
         display: flex;
@@ -30,7 +32,7 @@
         border-color: $pinkButton;
         border-radius: 10px;
         background-color: transparent;
-        color: $pinkText;
+        color: #ffff;
         margin: 5px;
         height: 5vh;
     }
@@ -41,8 +43,8 @@
         width: 40%;
         max-width: 250px;
         height: 8vh;
-        font-size: 0.8rem;
+        font-size: 0.7rem;
         border: solid 2px $pinkText;
-        color: $pinkText;
+        color: white;
     }
 }
