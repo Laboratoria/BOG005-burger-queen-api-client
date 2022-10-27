@@ -16,7 +16,6 @@ const FormLogin = () => {
     return (
         <div className="form_container">
             <form >
-                <div >
                     <label htmlFor="email">Correo:</label>
                     <input id="email" // input para el correo
                         type="email"
@@ -26,9 +25,7 @@ const FormLogin = () => {
                         onChange={handleChange}
                         required
                     />
-                </div>
 
-                <div >
                     <label htmlFor="password">Contraseña:</label>
                     <input id="password" // input para el password
                         type="password"
@@ -37,7 +34,7 @@ const FormLogin = () => {
                         onChange={handleChange}
                         required
                     />
-                </div>
+
 
             </form>
                 <button onClick={() => loginUser(dataLogin)}>

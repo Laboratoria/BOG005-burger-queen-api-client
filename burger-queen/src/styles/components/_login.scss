@@ -1,5 +1,5 @@
 .login_container {
-    background-image: url('../../../src/components/home/images/fondoPizzara.jpg');
+    background-image: url('../../img/fondoPizzara.jpg');
     background-size: cover;
     width: 100%;
     min-height: 100vh;
@@ -63,7 +63,9 @@
 @media(min-width:768px) {
     .login_container {
         font-size: 1.5rem;
-
+        input {
+            font-size: 1.5rem;
+        }
         button {
             font-size: 1.2rem;
         }
