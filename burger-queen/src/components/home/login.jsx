@@ -1,5 +1,7 @@
 import React from "react";
+import FormLogin from "../formLogin";
 import logoFondoPizarra from './images/logoSinFondo.png'
+
 
 
 const Login = () => {
@@ -8,15 +10,7 @@ const Login = () => {
             <header>
                 <img src={logoFondoPizarra} alt="logo" />
             </header>
-            <div className="form_container">
-                <form >
-                    <label>Correo:</label>
-                    <input type='email'></input>
-                    <label>Contraseña:</label>
-                    <input type='password'></input>
-                </form>
-                <button>INICIAR SESIÓN</button>
-            </div>
+            <FormLogin/>
         </div>
     )
 }
