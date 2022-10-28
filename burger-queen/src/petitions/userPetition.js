@@ -7,11 +7,11 @@ const loginUser = (dataLogin) => {
     return axios.post(url+'login', dataLogin)
 };
 
-const infousuarios = ()=>{
-    axios.get(url+'user').then(res=>{
-        console.log('q llego',res);
-    })
-}
-infousuarios();
+// const infousuarios = ()=>{
+//     axios.get(url+'user').then(res=>{
+//         console.log('q llego',res);
+//     })
+// }
+// infousuarios();
 
 export default loginUser;
