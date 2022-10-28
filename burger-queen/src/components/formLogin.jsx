@@ -18,6 +18,7 @@ const FormLogin = () => {
     const validateUser = ()=> {
         loginUser(dataLogin).then( res => {
             console.log('respuesta',res.data)
+           
             if(res.data.user.role === 'admin'){
                 navigate('/admin')
             }

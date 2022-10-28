@@ -5,16 +5,13 @@ import AdminUser from "../components/adminUser";
 
 const Admin= () => {
     return (
-        <div className="AdminUser_container">
+        <div className="admin_Container">
             <header>
             <img src={logoFondoPizarra} alt="logo" />
             <nav>
-
+            <i class="fa-solid fa-bars"></i>
             </nav>
             </header>
-            <p>
-                página en construcción 
-            </p>
             <AdminUser />
         </div>
     )
