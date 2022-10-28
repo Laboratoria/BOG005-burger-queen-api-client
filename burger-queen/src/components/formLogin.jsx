@@ -1,7 +1,10 @@
-import React, { useState } from "react";
+import React, { useState }  from "react";
 import loginUser from "../petitions/userPetition";
+import { useNavigate } from "react-router-dom"
 
 const FormLogin = () => {
+    const navigate = useNavigate();
+
     const [dataLogin, setDataLogin] = useState({ email: '', password: '' })
 
     const handleChange = (e) => {
@@ -10,6 +13,19 @@ const FormLogin = () => {
             [e.target.name]: e.target.value
         });
         return dataLogin
+    }
+
+    const validateUser = ()=> {
+        loginUser(dataLogin).then( res => {
+            console.log('respuesta',res.data)
+            if(res.data.user.role === 'admin'){
+                navigate('/admin')
+            }
+            
+        })
+        .catch(
+            //validar con el estatus 404
+        )
     }
 
 
@@ -37,7 +53,7 @@ const FormLogin = () => {
 
 
             </form>
-                <button onClick={() => loginUser(dataLogin)}>
+                <button onClick={validateUser}>
                     Iniciar Sesión
                 </button>
 
