@@ -25,12 +25,13 @@
 }
 
 .formLogin input {
+  color: white;
   margin: 10px;
   border: solid 1px white;
   background-color: black;
 }
 
-.formLogin button {
+.btnStyle {
   width: 150px;
   height: 30px;
   background-color: #F8B62A;
