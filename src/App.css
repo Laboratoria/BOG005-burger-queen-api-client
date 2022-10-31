@@ -38,3 +38,59 @@
   border-radius: 15px;
   border-style: none;
 }
+
+.order {
+  background: url('./resources/background-hamburger.png');
+  background-size: cover;
+  min-height: 100vh;
+}
+
+.mainlist {
+  display: grid;
+  grid-template-rows: auto auto;
+  align-items: center;
+  justify-content: center;
+}
+
+.headerContainer {
+  display: flex;
+  justify-content: space-around;
+  background-color: #F8B62A;
+  padding: 10px;
+  height: 104px;
+  justify-items: center;
+  align-items: center;
+}
+
+.headerContainer .App-logo {
+  width: 80px;
+  height: auto;
+  background: black;
+  border-radius: 100px;
+}
+
+.headerContainer .btnStyle {
+  background-image: url('./resources/right-from-bracket-solid.svg');
+  background-size: cover;
+  width: 60px;
+  height: 60px;
+}
+
+.optionMenu{
+  padding: 10px;
+  margin: 20px;
+  width: 70vh;
+}
+
+.formOrder {
+  background-color: white;
+  border-radius: 25px;
+  display: inline-grid;
+  gap: 5px;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 10px;
+  margin: 20px;
+  width: 70vh;
+}
