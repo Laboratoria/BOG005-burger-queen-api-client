@@ -13,6 +13,8 @@ const loginUser = async (email, password) => {
         }
     })
     console.log(rest)
+    localStorage.setItem('burguertoken', rest.data.accessToken)
+
     //console.log(rest.data.accessToken)
     return rest.status
 }

@@ -27,6 +27,7 @@ const Login = () => {
     }
 
     const validateUser = async () => {
+        // const mitoken = localStorage.getItem('burguertoken')
         await loginUser(inputEmail, inputPassword)
             .then(res => {
                 if (res === 200) {
