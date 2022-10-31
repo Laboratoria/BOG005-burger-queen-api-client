@@ -7,11 +7,36 @@ const loginUser = (dataLogin) => {
     return axios.post(url+'login', dataLogin)
 };
 
-// const infousuarios = ()=>{
-//     axios.get(url+'user').then(res=>{
-//         console.log('q llego',res);
-//     })
-// }
-// infousuarios();
+const getUser = ()=>{
+     return JSON.parse(sessionStorage.getItem('user'))
+};
 
-export default loginUser;
+const getToken = ()=>{
+    console.log('token', getUser().accessToken)
+    return getUser().accessToken
+}
+
+
+
+const listUser = ()=>{
+   axios({
+        method: 'GET',
+        url: url+'users',
+        headers: {
+            'content-type': 'application/json',
+            authorization: 'Bearer ' + getToken(),
+        }
+    })
+    .then(res=>{
+        console.log('q llego',res.data);
+        return res.data
+    })
+    .catch(
+        {
+            "error": "string"
+          }
+    )
+}
+
+
+export {loginUser, getToken, listUser}
