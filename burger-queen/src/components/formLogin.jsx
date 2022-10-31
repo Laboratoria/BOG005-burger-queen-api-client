@@ -1,6 +1,6 @@
 import React, { useState }  from "react";
-import loginUser from "../petitions/userPetition";
 import { useNavigate } from "react-router-dom"
+import { loginUser } from "../petitions/userPetition";
 
 const FormLogin = () => {
     const navigate = useNavigate();
@@ -18,7 +18,7 @@ const FormLogin = () => {
     const validateUser = ()=> {
         loginUser(dataLogin).then( res => {
             console.log('respuesta',res.data)
-           
+            sessionStorage.setItem('user', JSON.stringify(res.data));
             if(res.data.user.role === 'admin'){
                 navigate('/admin')
             }
