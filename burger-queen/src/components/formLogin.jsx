@@ -38,9 +38,9 @@ const FormLogin = () => {
                         type="email"
                         name="email"
                         placeholder="Usuario"
-                        className="email"
                         onChange={handleChange}
                         required
+                        value = {dataLogin.email}
                     />
 
                     <label htmlFor="password">Contraseña:</label>
@@ -50,6 +50,7 @@ const FormLogin = () => {
                         placeholder="Contraseña"
                         onChange={handleChange}
                         required
+                        value = {dataLogin.password}
                     />
 
 
