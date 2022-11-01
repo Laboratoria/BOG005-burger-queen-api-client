@@ -23,10 +23,11 @@ const Login = () => {
     const handleInputChangePassword = (e) => {
         const text = e.target.value
         setInputPassword(text);
-        console.log(inputPassword)
+        // console.log(inputPassword)
     }
 
     const validateUser = async () => {
+        // const mitoken = localStorage.getItem('burguertoken')
         await loginUser(inputEmail, inputPassword)
             .then(res => {
                 if (res === 200) {
