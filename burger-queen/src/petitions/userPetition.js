@@ -18,8 +18,29 @@ const getToken = ()=>{
 
 
 
-const listUser = ()=>{
-   axios({
+// const listUser = ()=>{
+//    axios({
+//         method: 'GET',
+//         url: url+'users',
+//         headers: {
+//             'content-type': 'application/json',
+//             authorization: 'Bearer ' + getToken(),
+//         }
+//     })
+//     .then(res=>{
+//         console.log('q llego',res.data);
+//         return res.data
+//     })
+//     .catch(
+//         {
+//             "error": "string"
+//           }
+//     )
+// }
+
+
+const listUser = async()=>{
+  return await axios({
         method: 'GET',
         url: url+'users',
         headers: {
@@ -27,15 +48,7 @@ const listUser = ()=>{
             authorization: 'Bearer ' + getToken(),
         }
     })
-    .then(res=>{
-        console.log('q llego',res.data);
-        return res.data
-    })
-    .catch(
-        {
-            "error": "string"
-          }
-    )
+
 }
 
 

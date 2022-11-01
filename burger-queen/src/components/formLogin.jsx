@@ -22,9 +22,9 @@ const FormLogin = () => {
             if(res.data.user.role === 'admin'){
                 navigate('/admin')
             }
-            
         })
         .catch(
+            console.log('error validateUser')
             //validar con el estatus 404
         )
     }

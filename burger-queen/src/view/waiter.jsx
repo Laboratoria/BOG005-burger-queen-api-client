@@ -2,7 +2,7 @@ import React from "react";
 
 const Waiter= () => {
     return (
-        <div className="">
+        <div >
             <h1>vista de mesero en construcción</h1>
         </div>
     )
