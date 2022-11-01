@@ -12,34 +12,38 @@ const Order = () => {
 
     const [productsOptions, setProductsOptions] = useState([])
 
+  useEffect (() => {
+      const mitoken = localStorage.getItem('tokenUser')
     
-    const getProductsOption = async() => {
-        const mitoken = localStorage.getItem('tokenUser')
-        await getProducts(mitoken)
-            .then((res) => {
-                console.log(res.data)
-                setProductsOptions(res.data)
-            })
-            .catch((error) => {console.log(error)})
+      const getProductsOption = async() => {
+        const resp = await getProducts(mitoken)
+        console.log(resp)
+        setProductsOptions(resp)
+        
     }
 
-  useEffect (() => {
     getProductsOption()
-       }, [productsOptions])
+    }, [])
+
 
        console.log(productsOptions)
+
+    //    const selectMenu = () => {
+        
+
+    //    }
 
     return (
         <section className='order'>
                 <Header />
             <section className='mainlist'>
                 <select className='optionMenu'>
-               {/* { productsOptions.map((product) => (
-                <option key={product.id} value={product.id}>
+               { productsOptions.map((product) => (
+                <option key={product.id} value='breakfast'>
                     {product.type}
                 </option>
                )     
-                )} */}
+                )}
                 </select>
                 <form typeof='submit' className='formOrder'>
                     <p>Resumen del pedido</p>
