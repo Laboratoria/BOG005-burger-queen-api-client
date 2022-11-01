@@ -4,39 +4,50 @@ const url = process.env.API_URL || 'http://localhost:8080/'
 
 
 const loginUser = (dataLogin) => {
-    return axios.post(url+'login', dataLogin)
+    return axios.post(url + 'login', dataLogin)
 };
 
-const getUser = ()=>{
-     return JSON.parse(sessionStorage.getItem('user'))
+const getUser = () => {
+    return JSON.parse(sessionStorage.getItem('user'))
 };
 
-const getToken = ()=>{
+const getToken = () => {
     console.log('token', getUser().accessToken)
     return getUser().accessToken
 }
 
 
-
-const listUser = ()=>{
-   axios({
+const listUser = async () => {
+    return await axios({
         method: 'GET',
-        url: url+'users',
+        url: url + 'users',
         headers: {
             'content-type': 'application/json',
             authorization: 'Bearer ' + getToken(),
         }
     })
-    .then(res=>{
-        console.log('q llego',res.data);
-        return res.data
-    })
-    .catch(
+
+}
+
+const createDataUser = async (dataNewUser) => {
+    console.log('LLEGA DATA NEW', dataNewUser);
+    return await axios({
+        method: 'POST',
+        url: url + 'users',
+        headers: {
+            'content-type': 'application/json',
+            "x-access-key": dataNewUser,
+            authorization: 'Bearer ' + getToken(),
+        },
+        data:
         {
-            "error": "string"
-          }
-    )
+            email: dataNewUser.email,
+            password: dataNewUser.password,
+            role: dataNewUser.role,
+        }
+
+    })
 }
 
 
-export {loginUser, getToken, listUser}
+export { loginUser, getToken, listUser, createDataUser }

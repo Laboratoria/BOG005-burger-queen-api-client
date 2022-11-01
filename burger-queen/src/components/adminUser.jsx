@@ -1,33 +1,38 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { listUser } from "../petitions/userPetition.js";
 import { UserItem } from './infoUser.jsx'
-
-// const arrayUser = [
-//     {
-//         accessToken: "tokenprueba",
-//         user: { email: 'prueba1@systers.xyz', role: 'admin', id: 1 }
-//     },
-
-//     {
-//         accessToken: "tokenprueba2",
-//         user: { email: 'prueba2@systers.xyz', role: 'admin2', id: 2 }
-//     }
-// ];
+import { CreateUser } from "./createUser.jsx";
 
 
 
-const getListUser = listUser()
 const AdminUser = () => {
-    const arrayUser = getListUser
-    console.log('get', arrayUser)
+    const [users, setUsers] = useState([])
+
+    const getListUser = () => {
+        listUser().then(res => {
+            setUsers(res.data.map((user) => {
+                return {
+                    email: user.email,
+                    id: user.id,
+                    password: user.password,
+                    role: user.role,
+                }
+            }))
+        })
+    }
+    useEffect(() => { getListUser() }, [])
+
     return (
-        <div className="">
+        <div>
             <h2>Administrar Usuarios</h2>
             <div>
-                {arrayUser.map(data => (<UserItem key={data.user.id} email={data.user.email} role={data.user.role} />))}
+                {/* {getListUser.map(data => (<UserItem key={data.id} email={data.email} role={data.role} />))} */}
+                {/* {getListUser()} */}
+                {users.map(data => (<UserItem key={data.id} email={data.email} role={data.role} />))}
+                <CreateUser />
             </div>
         </div>
     )
 }
 
-export default AdminUser
+export { AdminUser }

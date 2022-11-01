@@ -2,7 +2,7 @@ import React from "react";
 
 const Chef= () => {
     return (
-        <div className="">
+        <div >
             <h1>vista de chef en construcción</h1>
         </div>
     )

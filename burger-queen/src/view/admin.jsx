@@ -1,6 +1,7 @@
 import React from "react";
 import logoFondoPizarra from '../img/logoSinFondo.png'
-import AdminUser from "../components/adminUser";
+import {AdminUser} from '../components/adminUser.jsx'
+
 
 
 const Admin= () => {
@@ -9,7 +10,7 @@ const Admin= () => {
             <header>
             <img src={logoFondoPizarra} alt="logo" />
             <nav>
-            <i class="fa-solid fa-bars"></i>
+            <i className="fa-solid fa-bars"></i>
             </nav>
             </header>
             <AdminUser />
@@ -17,4 +18,4 @@ const Admin= () => {
     )
 }
 
-export default Admin
+export  {Admin}
