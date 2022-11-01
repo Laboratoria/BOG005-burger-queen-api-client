@@ -23,7 +23,7 @@ const Login = () => {
     const handleInputChangePassword = (e) => {
         const text = e.target.value
         setInputPassword(text);
-        console.log(inputPassword)
+        // console.log(inputPassword)
     }
 
     const validateUser = async () => {
