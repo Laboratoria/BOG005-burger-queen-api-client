@@ -35,8 +35,7 @@ const createDataUser = async (dataNewUser) => {
         method: 'POST',
         url: url + 'users',
         headers: {
-            'content-type': 'application/json',
-            "x-access-key": dataNewUser,
+            'Content-type': 'application/json',
             authorization: 'Bearer ' + getToken(),
         },
         data:
