@@ -8,7 +8,9 @@ import Button from '../components/Button'
 export const Products = () => {
 
 const [ListProductsTotal, setListProductsTotal] = useState([])
-const [newProduct, setNewProduct] = useState({dateEntry: "", id: "", image: "", name: "", price: "", type: ""})
+const [newProduct, setNewProduct] = useState({dateEntry: new Date(), image: "", name: "", price: 0, type: ""})
+
+
 
 const mitoken = localStorage.getItem('tokenUser')
 
@@ -23,9 +25,11 @@ const handleChange = (e) => {
     console.log('me estoy ejecutando')
     setNewProduct({
         ...newProduct, 
-        [e.target]: e.target.value
+        [e.target.name]: e.target.value
     })
 }
+
+console.log(new Date())
 
 console.log(ListProductsTotal)
 
@@ -48,40 +52,36 @@ console.log(ListProductsTotal)
         <form typeof='submit' className='formOrder' onChange={handleChange}>
                     <p>Agregar producto</p>
                     <FormInput
-                        type='dateEntryProduct'
-                        required
-                        value={newProduct.dateEntry}>
-                    </FormInput>
-                    <FormInput
-                        type='idNewProduct'
-                        required
-                        placeholder='id'
-                        value={newProduct.id}>
-                    </FormInput>
-                    <FormInput
-                        type='imgNewProduct'
+                        type='url'
+                        name= 'image'
                         required
                         placeholder='cargar imagen'
-                        value={newProduct.image}>
+                        value={newProduct.image}
+                        onChange={handleChange}
+                        >
                     </FormInput>
                     <FormInput
                         type='nameNewProduct'
+                        name= 'name'
                         required
                         placeholder='Nombre del nuevo producto'
-                        value={newProduct.name}>
+                        value={newProduct.name}
+                        onChange={handleChange}
+                        >
                     </FormInput>
                     <FormInput
-                        type='priceNewProduct'
+                        type='string'
+                        name= 'price'
                         required
                         placeholder='Precio del nuevo producto'
-                        value={newProduct.price}>
+                        value={newProduct.price}
+                        onChange={handleChange}
+                        >
                     </FormInput>
-                    <FormInput
-                        type='typeNewProduct'
-                        required
-                        placeholder='Tipo de producto'
-                        value={newProduct.type}>
-                    </FormInput>
+                    <select  name='type' onChange={handleChange}>
+                        <option value='Desayuno'>Desayuno</option>
+                        <option  value='Almuerzo'>Almuerzo</option>
+                    </select>
                     <Button text='Agregar' >
                     </Button>
                     <Button text='Cancelar' >
