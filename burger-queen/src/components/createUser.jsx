@@ -3,7 +3,10 @@ import { createDataUser } from "../petitions/userPetition";
 
 const CreateUser = () => {
 
-    const [dataNewUser, setDataNewUser] = useState({ email: '', password: '', role: '' })
+    const [dataNewUser, setDataNewUser] = useState({ 
+        email: '',
+        password: '',
+        role: '' })
 
     const handleChange = (e) => {
         setDataNewUser({
@@ -13,16 +16,24 @@ const CreateUser = () => {
         return dataNewUser
     }
 
-    const createNewUser = () => {
-        createDataUser(dataNewUser).then(res => {
-            console.log('respuesta positiva');
-            console.log('respuesta create new', res);
+    const createNewUser =() => {
+        console.log("QUE DEVUELVE", createDataUser(dataNewUser))
+         createDataUser(dataNewUser)
+         .then(res => {
+            console.log("traerme algo", res)
+            // setDataNewUser({
+            //     email: '',
+            //     password: '',
+            //     role: '' 
+            // })
         })
         .catch(
-            console.log('respuesta negativa')
+            {
+                "error": "string"
+             }
         )
 
-    }
+     }
 
     return (
         <div>

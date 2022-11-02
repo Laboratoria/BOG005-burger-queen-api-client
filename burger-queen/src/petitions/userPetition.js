@@ -1,5 +1,6 @@
 import axios from 'axios'
 
+
 const url = process.env.API_URL || 'http://localhost:8080/'
 
 
@@ -30,15 +31,16 @@ const listUser = async () => {
 }
 
 const createDataUser = async (dataNewUser) => {
-    console.log('LLEGA DATA NEW', dataNewUser);
+    console.log('LLEGA DATA NEW', dataNewUser); 
     return await axios({
         method: 'POST',
         url: url + 'users',
         headers: {
-            'content-type': 'application/json',
-            "x-access-key": dataNewUser,
+            'Content-Type': 'application/json',
+            // "x-access-key": dataNewUser,
             authorization: 'Bearer ' + getToken(),
         },
+        // body: JSON.stringify(dataNewUser),
         data:
         {
             email: dataNewUser.email,
@@ -46,8 +48,16 @@ const createDataUser = async (dataNewUser) => {
             role: dataNewUser.role,
         }
 
-    })
-}
+     })
+    }
+    // .then((response) => {
+    //     if (!response.ok) {
+    //       throw Error('Error al crear usuario');
+    //     }
+    //     return response.json();
+    //   });
+    
+
 
 
 export { loginUser, getToken, listUser, createDataUser }
