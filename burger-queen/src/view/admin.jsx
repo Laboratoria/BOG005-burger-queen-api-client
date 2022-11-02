@@ -1,6 +1,6 @@
 import React from "react";
 import logoFondoPizarra from '../img/logoSinFondo.png'
-import {AdminUser} from '../components/adminUser.jsx'
+import {AdminUser} from '../components/admin/adminUser/adminUser.jsx'
 
 
 

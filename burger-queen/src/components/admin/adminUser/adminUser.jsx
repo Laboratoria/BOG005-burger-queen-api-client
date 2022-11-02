@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { listUser } from "../petitions/userPetition.js";
+import { listUser } from "../../../petitions/userPetition.js";
 import { UserItem } from './infoUser.jsx'
 import { CreateUser } from "./createUser.jsx";
 
@@ -23,13 +23,13 @@ const AdminUser = () => {
     useEffect(() => { getListUser() }, [])
 
     return (
-        <div>
+        <div >
             <h2>Administrar Usuarios</h2>
-            <div>
-                {/* {getListUser.map(data => (<UserItem key={data.id} email={data.email} role={data.role} />))} */}
-                {/* {getListUser()} */}
+            <div className="tableUser_container">
                 {users.map(data => (<UserItem key={data.id} email={data.email} role={data.role} />))}
-                <CreateUser />
+            </div>
+            <div>
+            <CreateUser />
             </div>
         </div>
     )

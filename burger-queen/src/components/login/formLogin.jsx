@@ -1,6 +1,6 @@
 import React, { useState }  from "react";
 import { useNavigate } from "react-router-dom"
-import { loginUser } from "../petitions/userPetition";
+import { loginUser } from "../../petitions/userPetition.js";
 
 const FormLogin = () => {
     const navigate = useNavigate();

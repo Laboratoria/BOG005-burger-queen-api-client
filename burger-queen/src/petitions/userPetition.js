@@ -37,10 +37,8 @@ const createDataUser = async (dataNewUser) => {
         url: url + 'users',
         headers: {
             'Content-Type': 'application/json',
-            // "x-access-key": dataNewUser,
             authorization: 'Bearer ' + getToken(),
         },
-        // body: JSON.stringify(dataNewUser),
         data:
         {
             email: dataNewUser.email,
@@ -50,13 +48,6 @@ const createDataUser = async (dataNewUser) => {
 
      })
     }
-    // .then((response) => {
-    //     if (!response.ok) {
-    //       throw Error('Error al crear usuario');
-    //     }
-    //     return response.json();
-    //   });
-    
 
 
 

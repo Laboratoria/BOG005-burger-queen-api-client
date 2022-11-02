@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { createDataUser } from "../petitions/userPetition";
+import { createDataUser } from "../../../petitions/userPetition";
 
 const CreateUser = () => {
 
@@ -36,7 +36,7 @@ const CreateUser = () => {
      }
 
     return (
-        <div>
+        <div className="createUser">
             <form >
                 <label htmlFor="email">Correo:</label>
                 <input id="email" // input para el correo
