@@ -48,15 +48,15 @@ body {
   background-size: contain;
   min-height: 100vh;
   width: 100%;
-  border: solid 2px green;
+  /* border: solid 2px green; */
 }
 
 .mainlist {
-  border: solid 1px red;
+  /* border: solid 1px red; */
   display: grid;
   grid-template-rows: auto auto;
   align-items: center;
-  justify-content: center;
+  /* justify-content: center; */
 }
 
 .headerContainer {
@@ -102,11 +102,11 @@ body {
   align-items: center;
   padding: 10px;
   margin: 20px;
-  width: 100%;
+  /* width: 100%; */
 }
 
 .optionMenu {
-  width: 100%;
+  width: 50%;
   margin: 0;
   padding: 10px;
 }
@@ -114,14 +114,62 @@ body {
 .optionsListContainer {
   margin: 0;
   padding: 10px;
-  border: solid 1px rgb(0, 47, 255);
-}
-
-.listProductsContainer {
-  color: white;
+  /* border: solid 1px rgb(0, 47, 255); */
+  /* width: 80%; */
+  text-align: center;
 }
 
 .listProductsContainer img {
-  height: 70px;
+  height: 50px;
   width: auto;
+  padding: 5px;
+}
+
+.listProductsContainer {
+  display: grid;
+  grid-template-columns: 10% 30% 10% 20%;
+  justify-content: space-around;
+  align-items: center;
+  background: white;
+  color: black;
+  border-radius: 25px;
+  margin: 10px;
+}
+
+.listProductsContainer .btnStyle{
+  background: #BCE402;
+}
+
+.productsAll {
+  background: url('./resources/background-hamburger.png');
+  background-size: contain;
+  min-height: 100vh;
+  width: 100%;
+}
+
+.productsContainer {
+  display: grid;
+  grid-template-columns: 10% 20% 10% 20% 10% 10%;
+  justify-content: space-around;
+  align-items: center;
+  background: white;
+  color: black;
+  border-radius: 25px;
+  margin: 10px;
+}
+
+.productsContainer img {
+  height: 50px;
+  width: auto;
+  padding: 5px;
+}
+
+.productsContainer .btnStyle {
+  height: auto;
+  width: auto;
+}
+
+.productsAll h3{
+  color: white;
+  text-align: center;
 }

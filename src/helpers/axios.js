@@ -34,6 +34,20 @@ export const getProducts = async (token) => {
 };
 // console.log(getProducts(mitoken));
 
+// export const getListProducts= async (token) => {
+//     const res = await axios({
+//         method: 'GET',
+//         url: baseUrl + '/products',
+//         headers: {
+//             'content-type': 'application/json',
+//             'Authorization': 'Bearer ' + token,
+//         },
+//     });
+//     // console.log(res.data)
+//     return res.data
+// };
+// console.log(getProducts(mitoken));
+
 // loginUser("grace.hopper@systers.xyz", "123456")
 
 //console.log('probando data', loginUser())
