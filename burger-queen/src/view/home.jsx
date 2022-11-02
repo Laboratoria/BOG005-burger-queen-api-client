@@ -1,5 +1,5 @@
 import React from "react";
-import logoNeon from './images/logoNeon.png'
+import logoNeon from '../img/logoNeon.png'
 // import Login from "./login.jsx";
 import { Link } from "react-router-dom";
 

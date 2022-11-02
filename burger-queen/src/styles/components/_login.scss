@@ -1,11 +1,13 @@
-.login_container{
-    background-image: url('../../../src/components/home/images/fondoPizzara.jpg');
+.login_container {
+    background-image: url('../../img/fondoPizzara.jpg');
     background-size: cover;
     width: 100%;
     min-height: 100vh;
+
     header {
-        img{
+        img {
             width: 20%;
+            max-width: 200px;
         }
     }
 }
@@ -17,22 +19,23 @@
     align-items: center;
     flex-direction: column;
     justify-content: center;
-    color: #ffff;
-    margin-top: 20%;
-    gap: 20px;
+    color: $white;
+    margin-top: 20vh;
 
     form {
         display: flex;
         flex-direction: column;
         margin: 15px;
         width: 70%;
+        max-width: 600px;
+        gap: 2vh;
     }
 
     input {
-        border-color: $pinkButton;
+        border: solid 2px $pinkButton;
         border-radius: 10px;
         background-color: transparent;
-        color: #ffff;
+        color: $white;
         margin: 5px;
         height: 5vh;
     }
@@ -45,6 +48,26 @@
         height: 8vh;
         font-size: 0.7rem;
         border: solid 2px $pinkText;
-        color: white;
+        color: $white;
+
+        &:hover {
+            background-color: $pinkText;
+            border: solid 2px $pinkButton;
+            color: $pinkButton;
+        }
+
+    }
+
+}
+
+@media(min-width:768px) {
+    .login_container {
+        font-size: 1.5rem;
+        input {
+            font-size: 1.5rem;
+        }
+        button {
+            font-size: 1.2rem;
+        }
     }
 }
