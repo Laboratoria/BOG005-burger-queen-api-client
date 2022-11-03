@@ -1,10 +1,15 @@
 import React from "react";
 
-const ItemUser = ()=>{
+const UserItem = (props)=>{
     return (
-        <div>
-             <p>{user.email}</p>
-             <p>{user.routes}</p>
+        <div className="userItem_Container">
+             <p>{props.email}</p>
+             <p>{props.role}</p>
+             <button className="fa-solid fa-pen-to-square"></button>
+             <button className="fa-solid fa-trash"></button>
         </div>
     )
 }
+
+
+export {UserItem}

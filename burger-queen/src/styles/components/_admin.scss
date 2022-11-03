@@ -1,0 +1,22 @@
+.admin_Container {
+    background-image: url('../../img/fondoPizzara.jpg');
+    background-size: cover;
+    width: 100%;
+    min-height: 100vh;
+    color: $white;
+
+    header {
+        display: flex;
+        img {
+            width: 20%;
+            max-width: 200px;
+        }
+    }
+
+}
+
+.userItem_Container {
+    display: flex;
+    border: solid 2px white;
+    gap: 15px;
+}

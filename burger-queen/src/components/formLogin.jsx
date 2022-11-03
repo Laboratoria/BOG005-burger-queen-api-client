@@ -1,6 +1,6 @@
 import React, { useState }  from "react";
-import loginUser from "../petitions/userPetition";
 import { useNavigate } from "react-router-dom"
+import { loginUser } from "../petitions/userPetition";
 
 const FormLogin = () => {
     const navigate = useNavigate();
@@ -18,12 +18,16 @@ const FormLogin = () => {
     const validateUser = ()=> {
         loginUser(dataLogin).then( res => {
             console.log('respuesta',res.data)
+            sessionStorage.setItem('user', JSON.stringify(res.data));
             if(res.data.user.role === 'admin'){
                 navigate('/admin')
             }
-            
         })
         .catch(
+            // console.log('error validateUser')
+            {
+                "error": "string"
+             }
             //validar con el estatus 404
         )
     }
@@ -37,9 +41,9 @@ const FormLogin = () => {
                         type="email"
                         name="email"
                         placeholder="Usuario"
-                        className="email"
                         onChange={handleChange}
                         required
+                        value = {dataLogin.email}
                     />
 
                     <label htmlFor="password">Contraseña:</label>
@@ -49,6 +53,7 @@ const FormLogin = () => {
                         placeholder="Contraseña"
                         onChange={handleChange}
                         required
+                        value = {dataLogin.password}
                     />
 
 
