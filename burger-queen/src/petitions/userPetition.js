@@ -17,6 +17,9 @@ const getToken = () => {
     return getUser().accessToken
 }
 
+const getId = () => {
+    return getUser().user.id;
+}
 
 const listUser = async () => {
     return await axios({
@@ -29,7 +32,7 @@ const listUser = async () => {
     })
 
 }
-
+  //---Funcion de peticion para Crear Usuario---//
 const createDataUser = async (dataNewUser) => {
     console.log('LLEGA DATA NEW', dataNewUser); 
     return await axios({
@@ -48,7 +51,32 @@ const createDataUser = async (dataNewUser) => {
 
      })
     }
+<<<<<<< HEAD
+=======
+
+      //---Funcion de peticion para Editar Usuario---//
+    
+>>>>>>> f4b0ee74919326734f3f58c35cfcc1b650a269e8
+
+      //---Funcion de peticion para eliminar Usuario---//
+  const userDelete = async (id, user)=>{
+
+    return await axios({
+        method: "DELETE", 
+        url:url+'users/'+ id, 
+        headers: {
+            'Content-Type': 'application/json',
+                authorization: 'Bearer ' + getToken(),
+        },
+        data: {         
+            email: user.email ,
+            password: user.password,
+            role:user.role,
+        },         
+    })     
+}
 
 
 
-export { loginUser, getToken, listUser, createDataUser }
+
+export { loginUser, getToken, listUser, createDataUser, userDelete }
