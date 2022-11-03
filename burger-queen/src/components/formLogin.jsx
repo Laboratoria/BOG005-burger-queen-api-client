@@ -24,7 +24,10 @@ const FormLogin = () => {
             }
         })
         .catch(
-            console.log('error validateUser')
+            // console.log('error validateUser')
+            {
+                "error": "string"
+             }
             //validar con el estatus 404
         )
     }

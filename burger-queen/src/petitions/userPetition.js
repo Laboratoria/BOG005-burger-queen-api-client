@@ -1,5 +1,6 @@
 import axios from 'axios'
 
+
 const url = process.env.API_URL || 'http://localhost:8080/'
 
 
@@ -16,6 +17,9 @@ const getToken = () => {
     return getUser().accessToken
 }
 
+const getId = () => {
+    return getUser().user.id;
+}
 
 const listUser = async () => {
     return await axios({
@@ -28,17 +32,18 @@ const listUser = async () => {
     })
 
 }
-
+  //---Funcion de peticion para Crear Usuario---//
 const createDataUser = async (dataNewUser) => {
-    console.log('LLEGA DATA NEW', dataNewUser);
+    console.log('LLEGA DATA NEW', dataNewUser); 
     return await axios({
         method: 'POST',
         url: url + 'users',
         headers: {
-            'content-type': 'application/json',
-            "x-access-key": dataNewUser,
+            'Content-Type': 'application/json',
+            // "x-access-key": dataNewUser,
             authorization: 'Bearer ' + getToken(),
         },
+        // body: JSON.stringify(dataNewUser),
         data:
         {
             email: dataNewUser.email,
@@ -46,8 +51,31 @@ const createDataUser = async (dataNewUser) => {
             role: dataNewUser.role,
         }
 
-    })
+     })
+    }
+
+      //---Funcion de peticion para Editar Usuario---//
+    
+
+      //---Funcion de peticion para eliminar Usuario---//
+  const userDelete = async (id, user)=>{
+
+    return await axios({
+        method: "DELETE", 
+        url:url+'users/'+ id, 
+        headers: {
+            'Content-Type': 'application/json',
+                authorization: 'Bearer ' + getToken(),
+        },
+        data: {         
+            email: user.email ,
+            password: user.password,
+            role:user.role,
+        },         
+    })     
 }
 
 
-export { loginUser, getToken, listUser, createDataUser }
+
+
+export { loginUser, getToken, listUser, createDataUser, userDelete }
