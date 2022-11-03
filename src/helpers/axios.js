@@ -34,6 +34,29 @@ export const getProducts = async (token) => {
 };
 // console.log(getProducts(mitoken));
 
+export const createProductPost = async (token, objectProduct) => {
+    console.log(objectProduct)
+    const res = await axios({
+        method: 'POST',
+        url: baseUrl + '/products',
+        headers: {
+            'Content-Type': 'application/json',
+            'Authorization': 'Bearer ' + token,
+        },
+        data: objectProduct
+    });
+    // console.log(res.data)
+    return res
+};
+
+
+
+
+
+
+
+
+
 // export const getListProducts= async (token) => {
 //     const res = await axios({
 //         method: 'GET',
