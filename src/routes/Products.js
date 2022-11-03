@@ -1,12 +1,15 @@
 import React, { useEffect, useState } from 'react'
 import Header from '../components/Header'
-import { getProducts } from '../helpers/axios'
+import { getProducts, createProductPost } from '../helpers/axios'
 import { CardListProducts } from '../components/CardListProducts'
 import FormInput from '../components/FormInput'
 import Button from '../components/Button'
+import { useForm } from 'react-hook-form'
+
 
 export const Products = () => {
 
+const { handleSubmit } = useForm()
 const [ListProductsTotal, setListProductsTotal] = useState([])
 const [newProduct, setNewProduct] = useState({dateEntry: new Date(), image: "", name: "", price: 0, type: ""})
 
@@ -29,9 +32,22 @@ const handleChange = (e) => {
     })
 }
 
+const createProduct =  async () => {
+    console.log('enviando formulario')
+    const res = await createProductPost(mitoken, newProduct);
+    console.log(res)
+    if(res.status === 201){
+        alert('Producto creado')
+    } else {
+        alert('No se creo el producto exitosamente')
+    }
+} 
+
+
+
 console.log(new Date())
 
-console.log(ListProductsTotal)
+//console.log(ListProductsTotal)
 
   return (
     <section className='productsAll'>
@@ -49,7 +65,7 @@ console.log(ListProductsTotal)
             </div>
         ))}
         </div>
-        <form typeof='submit' className='formOrder' onChange={handleChange}>
+        <form typeof='submit' className='formOrder' onSubmit={handleSubmit(createProduct)} >
                     <p>Agregar producto</p>
                     <FormInput
                         type='url'
@@ -79,6 +95,7 @@ console.log(ListProductsTotal)
                         >
                     </FormInput>
                     <select  name='type' onChange={handleChange}>
+                        <option value='seleccion tipo' >Selecciona tipo</option>
                         <option value='Desayuno'>Desayuno</option>
                         <option  value='Almuerzo'>Almuerzo</option>
                     </select>
