@@ -29,7 +29,10 @@ const AdminUser = () => {
                 {/* {getListUser.map(data => (<UserItem key={data.id} email={data.email} role={data.role} />))} */}
                 {/* {getListUser()} */}
                 {users.map(data => (<UserItem key={data.id} email={data.email} role={data.role} />))}
-                <CreateUser />
+                {/* <CreateUser /> */}
+            </div>
+            <div>
+                <button >Crear Usuario</button>
             </div>
         </div>
     )
