@@ -1,7 +1,11 @@
 import React, { useState } from "react";
 import { createDataUser } from "../../../petitions/userPetition";
+import { BurgerContext } from "../../../context/indexContext";
 
 const CreateUser = () => {
+    const { openModal,
+        setOpenModal,
+      } = React.useContext(BurgerContext);
 
     const [dataNewUser, setDataNewUser] = useState({
         email: '',
@@ -18,7 +22,7 @@ const CreateUser = () => {
     }
 
     const onCancel = ()=>{
-        
+        setOpenModal(false);
     }
 
     const onSubmit = (event) => {
@@ -38,6 +42,7 @@ const CreateUser = () => {
                     "error": "string"
                 }
             )
+            setOpenModal(false);
 
     }
 
