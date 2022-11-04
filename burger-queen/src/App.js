@@ -3,6 +3,7 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import Home from './view/home.jsx'
 import Login from './view/login.jsx';
 import {Admin} from './view/admin.jsx'; 
+
 // import { Waiter } from './view/waiter.jsx';
 // import { Chef } from './view/chef.jsx';
 

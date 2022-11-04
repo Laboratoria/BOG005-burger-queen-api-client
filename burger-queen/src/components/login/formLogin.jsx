@@ -1,11 +1,12 @@
 import React, { useState }  from "react";
 import { useNavigate } from "react-router-dom"
-import { loginUser } from "../petitions/userPetition";
+import { loginUser } from "../../petitions/userPetition.js";
 
 const FormLogin = () => {
     const navigate = useNavigate();
 
     const [dataLogin, setDataLogin] = useState({ email: '', password: '' })
+    // const [editState, setEditState] = useState(false)
 
     const handleChange = (e) => {
         setDataLogin({
@@ -16,21 +17,21 @@ const FormLogin = () => {
     }
 
     const validateUser = ()=> {
-        loginUser(dataLogin).then( res => {
-            console.log('respuesta',res.data)
-            sessionStorage.setItem('user', JSON.stringify(res.data));
-            if(res.data.user.role === 'admin'){
-                navigate('/admin')
-            }
-        })
-        .catch(
-            // console.log('error validateUser')
-            {
-                "error": "string"
-             }
-            //validar con el estatus 404
-        )
-    }
+            loginUser(dataLogin).then( res => {
+                console.log('respuesta',res.data)
+                sessionStorage.setItem('user', JSON.stringify(res.data));
+                if(res.data.user.role === 'admin'){
+                    navigate('/admin')
+                }
+            })
+            .catch(
+                // console.log('error validateUser')
+                {
+                    "error": "string"
+                 }
+                //validar con el estatus 404
+            )
+        }
 
 
     return (

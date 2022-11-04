@@ -1,7 +1,7 @@
 
 import React from "react";
 import logoFondoPizarra from '../img/logoSinFondo.png'
-import FormLogin from "../components/formLogin.jsx";
+import FormLogin from "../components/login/formLogin.jsx";
 
 
 const Login = () => {
