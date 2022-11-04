@@ -51,15 +51,27 @@ const createDataUser = async (dataNewUser) => {
 
      })
     }
-<<<<<<< HEAD
-=======
 
       //---Funcion de peticion para Editar Usuario---//
-    
->>>>>>> f4b0ee74919326734f3f58c35cfcc1b650a269e8
+    //   const editUser = async (id, user)=>{
+
+    //     return await axios({
+    //         method: "PATCH", 
+    //         url:url+'users/'+ id, 
+    //         headers: {
+    //             'Content-Type': 'application/json',
+    //                 authorization: 'Bearer ' + getToken(),
+    //         },
+    //         data: {         
+    //             email: user.email ,
+    //             password: user.password,
+    //             role:user.role,
+    //         },         
+    //     })     
+    // }
 
       //---Funcion de peticion para eliminar Usuario---//
-  const userDelete = async (id, user)=>{
+  const deleteUser = async (id, user)=>{
 
     return await axios({
         method: "DELETE", 
@@ -79,4 +91,5 @@ const createDataUser = async (dataNewUser) => {
 
 
 
-export { loginUser, getToken, listUser, createDataUser, userDelete }
+export { loginUser, getToken, listUser, createDataUser, deleteUser }
+// , editUser

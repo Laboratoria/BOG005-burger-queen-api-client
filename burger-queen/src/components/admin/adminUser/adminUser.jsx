@@ -1,12 +1,16 @@
 import React, { useState, useEffect } from "react";
 import { listUser } from "../../../petitions/userPetition.js";
+import { Modal } from "../../modal/modal.jsx";
 import { UserItem } from './infoUser.jsx'
 import { CreateUser } from "./createUser.jsx";
+// import { EditUserComponent } from "./editUser.jsx";
+
 
 
 
 const AdminUser = () => {
     const [users, setUsers] = useState([])
+    const [openModal, setOpenModal] = useState(false)
 
     const getListUser = () => {
         listUser().then(res => {
@@ -22,14 +26,29 @@ const AdminUser = () => {
     }
     useEffect(() => { getListUser() }, [])
 
+    const onClickBtn = () => {
+        console.log('boton agregar usuarios');
+        setOpenModal(true)
+       
+    }
+
+
+
     return (
         <div >
             <h2>Administrar Usuarios</h2>
             <div className="tableUser_container">
-                {users.map(data => (<UserItem key={data.id} email={data.email} role={data.role} />))}
+                {users.map(data => (<UserItem key={data.id} id={data.id} email={data.email} role={data.role} />))}
             </div>
             <div>
-            <CreateUser />
+                {!!openModal && (
+                    <Modal>
+                        <CreateUser/>
+                    </Modal>
+                )}
+
+                <button onClick={onClickBtn} setOpenModal={setOpenModal}>Agregar Usuario</button>
+
             </div>
         </div>
     )

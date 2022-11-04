@@ -1,13 +1,12 @@
 import React, { useState } from "react";
-import { createDataUser } from "../../../petitions/userPetition";
+// import { editUser } from "../../../petitions/userPetition";s
 
-const CreateUser = () => {
+const EditUserComponent = () => {
 
-    const [dataNewUser, setDataNewUser] = useState({
+    const [dataNewUser, setDataNewUser] = useState({ 
         email: '',
         password: '',
-        role: ''
-    })
+        role: '' })
 
     const handleChange = (e) => {
         setDataNewUser({
@@ -17,33 +16,28 @@ const CreateUser = () => {
         return dataNewUser
     }
 
-    const onCancel = ()=>{
-        
-    }
+    const createNewUser =() => {
+        // console.log("QUE DEVUELVE", createDataUser(dataNewUser))
+        //  createDataUser(dataNewUser)
+        //  .then(res => {
+        //     console.log("traerme algo", res)
+        //     // setDataNewUser({
+        //     //     email: '',
+        //     //     password: '',
+        //     //     role: '' 
+        //     // })
+        // })
+        // .catch(
+        //     {
+        //         "error": "string"
+        //      }
+        // )
 
-    const onSubmit = (event) => {
-        event.preventDefault()
-        console.log("QUE DEVUELVE", createDataUser(dataNewUser))
-        createDataUser(dataNewUser)
-            .then(res => {
-                console.log("traerme algo", res)
-                // setDataNewUser({
-                //     email: '',
-                //     password: '',
-                //     role: '' 
-                // })
-            })
-            .catch(
-                {
-                    "error": "string"
-                }
-            )
-
-    }
+     }
 
     return (
         <div className="createUser">
-            <form onSubmit={onSubmit}>
+            <form >
                 <label htmlFor="email">Correo:</label>
                 <input id="email" // input para el correo
                     type="email"
@@ -73,25 +67,11 @@ const CreateUser = () => {
                     required
                     value={dataNewUser.rol}
                 />
-                <button
-                    type="button"
-                    className="TodoForm-button TodoForm-button--cancel"
-                    onClick={onCancel}
-                >
-                    Cancelar
-                </button>
-                <button
-                    type="submit"
-                    className="TodoForm-button TodoForm-button--add"
-                >
-                    Añadir Usuario
-                </button>
 
-
-                {/* <button onClick={createNewUser}>Crear Usuario</button> */}
             </form>
+            <button onClick={createNewUser}>Editar Usuario</button>
         </div>
     )
 }
 
-export { CreateUser }
+export { EditUserComponent }
