@@ -40,10 +40,8 @@ const createDataUser = async (dataNewUser) => {
         url: url + 'users',
         headers: {
             'Content-Type': 'application/json',
-            // "x-access-key": dataNewUser,
             authorization: 'Bearer ' + getToken(),
         },
-        // body: JSON.stringify(dataNewUser),
         data:
         {
             email: dataNewUser.email,
@@ -55,10 +53,25 @@ const createDataUser = async (dataNewUser) => {
     }
 
       //---Funcion de peticion para Editar Usuario---//
-    
+    //   const editUser = async (id, user)=>{
+
+    //     return await axios({
+    //         method: "PATCH", 
+    //         url:url+'users/'+ id, 
+    //         headers: {
+    //             'Content-Type': 'application/json',
+    //                 authorization: 'Bearer ' + getToken(),
+    //         },
+    //         data: {         
+    //             email: user.email ,
+    //             password: user.password,
+    //             role:user.role,
+    //         },         
+    //     })     
+    // }
 
       //---Funcion de peticion para eliminar Usuario---//
-  const userDelete = async (id, user)=>{
+  const deleteUser = async (id, user)=>{
 
     return await axios({
         method: "DELETE", 
@@ -78,4 +91,5 @@ const createDataUser = async (dataNewUser) => {
 
 
 
-export { loginUser, getToken, listUser, createDataUser, userDelete }
+export { loginUser, getToken, listUser, createDataUser, deleteUser }
+// , editUser

@@ -1,7 +1,7 @@
 import React, { useState } from "react";
-import { createDataUser } from "../petitions/userPetition";
+// import { editUser } from "../../../petitions/userPetition";s
 
-const CreateUser = () => {
+const EditUserComponent = () => {
 
     const [dataNewUser, setDataNewUser] = useState({ 
         email: '',
@@ -17,26 +17,26 @@ const CreateUser = () => {
     }
 
     const createNewUser =() => {
-        console.log("QUE DEVUELVE", createDataUser(dataNewUser))
-         createDataUser(dataNewUser)
-         .then(res => {
-            console.log("traerme algo", res)
-            // setDataNewUser({
-            //     email: '',
-            //     password: '',
-            //     role: '' 
-            // })
-        })
-        .catch(
-            {
-                "error": "string"
-             }
-        )
+        // console.log("QUE DEVUELVE", createDataUser(dataNewUser))
+        //  createDataUser(dataNewUser)
+        //  .then(res => {
+        //     console.log("traerme algo", res)
+        //     // setDataNewUser({
+        //     //     email: '',
+        //     //     password: '',
+        //     //     role: '' 
+        //     // })
+        // })
+        // .catch(
+        //     {
+        //         "error": "string"
+        //      }
+        // )
 
      }
 
     return (
-        <div>
+        <div className="createUser">
             <form >
                 <label htmlFor="email">Correo:</label>
                 <input id="email" // input para el correo
@@ -69,9 +69,9 @@ const CreateUser = () => {
                 />
 
             </form>
-            <button onClick={createNewUser}>Crear Usuario</button>
+            <button onClick={createNewUser}>Editar Usuario</button>
         </div>
     )
 }
 
-export { CreateUser }
+export { EditUserComponent }
