@@ -11,6 +11,7 @@ export const Products = () => {
 
 const { handleSubmit } = useForm()
 const [ListProductsTotal, setListProductsTotal] = useState([])
+//const [updateListProducts, setUpdateListProducts] = useState(false)
 const [newProduct, setNewProduct] = useState({dateEntry: new Date(), image: "", name: "", price: 0, type: ""})
 
 
@@ -43,8 +44,6 @@ const createProduct =  async () => {
     }
 } 
 
-
-
 console.log(new Date())
 
 //console.log(ListProductsTotal)
@@ -57,6 +56,7 @@ console.log(new Date())
         {ListProductsTotal.map((product, id) => (
             <div key={id}>
             <CardListProducts
+                id={product.id}
                 image={product.image}
                 name={product.name}
                 price={product.price} 

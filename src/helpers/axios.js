@@ -29,7 +29,8 @@ export const getProducts = async (token) => {
             'Authorization': 'Bearer ' + token,
         },
     });
-    // console.log(res.data)
+    console.log(res.data)
+    //console.log(res)
     return res.data
 };
 // console.log(getProducts(mitoken));
@@ -39,6 +40,20 @@ export const createProductPost = async (token, objectProduct) => {
     const res = await axios({
         method: 'POST',
         url: baseUrl + '/products',
+        headers: {
+            'Content-Type': 'application/json',
+            'Authorization': 'Bearer ' + token,
+        },
+        data: objectProduct
+    });
+    // console.log(res.data)
+    return res
+};
+
+export const deleteProduct = async (token, objectProduct, idProduct) => {
+    const res = await axios({
+        method: 'DELETE',
+        url: baseUrl + '/products/' + idProduct,
         headers: {
             'Content-Type': 'application/json',
             'Authorization': 'Bearer ' + token,
