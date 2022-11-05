@@ -12,6 +12,5 @@ function Modal({ children }) {
         document.getElementById('modal')
   )
   }
-
-
+  
 export { Modal }
