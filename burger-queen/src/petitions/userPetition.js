@@ -52,23 +52,23 @@ const createDataUser = async (dataNewUser) => {
      })
     }
 
-      //---Funcion de peticion para Editar Usuario---//
-    //   const editUser = async (id, user)=>{
+    //   ---Funcion de peticion para Editar Usuario---//
+      const editUser = async (id, user)=>{
 
-    //     return await axios({
-    //         method: "PATCH", 
-    //         url:url+'users/'+ id, 
-    //         headers: {
-    //             'Content-Type': 'application/json',
-    //                 authorization: 'Bearer ' + getToken(),
-    //         },
-    //         data: {         
-    //             email: user.email ,
-    //             password: user.password,
-    //             role:user.role,
-    //         },         
-    //     })     
-    // }
+        return await axios({
+            method: "PATCH", 
+            url:url+'users/'+ id, 
+            headers: {
+                'Content-Type': 'application/json',
+                    authorization: 'Bearer ' + getToken(),
+            },
+            data: {         
+                email: user.email ,
+                password: user.password,
+                role:user.role,
+            },         
+        })     
+    }
 
       //---Funcion de peticion para eliminar Usuario---//
   const deleteUser = async (id, user)=>{
@@ -91,5 +91,4 @@ const createDataUser = async (dataNewUser) => {
 
 
 
-export { loginUser, getToken, listUser, createDataUser, deleteUser }
-// , editUser
+export { loginUser, getToken, listUser, createDataUser, deleteUser, editUser }
