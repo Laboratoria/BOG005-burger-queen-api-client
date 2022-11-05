@@ -12,9 +12,11 @@ import { BurgerContext } from "../../../context/indexContext.jsx";
 const AdminUser = () => {
     const { openModal,
         setOpenModal,
+        users,
+        setUsers,
       } = React.useContext(BurgerContext);
 
-    const [users, setUsers] = useState([])
+    // const [users, setUsers] = useState([])
     // const [openModal, setOpenModal] = useState(false)
 
     const getListUser = () => {
@@ -29,12 +31,12 @@ const AdminUser = () => {
             }))
         })
     }
-    useEffect(() => { getListUser() }, [])
+
+    useEffect(() => { getListUser() } , [])
 
     const onClickBtn = () => {
         console.log('boton agregar usuarios');
         setOpenModal(true)
-       
     }
 
 

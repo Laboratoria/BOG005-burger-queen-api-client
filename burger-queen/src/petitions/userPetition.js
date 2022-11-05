@@ -17,9 +17,9 @@ const getToken = () => {
     return getUser().accessToken
 }
 
-const getId = () => {
-    return getUser().user.id;
-}
+// const getId = () => {
+//     return getUser().user.id;
+// }
 
 const listUser = async () => {
     return await axios({

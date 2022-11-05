@@ -5,6 +5,8 @@ import { BurgerContext } from "../../../context/indexContext";
 
 const UserItem = (props) => {
     const {
+        users,
+        setUsers,
         // openModal,
         setOpenModal,
         // editUserState,
@@ -15,9 +17,14 @@ const UserItem = (props) => {
 
     const deleteUserBtn = () => {
         deleteUser(props.id, props)
+        console.log(users);
+        // filtra el estado para volverlo a renderizar
+        const arrayFilterUser = users.filter(user => user.id !== props.id )
+       setUsers(arrayFilterUser)
     }
 
     const saveUserEdit = (e) => {
+        console.log('estado1',users);
         setEditUserState(true)
         setOpenModal(true)
         setDataNewUser({
@@ -28,6 +35,7 @@ const UserItem = (props) => {
         });
         editUser(props.id, props)
             .then((response) => {
+                console.log('estado2',users);
                 return response
             })
             .catch((error) => {

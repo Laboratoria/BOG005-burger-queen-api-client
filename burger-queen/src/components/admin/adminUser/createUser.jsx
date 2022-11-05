@@ -1,12 +1,13 @@
-import React, { useState } from "react";
+import React from "react";
 import { createDataUser } from "../../../petitions/userPetition";
 import { BurgerContext } from "../../../context/indexContext";
 
 const CreateUser = () => {
-    const { openModal,
+    const {
+        users,
+        setUsers,
         setOpenModal,
         editUserState,
-        setEditUserState,
         dataNewUser,
         setDataNewUser,
     } = React.useContext(BurgerContext);
@@ -26,10 +27,7 @@ const CreateUser = () => {
 
     const onSubmit = (event) => {
         event.preventDefault()
-        console.log("QUE DEVUELVE", createDataUser(dataNewUser))
-        if (!!editUserState) {
-            setOpenModal(false);
-        } else {
+        if (editUserState === false) {
             createDataUser(dataNewUser)
                 // .then(res => {
                 //     console.log("traerme algo", res)
@@ -41,6 +39,9 @@ const CreateUser = () => {
                 // )
             setOpenModal(false);
             event.target.reset();
+        } else {
+            setOpenModal(false);
+
         }
 
 
