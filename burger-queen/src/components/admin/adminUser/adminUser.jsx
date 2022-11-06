@@ -4,13 +4,18 @@ import { Modal } from "../../modal/modal.jsx";
 import { UserItem } from './infoUser.jsx'
 import { CreateUser } from "./createUser.jsx";
 // import { EditUserComponent } from "./editUser.jsx";
+import { BurgerContext } from "../../../context/indexContext.jsx";
 
 
 
 
 const AdminUser = () => {
+    const { openModal,
+        setOpenModal,
+      } = React.useContext(BurgerContext);
+
     const [users, setUsers] = useState([])
-    const [openModal, setOpenModal] = useState(false)
+    // const [openModal, setOpenModal] = useState(false)
 
     const getListUser = () => {
         listUser().then(res => {

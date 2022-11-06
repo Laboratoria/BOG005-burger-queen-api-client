@@ -1,13 +1,16 @@
 import React, { useState } from "react";
 import { createDataUser } from "../../../petitions/userPetition";
+import { BurgerContext } from "../../../context/indexContext";
 
 const CreateUser = () => {
+    const { openModal,
+        setOpenModal,
+        editUserState,
+        setEditUserState,
+        dataNewUser,
+        setDataNewUser,
+    } = React.useContext(BurgerContext);
 
-    const [dataNewUser, setDataNewUser] = useState({
-        email: '',
-        password: '',
-        role: ''
-    })
 
     const handleChange = (e) => {
         setDataNewUser({
@@ -17,33 +20,35 @@ const CreateUser = () => {
         return dataNewUser
     }
 
-    const onCancel = ()=>{
-        
+    const onCancel = () => {
+        setOpenModal(false);
     }
 
     const onSubmit = (event) => {
         event.preventDefault()
         console.log("QUE DEVUELVE", createDataUser(dataNewUser))
-        createDataUser(dataNewUser)
-            .then(res => {
-                console.log("traerme algo", res)
-                // setDataNewUser({
-                //     email: '',
-                //     password: '',
-                //     role: '' 
+        if (!!editUserState) {
+            setOpenModal(false);
+        } else {
+            createDataUser(dataNewUser)
+                // .then(res => {
+                //     console.log("traerme algo", res)
                 // })
-            })
-            .catch(
-                {
-                    "error": "string"
-                }
-            )
+                // .catch(
+                //     {
+                //         "error": "string"
+                //     }
+                // )
+            setOpenModal(false);
+            event.target.reset();
+        }
+
 
     }
 
     return (
         <div className="createUser">
-            <form onSubmit={onSubmit}>
+            <form onSubmit={onSubmit} className='createUserForm'>
                 <label htmlFor="email">Correo:</label>
                 <input id="email" // input para el correo
                     type="email"
@@ -71,8 +76,9 @@ const CreateUser = () => {
                     placeholder="Rol"
                     onChange={handleChange}
                     required
-                    value={dataNewUser.rol}
+                    value={dataNewUser.role}
                 />
+                <div>
                 <button
                     type="button"
                     className="TodoForm-button TodoForm-button--cancel"
@@ -84,8 +90,9 @@ const CreateUser = () => {
                     type="submit"
                     className="TodoForm-button TodoForm-button--add"
                 >
-                    Añadir Usuario
+                    Guardar
                 </button>
+                </div>
 
 
                 {/* <button onClick={createNewUser}>Crear Usuario</button> */}
