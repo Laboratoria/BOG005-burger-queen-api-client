@@ -1,19 +1,9 @@
-.admin_Container {
-    background-image: url('../../img/fondoPizzara.jpg');
-    background-size: cover;
-    width: 100%;
-    min-height: 100vh;
-    color: $white;
+.createUserForm {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
 
-    header {
-        display: flex;
-        img {
-            width: 20%;
-            max-width: 200px;
-        }
-    }
-
-    button{
+    button {
         background-color: $pinkButton;
         border-radius: 50px;
         width: 40%;
@@ -23,12 +13,13 @@
         border: solid 2px $pinkText;
         color: $white;
         margin: 5px;
-    
+
         &:hover {
             background-color: $pinkText;
             border: solid 2px $pinkButton;
             color: $pinkButton;
-        }}
+        }
 
+    }
+        
 }
-

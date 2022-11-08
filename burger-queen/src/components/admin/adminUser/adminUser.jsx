@@ -14,6 +14,7 @@ const AdminUser = () => {
         setOpenModal,
         users,
         setUsers,
+        setDataNewUser,
       } = React.useContext(BurgerContext);
 
     // const [users, setUsers] = useState([])
@@ -35,28 +36,34 @@ const AdminUser = () => {
     useEffect(() => { getListUser() } , [])
 
     const onClickBtn = () => {
-        console.log('boton agregar usuarios');
+        setDataNewUser([])
         setOpenModal(true)
+
     }
 
 
 
     return (
-        <div >
+        <div className="adminUser_container">
             <h2>Administrar Usuarios</h2>
+            {/* <div className="nameTableUser_container">
+                <h4>Usuario</h4>
+                <h4>Rol</h4>
+                <h4>Acciones</h4>
+            </div> */}
             <div className="tableUser_container">
                 {users.map(data => (<UserItem key={data.id} id={data.id} email={data.email} role={data.role} />))}
             </div>
-            <div>
+            {/* <div>k */}
                 {!!openModal && (
                     <Modal>
                         <CreateUser/>
                     </Modal>
                 )}
 
-                <button onClick={onClickBtn} setOpenModal={setOpenModal}>Agregar Usuario</button>
+                <button onClick={onClickBtn} setOpenModal={setOpenModal} className='btnAddUser'>Agregar Usuario</button>
 
-            </div>
+            {/* </div> */}
         </div>
     )
 }

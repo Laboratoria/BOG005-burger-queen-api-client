@@ -14,60 +14,11 @@
 
 
 
-.form_container {
-    display: flex;
-    align-items: center;
-    flex-direction: column;
-    justify-content: center;
-    color: $white;
-    margin-top: 20vh;
-
-    form {
-        display: flex;
-        flex-direction: column;
-        margin: 15px;
-        width: 70%;
-        max-width: 600px;
-        gap: 2vh;
-    }
-
-    input {
-        border: solid 2px $pinkButton;
-        border-radius: 10px;
-        background-color: transparent;
-        color: $white;
-        margin: 5px;
-        height: 5vh;
-    }
-
-    button {
-        background-color: $pinkButton;
-        border-radius: 50px;
-        width: 40%;
-        max-width: 250px;
-        height: 8vh;
-        font-size: 0.7rem;
-        border: solid 2px $pinkText;
-        color: $white;
-
-        &:hover {
-            background-color: $pinkText;
-            border: solid 2px $pinkButton;
-            color: $pinkButton;
-        }
-
-    }
-
-}
-
 @media(min-width:768px) {
     .login_container {
         font-size: 1.5rem;
         input {
             font-size: 1.5rem;
-        }
-        button {
-            font-size: 1.2rem;
         }
     }
 }

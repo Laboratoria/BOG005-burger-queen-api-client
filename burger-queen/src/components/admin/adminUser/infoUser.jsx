@@ -1,5 +1,5 @@
 import React from "react";
-import { deleteUser, editUser } from "../../../petitions/userPetition";
+import { deleteUser, editUser, listUser } from "../../../petitions/userPetition";
 import { BurgerContext } from "../../../context/indexContext";
 
 
@@ -29,18 +29,11 @@ const UserItem = (props) => {
         setOpenModal(true)
         setDataNewUser({
             ...dataNewUser,
-            // [e.target.name]: props.value
             email: props.email,
+            password: props.password,
             role: props.role,
+            id: props.id
         });
-        editUser(props.id, props)
-            .then((response) => {
-                console.log('estado2',users);
-                return response
-            })
-            .catch((error) => {
-                return error
-            })
         e.target.reset();
         return dataNewUser
     }
@@ -49,10 +42,12 @@ const UserItem = (props) => {
 
     return (
         <div className="userItem_Container">
-            <p>{props.email}</p>
-            <p>{props.role}</p>
+            <p className="email">{props.email}</p>
+            <p className="role">{props.role}</p>
+            <div className="buttonUsers">
             <button className="fa-solid fa-pen-to-square" onClick={saveUserEdit} ></button>
             <button className="fa-solid fa-trash btnDelete" onClick={deleteUserBtn}></button>
+            </div>
         </div>
     )
 }
