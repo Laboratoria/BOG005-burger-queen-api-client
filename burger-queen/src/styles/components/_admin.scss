@@ -15,22 +15,22 @@
     // }
 
 
-    button{
-        background-color: $pinkButton;
-        border-radius: 50px;
-        width: 40%;
-        max-width: 250px;
-        height: 8vh;
-        font-size: 0.7rem;
-        border: solid 2px $pinkText;
-        color: $white;
-        margin: 5px;
+    // button{
+    //     background-color: $pinkButton;
+    //     border-radius: 50px;
+    //     width: 40%;
+    //     max-width: 250px;
+    //     height: 8vh;
+    //     font-size: 0.7rem;
+    //     border: solid 2px $pinkText;
+    //     color: $white;
+    //     margin: 5px;
     
-        &:hover {
-            background-color: $pinkText;
-            border: solid 2px $pinkButton;
-            color: $pinkButton;
-        }}
+    //     &:hover {
+    //         background-color: $pinkText;
+    //         border: solid 2px $pinkButton;
+    //         color: $pinkButton;
+    //     }}
 
 }
 
