@@ -1,31 +1,29 @@
-import React from "react";
-import { useState } from "react";
-import logoFondoPizarra from '../img/logoSinFondo.png'
-import NavMenu from "./navMenu";
+import { useRef } from "react";
 import "./navBar.scss";
 
+function Navbar() {
+	const navRef = useRef();
 
-const Navbar = ({item1, item2, link1, link2}) => {
-  const [menu, setMenu] = useState(false);
- 
+	const showNavbar = () => {
+		navRef.current.classList.toggle("responsive_nav");
+	};
 
-  const handleMenu = () => {
-    setMenu(!menu);
-  };
+	return (
+		<header>
+			<h3>LOGO</h3>
+			<nav ref={navRef}>
+				<a href="/#">Usuarios</a>
+				<a href="/#">Productos</a>
+				<button
+					className="nav-btn nav-close-btn  fa-solid fa-xmark"
+					onClick={showNavbar}>
+				</button>
+			</nav>
+			<button className="nav-btn fa-solid fa-bars" onClick={showNavbar}>
+				{/* <FaBars /> */}
+			</button>
+		</header>
+	);
+}
 
-  return (
-       <nav className="NavbarItems">
-            <img src={logoFondoPizarra} alt="logo" />
-            <i className="fa-solid fa-bars menu-mobile" onClick={handleMenu} ></i>
-        {menu ? (
-          <>
-           <div className="menu-content-mobile"><NavMenu item1={item1} item2={item2} link1={link1} link2={link2}/></div> 
-          </>
-        ) : null}
-        <div className="menu-content"><NavMenu item1={item1} item2={item2} link1={link1} link2={link2}/> </div>
-      </nav>
-
-  );
-};
-
-export default Navbar;
+export {Navbar};
