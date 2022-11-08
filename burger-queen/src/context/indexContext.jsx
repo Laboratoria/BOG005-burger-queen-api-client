@@ -4,6 +4,8 @@ const BurgerContext = React.createContext();
 function BurgerProvider(props) {
 
   /*agregar estados usados*/
+  const [users, setUsers] = useState([])
+  const [total, setTotal] = useState([])
   const [openModal, setOpenModal] = useState(false);
   const [editUserState, setEditUserState] = useState(false);
   const [dataNewUser, setDataNewUser] = useState({
@@ -14,6 +16,8 @@ function BurgerProvider(props) {
   
   return (
     <BurgerContext.Provider value={{
+      users,
+      setUsers,
       openModal,
       setOpenModal,
       editUserState,

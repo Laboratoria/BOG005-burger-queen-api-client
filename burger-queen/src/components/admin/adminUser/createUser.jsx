@@ -1,12 +1,13 @@
-import React, { useState } from "react";
+import React from "react";
 import { createDataUser } from "../../../petitions/userPetition";
 import { BurgerContext } from "../../../context/indexContext";
+import { listUser, editUser } from "../../../petitions/userPetition";
 
 const CreateUser = () => {
-    const { openModal,
+    const {
+        setUsers,
         setOpenModal,
         editUserState,
-        setEditUserState,
         dataNewUser,
         setDataNewUser,
     } = React.useContext(BurgerContext);
@@ -26,21 +27,43 @@ const CreateUser = () => {
 
     const onSubmit = (event) => {
         event.preventDefault()
-        console.log("QUE DEVUELVE", createDataUser(dataNewUser))
-        if (!!editUserState) {
-            setOpenModal(false);
-        } else {
+        if (editUserState === false) {
             createDataUser(dataNewUser)
-                // .then(res => {
-                //     console.log("traerme algo", res)
-                // })
-                // .catch(
-                //     {
-                //         "error": "string"
-                //     }
-                // )
+                .then(res => {
+                    listUser().then(res => {
+                        setUsers(res.data.map((user) => {
+                            return {
+                                email: user.email,
+                                id: user.id,
+                                password: user.password,
+                                role: user.role,
+                            }
+                        }))
+                    })
+                }
+                )
+                .catch(error => {
+                    console.error(error)
+                })
             setOpenModal(false);
-            event.target.reset();
+        } else if (editUserState === true) {
+            editUser(dataNewUser.id, dataNewUser)
+                .then(res => {
+                    listUser().then(res => {
+                        setUsers(res.data.map((user) => {
+                            return {
+                                email: user.email,
+                                id: user.id,
+                                password: user.password,
+                                role: user.role,
+                            }
+                        }))
+                    })
+                })
+                .catch(error => {
+                    console.error(error)
+                })
+            setOpenModal(false);
         }
 
 
@@ -70,32 +93,32 @@ const CreateUser = () => {
                 />
 
                 <label htmlFor="role">Rol:</label>
-                <input id="role" // input para el password
+                <select d="role" // input para el password
                     type="role"
                     name="role"
                     placeholder="Rol"
                     onChange={handleChange}
                     required
-                    value={dataNewUser.role}
-                />
+                    value={dataNewUser.role}>
+                    <option value="Admin">Admin</option>
+                    <option value="Waiter">Waiter</option>
+                    <option value="Chef">Chef</option>
+                </select>
                 <div>
-                <button
-                    type="button"
-                    className="TodoForm-button TodoForm-button--cancel"
-                    onClick={onCancel}
-                >
-                    Cancelar
-                </button>
-                <button
-                    type="submit"
-                    className="TodoForm-button TodoForm-button--add"
-                >
-                    Guardar
-                </button>
+                    <button
+                        type="button"
+                        className="TodoForm-button TodoForm-button--cancel"
+                        onClick={onCancel}
+                    >
+                        Cancelar
+                    </button>
+                    <button
+                        type="submit"
+                        className="TodoForm-button TodoForm-button--add"
+                    >
+                        Guardar
+                    </button>
                 </div>
-
-
-                {/* <button onClick={createNewUser}>Crear Usuario</button> */}
             </form>
         </div>
     )
