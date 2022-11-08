@@ -5,13 +5,15 @@ import { Navbar } from "../components/navBar.jsx";
 
 
 // import Navbar from "../components/navBar";
+// import Navbar from "../components/navBar";
+
 
 
 
 const Admin= () => {
     return (
         <div className="admin_Container">
-            <header>
+            {/* <header> */}
             {/* <img src={logoFondoPizarra} alt="logo" /> */}
             {/* <nav>
             <i className="fa-solid fa-bars"></i>
@@ -23,7 +25,7 @@ const Admin= () => {
                 link2="/admin-products"
             /> */}
             <Navbar/>
-            </header>
+            {/* </header> */}
             <AdminUser />
         </div>
     )
