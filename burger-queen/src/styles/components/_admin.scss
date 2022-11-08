@@ -7,11 +7,13 @@
 
     header {
         display: flex;
+        width: 100%;
         img {
             width: 20%;
-            max-width: 200px;
+            max-width: 150px;
         }
     }
+
 
     button{
         background-color: $pinkButton;
