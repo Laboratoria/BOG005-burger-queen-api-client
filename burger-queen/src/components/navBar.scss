@@ -4,14 +4,20 @@ header {
 	justify-content: space-between;
 	height: 80px;
 	padding: 0 2rem;
-	background-color: blue;
-	color: var(--textColor);
+	// background-color: blue;
+	color: yellow;
+	img {
+		        width: 20%;
+		        max-width: 150px;
+		    }
 }
 
 nav a {
 	margin: 0 1rem;
 	color: white;
 	text-decoration: none;
+	//prueba
+	
 }
 
 nav a:hover {
@@ -24,7 +30,7 @@ header .nav-btn {
 	background: transparent;
 	border: none;
 	outline: none;
-	color: var(--textColor);
+	color: white;
 	visibility: hidden;
 	opacity: 0;
 	font-size: 1.8rem;
@@ -34,6 +40,11 @@ header div,
 nav {
 	display: flex;
 	align-items: center;
+	background-image: url('../img/fondoPizzara.jpg');
+    background-size: cover;
+	border-radius: 20px;
+	border: solid 2px $pinkButton;
+
 }
 
 @media only screen and (max-width: 1024px) {
@@ -43,17 +54,18 @@ nav {
 	}
 
 	header nav {
-		position: fixed;
+		// position: fixed;
+		position: absolute;
 		top: 0;
-		left: 0;
-		height: 100%;
-		width: 100%;
+		left: 40%;
+		height: 50%;
+		width: 60%;
 		display: flex;
 		flex-direction: column;
 		align-items: center;
 		justify-content: center;
 		gap: 1.5rem;
-		background-color: var(--mainColor);
+		// background-color: lightgreen;
 		transition: 1s;
 		transform: translateY(-100vh);
 	}

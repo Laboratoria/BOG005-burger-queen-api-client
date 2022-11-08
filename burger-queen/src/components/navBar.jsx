@@ -1,5 +1,6 @@
 import { useRef } from "react";
-import "./navBar.scss";
+import logoFondoPizarra from '../img/logoSinFondo.png'
+// import "./navBar.scss";
 
 function Navbar() {
 	const navRef = useRef();
@@ -10,7 +11,7 @@ function Navbar() {
 
 	return (
 		<header>
-			<h3>LOGO</h3>
+			  <img src={logoFondoPizarra} alt="logo" />
 			<nav ref={navRef}>
 				<a href="/#">Usuarios</a>
 				<a href="/#">Productos</a>
