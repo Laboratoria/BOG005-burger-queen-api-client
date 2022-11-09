@@ -4,22 +4,29 @@ header {
 	justify-content: space-between;
 	height: 80px;
 	padding: 0 2rem;
+
 	img {
-		        width: 30%;
-		        max-width: 150px;
-				margin-top: 2%;
-		    }
+		width: 30%;
+		max-width: 150px;
+		margin-top: 2%;
+	}
+
 }
 
-nav a {
+button {
+	background-color: transparent;
+	border: none;
+}
+
+nav button {
 	margin: 0 1rem;
 	color: white;
 	text-decoration: none;
-	font-size: 1.5rem;
-	
+	font-size: 1.8rem;
+
 }
 
-nav a:hover {
+nav button:hover {
 	color: $pinkText;
 }
 
@@ -39,14 +46,10 @@ header div,
 nav {
 	display: flex;
 	align-items: center;
-	// background-image: url('../img/fondoPizzara.jpg');
-    // background-size: cover;
-	//border-radius: 20px;
-	//border: solid 2px $pinkButton;
 
 }
 
- @media only screen and (max-width: 767px)  {
+@media only screen and (max-width: 767px) {
 	header .nav-btn {
 		visibility: visible;
 		opacity: 1;
@@ -68,10 +71,10 @@ nav {
 		transition: 1s;
 		transform: translateY(-100vh);
 		border-radius: 20px;
-	border: solid 2px $pinkButton;
-	background-image: url('../../img/fondoPizzara.jpg');
-    background-size: cover;
-	padding-top: 30px;
+		border: solid 2px $pinkButton;
+		background-image: url('../../img/fondoPizzara.jpg');
+		background-size: cover;
+		padding-top: 30px;
 	}
 
 	header .responsive_nav {
@@ -84,7 +87,7 @@ nav {
 		right: 2rem;
 	}
 
-	nav a {
+	nav button {
 		font-size: 1.5rem;
 	}
 }

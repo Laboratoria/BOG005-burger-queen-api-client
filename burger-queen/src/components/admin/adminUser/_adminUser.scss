@@ -1,50 +1,51 @@
-.adminUser_container{
+.adminUser_container {
     display: grid;
     place-items: center;
-    gap:20px;
-    
-    .btnAddUser{
-            background-color: $pinkButton;
-            border-radius: 50px;
-            width: 50%;
-            max-width: 300px;
-            height: 8vh;
-            font-size: 0.9rem;
-            border: solid 2px $pinkText;
-            color: $white;
-    
-            &:hover {
-                background-color: $pinkText;
-                border: solid 2px $pinkButton;
-                color: $pinkButton;
-            }
-            
-        }
-        .tableUser_container {
-            width: 90%;
-            border: 5px solid $pinkButton;
-            border-radius: 20px;
-            max-width: 800px;
-            // background-color: $pinkButton;
-            
-.tableHeader{
-    background-color: $pinkButton;
-    padding-left: 10px;
-    border-radius: 10px 10px 0 0 ;
-}
-        
-            .usuario{
-                width: 60%;
-            }
-        
-            .rol{
-                width: 20%;
-            }
+    gap: 20px;
+
+    .btnAddUser {
+        background-color: $pinkButton;
+        border-radius: 50px;
+        width: 50%;
+        max-width: 300px;
+        height: 8vh;
+        font-size: 0.9rem;
+        border: solid 2px $pinkText;
+        color: $white;
+
+        &:hover {
+            background-color: $pinkText;
+            border: solid 2px $pinkButton;
+            color: $pinkButton;
         }
 
+    }
+
+    .tableUser_container {
+        width: 90%;
+        border: 5px solid $pinkButton;
+        border-radius: 20px;
+        max-width: 800px;
+        // background-color: $pinkButton;
+
         .tableHeader {
-            display: flex;
+            background-color: $pinkButton;
+            padding-left: 10px;
+            border-radius: 10px 10px 0 0;
         }
+
+        .usuario {
+            width: 60%;
+        }
+
+        .rol {
+            width: 20%;
+        }
+    }
+
+    .tableHeader {
+        display: flex;
+    }
 }
 
 // .nameTableUser_container{
@@ -53,12 +54,12 @@
 //     border-radius: 20px;
 // }
 
-@media(min-width:768px) { 
-    .adminUser_container 
-    {
+@media(min-width:768px) {
+    .adminUser_container {
         font-size: 1.5rem;
-        .btnAddUser{
-            font-size: 1.3rem;   
-        }
-  }}
 
+        .btnAddUser {
+            font-size: 1.3rem;
+        }
+    }
+}

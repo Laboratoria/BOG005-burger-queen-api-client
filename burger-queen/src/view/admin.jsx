@@ -1,7 +1,9 @@
 import React from "react";
 // import logoFondoPizarra from '../img/logoSinFondo.png'
-import {AdminUser} from '../components/admin/adminUser/adminUser.jsx'
+import { AdminUser } from '../components/admin/adminUser/adminUser.jsx'
 import { Navbar } from "../components/header/navBar.jsx";
+import { AdminProducts } from "../components/admin/adminProducts/adminProducts.jsx"
+import { BurgerContext } from "../context/indexContext";
 
 
 // import Navbar from "../components/navBar";
@@ -10,7 +12,10 @@ import { Navbar } from "../components/header/navBar.jsx";
 
 
 
-const Admin= () => {
+const Admin = () => {
+    const { 
+		stateAdmin,
+	} = React.useContext(BurgerContext);
     return (
         <div className="admin_Container">
             {/* <header> */}
@@ -24,11 +29,12 @@ const Admin= () => {
                 link1="/admin"
                 link2="/admin-products"
             /> */}
-            <Navbar/>
+            <Navbar />
             {/* </header> */}
-            <AdminUser />
+            { stateAdmin ?  <AdminProducts />:   <AdminUser />}
+
         </div>
     )
 }
 
-export  {Admin}
+export { Admin }
