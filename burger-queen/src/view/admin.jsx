@@ -1,7 +1,7 @@
 import React from "react";
 // import logoFondoPizarra from '../img/logoSinFondo.png'
 import {AdminUser} from '../components/admin/adminUser/adminUser.jsx'
-import { Navbar } from "../components/navBar.jsx";
+import { Navbar } from "../components/header/navBar.jsx";
 
 
 // import Navbar from "../components/navBar";
