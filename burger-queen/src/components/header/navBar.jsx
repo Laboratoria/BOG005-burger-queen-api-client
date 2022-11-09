@@ -1,5 +1,5 @@
 import { useRef } from "react";
-import logoFondoPizarra from '../img/logoSinFondo.png'
+import logoFondoPizarra from '../../img/logoSinFondo.png'
 import {useNavigate} from "react-router-dom"
 
 // import "./navBar.scss";
@@ -24,7 +24,7 @@ function Navbar() {
 			  <img src={logoFondoPizarra} alt="logo" />
 			<nav ref={navRef}>
 				<a href="/#">Usuarios</a>
-				<a href="/#">Productos</a>
+				<a href="/adminProducts">Productos</a>
 				{/* <a href="/#" className="fa-solid fa-right-from-bracket" onClick={logout}></a> */}
 				<button className="fa-solid fa-right-from-bracket btnLogout" onClick={logout}></button>
 				<button
