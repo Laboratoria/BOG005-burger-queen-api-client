@@ -46,18 +46,13 @@ const AdminUser = () => {
     return (
         <div className="adminUser_container">
             <h2>Administrar Usuarios</h2>
-            {/* <div className="nameTableUser_container">
-                <h4>Usuario</h4>
-                <h4>Rol</h4>
-                <h4>Acciones</h4>
-            </div> */}
             <div className="tableUser_container">
                 <div className="tableHeader">
                     <h4 className="usuario">Usuario</h4>
                     <h4 className="rol">Rol</h4>
                     <h4 className="acciones">Acciones</h4>
                 </div>
-                {users.map(data => (<UserItem key={data.id} id={data.id} email={data.email} role={data.role} />))}
+                {users.map(data => (<UserItem key={data.id} id={data.id} item1={data.email} item2={data.role} />))}
             </div>
             {/* <div>k */}
                 {!!openModal && (
