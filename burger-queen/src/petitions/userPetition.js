@@ -13,7 +13,6 @@ const getUser = () => {
 };
 
 const getToken = () => {
-    console.log('token', getUser().accessToken)
     return getUser().accessToken
 }
 
@@ -34,7 +33,6 @@ const listUser = async () => {
 }
   //---Funcion de peticion para Crear Usuario---//
 const createDataUser = async (dataNewUser) => {
-    console.log('LLEGA DATA NEW', dataNewUser); 
     return await axios({
         method: 'POST',
         url: url + 'users',
