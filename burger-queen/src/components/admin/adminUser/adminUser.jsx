@@ -52,7 +52,7 @@ const AdminUser = () => {
                     <h4 className="rol">Rol</h4>
                     <h4 className="acciones">Acciones</h4>
                 </div>
-                {users.map(data => (<UserItem key={data.id} id={data.id} item1={data.email} item2={data.role} />))}
+                {users.map(data => (<UserItem key={data.id} id={data.id} email={data.email} role={data.role} />))}
             </div>
             {/* <div>k */}
                 {!!openModal && (

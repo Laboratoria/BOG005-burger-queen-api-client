@@ -42,8 +42,8 @@ const UserItem = (props) => {
 
     return (
         <div className="userItem_Container">
-            <p className="email">{props.item1}</p>
-            <p className="role">{props.item2}</p>
+            <p className="email">{props.email}</p>
+            <p className="role">{props.role}</p>
             <div className="buttonUsers">
             <button className="fa-solid fa-pen-to-square" onClick={saveUserEdit} ></button>
             <button className="fa-solid fa-trash btnDelete" onClick={deleteUserBtn}></button>

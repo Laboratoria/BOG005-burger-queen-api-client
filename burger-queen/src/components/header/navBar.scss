@@ -5,6 +5,7 @@ header {
 	height: 80px;
 	padding: 0 2rem;
 
+
 	img {
 		width: 30%;
 		max-width: 150px;
@@ -46,6 +47,7 @@ header div,
 nav {
 	display: flex;
 	align-items: center;
+	transform: translateX(400px)
 
 }
 
@@ -89,5 +91,13 @@ nav {
 
 	nav button {
 		font-size: 1.5rem;
+	}
+}
+
+@media(max-width:1023px) {
+	header div,
+	nav {
+		transform: translateX(150px)
+	
 	}
 }
