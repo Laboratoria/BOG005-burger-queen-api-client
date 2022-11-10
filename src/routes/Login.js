@@ -44,22 +44,24 @@ const Login = () => {
     return (
         <section className="App">
             <img src={logo} className="App-logo" alt="logo" />
-            <form typeof='submit' className='formLogin' onSubmit={handleSubmit(validateUser)}>
+            <form typeof='submit' className='formLogin' autoComplete="on" onSubmit={handleSubmit(validateUser)}>
                 <FormInput
                     type='email'
                     onChange={handleInputChangeEmail}
                     required
                     placeholder='Ingresa tu Email'
+                    className='emailInput'
                     label='Email'>
                 </FormInput>
                 <FormInput
+                    className='passwordInput'
                     type='password'
                     onChange={handleInputChangePassword}
                     required
                     placeholder='Ingresa tu contraseña'
                     label='Contraseña'>
                 </FormInput>
-                <Button text='Ingresar' >
+                <Button text='Ingresar' className='btnStyle'>
                 </Button>
             </form>
         </section>
