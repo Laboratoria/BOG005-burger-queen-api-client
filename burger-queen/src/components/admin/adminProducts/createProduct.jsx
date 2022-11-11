@@ -1,16 +1,18 @@
 import React, {useState} from "react";
+import { createProduct } from "../../../petitions/productPetition";
 
 const AddProducto = () => {
-    const [producto, setProducto] = useState({
+    const [newProducto, setnewProducto] = useState({
         name: '',
         price: 0,
         image: '',
-        tipo:[]
+        type:[],
+        dateEntry: new Date(),
     });
 
     const handleChenge = (e) => {
-        setProducto({
-            ...producto,
+        setnewProducto({
+            ...newProducto,
             [e.target.name]: e.target.value
         });
     };
@@ -21,32 +23,45 @@ const AddProducto = () => {
         fr.readAsDataURL(e.target.files[0])
         fr.onload = function (carga) {
             const url = carga.currentTarget.result
-            setProducto({
-                ...producto,
-                img: url
+            setnewProducto({
+                ...newProducto,
+                image: url
             })
         }
     }
 
+    const handleSubmit = (e) => {
+        e.preventDefault();
+        createProduct(newProducto)
+        .then(res =>{
+            setnewProducto({
+                name: '',
+                price: 0,
+                image: 'url',
+                dateEntry: new Date(),
+            })
+        })
+    }
+
     return(
         <div className="formContainer">
-            <h1>Nuevo producto</h1>
-            <form  
-            // onSubmit={handleSubmit}
+            <h2>Nuevo producto</h2>
+            <form  className="form"
+             onSubmit={handleSubmit}
             >
-                <div>
+                <div className="formGroup">
                     <label  htmlFor="name">Nombre:</label>
                     <input id="name"
                         type="texto"
                         name="name"
                         placeholder="Ingresar nombre"
-                        // defaultValue={}
+                        defaultValue={newProducto.name}
                         onChange={handleChenge}
                         required
                     />
                 </div>
 
-                <div>
+                <div className="formGroup">
                     <label htmlFor="price">Precio:</label>
                     <input id="precio"
                         type="number"
@@ -55,12 +70,12 @@ const AddProducto = () => {
                         step="1"
                         min="0"
                         placeholder="Ingresar precio"
-                        // defaultValue={}
+                        defaultValue={newProducto.price}
                         onChange={handleChenge}
                         required
                     />
                 </div>
-                <div >
+                <div className="formGroup">
                     <label htmlFor="img">Imagen:</label>
                     <input type="file"
                         className="formInput"
@@ -68,7 +83,8 @@ const AddProducto = () => {
                         onChange={handleImage}
                     />
                 </div>
-                <div>
+
+                <div className="formGroup">
                 <label htmlFor="tipo">Tipo:</label>
                 <select id="tipo" // input para el password
                     type="texto"
@@ -76,13 +92,13 @@ const AddProducto = () => {
                     placeholder="tipo"
                     // onChange={handleChange}
                     required
-                    // value={}
+                    value={newProducto.type}
                     >
                     <option value="Desayuno">Desayuno</option>
                     <option value="Almuerzo">Almuerzo</option>
                 </select>
                 </div>
-                <button  type="submit">
+                <button className="btn" type="submit">
                     Guardar Producto
                 </button>
             </form>

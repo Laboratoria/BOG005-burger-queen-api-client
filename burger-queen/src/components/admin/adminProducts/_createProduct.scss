@@ -2,8 +2,73 @@
     display: flex;
     justify-content: center;
     padding: 30px;
-    width: 100%;
+    width: 60%;
     flex-direction: column;
     align-items: center;
-    background-color: aqua;
+    background-color: #D9D9D9;
+    border: solid 5px #89126A;
+    border-radius: 10px;
+
+
+    h2{
+        margin-top: 10px;
+        margin-bottom: 20px;
+        font-size: 30px;
+        text-align: center;
+        color: #89126A;
+    }
 }
+
+.form{
+    max-width: 450px;
+    width: 90%;
+    border-radius: 5px;   
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    padding: 20px;
+    color: black;
+}
+
+.formGroup{
+    display: flex;
+    gap: 10px;
+    align-items: center;
+
+    label {
+        width: 65px;
+        min-width: 65px;
+    }
+
+    input{
+        border-radius: 5px;
+        padding: 10px;
+        outline: none;
+        border: none;
+        width: 100%;
+        max-width: 500px;
+    }
+}
+
+.btn{
+    background-color: #89126A;
+    padding: 10px;
+    display: flex;
+    width: fit-content;
+    align-items: center;
+    border: none;
+    border-radius: 5px;
+    margin: 0 auto;
+    cursor: pointer;    
+    color: white;
+    font-size: 18px;
+    font-weight: 500;
+
+
+    &:hover{
+        transform: scale(1.02);
+        background-color: white;
+        color: #89126A;
+
+    }
+  }
