@@ -24,7 +24,7 @@ function LoginView(props) {
                         placeholder="Introduce Contraseña"
                         name="texto"
                     />
-                    <button className="loginBtn">
+                    <button className="loginBtn" onClick={authentication}>
                         Ingresar
                     </button>
                 </form>
