@@ -47,6 +47,7 @@ const CreateUser = () => {
                 })
             setOpenModal(false);
         } else if (editUserState === true) {
+            console.log('que llega',dataNewUser);
             editUser(dataNewUser.id, dataNewUser)
                 .then(res => {
                     listUser().then(res => {
