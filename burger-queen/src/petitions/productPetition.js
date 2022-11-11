@@ -48,5 +48,20 @@ const createProduct = (product) => {
     })     
 }
 
-export {listProducts, createProduct, deleteProduct}
+//  funcion para editar producto
+
+const editProduct = async (id, product)=>{
+
+    return await axios({
+        method: "PATCH", 
+        url:url+'products/'+ id, 
+        headers: {
+            'Content-Type': 'application/json',
+                authorization: 'Bearer ' + getToken(),
+        },
+        data: product,         
+    })     
+}
+
+export {listProducts, createProduct, deleteProduct, editProduct}
 

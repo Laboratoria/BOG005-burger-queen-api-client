@@ -25,7 +25,6 @@ const AdminProducts = () => {
                     price: product.price,
                     image: product.image,
                     type: product.type,
-
                 }
             }))
         })
