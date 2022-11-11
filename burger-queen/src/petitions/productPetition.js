@@ -3,6 +3,7 @@ import { getToken } from './userPetition'
 
 const url = process.env.API_URL || 'http://localhost:8080/'
 
+// Mostras productos
 const listProducts = async () => {
 
     return await axios({
@@ -13,6 +14,18 @@ const listProducts = async () => {
         }
     });
 } 
+
+// funcion de crear productos
+const createProduct = (product) => {
+    return axios({
+        method: "POST",
+        url: url+'products',
+        headers: {
+            authorization: 'Bearer ' + getToken()
+        },
+        data:product
+    });
+}
 
  //---Funcion de peticion para eliminar Usuario---//
  const deleteProduct = async (id, product)=>{
@@ -35,4 +48,5 @@ const listProducts = async () => {
     })     
 }
 
-export {listProducts, deleteProduct}
+export {listProducts, createProduct, deleteProduct}
+
