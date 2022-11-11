@@ -38,21 +38,24 @@ const AddProducto = () => {
     const handleSubmit = (e) => {
         e.preventDefault();
         if (editProductState === false) {
-            // listUser().then(res => {
+            console.log('new', newProduct);
             createProduct(newProduct)
                 .then(res => {
-                    setnewProduct({
-                        name: '',
-                        price: 0,
-                        image: 'url',
-                        dateEntry: new Date(),
-                    })
+                    listProducts().then(res => {
+                    setProducts(res.data.map((product) => {
+                        return {
+                            name: product.name,
+                            price: product.price,
+                            image: product.image,
+                            type: product.type,
+                        }
+                    }))
                 })
                 .catch(error => {
                     console.error(error)
                 })
             setOpenModal(false);
-            // })
+            })
         }
         else if (editProductState === true) {
             editProduct(newProduct.id, newProduct)
@@ -91,6 +94,7 @@ return (
                     name="name"
                     placeholder="Ingresar nombre"
                     defaultValue={newProduct.name}
+                    // value={newProduct.name}
                     onChange={handleChenge}
                     required
                 />
@@ -127,6 +131,7 @@ return (
                     placeholder="tipo"
                     // onChange={handleChange}
                     required
+                    // defaultValue= 'Desayuno'
                     value={newProduct.type}
                 >
                     <option value="Desayuno">Desayuno</option>

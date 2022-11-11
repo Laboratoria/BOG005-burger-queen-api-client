@@ -13,6 +13,7 @@ const AdminProducts = () => {
         setProducts,
         openModal,
         setOpenModal,
+        setnewProduct,
     } = React.useContext(BurgerContext);
     //peticion pedir productos
 
@@ -32,6 +33,7 @@ const AdminProducts = () => {
     useEffect(() => { getListProducts() } , [])
 
      const onClickBtn = ()=>{
+        setnewProduct([])
         setOpenModal(true)
      }
 
@@ -47,7 +49,7 @@ const AdminProducts = () => {
                 </div>
                 {/* map de productos */}
                 <div className="table">
-                {products.map(data => (<ProductsItem key={data.id} id={data.id} image={data.image} item1={data.name} item2={data.price} item3={data.type}/>))}
+                {products.map(data => (<ProductsItem key={data.id} id={data.id} image={data.image} name={data.name} price={data.price} type={data.type}/>))}
                 </div>
             </div>
           
