@@ -1,18 +1,23 @@
-import React, {useState} from "react";
-import { createProduct } from "../../../petitions/productPetition";
+import React from "react";
+import { createProduct, editProduct, listProducts } from "../../../petitions/productPetition";
+import { BurgerContext } from "../../../context/indexContext";
 
 const AddProducto = () => {
-    const [newProducto, setnewProducto] = useState({
-        name: '',
-        price: 0,
-        image: '',
-        type:[],
-        dateEntry: new Date(),
-    });
+
+
+    const {
+        newProduct,
+        setnewProduct,
+        editProductState,
+        // setEditProductState,
+        // openModal,
+        setOpenModal,
+        setProducts,
+    } = React.useContext(BurgerContext);
 
     const handleChenge = (e) => {
-        setnewProducto({
-            ...newProducto,
+        setnewProduct({
+            ...newProduct,
             [e.target.name]: e.target.value
         });
     };
@@ -23,8 +28,8 @@ const AddProducto = () => {
         fr.readAsDataURL(e.target.files[0])
         fr.onload = function (carga) {
             const url = carga.currentTarget.result
-            setnewProducto({
-                ...newProducto,
+            setnewProduct({
+                ...newProduct,
                 image: url
             })
         }
@@ -32,59 +37,89 @@ const AddProducto = () => {
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        createProduct(newProducto)
-        .then(res =>{
-            setnewProducto({
-                name: '',
-                price: 0,
-                image: 'url',
-                dateEntry: new Date(),
-            })
-        })
-    }
+        if (editProductState === false) {
+            // listUser().then(res => {
+            createProduct(newProduct)
+                .then(res => {
+                    setnewProduct({
+                        name: '',
+                        price: 0,
+                        image: 'url',
+                        dateEntry: new Date(),
+                    })
+                })
+                .catch(error => {
+                    console.error(error)
+                })
+            setOpenModal(false);
+            // })
+        }
+        else if (editProductState === true) {
+            editProduct(newProduct.id, newProduct)
+                .then(res => {
+                    listProducts().then(res => {
+                        setProducts(res.data.map((product) => {
+                            return {
+                                name: product.name,
+                                price: product.price,
+                                image: product.image,
+                                type: product.type,
+                            }
+                        }))
+                    })
+                })
+                .catch(error => {
+                    console.error(error)
+                })
+            setOpenModal(false);
+        }
+}
+const onCancel = () => {
+    setOpenModal(false);
+}
 
-    return(
-        <div className="formContainer">
-            <h2>Nuevo producto</h2>
-            <form  className="form"
-             onSubmit={handleSubmit}
-            >
-                <div className="formGroup">
-                    <label  htmlFor="name">Nombre:</label>
-                    <input id="name"
-                        type="texto"
-                        name="name"
-                        placeholder="Ingresar nombre"
-                        defaultValue={newProducto.name}
-                        onChange={handleChenge}
-                        required
-                    />
-                </div>
+return (
+    <div className="formContainer">
+        <h2>Nuevo producto</h2>
+        <form className="form"
+            onSubmit={handleSubmit}
+        >
+            <div className="formGroup">
+                <label htmlFor="name">Nombre:</label>
+                <input id="name"
+                    type="texto"
+                    name="name"
+                    placeholder="Ingresar nombre"
+                    defaultValue={newProduct.name}
+                    onChange={handleChenge}
+                    required
+                />
+            </div>
 
-                <div className="formGroup">
-                    <label htmlFor="price">Precio:</label>
-                    <input id="precio"
-                        type="number"
-                        className="formInput"
-                        name="price"
-                        step="1"
-                        min="0"
-                        placeholder="Ingresar precio"
-                        defaultValue={newProducto.price}
-                        onChange={handleChenge}
-                        required
-                    />
-                </div>
-                <div className="formGroup">
-                    <label htmlFor="img">Imagen:</label>
-                    <input type="file"
-                        className="formInput"
-                        name="img"
-                        onChange={handleImage}
-                    />
-                </div>
+            <div className="formGroup">
+                <label htmlFor="price">Precio:</label>
+                <input id="precio"
+                    type="number"
+                    className="formInput"
+                    name="price"
+                    step="1"
+                    min="0"
+                    placeholder="Ingresar precio"
+                    defaultValue={newProduct.price}
+                    onChange={handleChenge}
+                    required
+                />
+            </div>
+            <div className="formGroup">
+                <label htmlFor="img">Imagen:</label>
+                <input type="file"
+                    className="formInput"
+                    name="img"
+                    onChange={handleImage}
+                />
+            </div>
 
-                <div className="formGroup">
+            <div className="formGroup">
                 <label htmlFor="tipo">Tipo:</label>
                 <select id="tipo" // input para el password
                     type="texto"
@@ -92,18 +127,25 @@ const AddProducto = () => {
                     placeholder="tipo"
                     // onChange={handleChange}
                     required
-                    value={newProducto.type}
-                    >
+                    value={newProduct.type}
+                >
                     <option value="Desayuno">Desayuno</option>
                     <option value="Almuerzo">Almuerzo</option>
                 </select>
-                </div>
-                <button className="btn" type="submit">
-                    Guardar Producto
-                </button>
-            </form>
+            </div>
+            <button className="btn" type="submit">
+                Guardar
+            </button>
+            <button
+                        type="button"
+                        className="TodoForm-button TodoForm-button--cancel"
+                        onClick={onCancel}
+                    >
+                        Cancelar
+                    </button>
+        </form>
 
-        </div>
-    )
+    </div>
+)
 }
-export {AddProducto}
+export { AddProducto }

@@ -9,6 +9,8 @@ const ProductsItem = (props) => {
         editProductState,
         setEditProductState,
         setOpenModal,
+        newProduct,
+        setnewProduct,
     } = React.useContext(BurgerContext);
 
     const deleteProductBtn = () => {
@@ -23,15 +25,15 @@ const ProductsItem = (props) => {
         // console.log('estado1',users);
         setEditProductState(false)
         setOpenModal(true)
-        // setDataNewUser({
-        //     ...dataNewUser,
-        // name: product.name,
-        // price: product.price,
-        // image: product.image,
-        // type: product.type,
-        // });
-        // e.target.reset();
-        // return dataNewUser
+        setnewProduct({
+            ...newProduct,
+            name: '',
+            price: 0,
+            image: 'url',
+            dateEntry: new Date(),
+        });
+        e.target.reset();
+        return newProduct
     }
 
 
