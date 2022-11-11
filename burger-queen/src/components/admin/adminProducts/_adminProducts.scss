@@ -1,0 +1,31 @@
+.adminUser_container {
+    .tableUser_container {
+
+        .products {
+            width: 35%;
+            // width: 50%;
+        }
+
+        .price {
+            width: 20%;
+        }
+
+        .type {
+            width: 20%;
+        }
+
+        // .actions {
+        //     width: 20%;
+        // }
+    }
+}
+
+@media(min-width:768px) {
+    .adminUser_container {
+        .tableUser_container {
+            .products {
+                width: 50%;
+            }
+        }
+    }
+}
