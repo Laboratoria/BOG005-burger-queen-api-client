@@ -10,7 +10,7 @@ const AddProducto = () => {
         newProduct,
         setnewProduct,
         editProductState,
-        // setEditProductState,
+        setEditProductState,
         // openModal,
         setOpenModal,
         setProducts,
@@ -73,25 +73,10 @@ const onChangeImg = async (e) => {
     const handleSubmit = (e) => {
         e.preventDefault();
         if (editProductState === false) {
-            // listUser().then(res => {
+            console.log('new', newProduct);
             createProduct(newProduct)
-                .then(res => {
-                    setnewProduct({
-                        name: '',
-                        price: 0,
-                        image: '',
-                        dateEntry: new Date(),
-                    })
-                })
-                .catch(error => {
-                    console.error(error)
-                })
-            setOpenModal(false);
-            // })
-        }
-        else if (editProductState === true) {
-            editProduct(newProduct.id, newProduct)
-                .then(res => {
+                .then(
+                    res => {
                     listProducts().then(res => {
                         setProducts(res.data.map((product) => {
                             return {
@@ -99,18 +84,50 @@ const onChangeImg = async (e) => {
                                 price: product.price,
                                 image: product.image,
                                 type: product.type,
+                                id: product.id
                             }
                         }))
-                    })
-                })
+                    })}
+                    // res => {
+                    //     setnewProduct({
+                    //         name: '',
+                    //         price: 0,
+                    //         image: 'url',
+                    //         dateEntry: new Date(),
+                    //     })
+                    // }
+                )
                 .catch(error => {
                     console.error(error)
                 })
             setOpenModal(false);
-        }
+        // })
+    }
+        else if (editProductState === true) {
+            console.log('que llega',newProduct);
+    editProduct(newProduct.id, newProduct)
+        .then(res => {
+            listProducts().then(res => {
+                setProducts(res.data.map((product) => {
+                    return {
+                        name: product.name,
+                        price: product.price,
+                        image: product.image,
+                        type: product.type,
+                    }
+                }))
+            })
+        })
+        .catch(error => {
+            console.error(error)
+        })
+    setOpenModal(false);
+    setEditProductState(false)
 }
+    }
 const onCancel = () => {
     setOpenModal(false);
+    setEditProductState(false)
 }
 
 return (
@@ -126,6 +143,7 @@ return (
                     name="name"
                     placeholder="Ingresar nombre"
                     defaultValue={newProduct.name}
+                    // value={newProduct.name}
                     onChange={handleChenge}
                     required
                 />
@@ -162,6 +180,7 @@ return (
                     placeholder="tipo"
                     // onChange={handleChange}
                     required
+                    // defaultValue= 'Desayuno'
                     value={newProduct.type}
                 >
                     <option value="Desayuno">Desayuno</option>
@@ -172,12 +191,12 @@ return (
                 Guardar
             </button>
             <button
-                        type="button"
-                        className="TodoForm-button TodoForm-button--cancel"
-                        onClick={onCancel}
-                    >
-                        Cancelar
-                    </button>
+                type="button"
+                className="TodoForm-button TodoForm-button--cancel"
+                onClick={onCancel}
+            >
+                Cancelar
+            </button>
         </form>
 
     </div>

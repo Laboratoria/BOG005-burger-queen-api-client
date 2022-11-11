@@ -6,7 +6,7 @@ import { BurgerContext } from "../../../context/indexContext";
 const ProductsItem = (props) => {
     const {products,
         setProducts,
-        editProductState,
+        // editProductState,
         setEditProductState,
         setOpenModal,
         newProduct,
@@ -23,16 +23,18 @@ const ProductsItem = (props) => {
 
     const saveProductEdit = (e) => {
         // console.log('estado1',users);
-        setEditProductState(false)
+        setEditProductState(true)
         setOpenModal(true)
+        console.log('prop', props);
         setnewProduct({
             ...newProduct,
-            name: '',
-            price: 0,
-            image: 'url',
+            name: props.name,
+            price: props.price,
+            image: props.image,
             dateEntry: new Date(),
+            id: props.id
         });
-        e.target.reset();
+        console.log('np',newProduct);
         return newProduct
     }
 
@@ -40,10 +42,10 @@ const ProductsItem = (props) => {
 
     return (
         <div className="productItem_Container">
-            <img src={props.image} alt={props.item1} className='imgProduct' />
-            <p className="product">{props.item1}</p>
-            <p className="price">{props.item2}</p>
-            <p className="type">{props.item3}</p>
+            <img src={props.image} alt={props.name} className='imgProduct' />
+            <p className="product">{props.name}</p>
+            <p className="price">{props.price}</p>
+            <p className="type">{props.type}</p>
             <div className="buttonProducts">
             <button className="fa-solid fa-pen-to-square" onClick={saveProductEdit} ></button>
             <button className="fa-solid fa-trash btnDelete" onClick={deleteProductBtn}></button>
