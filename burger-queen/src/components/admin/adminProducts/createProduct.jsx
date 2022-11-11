@@ -9,7 +9,7 @@ const AddProducto = () => {
         newProduct,
         setnewProduct,
         editProductState,
-        // setEditProductState,
+        setEditProductState,
         // openModal,
         setOpenModal,
         setProducts,
@@ -40,26 +40,8 @@ const AddProducto = () => {
         if (editProductState === false) {
             console.log('new', newProduct);
             createProduct(newProduct)
-                .then(res => {
-                    listProducts().then(res => {
-                    setProducts(res.data.map((product) => {
-                        return {
-                            name: product.name,
-                            price: product.price,
-                            image: product.image,
-                            type: product.type,
-                        }
-                    }))
-                })
-                .catch(error => {
-                    console.error(error)
-                })
-            setOpenModal(false);
-            })
-        }
-        else if (editProductState === true) {
-            editProduct(newProduct.id, newProduct)
-                .then(res => {
+                .then(
+                    res => {
                     listProducts().then(res => {
                         setProducts(res.data.map((product) => {
                             return {
@@ -67,18 +49,50 @@ const AddProducto = () => {
                                 price: product.price,
                                 image: product.image,
                                 type: product.type,
+                                id: product.id
                             }
                         }))
-                    })
-                })
+                    })}
+                    // res => {
+                    //     setnewProduct({
+                    //         name: '',
+                    //         price: 0,
+                    //         image: 'url',
+                    //         dateEntry: new Date(),
+                    //     })
+                    // }
+                )
                 .catch(error => {
                     console.error(error)
                 })
             setOpenModal(false);
-        }
+        // })
+    }
+        else if (editProductState === true) {
+            console.log('que llega',newProduct);
+    editProduct(newProduct.id, newProduct)
+        .then(res => {
+            listProducts().then(res => {
+                setProducts(res.data.map((product) => {
+                    return {
+                        name: product.name,
+                        price: product.price,
+                        image: product.image,
+                        type: product.type,
+                    }
+                }))
+            })
+        })
+        .catch(error => {
+            console.error(error)
+        })
+    setOpenModal(false);
+    setEditProductState(false)
 }
+    }
 const onCancel = () => {
     setOpenModal(false);
+    setEditProductState(false)
 }
 
 return (
@@ -142,12 +156,12 @@ return (
                 Guardar
             </button>
             <button
-                        type="button"
-                        className="TodoForm-button TodoForm-button--cancel"
-                        onClick={onCancel}
-                    >
-                        Cancelar
-                    </button>
+                type="button"
+                className="TodoForm-button TodoForm-button--cancel"
+                onClick={onCancel}
+            >
+                Cancelar
+            </button>
         </form>
 
     </div>

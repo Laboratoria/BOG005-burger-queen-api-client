@@ -8,8 +8,10 @@ const CreateUser = () => {
         setUsers,
         setOpenModal,
         editUserState,
+        setEditUserState,
         dataNewUser,
         setDataNewUser,
+
     } = React.useContext(BurgerContext);
 
 
@@ -23,6 +25,7 @@ const CreateUser = () => {
 
     const onCancel = () => {
         setOpenModal(false);
+        setEditUserState(false)
     }
 
     const onSubmit = (event) => {
@@ -64,6 +67,7 @@ const CreateUser = () => {
                     console.error(error)
                 })
             setOpenModal(false);
+            setEditUserState(false)
         }
 
 
