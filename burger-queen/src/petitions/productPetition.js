@@ -14,4 +14,25 @@ const listProducts = async () => {
     });
 } 
 
-export {listProducts}
+ //---Funcion de peticion para eliminar Usuario---//
+ const deleteProduct = async (id, product)=>{
+
+    return await axios({
+        method: "DELETE", 
+        url:url+'products/'+ id, 
+        headers: {
+            'Content-Type': 'application/json',
+                authorization: 'Bearer ' + getToken(),
+        },
+        data: {         
+            id: product.id,
+            name: product.name,
+            price: product.price,
+            image: product.image,
+            type: product.type,
+
+        },         
+    })     
+}
+
+export {listProducts, deleteProduct}

@@ -14,6 +14,7 @@ function BurgerProvider(props) {
 })
 const [stateAdmin, setStateAdmin]= useState(false);
 const [products, setProducts]= useState([])
+const [editProductState, setEditProductState] = useState(false)
   
   return (
     <BurgerContext.Provider value={{
@@ -29,6 +30,8 @@ const [products, setProducts]= useState([])
       setStateAdmin,
       products, 
       setProducts,
+      editProductState,
+      setEditProductState,
     }}>
       {props.children}
     </BurgerContext.Provider>

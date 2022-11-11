@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, {useEffect } from "react";
 import { listUser } from "../../../petitions/userPetition.js";
 import { Modal } from "../../modal/modal.jsx";
 import { UserItem } from './infoUser.jsx'
@@ -52,7 +52,9 @@ const AdminUser = () => {
                     <h4 className="rol">Rol</h4>
                     <h4 className="acciones">Acciones</h4>
                 </div>
+                <div className="table">
                 {users.map(data => (<UserItem key={data.id} id={data.id} email={data.email} role={data.role} />))}
+                </div>
             </div>
             {/* <div>k */}
                 {!!openModal && (
