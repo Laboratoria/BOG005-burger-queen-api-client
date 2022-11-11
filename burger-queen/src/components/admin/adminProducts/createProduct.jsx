@@ -37,7 +37,7 @@ const AddProducto = () => {
             setnewProducto({
                 name: '',
                 price: 0,
-                image: 'url',
+                image: '',
                 dateEntry: new Date(),
             })
         })
@@ -76,10 +76,10 @@ const AddProducto = () => {
                     />
                 </div>
                 <div className="formGroup">
-                    <label htmlFor="img">Imagen:</label>
+                    <label htmlFor="image">Imagen:</label>
                     <input type="file"
                         className="formInput"
-                        name="img"
+                        name="image"
                         onChange={handleImage}
                     />
                 </div>
