@@ -62,7 +62,8 @@ nav {
 		position: absolute;
 		top: 2%;
 		left: 36%;
-		height: 40%;
+		// height: 40%;
+		height: 100vh;
 		width: 60%;
 		display: flex;
 		flex-direction: column;
@@ -71,10 +72,12 @@ nav {
 		gap: 1.2rem;
 		// background-color: lightgreen;
 		transition: 1s;
-		transform: translateY(-100vh);
+		// transform: translateY(-100vh);
+		transform: translatex(150vh);
 		border-radius: 20px;
-		border: solid 2px $pinkButton;
+		// border: solid 2px $pinkButton;
 		background-image: url('../../img/fondoPizzara.jpg');
+		opacity: 0.9;
 		background-size: cover;
 		padding-top: 30px;
 	}
