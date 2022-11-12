@@ -1,10 +1,10 @@
-import React from "react";
+import React , {useState} from "react";
 import { createProduct, editProduct, listProducts } from "../../../petitions/productPetition";
 import { BurgerContext } from "../../../context/indexContext";
 import axios from "axios";
 
 const AddProducto = () => {
-
+    const [imgPreview, setImgPreview]= useState(null)
 
     const {
         newProduct,
@@ -43,31 +43,25 @@ async function uploadImgWeb (img) {
     const dataResponse = await response.json()
 
     console.log('URL IMAGEN >>>>', dataResponse.data.url )
-    // return dataResponse.data.url
- 
+     return dataResponse.data.url
 }
 
-const onChangeImg = async (e) => {
-    const fr = new FileReader()
-        fr.readAsDataURL(e.target.files[0])
-        fr.onload = ()=> setnewProduct(fr.result)
+const onChangeImg = async (e , setImgPreview) => {
+    const uploadedImg = await e.target.files[0]
+        const fr = new FileReader()
+        fr.readAsDataURL(uploadedImg)
+        fr.onload = ()=> setImgPreview(fr.result)
         console.log("QUE DEVUELVES", fr)
-        return fr
+        return uploadedImg
   }
 
     const handleImage = async (e) => {
-        // const fr = new FileReader()
-        // fr.readAsDataURL(e.target.files[0])
-        // fr.onload = function (carga) {
-        //     const url = carga.currentTarget.result
-        //     setnewProduct({
-        //         ...newProduct,
-        //         image: url
-        //     })
-        // }
-        const urlImgUpload = await onChangeImg(e)
+        const urlImgUpload = await onChangeImg(e, setImgPreview)
         const urlImageWeb = await uploadImgWeb(urlImgUpload)
-        setnewProduct(urlImageWeb)
+        setnewProduct({
+                    ...newProduct,
+                    image: urlImageWeb
+                })
     }
 
     const handleSubmit = (e) => {
@@ -170,6 +164,7 @@ return (
                     name="img"
                     onChange={handleImage}
                 />
+                 <img src={imgPreview} alt="imgPreview" className="imgPreview"/>
             </div>
 
             <div className="formGroup">
