@@ -56,18 +56,8 @@ const onChangeImg = async (e , setImgPreview) => {
   }
 
     const handleImage = async (e) => {
-        // const fr = new FileReader()
-        // fr.readAsDataURL(e.target.files[0])
-        // fr.onload = function (carga) {
-        //     const url = carga.currentTarget.result
-        //     setnewProduct({
-        //         ...newProduct,
-        //         image: url
-        //     })
-        // }
         const urlImgUpload = await onChangeImg(e, setImgPreview)
         const urlImageWeb = await uploadImgWeb(urlImgUpload)
-        // setnewProduct(urlImageWeb)
         setnewProduct({
                     ...newProduct,
                     image: urlImageWeb
@@ -174,6 +164,7 @@ return (
                     name="img"
                     onChange={handleImage}
                 />
+                 <img src={imgPreview} alt="imgPreview" className="imgPreview"/>
             </div>
 
             <div className="formGroup">
