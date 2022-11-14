@@ -3,13 +3,13 @@
     justify-content: center;
     padding: 10px;
     width: 50%;
-    min-width: 200px;
+    min-width: 250px;
     max-width: 450px;
     height: auto;
     flex-direction: column;
     align-items: center;
     background-color: black;
-    border: solid 5px #89126A;
+    border: solid 5px #FFD233;
     border-radius: 10px;
     color: white;
 
@@ -19,7 +19,7 @@
         margin-bottom: 20px;
         font-size: 30px;
         text-align: center;
-        color: #89126A;
+        color: #FFD233;
     }
 }
 
@@ -56,33 +56,70 @@
         max-width: 300px;
     }
 }
+.btnProduct{
+     background-color: #FFD233;
+     border-radius: 50px;
+     width: 40%;
+     max-width: 250px;
+     height: 7vh;
+     font-size: 1rem;
+     border: solid 2px black;
+     color: black;
+     margin: 5px;
 
-.btn{
-    background-color: #89126A;
-    padding: 10px;
-    display: flex;
-    width: fit-content;
-    align-items: center;
-    border: none;
-    border-radius: 5px;
-    margin-left: 20%;
-    cursor: pointer;    
-    color: white;
-    font-size: 18px;
-    font-weight: 500;
+     &:hover {
+         background-color: #9c842e ;
+         border: solid 2px black;
+         color: black;
+     }
+ }
+// .btn{
+//     background-color: #89126A;
+//     padding: 10px;
+//     display: flex;
+//     width: fit-content;
+//     align-items: center;
+//     border: none;
+//     border-radius: 5px;
+//     margin-left: 20%;
+//     cursor: pointer;    
+//     color: white;
+//     font-size: 18px;
+//     font-weight: 500;
 
 
-    &:hover{
-        transform: scale(1.02);
-        background-color: white;
-        color: #89126A;
+//     &:hover{
+//         transform: scale(1.02);
+//         background-color: white;
+//         color: #89126A;
 
-    }
+//     }
 
 
-  }
+//   }
 
  .imgPreview{
     width: 50px;
     height: 50px;
 }
+
+// .formContainer{
+//     // display: flex;
+//     // flex-direction: column;
+//     // justify-content: center;
+//     // align-items: center;
+//     .form {
+//         // margin-left: 20%;
+        
+//     input, select{
+//         // border-radius: 5px;
+//         // padding: 10px;
+//         // // outline: none;
+//         // border: none;
+//         width: 50%;
+//         // max-width: 300px;
+//         // font-size: 1.3rem;
+
+//     }
+//     }
+// }

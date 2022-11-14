@@ -38,10 +38,10 @@ const AdminProducts = () => {
      }
 
     return (
-        <div className="adminUser_container">
-            <h2>Administrar productos</h2>
-            <div className="tableUser_container">
-                <div className="tableHeader">
+        <div className="adminUser_container adminProduct_container">
+            <h2>Administrar Productos</h2>
+            <div className="tableUser_container tableProduct_container">
+                <div className="tableHeader tableProductHeader">
                     <h4 className="products">Productos</h4>
                     <h4 className="price">Precio</h4>
                     <h4 className="type">Menú</h4>
@@ -59,7 +59,7 @@ const AdminProducts = () => {
                     </Modal>
                 )}
 
-                <button onClick={onClickBtn} setOpenModal={setOpenModal} className='btnAddUser'>Agregar Usuario</button>
+                <button onClick={onClickBtn} setOpenModal={setOpenModal} className='btnAddUser btnAddProduct'>Agregar Producto</button>
 
            
         

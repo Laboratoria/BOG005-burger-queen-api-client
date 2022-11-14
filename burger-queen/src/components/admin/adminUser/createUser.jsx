@@ -75,6 +75,7 @@ const CreateUser = () => {
 
     return (
         <div className="createUser">
+            <h2>Nuevo Usuario</h2>
             <form onSubmit={onSubmit} className='createUserForm'>
                 <label htmlFor="email">Correo:</label>
                 <input id="email" // input para el correo
@@ -108,19 +109,19 @@ const CreateUser = () => {
                     <option value="Waiter">Waiter</option>
                     <option value="Chef">Chef</option>
                 </select>
-                <div>
+                <div className="btns">
+                    <button
+                        type="submit"
+                        className="btn"
+                    >
+                        Guardar
+                    </button>
                     <button
                         type="button"
-                        className="TodoForm-button TodoForm-button--cancel"
+                        className="btn"
                         onClick={onCancel}
                     >
                         Cancelar
-                    </button>
-                    <button
-                        type="submit"
-                        className="TodoForm-button TodoForm-button--add"
-                    >
-                        Guardar
                     </button>
                 </div>
             </form>

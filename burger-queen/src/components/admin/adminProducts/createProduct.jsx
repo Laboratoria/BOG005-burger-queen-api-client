@@ -125,12 +125,12 @@ const onCancel = () => {
 }
 
 return (
-    <div className="formContainer">
+    <div className="formContainer createUser">
         <h2>Nuevo producto</h2>
-        <form className="form"
+        <form className="form createUserForm"
             onSubmit={handleSubmit}
         >
-            <div className="formGroup">
+            {/* <div className="formGroup"> */}
                 <label htmlFor="name">Nombre:</label>
                 <input id="name"
                     type="texto"
@@ -141,9 +141,9 @@ return (
                     onChange={handleChenge}
                     required
                 />
-            </div>
+            {/* </div> */}
 
-            <div className="formGroup">
+            {/* <div className="formGroup"> */}
                 <label htmlFor="price">Precio:</label>
                 <input id="precio"
                     type="number"
@@ -156,7 +156,7 @@ return (
                     onChange={handleChenge}
                     required
                 />
-            </div>
+            {/* </div> */}
             <div className="formGroup">
                 <label htmlFor="img">Imagen:</label>
                 <input type="file"
@@ -167,7 +167,7 @@ return (
                  <img src={imgPreview} alt="imgPreview" className="imgPreview"/>
             </div>
 
-            <div className="formGroup">
+            {/* <div className="formGroup"> */}
                 <label htmlFor="tipo">Tipo:</label>
                 <select id="tipo" // input para el password
                     type="texto"
@@ -181,17 +181,20 @@ return (
                     <option value="Desayuno">Desayuno</option>
                     <option value="Almuerzo">Almuerzo</option>
                 </select>
-            </div>
-            <button className="btn" type="submit">
+            {/* </div> */}
+            <div className="btns">
+            <button type="submit"
+             className="btnProduct">
                 Guardar
             </button>
             <button
                 type="button"
-                className="TodoForm-button TodoForm-button--cancel"
+                className="btnProduct"
                 onClick={onCancel}
             >
                 Cancelar
             </button>
+            </div>
         </form>
 
     </div>

@@ -1,15 +1,37 @@
+.createUser{
+    display: flex;
+    justify-content: center;
+    padding: 10px;
+    width: 70%;
+    // min-width: 200px;
+    max-width: 500px;
+    height: auto;
+    flex-direction: column;
+    align-items: center;
+    // background-color: black;
+    background-image: url('../../../img/fondoPizzara.jpg');
+    border: solid 5px #89126A;
+    border-radius: 10px;
+    color: white;
+}
 .createUserForm {
     display: flex;
     flex-direction: column;
     gap: 15px;
 
-    button {
+    .btns{
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+    }
+
+    .btn {
         background-color: $pinkButton;
         border-radius: 50px;
         width: 40%;
         max-width: 250px;
-        height: 8vh;
-        font-size: 0.7rem;
+        height: 7vh;
+        font-size: 1rem;
         border: solid 2px $pinkText;
         color: $white;
         margin: 5px;
@@ -21,5 +43,19 @@
         }
 
     }
+
+    label{
+        font-size: 1.3rem;
+    }
+
+    input, select{
+                border-radius: 5px;
+                padding: 10px;
+                // outline: none;
+                border: none;
+                // width: 100%;
+                // max-width: 300px;
+                font-size: 1.3rem;
+            }
         
 }
