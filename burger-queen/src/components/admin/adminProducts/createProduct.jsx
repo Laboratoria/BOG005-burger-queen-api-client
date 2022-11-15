@@ -1,16 +1,16 @@
-import React from "react";
+import React , {useState} from "react";
 import { createProduct, editProduct, listProducts } from "../../../petitions/productPetition";
 import { BurgerContext } from "../../../context/indexContext";
 import axios from "axios";
 
 const AddProducto = () => {
-
+    const [imgPreview, setImgPreview]= useState(null)
 
     const {
         newProduct,
         setnewProduct,
         editProductState,
-        // setEditProductState,
+        setEditProductState,
         // openModal,
         setOpenModal,
         setProducts,
@@ -43,55 +43,34 @@ async function uploadImgWeb (img) {
     const dataResponse = await response.json()
 
     console.log('URL IMAGEN >>>>', dataResponse.data.url )
-    // return dataResponse.data.url
- 
+     return dataResponse.data.url
 }
 
-const onChangeImg = async (e) => {
-    const fr = new FileReader()
-        fr.readAsDataURL(e.target.files[0])
-        fr.onload = ()=> setnewProduct(fr.result)
+const onChangeImg = async (e , setImgPreview) => {
+    const uploadedImg = await e.target.files[0]
+        const fr = new FileReader()
+        fr.readAsDataURL(uploadedImg)
+        fr.onload = ()=> setImgPreview(fr.result)
         console.log("QUE DEVUELVES", fr)
-        return fr
+        return uploadedImg
   }
 
     const handleImage = async (e) => {
-        // const fr = new FileReader()
-        // fr.readAsDataURL(e.target.files[0])
-        // fr.onload = function (carga) {
-        //     const url = carga.currentTarget.result
-        //     setnewProduct({
-        //         ...newProduct,
-        //         image: url
-        //     })
-        // }
-        const urlImgUpload = await onChangeImg(e)
+        const urlImgUpload = await onChangeImg(e, setImgPreview)
         const urlImageWeb = await uploadImgWeb(urlImgUpload)
-        setnewProduct(urlImageWeb)
+        setnewProduct({
+                    ...newProduct,
+                    image: urlImageWeb
+                })
     }
 
     const handleSubmit = (e) => {
         e.preventDefault();
         if (editProductState === false) {
-            // listUser().then(res => {
+            console.log('new', newProduct);
             createProduct(newProduct)
-                .then(res => {
-                    setnewProduct({
-                        name: '',
-                        price: 0,
-                        image: '',
-                        dateEntry: new Date(),
-                    })
-                })
-                .catch(error => {
-                    console.error(error)
-                })
-            setOpenModal(false);
-            // })
-        }
-        else if (editProductState === true) {
-            editProduct(newProduct.id, newProduct)
-                .then(res => {
+                .then(
+                    res => {
                     listProducts().then(res => {
                         setProducts(res.data.map((product) => {
                             return {
@@ -99,39 +78,72 @@ const onChangeImg = async (e) => {
                                 price: product.price,
                                 image: product.image,
                                 type: product.type,
+                                id: product.id
                             }
                         }))
-                    })
-                })
+                    })}
+                    // res => {
+                    //     setnewProduct({
+                    //         name: '',
+                    //         price: 0,
+                    //         image: 'url',
+                    //         dateEntry: new Date(),
+                    //     })
+                    // }
+                )
                 .catch(error => {
                     console.error(error)
                 })
             setOpenModal(false);
-        }
+        // })
+    }
+        else if (editProductState === true) {
+            console.log('que llega',newProduct);
+    editProduct(newProduct.id, newProduct)
+        .then(res => {
+            listProducts().then(res => {
+                setProducts(res.data.map((product) => {
+                    return {
+                        name: product.name,
+                        price: product.price,
+                        image: product.image,
+                        type: product.type,
+                    }
+                }))
+            })
+        })
+        .catch(error => {
+            console.error(error)
+        })
+    setOpenModal(false);
+    setEditProductState(false)
 }
+    }
 const onCancel = () => {
     setOpenModal(false);
+    setEditProductState(false)
 }
 
 return (
-    <div className="formContainer">
+    <div className="formContainer createUser">
         <h2>Nuevo producto</h2>
-        <form className="form"
+        <form className="form createUserForm"
             onSubmit={handleSubmit}
         >
-            <div className="formGroup">
+            {/* <div className="formGroup"> */}
                 <label htmlFor="name">Nombre:</label>
                 <input id="name"
                     type="texto"
                     name="name"
                     placeholder="Ingresar nombre"
                     defaultValue={newProduct.name}
+                    // value={newProduct.name}
                     onChange={handleChenge}
                     required
                 />
-            </div>
+            {/* </div> */}
 
-            <div className="formGroup">
+            {/* <div className="formGroup"> */}
                 <label htmlFor="price">Precio:</label>
                 <input id="precio"
                     type="number"
@@ -144,7 +156,7 @@ return (
                     onChange={handleChenge}
                     required
                 />
-            </div>
+            {/* </div> */}
             <div className="formGroup">
                 <label htmlFor="img">Imagen:</label>
                 <input type="file"
@@ -152,9 +164,10 @@ return (
                     name="img"
                     onChange={handleImage}
                 />
+                 <img src={imgPreview} alt="imgPreview" className="imgPreview"/>
             </div>
 
-            <div className="formGroup">
+            {/* <div className="formGroup"> */}
                 <label htmlFor="tipo">Tipo:</label>
                 <select id="tipo" // input para el password
                     type="texto"
@@ -162,22 +175,26 @@ return (
                     placeholder="tipo"
                     // onChange={handleChange}
                     required
+                    // defaultValue= 'Desayuno'
                     value={newProduct.type}
                 >
                     <option value="Desayuno">Desayuno</option>
                     <option value="Almuerzo">Almuerzo</option>
                 </select>
-            </div>
-            <button className="btn" type="submit">
+            {/* </div> */}
+            <div className="btns">
+            <button type="submit"
+             className="btnProduct">
                 Guardar
             </button>
             <button
-                        type="button"
-                        className="TodoForm-button TodoForm-button--cancel"
-                        onClick={onCancel}
-                    >
-                        Cancelar
-                    </button>
+                type="button"
+                className="btnProduct"
+                onClick={onCancel}
+            >
+                Cancelar
+            </button>
+            </div>
         </form>
 
     </div>

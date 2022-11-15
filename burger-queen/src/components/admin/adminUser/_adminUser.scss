@@ -28,6 +28,7 @@
         max-width: 800px;
         // background-color: $pinkButton;
         //  max-height: 300px; 
+        max-height: 350px;
 
         .tableHeader {
             background-color: $pinkButton;
@@ -36,7 +37,7 @@
         }
 
         .table {
-            max-height: 200px; 
+            max-height: 290px; 
             overflow: auto;
             // ::-webkit-scrollbar {display: none;}
         }
@@ -74,9 +75,9 @@
         }
 
         .tableUser_container {
-    
+            max-height: 600px;
             .table {
-                max-height: 400px; 
+                max-height: 500px; 
                 overflow: auto;
 
             }
@@ -86,3 +87,14 @@
         }
     }
 }
+
+@media(min-width:1024px){
+    .adminUser_container {
+        .tableUser_container {
+            max-height: 400px;
+            .table {
+                max-height: 300px; 
+            }
+        }
+    }
+} 
