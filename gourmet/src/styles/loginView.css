@@ -4,7 +4,8 @@
     box-sizing: border-box;
 }
 
-html, body {
+html,
+body {
     font-family: 'Poppins', sans-serif;
 }
 
@@ -92,7 +93,7 @@ html, body {
     width: 70vw;
     height: 9vw;
     color: white;
-    margin-top: 16vw;
+    margin-top: 11vw;
     font-size: 5vw;
     font-weight: 600;
     border-radius: 5vw;
@@ -107,11 +108,17 @@ html, body {
     background-color: #d78033;
 }
 
+p {
+    font-family: 'Poppins', sans-serif;
+    font-size: 1em;
+}
+
 @media only screen and (max-width: 829px) and (min-width: 600px) {
     .boxForm {
         height: 88vw;
         padding-top: 8vw;
     }
+
     .titleLogin {
         margin-bottom: 8vw;
     }
@@ -120,14 +127,21 @@ html, body {
         font-size: 4vw;
         border: 0.4vw solid #F0B44C;
     }
+
     .passwordInput {
         font-size: 4vw;
         border: 0.4vw solid #F0B44C;
     }
+
     .loginBtn {
         font-size: 4.5vw;
-        margin-top: 12vw;
+        margin-top: 8vw;
     }
+    p {
+        font-family: 'Poppins', sans-serif;
+        font-size: 1.7em;
+    }
+    
 }
 
 @media (min-width: 830px) {
@@ -190,9 +204,13 @@ html, body {
     .loginBtn {
         width: 35vw;
         height: 4vw;
-        margin-top: 6vw;
+        margin-top: 4vw;
         font-size: 2.1vw;
         font-weight: 700;
         border-radius: 3vw;
+    }
+    p {
+        font-family: 'Poppins', sans-serif;
+        font-size: 1.1em;
     }
 }
