@@ -50,7 +50,8 @@ function LoginView() {
         <section className="loginComponent">
 
             <section className="sectionImg">
-                <img src="/burgerQueenThin.png" className="logoBurger" alt="Burger logo" />
+                <img src="/burgerQueenThin.png" className="logoMobile" alt="Burger logo" />
+                <img src="/burgerQueenBig.png" className="logoDesk" alt="Burger logo" />
             </section>
             <section className="boxForm">
                 <form className='loginForm' onSubmit={authUser}>

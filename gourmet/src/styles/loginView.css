@@ -4,52 +4,58 @@
     box-sizing: border-box;
 }
 
-html {
+html, body {
     font-family: 'Poppins', sans-serif;
 }
 
 .loginComponent {
+    width: 100%;
     display: flex;
     align-items: center;
     justify-content: center;
     flex-direction: column;
-    width: 100vw;
     min-height: 100vh;
 }
 
-.logoBurger {
-    height: 160px;
+.logoMobile {
+    height: 42.5vw;
+
+}
+
+.logoDesk {
+    display: none;
 }
 
 .boxForm {
-    width: 300px;
-    height: 400px;
-    border: solid;
-    border-radius: 20px;
-    border-color: #F0B44C;
-    padding-top: 75px;
+    width: 80vw;
+    height: 110vw;
+    border-radius: 5vw;
+    padding-top: 16vw;
+    border: 0.5vw solid #F0B44C;
 }
 
 .loginForm {
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 20px;
+    gap: 3vw;
 }
 
 .titleLogin {
-    margin-bottom: 20px;
-    font-size: 30px;
+    color: rgb(64, 64, 64);
+    margin-bottom: 13vw;
+    font-size: 7vw;
+    font-weight: 600;
 }
 
 .emailInput {
-    width: 250px;
-    height: 30px;
-    color: black;
-    font-size: large;
+    width: 70vw;
+    height: 9vw;
+    color: rgb(64, 64, 64);
+    font-size: 4.5vw;
     text-align: center;
-    border-radius: 10px;
-    border: 1.3px solid #F0B44C;
+    border-radius: 5vw;
+    border: 0.5vw solid #F0B44C;
 }
 
 .emailInput:focus {
@@ -58,17 +64,18 @@ html {
 }
 
 .emailInput::placeholder {
-    color: rgb(148, 144, 144);
+    font-family: 'Poppins', sans-serif;
+    color: rgb(172, 172, 172);
 }
 
 .passwordInput {
-    width: 250px;
-    height: 30px;
-    color: black;
-    font-size: large;
+    width: 70vw;
+    height: 9vw;
+    color: rgb(64, 64, 64);
+    font-size: 4.5vw;
     text-align: center;
-    border-radius: 10px;
-    border: 1.3px solid #F0B44C;
+    border-radius: 5vw;
+    border: 0.5vw solid #F0B44C;
 }
 
 .passwordInput:focus {
@@ -77,23 +84,115 @@ html {
 }
 
 .passwordInput::placeholder {
-    color: rgb(148, 144, 144);
+    font-family: 'Poppins', sans-serif;
+    color: rgb(172, 172, 172);
 }
 
 .loginBtn {
-    width: 250px;
-    height: 35px;
+    width: 70vw;
+    height: 9vw;
     color: white;
-    margin-top: 25px;
-    font-size: larger;
-    font-weight: bold;
-    border-radius: 10px;
+    margin-top: 16vw;
+    font-size: 5vw;
+    font-weight: 600;
+    border-radius: 5vw;
     align-items: center;
     background-color: #F0B44C;
     border: white;
-    box-shadow: rgba(0, 0, 0, 0.3) 0 4px 4px;
+    font-family: 'Poppins', sans-serif;
+    box-shadow: rgb(0 0 0 / 15%) 0 6px 6px;
 }
 
 .loginBtn:hover {
-    background-color: #F9965E;
+    background-color: #d78033;
+}
+
+@media only screen and (max-width: 829px) and (min-width: 600px) {
+    .boxForm {
+        height: 88vw;
+        padding-top: 8vw;
+    }
+    .titleLogin {
+        margin-bottom: 8vw;
+    }
+
+    .emailInput {
+        font-size: 4vw;
+        border: 0.4vw solid #F0B44C;
+    }
+    .passwordInput {
+        font-size: 4vw;
+        border: 0.4vw solid #F0B44C;
+    }
+    .loginBtn {
+        font-size: 4.5vw;
+        margin-top: 12vw;
+    }
+}
+
+@media (min-width: 830px) {
+    .loginComponent {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: row;
+        width: 100vw;
+        min-height: 100vh;
+    }
+
+    .logoMobile {
+        display: none;
+    }
+
+    .logoDesk {
+        height: 45vw;
+        display: block;
+        margin-right: 1em;
+    }
+
+    .titleLogin {
+        margin-top: 0.5em;
+        margin-bottom: 1.6em;
+        font-size: 3.4vw;
+        font-weight: 600;
+    }
+
+    .boxForm {
+        width: 45vw;
+        height: 45vw;
+        border-radius: 3vw;
+        padding: 5vw;
+        border: 0.2vw solid #F0B44C;
+    }
+
+    .loginForm {
+        gap: 1vw;
+    }
+
+    .emailInput {
+        width: 35vw;
+        height: 4vw;
+        color: black;
+        font-size: 1.4em;
+        border-radius: 3vw;
+        border: 0.15vw solid #F0B44C;
+    }
+
+    .passwordInput {
+        width: 35vw;
+        height: 4vw;
+        color: black;
+        font-size: 1.4em;
+        border-radius: 3vw;
+        border: 0.15vw solid #F0B44C;
+    }
+
+    .loginBtn {
+        width: 35vw;
+        height: 4vw;
+        margin-top: 6vw;
+        font-size: 2.1vw;
+        font-weight: 700;
+        border-radius: 3vw;
+    }
 }
