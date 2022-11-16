@@ -3,7 +3,8 @@ import React from 'react'
 const TittleBQ = () => {
   return (
     <div className='tittleBQ'>
-        <h1>BURGER QUEEN | SISTEMA DE PEDIDOS</h1>
+      <h1>BURGER QUEEN</h1>
+      <h2>SISTEMA DE PEDIDOS</h2>
     </div>
   )
 }

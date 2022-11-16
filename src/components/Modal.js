@@ -1,23 +1,24 @@
 import React from 'react'
-import './Modal.css'
+import Button from './Button'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faCircleXmark } from '@fortawesome/free-solid-svg-icons';
 
-const Modal = ({isOpen, closeModal, children}) => {
+const Modal = ({ isOpen, closeModal, children }) => {
 
     const handleModalDialogClick = (e) => {
         e.stopPropagation();
     }
 
-  return (
-    <div className={`modal ${isOpen && 'modal-open'}`} onClick={closeModal}>
-        <div className='modal_dialog' onClick={handleModalDialogClick}>
-            <h1>Editando Producto</h1>
-            <button onClick={closeModal}>
-                X
-            </button>
-            {children}
+    return (
+        <div className={`modal ${isOpen && 'modal-open'}`} onClick={closeModal}>
+            <div className='modal_dialog' onClick={handleModalDialogClick}>
+                <Button onClick={closeModal} className="closeButtonModal">
+                    <FontAwesomeIcon icon={faCircleXmark} className="iconCloseModal" />
+                </Button>
+                {children}
+            </div>
         </div>
-    </div>
-  )
+    )
 }
 
 export default Modal

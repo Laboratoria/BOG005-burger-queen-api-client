@@ -50,6 +50,23 @@ export const createProductPost = async (token, objectProduct) => {
     return res
 };
 
+export const editProduct = async (token, objectProduct, idProduct) => {
+    // console.log(objectProduct)
+    const res = await axios({
+        method: 'PUT',
+        url: baseUrl + '/products/' + idProduct,
+        headers: {
+            'Content-Type': 'application/json',
+            'Authorization': 'Bearer ' + token,
+        },
+        data: objectProduct
+    });
+    // console.log(res.data)
+    return res
+};
+
+
+
 export const deleteProduct = async (token, objectProduct, idProduct) => {
     const res = await axios({
         method: 'DELETE',

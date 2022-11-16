@@ -7,23 +7,24 @@ import { useNavigate } from 'react-router-dom';
 
 const Header = () => {
 
-    const navigate = useNavigate();
+  const navigate = useNavigate();
 
-    const logOut = () => {
-      navigate('/')
-    }
+  const logOut = () => {
+    navigate('/')
+  }
 
-    return ( 
-        <section className='headerContainer'>
-            <img src={logo} className="App-logo" alt="logo" />
-            <TittleBQ />
-            <Button 
-                type= 'button'
-                onClick={logOut} >
-                </Button>
+  return (
+    <section className='headerContainer'>
+      <img src={logo} className="App-logo" alt="logo" />
+      <TittleBQ />
+      <Button
+        className='btnStyle'
+        type='button'
+        onClick={logOut} >
+      </Button>
 
-        </section>
-     );
+    </section>
+  );
 }
- 
+
 export default Header;
