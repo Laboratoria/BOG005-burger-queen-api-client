@@ -8,6 +8,7 @@
 .btnStateOrder {
     display: flex;
     justify-content: center;
+    align-items: center;
     font-size: 14px;
     font-weight: bold;
     height: 30px;
@@ -75,6 +76,11 @@
     margin-bottom: 15px;
 }
 
+input:focus {
+    outline: solid 1px #F8B62A;
+    box-shadow: 0px 0px 10px #F8B62A;
+}
+
 /* contenedor producto cantidad opciones */
 .containerLabels {
     display: flex;
@@ -107,7 +113,8 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    /* border: solid 2px #F8B62A; */
+    /* border: solid 1px #F8B62A; */
+    width: 70px;
 }
 
 .btnFewer,
@@ -117,13 +124,17 @@
 }
 
 .pControl {
-    padding: 2px 8px;
-    margin: 2px;
-    font-size: 18px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 16px;
+    height: 30px;
+    width: 30px;
     background-color: #F8B62A;
     border-radius: 15px;
     border-style: none;
     text-align: center;
+    margin-bottom: 5px;
 }
 
 .trashContainer {
@@ -228,6 +239,11 @@
         height: 60px;
     }
 
+    .pControl {
+        height: 40px;
+        width: 40px;
+    }
+
 }
 
 @media all and (min-width: 1024px) {
@@ -235,13 +251,13 @@
         flex-direction: row;
     }
 
-    .formOrder {
-        margin-top: 50px;
-    }
-
     .trashContainer {
         width: 36px;
         height: 38px;
         font-size: 20px;
+    }
+
+    .formAddProduct {
+        width: 100%;
     }
 }

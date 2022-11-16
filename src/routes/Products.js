@@ -17,8 +17,6 @@ export const Products = () => {
     //const [updateListProducts, setUpdateListProducts] = useState(false)
     const [newProduct, setNewProduct] = useState({ dateEntry: new Date(), image: "", name: "", price: 0, type: "" })
 
-
-
     const mitoken = localStorage.getItem('tokenUser')
 
     useEffect(() => {
@@ -72,50 +70,52 @@ export const Products = () => {
                 <h3>Administración de productos</h3>
 
                 <div className='containerFormListProducts'>
-                    <form typeof='submit' className='formOrder formAddProduct' onSubmit={handleSubmit(createProduct)} >
-                        <p className='pAgregarProductoForm'>Agregar producto</p>
-                        <FormInput
-                            className='inputCargarImagen'
-                            type='url'
-                            name='image'
-                            required
-                            placeholder='cargar imagen'
-                            value={newProduct.image}
-                            onChange={handleChange}
-                        >
-                        </FormInput>
-                        <FormInput
-                            className='inputNombreProducto'
-                            type='nameNewProduct'
-                            name='name'
-                            required
-                            placeholder='Nombre del nuevo producto'
-                            value={newProduct.name}
-                            onChange={handleChange}
-                        >
-                        </FormInput>
-                        <FormInput
-                            className='inputPrecio'
-                            type='string'
-                            name='price'
-                            required
-                            placeholder='Precio del nuevo producto'
-                            value={newProduct.price}
-                            onChange={handleChange}
-                        >
-                        </FormInput>
-                        <select className='SelectTypeProduct' name='type' onChange={handleChange}>
-                            <option value='seleccion tipo' >Selecciona tipo</option>
-                            <option value='Desayuno'>Desayuno</option>
-                            <option value='Almuerzo'>Almuerzo</option>
-                        </select>
-                        <section className='sectionBtn'>
-                            <Button text='Agregar' className='btnEnviar'>
-                            </Button>
-                            <Button text='Cancelar' className='btnCancel'>
-                            </Button>
-                        </section>
-                    </form>
+                    <div className='containerFormAddProduct'>
+                        <form typeof='submit' className='formOrder formAddProduct' onSubmit={handleSubmit(createProduct)} >
+                            <p className='pAddProductForm'>Agregar producto</p>
+                            <FormInput
+                                className='inputCargarImagen'
+                                type='url'
+                                name='image'
+                                required
+                                placeholder='cargar imagen'
+                                value={newProduct.image}
+                                onChange={handleChange}
+                            >
+                            </FormInput>
+                            <FormInput
+                                className='inputNombreProducto'
+                                type='nameNewProduct'
+                                name='name'
+                                required
+                                placeholder='Nombre del nuevo producto'
+                                value={newProduct.name}
+                                onChange={handleChange}
+                            >
+                            </FormInput>
+                            <FormInput
+                                className='inputPrecio'
+                                type='string'
+                                name='price'
+                                required
+                                placeholder='Precio del nuevo producto'
+                                value={newProduct.price}
+                                onChange={handleChange}
+                            >
+                            </FormInput>
+                            <select className='SelectTypeProduct' name='type' onChange={handleChange}>
+                                <option value='seleccion tipo' >Selecciona tipo</option>
+                                <option value='Desayuno'>Desayuno</option>
+                                <option value='Almuerzo'>Almuerzo</option>
+                            </select>
+                            <section className='sectionBtn'>
+                                <Button text='Agregar' className='btnEnviar'>
+                                </Button>
+                                <Button text='Cancelar' className='btnCancel'>
+                                </Button>
+                            </section>
+                        </form>
+                    </div>
                     <div className='containerProductsAdmin'>
                         {ListProductsTotal.map((product, id) => (
                             <div key={id}>

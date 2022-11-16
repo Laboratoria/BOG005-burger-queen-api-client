@@ -31,6 +31,12 @@
     justify-content: center;
 }
 
+.containerFormAddProduct {
+    /* border: solid 2px rgb(140, 228, 52); */
+    height: 100%;
+    width: 100%;
+}
+
 .containerProductsAdmin {
     /* border: solid 2px rgb(169, 24, 236); */
     padding-bottom: 20px;
@@ -61,7 +67,7 @@
 }
 
 /* <p> Agregar Producto </p> */
-.pAgregarProductoForm {
+.pAddProductForm {
     margin-bottom: 5px;
     font-weight: bold;
     /* border: solid 2px blueviolet; */
@@ -100,10 +106,10 @@
 }
 
 .btnEditAdmonProduct {
-    color: white;
+    color: black;
     width: 60px;
     height: 30px;
-    background-color: #33C8FF;
+    background-color: #BCE402;
     border-radius: 15px;
     border-style: none;
     margin-right: 5px;
@@ -127,6 +133,12 @@
 
     .productsAll h3 {
         font-size: 32px;
+    }
+
+    .containerFormAddProduct {
+        /* border: solid 2px rgb(140, 228, 52); */
+        display: flex;
+        justify-content: center;
     }
 
     .containerProductsAdmin {
@@ -156,8 +168,16 @@
 }
 
 @media all and (min-width: 1024px) {
+
+    .containerFormListProducts {
+        /* border: solid 2px rgb(37, 71, 4); */
+        align-items: flex-start;
+    }
+
     .containerFormListProducts {
         /* border: solid 2px rgb(37, 71, 4); */
         flex-direction: row;
     }
+
+
 }

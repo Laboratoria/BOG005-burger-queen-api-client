@@ -1,11 +1,15 @@
-import React from 'react'
+import React, { useState } from 'react'
 import Swal from 'sweetalert2'
-import { deleteProduct } from '../helpers/axios'
+import { deleteProduct, editProduct } from '../helpers/axios'
 import Button from './Button'
+import FormInput from './FormInput'
+import Modal from './Modal'
 
 export const CardListProducts = (product) => {
 
     // console.log(product)
+    const [openModal, setOpenModal] = useState(false)
+    const [productUpdate, setProductUpdate] = useState({ dateEntry: new Date(), image: product.image, name: product.name, price: product.price, type: "" });
 
     const mitoken = localStorage.getItem('tokenUser')
 
@@ -46,8 +50,32 @@ export const CardListProducts = (product) => {
     }
 
     const handleEdit = () => {
-        console.log('editando')
+        setOpenModal(true)
     }
+
+    const handleChange = (e) => {
+        console.log('me estoy ejecutando')
+        setProductUpdate({
+            ...productUpdate,
+            [e.target.name]: e.target.value
+        })
+    }
+
+    const closeModal = () => {
+        setOpenModal(false)
+    }
+
+    const updateProductNow = async () => {
+        const res = await editProduct(mitoken, productUpdate, product.id)
+        console.log(res)
+        if (res.status === 200) {
+            alert('Producto editado')
+        } else {
+            alert('No se edito el producto')
+        }
+        closeModal()
+    }
+
 
     return (
         <>
@@ -59,6 +87,52 @@ export const CardListProducts = (product) => {
             </div>
             <div className='btnContainerProducts'>
                 <Button className='btnEditAdmonProduct' text='Edit' onClick={handleEdit} />
+                <Modal
+                    isOpen={openModal}
+                    closeModal={closeModal}
+                >
+                    <p>Editar producto</p>
+                    <FormInput
+                        className="inputCargarImagen"
+                        type='url'
+                        name='image'
+                        required
+                        placeholder='cargar imagen'
+                        value={productUpdate.image}
+                        onChange={handleChange}
+                    >
+                    </FormInput>
+                    <FormInput
+                        className="inputNombreProducto"
+                        type='nameNewProduct'
+                        name='name'
+                        required
+                        placeholder='Nombre del nuevo producto'
+                        value={productUpdate.name}
+                        onChange={handleChange}
+                    >
+                    </FormInput>
+                    <FormInput
+                        className="inputPrecio"
+                        type='string'
+                        name='price'
+                        required
+                        placeholder='Precio del nuevo producto'
+                        value={productUpdate.price}
+                        onChange={handleChange}
+                    >
+                    </FormInput>
+                    <select name='type' onChange={handleChange} className="SelectTypeProduct">
+                        <option value='seleccion tipo' >Selecciona tipo</option>
+                        <option value='Desayuno'>Desayuno</option>
+                        <option value='Almuerzo'>Almuerzo</option>
+                    </select>
+                    <div className='optionsModal'>
+                        <Button onClick={updateProductNow} text="Aceptar" className="btnEditAdmonProduct" />
+                        <Button onClick={closeModal} text="Cancelar" className="btnEditDeleteProduct" />
+                    </div>
+
+                </Modal>
                 <Button className='btnEditDeleteProduct' text='Elim' onClick={handleDelete} />
             </div>
         </>

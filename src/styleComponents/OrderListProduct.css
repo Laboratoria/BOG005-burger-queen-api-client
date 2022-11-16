@@ -63,8 +63,7 @@
     }
 
     .optionsListContainer option {
-        font-weight: normal;
-        font-size: 14px;
+        font-size: 16px;
     }
 
     .listProductsOrder {
@@ -98,6 +97,10 @@
 @media all and (min-width: 1024px) {
     .optionsListContainer {
         margin-bottom: 30px;
+    }
+
+    .optionsListContainer option {
+        font-size: 20px;
     }
 
     .listProductsContainer {
