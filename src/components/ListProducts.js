@@ -7,7 +7,7 @@ const ListProducts = (props) => {
             <img src={props.image} alt={props.name} />
             <p>{props.name}</p>
             <p>${props.price}</p>
-            <Button text='agregar' />
+            <Button text='agregar' className='btnAdd' />
         </div>
     )
 }

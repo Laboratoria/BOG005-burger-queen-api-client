@@ -6,6 +6,9 @@ import { useState } from 'react';
 import { getProducts } from '../helpers/axios'
 // import { useForm } from 'react-hook-form'
 import ListProducts from '../components/ListProducts';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faTrash } from '@fortawesome/free-solid-svg-icons';
+import { faCircleArrowRight } from '@fortawesome/free-solid-svg-icons';
 //import menu from '../helpers/menu'
 
 //console.log('este es el menu', menu())
@@ -41,11 +44,9 @@ const Order = () => {
                 // console.log(product.name)
                 console.log(product)
                 // console.log({ image: product.image, name: product.name, price: product.price })
-
                 return true
                 // mostrar los almuerzos
             }
-
             return false
         })
 
@@ -56,8 +57,12 @@ const Order = () => {
     return (
         <section className='order'>
             <Header />
+            {/* <FontAwesomeIcon icon="fa-solid fa-circle-arrow-right" /> */}
+            <Button className='btnStateOrder' text='Estado Pedidos'><FontAwesomeIcon className='iconArrow' icon={faCircleArrowRight} /></Button>
+            <div className='containerH1'>
+                <h1>Realizar Pedido</h1>
+            </div>
             <section className='mainlist'>
-
                 <div className='optionsListContainer'>
                     <select className='optionMenu' onChange={selectOption}>
                         <option value='Seleccione Desayuno/Almuerzo'>Seleccione una opción</option>
@@ -67,7 +72,7 @@ const Order = () => {
                     {
                         productsList.map((product, index) => {
                             return (
-                                <div key={index}>
+                                <div key={index} className='listProductsOrder'>
                                     <ListProducts
                                         image={product.image}
                                         name={product.name}
@@ -78,17 +83,41 @@ const Order = () => {
                 </div>
                 {/* <form typeof='submit' className='formOrder' onSubmit={handleSubmit(selectOption)}> */}
 
+                {/* seccion de manejar cantidad de los pedidos */}
                 <form typeof='submit' className='formOrder' >
-                    <p>Resumen del pedido</p>
+                    <p className='pOrderSummary'>Resumen del pedido</p>
                     <FormInput
+                        className='inputNameClient'
                         type='nameClient'
                         required
                         placeholder='Nombre del cliente'>
                     </FormInput>
-                    <Button text='Enviar' >
-                    </Button>
-                    <Button text='Cancelar' >
-                    </Button>
+                    <section className='containerLabels'>
+                        <p>Producto</p>
+                        <p>Cantidad</p>
+                        <p>Opciones</p>
+                    </section>
+
+                    {/* informacion de los productos */}
+                    <section className='containerPCO'>
+                        <div className='name'>
+                            <p>nombre</p>
+                        </div>
+                        <div className='btnQuantity'>
+                            <Button text='–' className='btnFewer' />
+                            <p className='pControl'>0</p>
+                            <Button text='+' className='btnAdd' />
+                        </div>
+                        <div className='btnDelete'>
+                            <Button className='trashContainer'><FontAwesomeIcon icon={faTrash} /></Button>
+                        </div>
+                    </section>
+
+                    <section className='sectionBtn'>
+                        <Button text='Enviar' className='btnEnviar'></Button>
+                        <Button text='Cancelar' className='btnCancel'></Button>
+                    </section>
+
                 </form>
             </section>
         </section>
