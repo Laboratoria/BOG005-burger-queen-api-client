@@ -1,28 +1,33 @@
 import React, { useState } from "react";
 
-<section className="adminView">
+function AdminView() {
+    <section className="adminView">
 
-    <section className="header">
-        <div className="imgHeader">
-        <img src="/burger-queen-logo.png" className="logoHeader" alt="Burger logo" />
-        <img src="/burger-queen-header.png" className="logoHeaderBig" alt="Burger logo" />
-        </div>
+        <section className="header">
+            <div className="headerImg">
+                <img src="/burger-queen-logo.png" className="headerLogo" alt="Burger logo" />
+                <img src="/burger-queen-header.png" className="headerLogoBig" alt="Burger logo" />
+            </div>
 
-        <nav className="menuNav"></nav>
-        {/* Menú de navegació en react */}
+            <nav className="navMenu"></nav>
+            {/* Menú de navegació en react */}
+
+        </section>
+
+        <section className="productsList">
+            {/* componente de productos */}
+        </section>
+
+        <section className="addProdModal">
+            {/* form para crear productos  */}
+        </section>
+
+        <section className="editProdModal">
+            {/* form para crear productos  */}
+        </section>
 
     </section>
+}
 
-    <section className="productsList">
-    {/* componente de productos */}
-    </section>
+export { AdminView }
 
-    <section className="modalAddProd">   
-    {/* form para crear productos  */}
-    </section>
-
-    <section className="modalEditProd">   
-    {/* form para crear productos  */}
-    </section>
-
-</section>

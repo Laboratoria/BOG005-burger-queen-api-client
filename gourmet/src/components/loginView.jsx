@@ -1,7 +1,10 @@
 import React, { useState } from "react";
+import { useNavigate } from 'react-router-dom';
 import { postUserPetition } from "../utils/petitions.js";
 
 function LoginView() {
+
+    const navigating = useNavigate();
 
     const [emailUser, setEmailUser] = useState('')
 
@@ -30,6 +33,7 @@ function LoginView() {
 
                 if (response.data.user.role === 'admin') {
                     console.log('Tienes acceso')
+                    navigating('/admin-products');
                 }
             })
             .catch((error) => {
