@@ -1,7 +1,7 @@
 import React from "react";
 import { deleteProduct } from "../../../petitions/productPetition";
 import { BurgerContext } from "../../../context/indexContext";
-
+import Swal from 'sweetalert2'
 
 const ProductsItem = (props) => {
     const {products,
@@ -14,11 +14,28 @@ const ProductsItem = (props) => {
     } = React.useContext(BurgerContext);
 
     const deleteProductBtn = () => {
-        deleteProduct(props.id, props)
-        console.log(products);
-    //     // filtra el estado para volverlo a renderizar
-        const arrayFilterProduct = products.filter(product => product.id !== props.id )
-       setProducts(arrayFilterProduct)
+        Swal.fire({
+            title: 'Estás seguro?',
+            text: "No podrás recuperar la publicación!",
+            icon: 'warning',
+            showCancelButton: true,
+            confirmButtonColor: '#3085d6',
+            cancelButtonColor: '#d33',
+            confirmButtonText:  'Sí, eliminar!'
+          }).then((result) => {
+            if (result.isConfirmed) {
+                deleteProduct(props.id, props)
+                 // filtra el estado para volverlo a renderizar
+                const arrayFilterProduct = products.filter(product => product.id !== props.id )
+               setProducts(arrayFilterProduct)
+              Swal.fire(
+                'Eliminado!',
+                            'El producto ha sido eliminada correctamente',
+                            'Eliminada correctamente',
+              )
+            }
+          })
+        
     }
 
     const saveProductEdit = (e) => {
@@ -32,7 +49,8 @@ const ProductsItem = (props) => {
             price: props.price,
             image: props.image,
             dateEntry: new Date(),
-            id: props.id
+            id: props.id,
+            type: props.type,
         });
         console.log('np',newProduct);
         return newProduct

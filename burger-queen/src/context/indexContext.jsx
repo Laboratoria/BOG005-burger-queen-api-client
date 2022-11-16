@@ -19,7 +19,7 @@ const [newProduct, setnewProduct] = useState({
   name: '',
   price: 0,
   image: '',
-  type:[],
+  type:'',
   dateEntry: new Date(),
 });
   

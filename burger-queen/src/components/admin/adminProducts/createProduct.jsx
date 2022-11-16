@@ -21,6 +21,8 @@ const AddProducto = () => {
             ...newProduct,
             [e.target.name]: e.target.value
         });
+        console.log('handleChenge', newProduct);
+        return newProduct
     };
     //subir imagen a la web y obtener url 
 async function uploadImgWeb (img) {
@@ -168,16 +170,16 @@ return (
             </div>
 
             {/* <div className="formGroup"> */}
-                <label htmlFor="tipo">Tipo:</label>
-                <select id="tipo" // input para el password
+                <label htmlFor="type">Tipo:</label>
+                <select id="type" // input para el password
                     type="texto"
-                    name="tipo"
+                    name="type"
                     placeholder="tipo"
-                    // onChange={handleChange}
+                    onChange={handleChenge}
                     required
-                    // defaultValue= 'Desayuno'
                     value={newProduct.type}
                 >
+                    <option value="">Seleccione una opción</option>
                     <option value="Desayuno">Desayuno</option>
                     <option value="Almuerzo">Almuerzo</option>
                 </select>
