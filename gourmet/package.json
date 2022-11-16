@@ -7,7 +7,7 @@
     "node": ">=12.x"
   },
   "description": "Interface to take orders, with views for administrator, waiter and kitchen",
-  "keywords": ["React", "JavaSript", "API",  "Food-Api", "Orders", "Billing" ],
+  "keywords": ["React", "JavaScript", "API",  "Food-Api", "Orders", "Billing" ],
   "homepage": "https://github.com/KarenthCruz/BOG005-burger-queen-api-client#readme",
   "bugs": {"url": "https://github.com/KarenthCruz/BOG005-burger-queen-api-client/issues"},
   "license": "MIT",
