@@ -4,7 +4,7 @@ import React, { forwardRef, Fragment } from 'react'
 // ese ...register es de useForm (hook de react)
 // el forwardRef me sirve para reenviar refs a través de un componente a uno de sus hijos
 
-const FormInput = forwardRef(({ type, name, placeholder, onBlur, onChange, label, autoComplete, required, error }, ref) => {
+const FormInput = forwardRef(({ type, value, name, placeholder, onBlur, onChange, label, autoComplete, required, error }, ref) => {
 
     return (
         <Fragment>
@@ -22,6 +22,7 @@ const FormInput = forwardRef(({ type, name, placeholder, onBlur, onChange, label
                 ref={ref}
                 autoComplete={autoComplete}
                 required={required}
+                value={value}
             />
         </Fragment>
     )

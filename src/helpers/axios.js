@@ -64,6 +64,20 @@ export const deleteProduct = async (token, objectProduct, idProduct) => {
     return res
 };
 
+export const updateProduct = async (token, objectProduct, idProduct) => {
+    const res = await axios({
+        method: 'PATCH',
+        url: baseUrl + '/products/' + idProduct,
+        headers: {
+            'Content-Type': 'application/json',
+            'Authorization': 'Bearer ' + token,
+        },
+        data: objectProduct
+    });
+    // console.log(res.data)
+    return res
+};
+
 
 
 

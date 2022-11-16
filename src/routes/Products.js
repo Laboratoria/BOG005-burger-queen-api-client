@@ -5,6 +5,7 @@ import { CardListProducts } from '../components/CardListProducts'
 import FormInput from '../components/FormInput'
 import Button from '../components/Button'
 import { useForm } from 'react-hook-form'
+import Modal from '../components/Modal'
 
 
 export const Products = () => {
@@ -48,10 +49,65 @@ console.log(new Date())
 
 //console.log(ListProductsTotal)
 
+
+// ---------- add ibeht
+
+const [isOpenModal, setIsOpenModal] = useState(false);
+
+
+const openModal = () => {
+    setIsOpenModal(true)
+}
+
+const closeModal = () => {
+    setIsOpenModal(false)
+}
+
+// ------
+
   return (
     <section className='productsAll'>
         <Header />
         <h3>Listado de productos</h3>
+        <section>
+            <button onClick={openModal}>
+                Open Modal
+            </button>
+            <Modal
+             isOpen={isOpenModal}
+             closeModal= {closeModal}
+            >
+                    <p>Editar producto</p>
+                    <FormInput
+                        type='url'
+                        name= 'image'
+                        required
+                        placeholder='cargar imagen'
+                        value={newProduct.image}
+                        onChange={handleChange}
+                        >
+                    </FormInput>
+                    <FormInput
+                        type='nameNewProduct'
+                        name= 'name'
+                        required
+                        placeholder='Nombre del nuevo producto'
+                        value={newProduct.name}
+                        onChange={handleChange}
+                        >
+                    </FormInput>
+                    <FormInput
+                        type='string'
+                        name= 'price'
+                        required
+                        placeholder='Precio del nuevo producto'
+                        value={newProduct.price}
+                        onChange={handleChange}
+                        >
+                    </FormInput>
+            </Modal>
+        </section>
+
         <div>
         {ListProductsTotal.map((product, id) => (
             <div key={id}>
