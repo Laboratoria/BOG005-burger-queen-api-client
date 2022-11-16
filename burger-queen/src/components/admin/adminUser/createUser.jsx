@@ -105,9 +105,9 @@ const CreateUser = () => {
                     onChange={handleChange}
                     required
                     value={dataNewUser.role}>
-                    <option value="Admin">Admin</option>
-                    <option value="Waiter">Waiter</option>
-                    <option value="Chef">Chef</option>
+                    <option value="admin">Admin</option>
+                    <option value="waiter">Waiter</option>
+                    <option value="chef">Chef</option>
                 </select>
                 <div className="btns">
                     <button
