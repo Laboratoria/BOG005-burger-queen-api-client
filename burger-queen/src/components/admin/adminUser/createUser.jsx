@@ -105,6 +105,8 @@ const CreateUser = () => {
                     onChange={handleChange}
                     required
                     value={dataNewUser.role}>
+                    {/* <option></option> */}
+                    <option value="">Seleccione una opción</option>
                     <option value="admin">Admin</option>
                     <option value="waiter">Waiter</option>
                     <option value="chef">Chef</option>

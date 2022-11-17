@@ -1,0 +1,24 @@
+.btnMenu{
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+
+        .btnBreakFast , .btnLunch{
+            background-color: #FFD233;
+            border-radius: 10px;
+            width: 40%;
+            max-width: 250px;
+            height: 7vh;
+            font-size: 1.5rem;
+            border: solid 2px #e7cd6e;
+            color: black;
+            margin: 5px;
+    
+            &:hover {
+                background-color:#9c842e ;
+                border: solid 2px  #FFD233;
+            }
+    }
+
+
+    }

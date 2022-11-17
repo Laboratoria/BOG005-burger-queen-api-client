@@ -14,21 +14,22 @@ header {
 
 }
 
-button {
-	background-color: transparent;
-	border: none;
-}
+// button {
+// 	background-color: transparent;
+// 	border: none;
+// }
 
 nav button {
 	margin: 0 1rem;
 	color: white;
 	text-decoration: none;
 	font-size: 1.8rem;
-
+	background-color: transparent;
+	border: none;
 }
 
 nav button:hover {
-	color: $pinkText;
+	color:gray;
 }
 
 header .nav-btn {
