@@ -27,8 +27,6 @@ function App() {
           <Route path='/products' element={<Products />} />
           <Route path='/admin' element={<Administration />} />
           <Route path='/orderState' element={<OrderState />} />
-
-
         </Routes>
 
       </BrowserRouter>
