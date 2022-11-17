@@ -1,7 +1,7 @@
 import axios from "axios";
 
 const baseUrl = process.env.REACT_APP_API_URL;
-//const mitoken = localStorage.getItem('tokenUser')
+let token = localStorage.getItem('tokenUser')
 //const token = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImdyYWNlLmhvcHBlckBzeXN0ZXJzLnh5eiIsImlhdCI6MTY2NzE2NTk1OSwiZXhwIjoxNjY3MTY5NTU5LCJzdWIiOiIyIn0.RqYLrbO8Psp6CRGgMAIHveLD8plFy4lrdBHzlyTYSXY'
 
 const loginUser = async (email, password) => {
@@ -16,11 +16,13 @@ const loginUser = async (email, password) => {
     //console.log(rest)
     console.log(rest.data.accessToken)
     localStorage.setItem('tokenUser', rest.data.accessToken)
+    token = rest.data.accessToken
     //console.log(rest.data.accessToken)
     return rest.status
 }
 
-export const getProducts = async (token) => {
+export const getProducts = async () => {
+
     const res = await axios({
         method: 'GET',
         url: baseUrl + '/products',
@@ -31,11 +33,12 @@ export const getProducts = async (token) => {
     });
     console.log(res.data)
     //console.log(res)
+
     return res.data
 };
 // console.log(getProducts(mitoken));
 
-export const createProductPost = async (token, objectProduct) => {
+export const createProductPost = async (objectProduct) => {
     console.log(objectProduct)
     const res = await axios({
         method: 'POST',
@@ -50,7 +53,7 @@ export const createProductPost = async (token, objectProduct) => {
     return res
 };
 
-export const editProduct = async (token, objectProduct, idProduct) => {
+export const editProduct = async (objectProduct, idProduct) => {
     // console.log(objectProduct)
     const res = await axios({
         method: 'PUT',
@@ -67,7 +70,7 @@ export const editProduct = async (token, objectProduct, idProduct) => {
 
 
 
-export const deleteProduct = async (token, objectProduct, idProduct) => {
+export const deleteProduct = async (objectProduct, idProduct) => {
     const res = await axios({
         method: 'DELETE',
         url: baseUrl + '/products/' + idProduct,
