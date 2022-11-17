@@ -29,4 +29,6 @@ $white: #ffffff;
 @import '../components/admin/adminProducts/infoProducts';
 @import '../components/admin/adminProducts/createProduct';
 @import './components/waiter';
-@import './components/chef'
+@import './components/chef';
+@import '../components/waiter/waiterProducts';
+@import '../components/waiter/menuItem'

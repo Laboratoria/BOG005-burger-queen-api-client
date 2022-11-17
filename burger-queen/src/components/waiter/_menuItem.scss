@@ -1,0 +1,32 @@
+.menu_container {
+    // display: grid;
+    display: flex;
+        justify-content: center;
+        flex-wrap: wrap;
+        width: 90%;
+        margin: auto;
+        padding: 3%;
+
+    .menuItem {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        background-color: aliceblue;
+        width: 25%;
+        max-width: 150px;
+        height: 20vh;
+        overflow: hidden;
+        color: black;
+        border: solid 2px black;
+        gap: 5px;
+        
+        margin: 20px;
+        flex-wrap: wrap;
+
+        img {
+            width: 60%;
+        }
+    }
+
+}
