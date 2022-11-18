@@ -5,6 +5,7 @@ import Login from './view/login.jsx';
 import {Admin} from './view/admin.jsx'; 
 import { BurgerProvider } from './context/indexContext.jsx';
 import { RoutesRoles } from './routes/routesRoles.js';
+import {CartProvider} from './context/cartContext.jsx'
 
 // import { Waiter } from './view/waiter.jsx';
 // import { Chef } from './view/chef.jsx';
@@ -13,7 +14,8 @@ function App() {
 
   return (
     <BurgerProvider>
-    <BrowserRouter>
+      <CartProvider>
+      <BrowserRouter>
       <Routes>
         <Route path='/' element={<Home />}/>
         <Route path='Login' element={<Login />}/>
@@ -24,6 +26,7 @@ function App() {
         <Route path='/chef' element={<Chef />}/> */}
       </Routes>
     </BrowserRouter>
+    </CartProvider>
     </BurgerProvider>
   );
 }
