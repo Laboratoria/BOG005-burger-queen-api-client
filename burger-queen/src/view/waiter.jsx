@@ -9,7 +9,7 @@ const Waiter= () => {
              <Navbar />
             <h1>vista de mesero en construcción</h1>
             <ProductsWaiter/>
-            {/* <Cart/> */}
+
         </div>
     )
 }
