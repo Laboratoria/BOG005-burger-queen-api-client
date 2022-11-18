@@ -16,7 +16,7 @@ import Order from './routes/Order';
 import { Products } from './routes/Products';
 import Administration from './routes/Administration';
 import OrderState from './routes/OrderState';
-import Users from './routes/Users';
+import { Users } from './routes/Users';
 
 function App() {
   return (

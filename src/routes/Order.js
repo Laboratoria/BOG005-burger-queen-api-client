@@ -13,6 +13,20 @@ import { faCircleArrowRight } from '@fortawesome/free-solid-svg-icons';
 
 //console.log('este es el menu', menu())
 
+// "products": [
+// {
+//     "qty": 1,
+//     "product": {
+//       "id": 1,
+//       "name": "Sandwich de jamón y queso",
+//       "price": 1000,
+//       "image": "https://github.com/Laboratoria/bootcamp/tree/main/projects/04-burger-queen-api/resources/images/sandwich.jpg",
+//       "type": "Desayuno",
+//       "dateEntry": "2022-03-05 15:14:10"
+//     }
+//   }
+// ]
+
 const Order = () => {
 
     const [productsOptions, setProductsOptions] = useState([])
@@ -21,25 +35,20 @@ const Order = () => {
 
     const [productSelect, setProductSelect] = useState({})
 
+    const [orderList, setOrderList] = useState([])
+
     const [productSelectQuantity, setProductSelectQuantity]=useState(1)
 
-    //const { handleSubmit } = useForm()
-
-    const mitoken = localStorage.getItem('tokenUser')
 
     useEffect(() => {
         const getProductsOption = async () => {
-            const result = await getProducts(mitoken)
+            const result = await getProducts()
             // console.log(result)
             setProductsOptions(result)
         }
 
         getProductsOption()
-    }, [mitoken])
-
-    // console.log(productsOptions)
-
-
+    }, [])
 
     const selectOption = (e) => {
 
@@ -56,6 +65,12 @@ const Order = () => {
 
         setProductsList(resultFilter)
         console.log(resultFilter)
+    }
+
+    // Funcion para agregar productos al pedido
+
+    const addProductOrder = () => {
+        
     }
 
     function clickAdd (props) {
@@ -114,6 +129,7 @@ const Order = () => {
                     </FormInput>
                     <section className='containerLabels'>
                         <p>Producto</p>
+                        <p>Precio</p>
                         <p>Cantidad</p>
                         <p>Opciones</p>
                     </section>
@@ -122,6 +138,9 @@ const Order = () => {
                     <section className='containerPCO'>
                         <div className='name'>
                             <p>{productSelect.name}</p>
+                        </div>
+                        <div className='price'>
+                            <p>${productSelect.price}</p>
                         </div>
                         <div className='btnQuantity'>
                             <Button text='–' className='btnFewer' onClick={()=>subtractQuantityProduct()}/>
@@ -132,7 +151,10 @@ const Order = () => {
                             <Button className='trashContainer'><FontAwesomeIcon icon={faTrash} /></Button>
                         </div>
                     </section>
-
+                    <div className='totalPrice'>
+                            <p>Total</p>
+                            <p>${productSelect.price}</p>
+                        </div>
                     <section className='sectionBtn'>
                         <Button text='Enviar' className='btnEnviar'></Button>
                         <Button text='Cancelar' className='btnCancel'></Button>

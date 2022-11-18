@@ -9,24 +9,22 @@ import { createUserPost, getUsers } from '../helpers/axios';
 import Swal from 'sweetalert2'
 import CardListUsers from '../components/CardListUsers';
 
-const Users = () => {
+export const Users = () => {
 
     const { handleSubmit } = useForm()
-    const [ListUsersTotal, setUsersTotal] = useState([])
+    const [listUsersTotal, setListUsersTotal] = useState([])
     //const [updateListProducts, setUpdateListProducts] = useState(false)
     const [newUser, setNewUser] = useState({ email: "", password: "", role: "" })
 
-    const mitoken = localStorage.getItem('tokenUser')
-
-    const viewUsers = () => {
-        getUsers(mitoken).then(res => {
-            setUsersTotal(res)
-        })
-    }
-
     useEffect(() => {
-        viewUsers()
-    }, [mitoken])
+        // todo lo que este aca se ejecutara desde el inicio de la app
+        if (listUsersTotal.length === 0) {
+            getUsers().then(res => {
+                setListUsersTotal(res)
+            })
+        }
+
+    }, [listUsersTotal])
 
     const handleChange = (e) => {
         console.log('me estoy ejecutando')
@@ -36,9 +34,9 @@ const Users = () => {
         })
     }
 
-    const createProduct = async () => {
+    const createUser = async () => {
         console.log('enviando formulario')
-        const res = await createUserPost(mitoken, newUser);
+        const res = await createUserPost(newUser);
         console.log(res)
         if (res.status === 201) {
             // alert('Usuario creado')
@@ -47,7 +45,8 @@ const Users = () => {
                 'El Usuario se creó con éxito!',
                 'success'
             )
-
+            console.log(res.data)
+            setListUsersTotal((lista) => [...lista, res.data])
         } else {
             Swal.fire({
                 icon: 'error',
@@ -56,7 +55,6 @@ const Users = () => {
             })
             // alert('No se creo el usuario exitosamente')
         }
-        viewUsers()
     }
 
     // console.log(new Date())
@@ -73,8 +71,8 @@ const Users = () => {
 
                 <div className='containerFormListUsers'>
                     <div className='containerFormAddUser'>
-                        <form typeof='submit' className='formOrder formAddProduct' onSubmit={handleSubmit(createProduct)} >
-                            <p className='uAddProductForm'>Agregar Usuario</p>
+                        <form typeof='submit' className='formOrder formAddProduct' onSubmit={handleSubmit(createUser)} >
+                            <p className='uAddUserForm'>Agregar Usuario</p>
                             <FormInput
                                 className='inputEmailUser'
                                 type='email'
@@ -95,11 +93,11 @@ const Users = () => {
                                 onChange={handleChange}
                             >
                             </FormInput>
-                            <select className='SelectRolUser' name='type' onChange={handleChange} >
+                            <select className='SelectRolUser' name='role' onChange={handleChange} >
                                 <option value='seleccion tipo' >Selecciona tipo</option>
                                 <option value='Mesero'>Mesero</option>
                                 <option value='Chef'>Chef</option>
-                                <option value='Administrador'>Administrador</option>
+                                <option value='Admin'>Admin</option>
                             </select>
                             <section className='sectionBtn'>
                                 <Button text='Agregar' className='btnEnviar'>
@@ -109,15 +107,16 @@ const Users = () => {
                             </section>
                         </form>
                     </div>
-                    <div className='containerProductsAdmin'>
-                        {ListUsersTotal.map((user, id) => (
+                    <div className='containerUsersAdmin'>
+                        {listUsersTotal.map((user, id) => (
                             <div key={id}>
                                 <CardListUsers
-                                    id={user.id}
-                                    email={user.email}
-                                    password={user.password}
-                                    role={user.role}
-
+                                user={user}
+                                setListUsersTotal={setListUsersTotal}
+                                    // id={user.id}
+                                    // email={user.email}
+                                    // password={user.password}
+                                    // role={user.role}
                                 />
                             </div>
                         ))}
@@ -127,5 +126,3 @@ const Users = () => {
         </section>
   )
 }
-
-export default Users

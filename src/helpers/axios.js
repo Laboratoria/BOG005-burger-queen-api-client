@@ -56,7 +56,7 @@ export const createProductPost = async (objectProduct) => {
 export const editProduct = async (objectProduct, idProduct) => {
     // console.log(objectProduct)
     const res = await axios({
-        method: 'PUT',
+        method: 'PATCH',
         url: baseUrl + '/products/' + idProduct,
         headers: {
             'Content-Type': 'application/json',
@@ -84,21 +84,21 @@ export const deleteProduct = async (objectProduct, idProduct) => {
     return res
 };
 
-export const updateProduct = async (token, objectProduct, idProduct) => {
-    const res = await axios({
-        method: 'PATCH',
-        url: baseUrl + '/products/' + idProduct,
-        headers: {
-            'Content-Type': 'application/json',
-            'Authorization': 'Bearer ' + token,
-        },
-        data: objectProduct
-    });
-    // console.log(res.data)
-    return res
-};
+// export const updateProduct = async (objectProduct, idProduct) => {
+//     const res = await axios({
+//         method: 'PATCH',
+//         url: baseUrl + '/products/' + idProduct,
+//         headers: {
+//             'Content-Type': 'application/json',
+//             'Authorization': 'Bearer ' + token,
+//         },
+//         data: objectProduct
+//     });
+//     // console.log(res.data)
+//     return res
+// };
 
-export const getUsers = async (token) => {
+export const getUsers = async () => {
     const res = await axios({
         method: 'GET',
         url: baseUrl + '/users',
@@ -112,7 +112,7 @@ export const getUsers = async (token) => {
     return res.data
 };
 
-export const createUserPost = async (token, objectUser) => {
+export const createUserPost = async (objectUser) => {
     const res = await axios({
         method: 'POST',
         url: baseUrl + '/users',
@@ -126,7 +126,7 @@ export const createUserPost = async (token, objectUser) => {
     return res
 };
 
-export const deleteUser = async (token, objectUser, idUser) => {
+export const deleteUser = async (objectUser, idUser) => {
     const res = await axios({
         method: 'DELETE',
         url: baseUrl + '/users/' + idUser,
@@ -140,7 +140,7 @@ export const deleteUser = async (token, objectUser, idUser) => {
     return res
 };
 
-export const updateUser = async (token, objectUser, idUser) => {
+export const updateUser = async (objectUser, idUser) => {
     const res = await axios({
         method: 'PATCH',
         url: baseUrl + '/users/' + idUser,

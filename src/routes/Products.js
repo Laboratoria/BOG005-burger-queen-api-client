@@ -11,8 +11,6 @@ import Swal from 'sweetalert2'
 
 export const Products = () => {
 
-
-
     const { handleSubmit } = useForm()
 
     const [ListProductsTotal, setListProductsTotal] = useState([])

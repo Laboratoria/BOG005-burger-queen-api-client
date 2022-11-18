@@ -5,15 +5,11 @@ import Button from './Button'
 import FormInput from './FormInput'
 import Modal from './Modal'
 
-const CardListUsers = (props) => {
+const CardListUsers = ({ user, setListUsersTotal }) => {
 
-  console.log(props)
+  console.log(user)
   const [openModal, setOpenModal] = useState(false)
-  const [userUpdate, setUserUpdate] = useState({ email: props.email, password: props.password, role: props.role });
-
-  const mitoken = localStorage.getItem('tokenUser')
-
-
+  const [userUpdate, setUserUpdate] = useState({ email: user.email, password: user.password, role: user.role, id:user.id });
 
   const handleDelete = async () => {
       Swal.fire({
@@ -28,7 +24,7 @@ const CardListUsers = (props) => {
       }).then((result) => {
           if (result.isConfirmed) {
               // console.log("eliminando usuario", user.email)
-              deleteUser(mitoken, props, props.id).then((resDelete) => {
+              deleteUser(user, user.id).then((resDelete) => {
                   // console.log(resDelete)
                   if (resDelete.status === 200) {
                       // alert('Producto eliminado')
@@ -37,6 +33,7 @@ const CardListUsers = (props) => {
                           'El usuario se eliminó correctamente!',
                           'success'
                       )
+                      setListUsersTotal((lista) => lista.filter(u => u.id !== user.id))
                   } else {
                       // alert('No se elimino el producto')
                       Swal.fire({
@@ -68,10 +65,13 @@ const CardListUsers = (props) => {
   }
 
   const updateUsertNow = async () => {
-      const res = await updateUser(mitoken, userUpdate, props.id)
+      const res = await updateUser(userUpdate, user.id)
       console.log(res)
       if (res.status === 200) {
           alert('Usuario editado')
+          setListUsersTotal((lista) => lista.map(u => {
+            return (u.id === user.id) ? userUpdate : u
+        }))
       } else {
           alert('No se edito el usuario')
       }
@@ -82,9 +82,9 @@ const CardListUsers = (props) => {
     
     <>
     <div className='usersContainer'>
-        <p>{props.email}</p>
+        <p>{user.email}</p>
         <p type='password'>*******</p>
-        <p>{props.role}</p>
+        <p>{user.role}</p>
     </div>
     <div className='btnContainerUsers'>
         <Button className='btnEditAdmonUsers' text='Edit' onClick={handleEdit} />
@@ -115,9 +115,9 @@ const CardListUsers = (props) => {
                             </FormInput>
                             <select className='SelectRolUser' name='role' onChange={handleChange} >
                                 <option value='seleccion tipo' >Selecciona tipo</option>
-                                <option value='Mesero'>Mesero</option>
-                                <option value='Chef'>Chef</option>
-                                <option value='Administrador'>Administrador</option>
+                                <option value='Mesero' selected={user.role === 'Mesero'}>Mesero</option>
+                                <option value='Chef' selected={user.role === 'Chef'}>Chef</option>
+                                <option value='Admin' selected={user.role === 'Admin'}>Admin</option>
                             </select>
             <div className='optionsModal'>
                 <Button onClick={updateUsertNow} text="Aceptar" className="btnEditAdmonUser" />
