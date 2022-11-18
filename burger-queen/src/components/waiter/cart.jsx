@@ -5,7 +5,7 @@ import { ItemCart } from './itemCart';
 
 const Cart  = () => {
     const { order,
-        setOrder
+        // setOrder
     } = React.useContext(CartContext);
     
   return (

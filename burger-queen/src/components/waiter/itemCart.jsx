@@ -1,29 +1,37 @@
-import React, { useContext } from "react";
-// import CartContext from "../../context/cartContext";
-
-// const ItemCart = ({ props }) => {
+import React from "react";
+import { CartContext } from "../../context/cartContext";
   const ItemCart =(props) => {
+
+    const {
+      amountProduct,
+      // setAmountProduct
+  } = React.useContext(CartContext);
+
     console.log('dentro de item cart',props.id)
-  /* Traemos del context las funciones para agregar y sacar productos del carrito */
-//   const { addItemToCart, restItemToCart } = useContext(CartContext);
+    let acum;
+    console.log('viendo stado' , amountProduct);
 
-  /* Desestructuramos el item para sacar solo la id */
-//   const { amount, price } = item;
-
+    if(props.id === amountProduct.id){
+      acum += amountProduct.amount
+    }
+ 
   return (
     <div className="cartItem">
+    
       <img src={props.image} alt={props.name} />
       <div className="dataContainer">
         <div className="left">
           <p>{props.name}</p>
-          {/* <div className="buttons">
-            <button onClick={() => addItemToCart(item)}>
+          {/* <p>{props.price}</p> */}
+          <div className="buttons">
+            <button >
               +
             </button>
-            <button onClick={() => restItemToCart(item)}>
+            <p>amount {acum}</p>
+            <button >
               -
             </button>
-          </div> */}
+          </div>
         </div>
         {/* <div className="right">
           <div>{amount}</div>
