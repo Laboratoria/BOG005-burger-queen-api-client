@@ -8,24 +8,25 @@
         padding: 3%;
 
     .menuItem {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        flex-direction: column;
-        background-color: aliceblue;
-        width: 25%;
+        // display: flex;
+        // justify-content: center;
+        // align-items: center;
+        // flex-direction: column;
+        background-color: #3A3636;
+        width: 35%;
         max-width: 150px;
-        height: 20vh;
+        max-height: 200px;
         overflow: hidden;
-        color: black;
-        border: solid 2px black;
-        gap: 5px;
-        
+        color: white;
+        border: solid 3px #FFD233;
+        // gap: 5px;
+        text-align:center;
         margin: 20px;
-        flex-wrap: wrap;
+        border-radius: 10px;
+        // flex-wrap: wrap;
 
         img {
-            width: 60%;
+            height: 50%;
         }
     }
 
