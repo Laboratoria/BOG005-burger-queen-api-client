@@ -21,7 +21,7 @@ const Cart  = () => {
                 name='client'
                 className='client'                      
               ></input> 
-              {/* {order.map(data => console.log("QUE TRAES",data))} */}
+              {/* {order.map(data => console.log("QUE TRAES",data.name))} */}
                 {order.map(data => (<ItemCart key={data.id} id={data.id} image={data.image} name={data.name} price={data.price} type={data.type}/>))}
               <h3>Total: $ </h3>
             </div>

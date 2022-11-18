@@ -10,8 +10,10 @@ const Waiter= () => {
         <div className="waiter_container" >
              <Navbar />
             <h1>vista de mesero en construcción</h1>
+            <div className="viewOrder">
             <ProductsWaiter/>
             <Cart/>
+            </div>
         </div>
     )
 }

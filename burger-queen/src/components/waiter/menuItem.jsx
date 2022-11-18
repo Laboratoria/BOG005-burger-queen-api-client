@@ -9,16 +9,19 @@ const MenuItem = (props) => {
         setOrder
     } = React.useContext(CartContext);
 
-    let productsOrder = []
+    // let productsOrder = []
 
     const addProduct = () => {
         console.log('click aqui', props.id);
         getOnlyProduct(props.id).then(res => {
-            console.log('mirando res', res.data)
-            productsOrder.push(res.data)
-            console.log('array',productsOrder)
-            setOrder(productsOrder)
-            console.log('estado order', order);
+            // console.log('mirando res', res.data)
+            // productsOrder.push(res.data)
+            // console.log('array',productsOrder)
+            // setOrder(productsOrder)
+            // console.log('estado order', order);
+            setOrder([
+                ...order, res.data
+            ])
         })
     }
 
