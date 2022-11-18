@@ -13,6 +13,8 @@ export const CardListProducts = (product) => {
 
     const mitoken = localStorage.getItem('tokenUser')
 
+
+
     const handleDelete = async () => {
         Swal.fire({
             title: 'Está seguro de que desea eliminar éste producto?',

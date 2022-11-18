@@ -7,6 +7,7 @@ import './styleComponents/ProductsCardListProducts.css';
 import './styleComponents/Administration.css';
 import './styleComponents/OrderState.css';
 import './styleComponents/Modal.css';
+import './styleComponents/Users.css';
 
 import './App.css';
 
@@ -15,6 +16,7 @@ import Order from './routes/Order';
 import { Products } from './routes/Products';
 import Administration from './routes/Administration';
 import OrderState from './routes/OrderState';
+import Users from './routes/Users';
 
 function App() {
   return (
@@ -27,6 +29,7 @@ function App() {
           <Route path='/products' element={<Products />} />
           <Route path='/admin' element={<Administration />} />
           <Route path='/orderState' element={<OrderState />} />
+          <Route path='/users' element={<Users />} />
 
 
         </Routes>

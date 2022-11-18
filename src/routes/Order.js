@@ -19,6 +19,10 @@ const Order = () => {
     // const [selectState, setSelectState] = useState({ value: 'Seleccione Desayuno/Almuerzo' })
     const [productsList, setProductsList] = useState([])
 
+    const [productSelect, setProductSelect] = useState({})
+
+    const [productSelectQuantity, setProductSelectQuantity]=useState(1)
+
     //const { handleSubmit } = useForm()
 
     const mitoken = localStorage.getItem('tokenUser')
@@ -54,6 +58,20 @@ const Order = () => {
         console.log(resultFilter)
     }
 
+    function clickAdd (props) {
+        console.log(props)
+        console.log("estoy agrgando productos")
+        setProductSelect(props)
+    }
+
+   function addQuantityProduct () {
+    setProductSelectQuantity(productSelectQuantity+1)
+    }
+
+    function subtractQuantityProduct () {
+        setProductSelectQuantity(productSelectQuantity-1)
+        }
+
     return (
         <section className='order'>
             <Header />
@@ -76,7 +94,9 @@ const Order = () => {
                                     <ListProducts
                                         image={product.image}
                                         name={product.name}
-                                        price={product.price} />
+                                        price={product.price} 
+                                        clickAdd= {clickAdd}>
+                                        </ListProducts>
                                 </div>)
                         })
                     }
@@ -101,12 +121,12 @@ const Order = () => {
                     {/* informacion de los productos */}
                     <section className='containerPCO'>
                         <div className='name'>
-                            <p>nombre</p>
+                            <p>{productSelect.name}</p>
                         </div>
                         <div className='btnQuantity'>
-                            <Button text='–' className='btnFewer' />
-                            <p className='pControl'>0</p>
-                            <Button text='+' className='btnAdd' />
+                            <Button text='–' className='btnFewer' onClick={()=>subtractQuantityProduct()}/>
+                            <p className='pControl'>{productSelectQuantity}</p>
+                            <Button text='+' className='btnAdd' onClick={()=>addQuantityProduct()}/>
                         </div>
                         <div className='btnDelete'>
                             <Button className='trashContainer'><FontAwesomeIcon icon={faTrash} /></Button>
