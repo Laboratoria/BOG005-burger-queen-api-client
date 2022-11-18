@@ -31,4 +31,7 @@ $white: #ffffff;
 @import './components/waiter';
 @import './components/chef';
 @import '../components/waiter/waiterProducts';
-@import '../components/waiter/menuItem'
+@import '../components/waiter/menuItem';
+@import '../components/waiter/cart.scss'
+// @import '../components/waiter/cart.scss';
+// @import '../components/waiter/itemCart.scss'

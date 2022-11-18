@@ -29,7 +29,7 @@ async function uploadImgWeb (img) {
 
     const form = new FormData();
     form.append('image', img);
-    console.log('img helpers ', typeof img);
+    console.log('img', typeof img);
 
     const apiKey = 'fc4cacd19eee783715a306dd5dc7c876'
   

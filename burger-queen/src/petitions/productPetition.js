@@ -63,5 +63,17 @@ const editProduct = async (id, product)=>{
     })     
 }
 
-export {listProducts, createProduct, deleteProduct, editProduct}
+//--- Peticion para obtener un solo producto---//
+const getOnlyProduct = async (id)=>{
+    return await axios({
+        method: 'GET',
+        url:url+'products/'+ id,
+        headers: {
+            'content-type': 'application/json',
+            authorization: 'Bearer ' + getToken(),
+        },
+    })
+}
+
+export {listProducts, createProduct, deleteProduct, editProduct, getOnlyProduct}
 
