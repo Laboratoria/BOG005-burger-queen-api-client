@@ -1,8 +1,9 @@
 import React, { useContext } from "react";
 // import CartContext from "../../context/cartContext";
 
-export const ItemCart = ({ props }) => {
-    console.log(props)
+// const ItemCart = ({ props }) => {
+  const ItemCart =(props) => {
+    console.log('dentro de item cart',props.id)
   /* Traemos del context las funciones para agregar y sacar productos del carrito */
 //   const { addItemToCart, restItemToCart } = useContext(CartContext);
 
@@ -32,3 +33,5 @@ export const ItemCart = ({ props }) => {
     </div>
   );
 };
+
+export {ItemCart}
