@@ -1,8 +1,8 @@
-import React, { useContext } from "react";
+import React from "react";
 // import CartContext from "../../context/cartContext";
 
 export const ItemCart = ({ props }) => {
-    console.log(props)
+    console.log()
   /* Traemos del context las funciones para agregar y sacar productos del carrito */
 //   const { addItemToCart, restItemToCart } = useContext(CartContext);
 
@@ -11,6 +11,7 @@ export const ItemCart = ({ props }) => {
 
   return (
     <div className="cartItem">
+    
       <img src={props.image} alt={props.name} />
       <div className="dataContainer">
         <div className="left">
