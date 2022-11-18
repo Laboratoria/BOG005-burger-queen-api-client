@@ -9,7 +9,7 @@ export const CardListProducts = ({ product, setListProductsTotal }) => {
 
     console.log(product)
     const [openModal, setOpenModal] = useState(false)
-    const [productUpdate, setProductUpdate] = useState({ dateEntry: new Date(), image: product.image, name: product.name, price: product.price, type: "" });
+    const [productUpdate, setProductUpdate] = useState({ dateEntry: new Date(), image: product.image, name: product.name, price: product.price, type: "", id: product.id });
 
     const handleDelete = async () => {
         Swal.fire({

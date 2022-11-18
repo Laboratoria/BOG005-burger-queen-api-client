@@ -85,8 +85,75 @@ export const deleteProduct = async (objectProduct, idProduct) => {
     return res
 };
 
+// export const updateProduct = async (objectProduct, idProduct) => {
+//     const res = await axios({
+//         method: 'PATCH',
+//         url: baseUrl + '/products/' + idProduct,
+//         headers: {
+//             'Content-Type': 'application/json',
+//             'Authorization': 'Bearer ' + token,
+//         },
+//         data: objectProduct
+//     });
+//     // console.log(res.data)
+//     return res
+// };
 
+export const getUsers = async () => {
+    const res = await axios({
+        method: 'GET',
+        url: baseUrl + '/users',
+        headers: {
+            'content-type': 'application/json',
+            'Authorization': 'Bearer ' + token,
+        },
+    });
+    console.log(res.data)
+    //console.log(res)
+    return res.data
+};
 
+export const createUserPost = async (objectUser) => {
+    const res = await axios({
+        method: 'POST',
+        url: baseUrl + '/users',
+        headers: {
+            'Content-Type': 'application/json',
+            'Authorization': 'Bearer ' + token,
+        },
+        data: objectUser
+    });
+    // console.log(res.data)
+    return res
+};
+
+export const deleteUser = async (objectUser, idUser) => {
+    const res = await axios({
+        method: 'DELETE',
+        url: baseUrl + '/users/' + idUser,
+        headers: {
+            'Content-Type': 'application/json',
+            'Authorization': 'Bearer ' + token,
+        },
+        data: objectUser
+    });
+    console.log(res)
+    return res
+};
+
+export const updateUser = async (objectUser, idUser) => {
+    const res = await axios({
+        method: 'PATCH',
+        url: baseUrl + '/users/' + idUser,
+        headers: {
+            'Content-Type': 'application/json',
+            'Authorization': 'Bearer ' + token,
+        },
+        data: objectUser
+    });
+    // console.log(res.data)
+    return res
+};
 
 
 

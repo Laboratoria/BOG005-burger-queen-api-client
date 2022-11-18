@@ -11,8 +11,6 @@ import Swal from 'sweetalert2'
 
 export const Products = () => {
 
-
-
     const { handleSubmit } = useForm()
 
     const [ListProductsTotal, setListProductsTotal] = useState([])
@@ -58,6 +56,7 @@ export const Products = () => {
             })
             // alert('No se creo el producto exitosamente')
         }
+
     }
 
     // console.log(new Date())

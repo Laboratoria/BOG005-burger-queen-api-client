@@ -94,7 +94,7 @@ input:focus {
 
 .containerPCO {
     display: grid;
-    grid-template-columns: 20% 20% 20%;
+    grid-template-columns: 20% 20% 20% 20%;
     justify-content: space-around;
     align-items: center;
     background-color: #D9D9D9;
@@ -148,6 +148,17 @@ input:focus {
     border-radius: 50%;
     border-style: none;
     /* border: solid 2px #F8B62A; */
+}
+
+.totalPrice {
+    display: flex;
+    background-color: #F8B62A;
+    border-radius: 25px;
+    padding: 5px;
+    margin-top: 10px;
+    justify-content: space-around;
+    align-items: center;
+    font-weight: bold;
 }
 
 .sectionBtn {
