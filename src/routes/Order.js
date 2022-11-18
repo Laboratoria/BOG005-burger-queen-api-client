@@ -13,29 +13,42 @@ import { faCircleArrowRight } from '@fortawesome/free-solid-svg-icons';
 
 //console.log('este es el menu', menu())
 
+// "products": [
+// {
+//     "qty": 1,
+//     "product": {
+//       "id": 1,
+//       "name": "Sandwich de jamón y queso",
+//       "price": 1000,
+//       "image": "https://github.com/Laboratoria/bootcamp/tree/main/projects/04-burger-queen-api/resources/images/sandwich.jpg",
+//       "type": "Desayuno",
+//       "dateEntry": "2022-03-05 15:14:10"
+//     }
+//   }
+// ]
+
 const Order = () => {
 
     const [productsOptions, setProductsOptions] = useState([])
     // const [selectState, setSelectState] = useState({ value: 'Seleccione Desayuno/Almuerzo' })
     const [productsList, setProductsList] = useState([])
 
-    //const { handleSubmit } = useForm()
+    const [productSelect, setProductSelect] = useState({})
 
-    const mitoken = localStorage.getItem('tokenUser')
+    const [orderList, setOrderList] = useState([])
+
+    const [productSelectQuantity, setProductSelectQuantity]=useState(1)
+
 
     useEffect(() => {
         const getProductsOption = async () => {
-            const result = await getProducts(mitoken)
+            const result = await getProducts()
             // console.log(result)
             setProductsOptions(result)
         }
 
         getProductsOption()
-    }, [mitoken])
-
-    // console.log(productsOptions)
-
-
+    }, [])
 
     const selectOption = (e) => {
 
@@ -53,6 +66,26 @@ const Order = () => {
         setProductsList(resultFilter)
         console.log(resultFilter)
     }
+
+    // Funcion para agregar productos al pedido
+
+    const addProductOrder = () => {
+        
+    }
+
+    function clickAdd (props) {
+        console.log(props)
+        console.log("estoy agrgando productos")
+        setProductSelect(props)
+    }
+
+   function addQuantityProduct () {
+    setProductSelectQuantity(productSelectQuantity+1)
+    }
+
+    function subtractQuantityProduct () {
+        setProductSelectQuantity(productSelectQuantity-1)
+        }
 
     return (
         <section className='order'>
@@ -76,7 +109,9 @@ const Order = () => {
                                     <ListProducts
                                         image={product.image}
                                         name={product.name}
-                                        price={product.price} />
+                                        price={product.price} 
+                                        clickAdd= {clickAdd}>
+                                        </ListProducts>
                                 </div>)
                         })
                     }
@@ -94,6 +129,7 @@ const Order = () => {
                     </FormInput>
                     <section className='containerLabels'>
                         <p>Producto</p>
+                        <p>Precio</p>
                         <p>Cantidad</p>
                         <p>Opciones</p>
                     </section>
@@ -101,18 +137,24 @@ const Order = () => {
                     {/* informacion de los productos */}
                     <section className='containerPCO'>
                         <div className='name'>
-                            <p>nombre</p>
+                            <p>{productSelect.name}</p>
+                        </div>
+                        <div className='price'>
+                            <p>${productSelect.price}</p>
                         </div>
                         <div className='btnQuantity'>
-                            <Button text='–' className='btnFewer' />
-                            <p className='pControl'>0</p>
-                            <Button text='+' className='btnAdd' />
+                            <Button text='–' className='btnFewer' onClick={()=>subtractQuantityProduct()}/>
+                            <p className='pControl'>{productSelectQuantity}</p>
+                            <Button text='+' className='btnAdd' onClick={()=>addQuantityProduct()}/>
                         </div>
                         <div className='btnDelete'>
                             <Button className='trashContainer'><FontAwesomeIcon icon={faTrash} /></Button>
                         </div>
                     </section>
-
+                    <div className='totalPrice'>
+                            <p>Total</p>
+                            <p>${productSelect.price}</p>
+                        </div>
                     <section className='sectionBtn'>
                         <Button text='Enviar' className='btnEnviar'></Button>
                         <Button text='Cancelar' className='btnCancel'></Button>
