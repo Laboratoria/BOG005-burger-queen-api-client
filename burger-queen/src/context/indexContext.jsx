@@ -22,6 +22,8 @@ const [newProduct, setnewProduct] = useState({
   type:'',
   dateEntry: new Date(),
 });
+const [cartItems, setCartItems] = useState([]);
+
   
   return (
     <BurgerContext.Provider value={{
@@ -41,6 +43,8 @@ const [newProduct, setnewProduct] = useState({
       setEditProductState,
       newProduct, 
       setnewProduct,
+      cartItems,
+      setCartItems
     }}>
       {props.children}
     </BurgerContext.Provider>
