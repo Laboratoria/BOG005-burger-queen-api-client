@@ -54,9 +54,10 @@ export const createProductPost = async (objectProduct) => {
 };
 
 export const editProduct = async (objectProduct, idProduct) => {
-    // console.log(objectProduct)
+    console.log('=====>', objectProduct)
+    console.log('id del producto', idProduct)
     const res = await axios({
-        method: 'PUT',
+        method: 'PATCH',
         url: baseUrl + '/products/' + idProduct,
         headers: {
             'Content-Type': 'application/json',
