@@ -9,25 +9,25 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCircleArrowRight } from '@fortawesome/free-solid-svg-icons';
 import Swal from 'sweetalert2'
 
-
 export const Products = () => {
 
+
+
     const { handleSubmit } = useForm()
+
     const [ListProductsTotal, setListProductsTotal] = useState([])
     //const [updateListProducts, setUpdateListProducts] = useState(false)
     const [newProduct, setNewProduct] = useState({ dateEntry: new Date(), image: "", name: "", price: 0, type: "" })
 
-    const mitoken = localStorage.getItem('tokenUser')
-
-    const viewProducts = () => {
-        getProducts(mitoken).then(res => {
-            setListProductsTotal(res)
-        })
-    }
-
     useEffect(() => {
-        viewProducts()
-    }, [mitoken])
+        // todo lo que este aca se ejecutara desde el inicio de la app
+        if (ListProductsTotal.length === 0) {
+            getProducts().then(res => {
+                setListProductsTotal(res)
+            })
+        }
+
+    }, [ListProductsTotal])
 
     const handleChange = (e) => {
         console.log('me estoy ejecutando')
@@ -39,7 +39,7 @@ export const Products = () => {
 
     const createProduct = async () => {
         console.log('enviando formulario')
-        const res = await createProductPost(mitoken, newProduct);
+        const res = await createProductPost(newProduct);
         console.log(res)
         if (res.status === 201) {
             // alert('Producto creado')
@@ -48,6 +48,7 @@ export const Products = () => {
                 'El producto se creó con éxito!',
                 'success'
             )
+            setListProductsTotal((lista) => [...lista, res.data])
 
         } else {
             Swal.fire({
@@ -57,12 +58,11 @@ export const Products = () => {
             })
             // alert('No se creo el producto exitosamente')
         }
-        viewProducts()
+
     }
 
     // console.log(new Date())
-
-    console.log(ListProductsTotal)
+    // console.log(ListProductsTotal)
 
     return (
         <section>
@@ -124,11 +124,8 @@ export const Products = () => {
                         {ListProductsTotal.map((product, id) => (
                             <div key={id}>
                                 <CardListProducts
-                                    id={product.id}
-                                    image={product.image}
-                                    name={product.name}
-                                    price={product.price}
-                                    type={product.type}
+                                    product={product}
+                                    setListProductsTotal={setListProductsTotal}
                                 />
                             </div>
                         ))}
