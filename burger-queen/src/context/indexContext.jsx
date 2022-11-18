@@ -22,6 +22,8 @@ const [newProduct, setnewProduct] = useState({
   type:'',
   dateEntry: new Date(),
 });
+
+
   
   return (
     <BurgerContext.Provider value={{
