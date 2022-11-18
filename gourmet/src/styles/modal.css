@@ -1,5 +1,10 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+
 .modal {
-  background-color: rgba(0, 0, 0, .85);
   width: 100vw;
   height: 100vh;
   position: fixed;
@@ -9,15 +14,36 @@
   display: none;
   justify-content: center;
   align-items: center;
+  background-color: rgba(0, 0, 0, .85);
 }
 
 .modal-content {
-  background-color: #ddd;
+  width: 80vw;
+  height: 110vw;
   padding: 10px;
-  width: 300px;
-  height: 400px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  border-radius: 5vw;
+  border: 0.5vw solid #F0B44C;
+  background-color: white;
 }
 
 .modal-open {
-  display: grid;
+  display: flex;
+}
+
+.closeAddProdBtn {
+  width: 30vw;
+  height: 9vw;
+  color: #b0b0b0;
+  margin-top: 4vw;
+  font-size: 4.5vw;
+  font-weight: 600;
+  border-radius: 5vw;
+  align-items: center;
+  background-color: white;
+  border: white;
+  text-decoration: underline;
 }

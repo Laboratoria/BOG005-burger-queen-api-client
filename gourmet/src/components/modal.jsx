@@ -16,7 +16,7 @@ function Modal({ isOpen, closeModal, title, children }) {
 
         {children}
 
-        <button onClick={closeModal}>
+        <button onClick={closeModal} className="closeAddProdBtn">
           Cerrar
         </button>
 

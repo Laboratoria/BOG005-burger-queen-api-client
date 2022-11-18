@@ -4,3 +4,74 @@
     box-sizing: border-box;
 }
 
+html,
+body {
+    font-family: 'Poppins', sans-serif;
+}
+
+.addProModal{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.addProductForm{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.titleAddProduct {
+    color: rgb(64, 64, 64);
+    margin: 6vw 0vw 6vw 0vw; 
+    font-size: 6.5vw;
+    font-weight: 600;
+}
+
+.addProdSection{
+    display: flex;
+    justify-content: center;
+}
+
+.addProductInput {
+    width: 70vw;
+    height: 9vw;
+    margin: 1.6vw;
+    color: rgb(64, 64, 64);
+    font-size: 4.5vw;
+    text-align: center;
+    border-radius: 5vw;
+    border: 0.5vw solid #F7CB58;
+}
+
+.addProductInput:focus  {
+    border-color: #F9965E;
+    outline: 0;
+}
+
+.addProductInput::placeholder {
+    font-family: 'Poppins', sans-serif;
+    color: rgb(172, 172, 172);
+}
+
+.addProdBtn {
+    width: 70vw;
+    height: 10vw;
+    color: white;
+    margin-top: 10vw;
+    font-size: 4.5vw;
+    font-weight: 500;
+    border-radius: 5vw;
+    align-items: center;
+    background-color: #F0B44C;
+    border: white;
+    font-family: 'Poppins', sans-serif;  
+    box-shadow: rgb(0 0 0 / 15%) 0 3px 4px;
+}
+
+.addProdBtn:hover {
+    background-color: #d78033;
+}
+
