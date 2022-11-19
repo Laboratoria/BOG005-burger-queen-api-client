@@ -17,6 +17,7 @@ import { Products } from './routes/Products';
 import Administration from './routes/Administration';
 import OrderState from './routes/OrderState';
 import { Users } from './routes/Users';
+// import OrderDupilicated from './routes/OrderDuplicated';
 
 function App() {
   return (
@@ -30,6 +31,7 @@ function App() {
           <Route path='/admin' element={<Administration />} />
           <Route path='/orderState' element={<OrderState />} />
           <Route path='/users' element={<Users />} />
+          {/* <Route path='/orderDuplicated' element={<OrderDupilicated />} /> */}
 
 
         </Routes>

@@ -7,25 +7,9 @@ import { getProducts } from '../helpers/axios'
 // import { useForm } from 'react-hook-form'
 import ListProducts from '../components/ListProducts';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faTrash } from '@fortawesome/free-solid-svg-icons';
 import { faCircleArrowRight } from '@fortawesome/free-solid-svg-icons';
-//import menu from '../helpers/menu'
+import CardProductsOrder from '../components/CardProductsOrder';
 
-//console.log('este es el menu', menu())
-
-// "products": [
-// {
-//     "qty": 1,
-//     "product": {
-//       "id": 1,
-//       "name": "Sandwich de jamón y queso",
-//       "price": 1000,
-//       "image": "https://github.com/Laboratoria/bootcamp/tree/main/projects/04-burger-queen-api/resources/images/sandwich.jpg",
-//       "type": "Desayuno",
-//       "dateEntry": "2022-03-05 15:14:10"
-//     }
-//   }
-// ]
 
 const Order = () => {
 
@@ -33,11 +17,12 @@ const Order = () => {
     // const [selectState, setSelectState] = useState({ value: 'Seleccione Desayuno/Almuerzo' })
     const [productsList, setProductsList] = useState([])
 
-    const [productSelect, setProductSelect] = useState({})
+    // let orderList = []
 
     const [orderList, setOrderList] = useState([])
 
-    const [productSelectQuantity, setProductSelectQuantity]=useState(1)
+    const [productSelect, setProductSelect] = useState({})
+
 
 
     useEffect(() => {
@@ -48,7 +33,7 @@ const Order = () => {
         }
 
         getProductsOption()
-    }, [])
+    }, [orderList])
 
     const selectOption = (e) => {
 
@@ -67,25 +52,28 @@ const Order = () => {
         console.log(resultFilter)
     }
 
+    // const clickAdd = (props) => {
+    //     console.log("estoy agregando productos")
+    //     setProductSelect(props)
+    // }
+
     // Funcion para agregar productos al pedido
 
-    const addProductOrder = () => {
-        
-    }
-
-    function clickAdd (props) {
+    const addProductOrder = (props) => {
         console.log(props)
-        console.log("estoy agrgando productos")
-        setProductSelect(props)
+        //setProductSelect(props)
+        //orderList.push(props)
+        // setListProductsTotal((lista) => lista.map(p => {
+        //     return (p.id === product.id) ? productUpdate : p
+        // }))
+        setProductSelect([...orderList, orderList.push(props)])
+        console.log(orderList)
     }
 
-   function addQuantityProduct () {
-    setProductSelectQuantity(productSelectQuantity+1)
-    }
+    const totalPrice = orderList.map((product) => product.price).reduce((sum,val) => sum + parseInt(val,0),0)
 
-    function subtractQuantityProduct () {
-        setProductSelectQuantity(productSelectQuantity-1)
-        }
+    
+    // const priceTotal = orderList.reduce((price1, price2) => price1.price + price2.price , 0)
 
     return (
         <section className='order'>
@@ -103,14 +91,16 @@ const Order = () => {
                         <option value='Almuerzo'>Almuerzo</option>
                     </select>
                     {
-                        productsList.map((product, index) => {
+                        productsList.map((product, id) => {
                             return (
-                                <div key={index} className='listProductsOrder'>
+                                <div key={id} className='listProductsOrder'>
                                     <ListProducts
+                                        id={product.id}
                                         image={product.image}
                                         name={product.name}
                                         price={product.price} 
-                                        clickAdd= {clickAdd}>
+                                        dataEntry={new Date()}
+                                        clickAdd= {addProductOrder}>
                                         </ListProducts>
                                 </div>)
                         })
@@ -134,26 +124,26 @@ const Order = () => {
                         <p>Opciones</p>
                     </section>
 
-                    {/* informacion de los productos */}
-                    <section className='containerPCO'>
-                        <div className='name'>
-                            <p>{productSelect.name}</p>
-                        </div>
-                        <div className='price'>
-                            <p>${productSelect.price}</p>
-                        </div>
-                        <div className='btnQuantity'>
-                            <Button text='–' className='btnFewer' onClick={()=>subtractQuantityProduct()}/>
-                            <p className='pControl'>{productSelectQuantity}</p>
-                            <Button text='+' className='btnAdd' onClick={()=>addQuantityProduct()}/>
-                        </div>
-                        <div className='btnDelete'>
-                            <Button className='trashContainer'><FontAwesomeIcon icon={faTrash} /></Button>
-                        </div>
-                    </section>
+                    {/* informacion de los productos ordenados */}
+
+                    <div className='containerProductsAdmin'>
+                        {orderList.map((product, id) => (
+                            <div key={id}>
+                                <CardProductsOrder
+                                    productSelect={product}
+                                    id={product.id}
+                                    name={product.name}
+                                    price={product.price}
+                                    orderList={orderList}
+                                    setOrderList={setOrderList}
+                                />
+                            </div>
+                        ))}
+                    </div>
+
                     <div className='totalPrice'>
                             <p>Total</p>
-                            <p>${productSelect.price}</p>
+                            <p>${totalPrice}</p>
                         </div>
                     <section className='sectionBtn'>
                         <Button text='Enviar' className='btnEnviar'></Button>
