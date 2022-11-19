@@ -102,6 +102,17 @@ input:focus {
     /* border: solid 2px brown; */
 }
 
+.containerProductOrder {
+    display: grid;
+    grid-template-columns: 20% 20% 20% 20%;
+    justify-content: space-around;
+    align-items: center;
+    background-color: #D9D9D9;
+    border-radius: 25px;
+    margin: 10px;
+    /* border: solid 2px brown; */
+}
+
 .name {
     display: flex;
     justify-content: center;
