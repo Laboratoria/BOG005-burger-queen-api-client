@@ -9,7 +9,7 @@ const ListProducts = (props) => {
             <img src={props.image} alt={props.name} />
             <p>{props.name}</p>
             <p>${props.price}</p>
-            <Button text='agregar' className='btnAdd' onClick={()=>props.clickAdd(props)}/>
+            <Button text='agregar' className='btnAdd' onClick={() => props.clickAdd(props)} />
         </div>
     )
 }

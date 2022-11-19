@@ -9,6 +9,7 @@ import ListProducts from '../components/ListProducts';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faTrash } from '@fortawesome/free-solid-svg-icons';
 import { faCircleArrowRight } from '@fortawesome/free-solid-svg-icons';
+// import CardListOrder from '../components/CardListOrder';
 //import menu from '../helpers/menu'
 
 //console.log('este es el menu', menu())
@@ -33,11 +34,11 @@ const Order = () => {
     // const [selectState, setSelectState] = useState({ value: 'Seleccione Desayuno/Almuerzo' })
     const [productsList, setProductsList] = useState([])
 
-    const [productSelect, setProductSelect] = useState({})
+    const [productSelect, setProductSelect] = useState([])
 
-    const [orderList, setOrderList] = useState([])
+    const [orderList, setOrderList] = useState([{ dateEntry: productSelect.dateEntry, image: productSelect.image, name: productSelect.name, price: productSelect.price, type: productSelect.type }])
 
-    const [productSelectQuantity, setProductSelectQuantity]=useState(1)
+    const [productSelectQuantity, setProductSelectQuantity] = useState(1)
 
 
     useEffect(() => {
@@ -64,28 +65,32 @@ const Order = () => {
         })
 
         setProductsList(resultFilter)
-        console.log(resultFilter)
+        console.log(resultFilter) //productList queda con la seleccion de la lista de desayuno o almuerzo
     }
 
     // Funcion para agregar productos al pedido
 
-    const addProductOrder = () => {
-        
+    const addProductOrder = (product) => {
+        console.log(product)
+        // setOrderList(...productSelect, orderList.push(productSelect))
+        setOrderList((lista) => [...lista, orderList.push(productSelect)])
+        console.log(orderList)
     }
 
-    function clickAdd (props) {
-        console.log(props)
+    function clickAdd(props) {
+        console.log('Por aca product', productSelect)
         console.log("estoy agrgando productos")
-        setProductSelect(props)
+        setProductSelect(productSelect)
+        // setProductSelect([...productSelect, productSelect.push(productSelect)])
     }
 
-   function addQuantityProduct () {
-    setProductSelectQuantity(productSelectQuantity+1)
+    function addQuantityProduct() {
+        setProductSelectQuantity(productSelectQuantity + 1)
     }
 
-    function subtractQuantityProduct () {
-        setProductSelectQuantity(productSelectQuantity-1)
-        }
+    function subtractQuantityProduct() {
+        setProductSelectQuantity(productSelectQuantity - 1)
+    }
 
     return (
         <section className='order'>
@@ -103,17 +108,20 @@ const Order = () => {
                         <option value='Almuerzo'>Almuerzo</option>
                     </select>
                     {
-                        productsList.map((product, index) => {
-                            return (
-                                <div key={index} className='listProductsOrder'>
-                                    <ListProducts
-                                        image={product.image}
-                                        name={product.name}
-                                        price={product.price} 
-                                        clickAdd= {clickAdd}>
-                                        </ListProducts>
-                                </div>)
-                        })
+                        productsList.map((product, index) => (
+                            <div key={index} className='listProductsOrder'>
+                                <ListProducts
+                                    product={product}
+                                    // image={product.image}
+                                    // name={product.name}
+                                    // price={product.price}
+                                    clickAdd={clickAdd}
+                                    // setProductSelect={setProductSelect}
+                                    addProductOrder={addProductOrder}
+                                >
+                                </ListProducts>
+                            </div>
+                        ))
                     }
                 </div>
                 {/* <form typeof='submit' className='formOrder' onSubmit={handleSubmit(selectOption)}> */}
@@ -136,25 +144,44 @@ const Order = () => {
 
                     {/* informacion de los productos */}
                     <section className='containerPCO'>
+                        {/* {
+                            productSelect.map((pr, index) => (
+                                <div key={index} className='listProductsOrder'>
+                                    <CardListOrder
+                                        // image={order.image}
+                                        // name={order.name}
+                                        // price={order.price}
+                                        pr={pr}
+                                    // setProductSelect={setProductSelect}
+
+                                    >
+                                    </CardListOrder>
+                                </div>
+                            ))
+                        } */}
+
+                        {/* Esto llevarlo a otro componente */}
+
                         <div className='name'>
                             <p>{productSelect.name}</p>
                         </div>
                         <div className='price'>
                             <p>${productSelect.price}</p>
                         </div>
+
                         <div className='btnQuantity'>
-                            <Button text='–' className='btnFewer' onClick={()=>subtractQuantityProduct()}/>
+                            <Button text='–' className='btnFewer' onClick={() => subtractQuantityProduct()} />
                             <p className='pControl'>{productSelectQuantity}</p>
-                            <Button text='+' className='btnAdd' onClick={()=>addQuantityProduct()}/>
+                            <Button text='+' className='btnAdd' onClick={() => addQuantityProduct()} />
                         </div>
                         <div className='btnDelete'>
                             <Button className='trashContainer'><FontAwesomeIcon icon={faTrash} /></Button>
                         </div>
                     </section>
                     <div className='totalPrice'>
-                            <p>Total</p>
-                            <p>${productSelect.price}</p>
-                        </div>
+                        <p>Total</p>
+                        <p>${productSelect.price}</p>
+                    </div>
                     <section className='sectionBtn'>
                         <Button text='Enviar' className='btnEnviar'></Button>
                         <Button text='Cancelar' className='btnCancel'></Button>
