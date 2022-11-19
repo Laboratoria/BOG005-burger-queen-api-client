@@ -9,23 +9,38 @@ function AdminView() {
     //const [isOpenEditProductModal, openEditProductModal, closeEditProductModal] = useModal()
 
     return (
-        <div>
-            <button onClick={openAddProductModal}>
+        <div className="adminView">
+            <header className="header">
+                <div className="headerImg">
+                    <img src="/burger-queen-header.png" className="headerLogoBig" alt="Burger logo" />
+                </div>
+                <nav className="navMenu">
+                    <ul className="navAMenu">
+                        <li><a className="navLink" href="/admin-products">Productos</a></li>
+                        <li><a className="navLink" href="/admin-usuarios">Usuarios</a></li>
+                        <li><a className="navLink" href="/">Salir</a></li>
+                    </ul>
+                </nav>
+        
+            </header>
+
+            <section className="productsList">
+                {/* componente de productos */}
+            
+            <button onClick={openAddProductModal} className="addProducts">
                 Agregar Productos
             </button>
 
-            {/* <button onClick={openEditProductModal}>
-                Editar Productos
-            </button> */}
             <AddProductModal
                 isOpen={isOpenAddProductModal}
                 closeModal={closeAddProductModal}
             >
             </AddProductModal>
+            </section>
         </div>
     );
 
-    < section className="adminView" >
+    < section  >
 
         <section className="header">
             <div className="headerImg">
@@ -35,7 +50,6 @@ function AdminView() {
 
             <nav className="navMenu"></nav>
             {/* Menú de navegació en react */}
-
         </section>
 
         <section className="productsList">

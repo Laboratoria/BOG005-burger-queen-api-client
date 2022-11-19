@@ -1,7 +1,6 @@
 * {
     margin: 0;
     padding: 0;
-    box-sizing: border-box;
 }
 
 html,
@@ -9,14 +8,44 @@ body {
     font-family: 'Poppins', sans-serif;
 }
 
-.addProModal{
+.header {
+    height: 40vw;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 10px;
+    background-color: #F7CB58;
+
+}
+
+.navAMenu {
+    display: flex;
+    justify-content: space-between;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 600;
+    list-style-type: none;
+}
+
+.navLink {
+    text-decoration: none;
+    color: white;
+    margin: 10px;
+    font-size: 5vw;
+}
+
+.headerLogoBig {
+    width: 70vw;
+    margin: 20px 0px 5px 0px;
+}
+
+.addProModal {
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
 }
 
-.addProductForm{
+.addProductForm {
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -25,12 +54,12 @@ body {
 
 .titleAddProduct {
     color: rgb(64, 64, 64);
-    margin: 6vw 0vw 6vw 0vw; 
+    margin: 6vw 0vw 6vw 0vw;
     font-size: 6.5vw;
     font-weight: 600;
 }
 
-.addProdSection{
+.addProdSection {
     display: flex;
     justify-content: center;
 }
@@ -46,7 +75,7 @@ body {
     border: 0.5vw solid #F7CB58;
 }
 
-.addProductInput:focus  {
+.addProductInput:focus {
     border-color: #F9965E;
     outline: 0;
 }
@@ -67,7 +96,7 @@ body {
     align-items: center;
     background-color: #F0B44C;
     border: white;
-    font-family: 'Poppins', sans-serif;  
+    font-family: 'Poppins', sans-serif;
     box-shadow: rgb(0 0 0 / 15%) 0 3px 4px;
 }
 
@@ -75,3 +104,26 @@ body {
     background-color: #d78033;
 }
 
+.addProducts {
+    width: 70vw;
+    height: 10vw;
+    color: white;
+    margin-top: 10vw;
+    font-size: 4.5vw;
+    font-weight: 500;
+    border-radius: 5vw;
+    align-items: center;
+    background-color: #F0B44C;
+    border: white;
+    font-family: 'Poppins', sans-serif;
+    box-shadow: rgb(0 0 0 / 15%) 0 3px 4px;
+}
+
+.addProducts:hover {
+    background-color: #d78033;
+}
+
+.productsList{
+    display: flex;
+    justify-content: center;
+}
