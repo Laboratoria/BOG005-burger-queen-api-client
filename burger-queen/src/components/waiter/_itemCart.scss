@@ -1,0 +1,19 @@
+.cartItem {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    img{
+        width: 20%;
+    }
+    .dataContainer {
+        .left {
+            display: flex;
+            flex-direction: row;
+
+            .buttonsItemsCart {
+                display: flex;
+                flex-direction: row;
+            }
+        }
+    }
+}
