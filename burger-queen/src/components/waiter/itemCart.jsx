@@ -8,7 +8,7 @@ import { CartContext } from "../../context/cartContext";
   } = React.useContext(CartContext);
 
     console.log('dentro de item cart',props.id)
-    let acum;
+    let acum = 0;
     console.log('viendo stado' , amountProduct);
 
     if(props.id === amountProduct.id){
