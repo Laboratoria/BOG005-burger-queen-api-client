@@ -12,3 +12,13 @@
         flex-direction: row;
     }
 }
+
+@media(max-width:767px) {
+
+}
+
+@media(min-width:1023px) {
+.btnCart {
+    display: none;
+}
+}

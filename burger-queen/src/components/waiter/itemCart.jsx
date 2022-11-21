@@ -7,6 +7,8 @@ const ItemCart = (props) => {
     setAmountProduct,
     order,
     setOrder,
+    totalOrder,
+    setTotalOrder,
   } = React.useContext(CartContext);
 
   let acum = 1;
@@ -25,6 +27,7 @@ const ItemCart = (props) => {
     setAmountProduct(
       [...amountProduct, props.id,
       ])
+      setTotalOrder(parseInt(totalOrder) + parseInt(props.price))
   }
 
   //elimina el producto de uno en uno 
@@ -40,6 +43,7 @@ const ItemCart = (props) => {
       results = results.filter(element => element.id !== props.id);
       setOrder(results)
     }
+    setTotalOrder(parseInt(totalOrder) - parseInt(props.price))
   }
 
 
