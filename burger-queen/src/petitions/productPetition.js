@@ -77,7 +77,7 @@ const getOnlyProduct = async (id)=>{
 
 
 // -----Peticion para crear orden -----//
-const PostOrden = async (newObject, clients) =>{
+const PostOrder = async (newObject, clients) =>{
     return await axios({
         method: "POST",
         url:url+'orders',
@@ -97,5 +97,5 @@ const PostOrden = async (newObject, clients) =>{
 }
 
 
-export {listProducts, createProduct, deleteProduct, editProduct, getOnlyProduct}
+export {listProducts, createProduct, deleteProduct, editProduct, getOnlyProduct, PostOrder}
 

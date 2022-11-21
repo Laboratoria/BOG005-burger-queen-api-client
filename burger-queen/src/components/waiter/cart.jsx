@@ -1,7 +1,9 @@
 import React from 'react'
 import { CartContext } from '../../context/cartContext';
 import { BurgerContext } from '../../context/indexContext';
+import { PostOrder } from '../../petitions/productPetition';
 import { ItemCart } from './itemCart';
+
 
 
 
@@ -10,6 +12,8 @@ const Cart  = () => {
         // setOrder,
         totalOrder,
         setTotalOrder,
+        amountProduct,
+        setAmountProduct
     } = React.useContext(CartContext);
 
     const { 
@@ -23,6 +27,8 @@ const Cart  = () => {
 
    const sendOrder =()=>{
     setOpenModal(false)
+    console.log('productos de la orden', order)
+    console.log('cantidad de productos',amountProduct)
        }
 
   return (
