@@ -4,6 +4,7 @@ const CartContext = React.createContext();
 function CartProvider(props) {
 const [order, setOrder] = useState([])
 const [amountProduct, setAmountProduct] = useState([])
+const [totalOrder, setTotalOrder] = useState(0)
 // ({
 //   id: '',
 //   amount: 0,
@@ -13,7 +14,10 @@ const [amountProduct, setAmountProduct] = useState([])
             order,
             setOrder,
             amountProduct,
-            setAmountProduct
+            setAmountProduct,
+            totalOrder,
+            setTotalOrder
+            
         }}>
           {props.children}
         </CartContext.Provider>

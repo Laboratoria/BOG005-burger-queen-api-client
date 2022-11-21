@@ -7,7 +7,9 @@ import { ItemCart } from './itemCart';
 
 const Cart  = () => {
     const { order,
-        // setOrder
+        // setOrder,
+        totalOrder,
+        setTotalOrder,
     } = React.useContext(CartContext);
 
     const { 
@@ -38,7 +40,7 @@ const Cart  = () => {
               ></input> 
               {/* {order.map(data => console.log("QUE TRAES",data.name))} */}
                 {order.map(data => (<ItemCart key={data.id} id={data.id} image={data.image} name={data.name} price={data.price} type={data.type}/>))}
-              <h3>Total: $ </h3>
+              <h3>Total: $ {totalOrder}</h3>
             </div>
             <div className='container_button'>
               <div>

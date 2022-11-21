@@ -8,7 +8,9 @@ const MenuItem = (props) => {
     const { order,
         setOrder,
         amountProduct,
-        setAmountProduct
+        setAmountProduct,
+            totalOrder,
+            setTotalOrder,
     } = React.useContext(CartContext);
 
     // let productsOrder = []
@@ -26,6 +28,7 @@ const MenuItem = (props) => {
                     ...order, res.data
                 ])
             )
+            setTotalOrder(parseInt(totalOrder) + parseInt(props.price))
         })
     }
 
