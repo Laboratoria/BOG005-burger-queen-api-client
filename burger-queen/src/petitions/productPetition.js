@@ -1,5 +1,5 @@
 import axios from 'axios'
-import { getToken } from './userPetition'
+import { getToken, getUser } from './userPetition'
 
 const url = process.env.API_URL || 'http://localhost:8080/'
 
@@ -74,6 +74,28 @@ const getOnlyProduct = async (id)=>{
         },
     })
 }
+
+
+// -----Peticion para crear orden -----//
+const PostOrden = async (newObject, clients) =>{
+    return await axios({
+        method: "POST",
+        url:url+'orders',
+        headers: {
+            'content-type': 'application/json',
+                authorization: 'Bearer ' + getToken(),
+        },
+        data: {
+            userId: getUser(),
+            client: clients,
+            products: newObject,
+            status: 'pending',
+            dateEntry: new Date().toLocaleString('sv'),
+
+        }
+    })
+}
+
 
 export {listProducts, createProduct, deleteProduct, editProduct, getOnlyProduct}
 

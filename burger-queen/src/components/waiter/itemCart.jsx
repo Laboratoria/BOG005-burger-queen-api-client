@@ -12,12 +12,15 @@ const ItemCart = (props) => {
   } = React.useContext(CartContext);
 
   let acum = 1;
-
   amountProduct.forEach(element => {
     if (props.id === element) {
       acum += 1
     }
   });
+ 
+  
+
+
 
 //agrega el producto de uno en uno 
   const addProduct = () => {
@@ -51,15 +54,21 @@ const ItemCart = (props) => {
       <div className="dataContainer">
         <div className="left">
           <p>{props.name}</p>
-          {/* <p>{props.price}</p> */}
+          <p>{props.price}</p>
           <div className="buttonsItemsCart">
-            <button onClick={addProduct}>
-              +
-            </button>
-            <p>{acum}</p>
-            <button onClick={restProduct}>
-              -
-            </button>
+            <div className="btnGroup">
+              <button className="btnAdd" onClick={addProduct}>
+                +
+              </button>
+              <p>{acum}</p>
+              <button className="btnRest" onClick={restProduct}>
+                -
+              </button>
+            </div>
+            <div cla>
+            <h3>Total: $ </h3>
+            </div>
+
           </div>
         </div>
         {/* <div className="right">

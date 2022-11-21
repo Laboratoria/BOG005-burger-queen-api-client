@@ -1,18 +1,58 @@
 .cartItem {
+    height: 100%;
+    background-color: #3a3a3a;
+    margin-top: 20px;
     display: flex;
-    flex-direction: row;
+    align-items: center;
     justify-content: space-between;
+    padding: 0 15px;
     img{
-        width: 20%;
+
+        height: 40px;
+        width: 40px;
+        border-radius: 5px;
     }
     .dataContainer {
+        display: flex;
+        justify-content: space-between;
+        width: 100%;
+        height: 100%;
+        padding: 15px 0;
         .left {
+            padding-left: 20px;
             display: flex;
             flex-direction: row;
+            justify-content: space-between;
+            gap: 20px;
+
+            p {
+                font-weight: bold;
+                font-size: 16px;
+            }
 
             .buttonsItemsCart {
                 display: flex;
-                flex-direction: row;
+                flex-direction: column;
+                border: none;
+                cursor: pointer;
+                font-size: 12px;
+                padding: 3px 5px;
+                border-radius: 5px;
+                font-weight: bold;
+                color: white;
+
+                .btnGroup{
+                    display: flex;
+                    flex-direction: row;
+                    justify-content: center;
+                    
+                    .btnAdd, .btnRest{
+                        height: 20px;
+                        display: flex;
+                        justify-content: center;
+                    }
+                }
+
             }
         }
     }
