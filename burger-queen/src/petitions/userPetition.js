@@ -89,4 +89,4 @@ const createDataUser = async (dataNewUser) => {
 
 
 
-export { loginUser, getToken, listUser, createDataUser, deleteUser, editUser }
+export { loginUser, getToken, getUser, listUser, createDataUser, deleteUser, editUser }

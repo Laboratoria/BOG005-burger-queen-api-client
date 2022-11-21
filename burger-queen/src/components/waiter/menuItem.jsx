@@ -14,23 +14,12 @@ const MenuItem = (props) => {
     // let productsOrder = []
 
     const addProduct = () => {
-        console.log('click aqui', props.id);
         getOnlyProduct(props.id).then(res => {
-            // console.log('mirando res', res.data)
-            // productsOrder.push(res.data)
-            // console.log('array',productsOrder)
-            // setOrder(productsOrder)
-            // console.log('estado order', order);
             const productExists = order.find((item)=> item.id === props.id) //me devuelve un unico elemento
             if(productExists){
-
                setAmountProduct(
-                {
-                    ...amountProduct,
-                    id: res.data.id,
-                    amount: + 1
-                  }
-               ) 
+                [  ...amountProduct,  res.data.id,
+                ])
             }
             else (
                 setOrder([

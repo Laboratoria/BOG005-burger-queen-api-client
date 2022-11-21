@@ -1,36 +1,70 @@
 import React from "react";
 import { CartContext } from "../../context/cartContext";
-  const ItemCart =(props) => {
+const ItemCart = (props) => {
 
-    const {
-      amountProduct,
-      // setAmountProduct
+  const {
+    amountProduct,
+    setAmountProduct,
+    order,
+    setOrder,
   } = React.useContext(CartContext);
 
-    console.log('dentro de item cart',props.id)
-    let acum = 0;
-    console.log('viendo stado' , amountProduct);
-
-    if(props.id === amountProduct.id){
-      acum += amountProduct.amount
+  let acum = 1;
+  amountProduct.forEach(element => {
+    if (props.id === element) {
+      acum += 1
     }
+  });
  
+  
+
+
+
+//agrega el producto de uno en uno 
+  const addProduct = () => {
+    setAmountProduct(
+      [...amountProduct, props.id,
+      ])
+  }
+
+  //elimina el producto de uno en uno 
+  const restProduct = () => {
+    let restOneProduct = [...amountProduct]
+    const myIndex = restOneProduct.indexOf(props.id);
+    if (myIndex !== -1) {
+      restOneProduct.splice(myIndex, 1)
+    }
+    setAmountProduct(restOneProduct)
+    if (amountProduct.includes(props.id) === false) {
+      let results = [...order]
+      results = results.filter(element => element.id !== props.id);
+      setOrder(results)
+    }
+  }
+
+
   return (
     <div className="cartItem">
-    
+
       <img src={props.image} alt={props.name} />
       <div className="dataContainer">
         <div className="left">
           <p>{props.name}</p>
-          {/* <p>{props.price}</p> */}
-          <div className="buttons">
-            <button >
-              +
-            </button>
-            <p>amount {acum}</p>
-            <button >
-              -
-            </button>
+          <p>{props.price}</p>
+          <div className="buttonsItemsCart">
+            <div className="btnGroup">
+              <button className="btnAdd" onClick={addProduct}>
+                +
+              </button>
+              <p>{acum}</p>
+              <button className="btnRest" onClick={restProduct}>
+                -
+              </button>
+            </div>
+            <div cla>
+            <h3>Total: $ </h3>
+            </div>
+
           </div>
         </div>
         {/* <div className="right">
@@ -42,4 +76,4 @@ import { CartContext } from "../../context/cartContext";
   );
 };
 
-export {ItemCart}
+export { ItemCart }
