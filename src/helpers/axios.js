@@ -2,6 +2,7 @@ import axios from "axios";
 
 const baseUrl = process.env.REACT_APP_API_URL;
 let token = localStorage.getItem('tokenUser')
+let userId = localStorage.getItem('user')
 //const token = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImdyYWNlLmhvcHBlckBzeXN0ZXJzLnh5eiIsImlhdCI6MTY2NzE2NTk1OSwiZXhwIjoxNjY3MTY5NTU5LCJzdWIiOiIyIn0.RqYLrbO8Psp6CRGgMAIHveLD8plFy4lrdBHzlyTYSXY'
 
 const loginUser = async (email, password) => {
@@ -17,6 +18,9 @@ const loginUser = async (email, password) => {
     console.log(rest.data.accessToken)
     localStorage.setItem('tokenUser', rest.data.accessToken)
     token = rest.data.accessToken
+    localStorage.setItem('userId', rest.data.user.id)
+    userId = rest.data.user.id
+    console.log(userId)
     //console.log(rest.data.accessToken)
     return rest.status
 }
@@ -107,12 +111,13 @@ export const getUsers = async () => {
             'Authorization': 'Bearer ' + token,
         },
     });
-    console.log(res.data)
+    console.log('==================>>>>>>>>>>>>>>>>>>>>>>>', res.data)
     //console.log(res)
     return res.data
 };
 
 export const createUserPost = async (objectUser) => {
+    console.log(objectUser)
     const res = await axios({
         method: 'POST',
         url: baseUrl + '/users',
@@ -154,6 +159,26 @@ export const updateUser = async (objectUser, idUser) => {
     return res
 };
 
+export const orderPetition = async (objectProducts, client) => {
+    console.log(objectProducts)
+    const res = await axios({
+        method: 'POST',
+        url: baseUrl + '/orders',
+        headers: {
+            'Content-Type': 'application/json',
+            'Authorization': 'Bearer ' + token,
+        },
+        data: {
+            userId: userId,
+            client: client,
+            products: objectProducts,
+            status: 'pending',
+            dateEntry: new Date().toLocaleString('sv')
+        }
+    });
+    // console.log(res.data)
+    return res
+};
 
 
 

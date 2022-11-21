@@ -3,7 +3,7 @@ import Header from '../components/Header'
 import FormInput from '../components/FormInput'
 import Button from '../components/Button'
 import { useState } from 'react';
-import { getProducts } from '../helpers/axios'
+import { getProducts, orderPetition } from '../helpers/axios'
 // import { useForm } from 'react-hook-form'
 import ListProducts from '../components/ListProducts';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
@@ -21,7 +21,11 @@ const Order = () => {
 
     const [orderList, setOrderList] = useState([])
 
-    const [productSelect, setProductSelect] = useState({})
+    // const [productSelect, setProductSelect] = useState({})
+
+    // const [finalPrice, setFinalPrice] = useState()
+
+    const [nameClient, setNameClient] = useState('')
 
 
 
@@ -47,7 +51,6 @@ const Order = () => {
             }
             return false
         })
-
         setProductsList(resultFilter)
         console.log(resultFilter)
     }
@@ -66,13 +69,22 @@ const Order = () => {
         // setListProductsTotal((lista) => lista.map(p => {
         //     return (p.id === product.id) ? productUpdate : p
         // }))
-        setProductSelect([...orderList, orderList.push(props)])
+        setOrderList([...orderList, { qty: 1, product: props}])
         console.log(orderList)
     }
 
-    const totalPrice = orderList.map((product) => product.price).reduce((sum,val) => sum + parseInt(val,0),0)
+    const totalPrice = orderList.map((product) => product.product.price * product.qty).reduce((sum,val) => sum + val,0)
 
-    
+    const handleChange = (e) => {
+        console.log('me estoy ejecutando')
+        setNameClient(e.target.value)
+        console.log(nameClient)
+    }
+
+
+    const sendOrderPetition = () => {
+        orderPetition(orderList, nameClient)
+    }
     // const priceTotal = orderList.reduce((price1, price2) => price1.price + price2.price , 0)
 
     return (
@@ -100,7 +112,7 @@ const Order = () => {
                                         name={product.name}
                                         price={product.price} 
                                         dataEntry={new Date()}
-                                        clickAdd= {addProductOrder}>
+                                        clickAdd= {()=> addProductOrder(product)}>
                                         </ListProducts>
                                 </div>)
                         })
@@ -113,9 +125,10 @@ const Order = () => {
                     <p className='pOrderSummary'>Resumen del pedido</p>
                     <FormInput
                         className='inputNameClient'
-                        type='nameClient'
+                        value= {nameClient}
                         required
-                        placeholder='Nombre del cliente'>
+                        placeholder='Nombre del cliente'
+                        onChange={handleChange}>
                     </FormInput>
                     <section className='containerLabels'>
                         <p>Producto</p>
@@ -131,9 +144,6 @@ const Order = () => {
                             <div key={id}>
                                 <CardProductsOrder
                                     productSelect={product}
-                                    id={product.id}
-                                    name={product.name}
-                                    price={product.price}
                                     orderList={orderList}
                                     setOrderList={setOrderList}
                                 />
@@ -146,7 +156,7 @@ const Order = () => {
                             <p>${totalPrice}</p>
                         </div>
                     <section className='sectionBtn'>
-                        <Button text='Enviar' className='btnEnviar'></Button>
+                        <Button text='Enviar' className='btnEnviar' onClick={sendOrderPetition}></Button>
                         <Button text='Cancelar' className='btnCancel'></Button>
                     </section>
 

@@ -1,19 +1,33 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import Button from './Button'
 import { faTrash } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 const CardProductsOrder = ( {productSelect, setOrderList, orderList}) => {
 
+    console.log(productSelect.product)
     
-    const [productSelectQuantity, setProductSelectQuantity]=useState(1)
 
     function addQuantityProduct () {
-        setProductSelectQuantity(productSelectQuantity+1)
+      setOrderList((products) => {
+        return products.map((product) => {
+          if (product.product.id === productSelect.product.id) {
+            product.qty ++
+          } 
+          return product
+        })
+      })
         }
     
     function subtractQuantityProduct () {
-        setProductSelectQuantity(productSelectQuantity-1)
+        setOrderList((products) => {
+            return products.map((product) => {
+              if (product.product.id === productSelect.product.id) {
+                product.qty --
+              } 
+              return product
+            })
+          })
         }
 
     // function clickAdd (props) {
@@ -22,24 +36,31 @@ const CardProductsOrder = ( {productSelect, setOrderList, orderList}) => {
     //     setProductSelect(props)
     // }
     const productDelete = () => {
-        console.log(productSelect.id)
+        console.log(productSelect.product.id)
         console.log(orderList)
-        const newArr = orderList.filter((item) => item.id !== productSelect.id);
+        const newArr = orderList.filter((item) => item.id !== productSelect.product.id);
         setOrderList(newArr);
       }
+
+    // const totalPriceProduct = () => {
+    //     setFinalPrice(productSelect.price*productSelectQuantity)
+    // }
+
+    const totalPriceProduct = productSelect.product.price*productSelect.qty
+
     
   return (
     <div className='containerProductOrder'>
         <div className='name'>
-                            <p>{productSelect.name}</p>
+                            <p>{productSelect.product.name}</p>
                         </div>
                         <div className='price'>
-                            <p>${productSelect.price*productSelectQuantity}</p>
+                            <p>${totalPriceProduct}</p>
                         </div>
                         <div className='btnQuantity'>
-                            <Button text='–' className='btnFewer' onClick={()=>subtractQuantityProduct()}/>
-                            <p className='pControl'>{productSelectQuantity}</p>
-                            <Button text='+' className='btnAdd' onClick={()=>addQuantityProduct()}/>
+                            <Button type="button" text='–' className='btnFewer' onClick={()=>subtractQuantityProduct()}/>
+                            <p className='pControl'>{productSelect.qty}</p>
+                            <Button type="button" text='+' className='btnAdd' onClick={()=>addQuantityProduct()}/>
                         </div>
                         <div className='btnDelete'>
                             <Button className='trashContainer' onClick={productDelete}><FontAwesomeIcon icon={faTrash} /></Button>
