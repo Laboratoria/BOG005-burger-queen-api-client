@@ -1,0 +1,49 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+
+.modal {
+  width: 100vw;
+  height: 100vh;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 9999;
+  display: none;
+  justify-content: center;
+  align-items: center;
+  background-color: rgba(0, 0, 0, .85);
+}
+
+.modal-content {
+  width: 80vw;
+  height: 110vw;
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  border-radius: 5vw;
+  border: 0.5vw solid #F0B44C;
+  background-color: white;
+}
+
+.modal-open {
+  display: flex;
+}
+
+.closeAddProdBtn {
+  width: 30vw;
+  height: 9vw;
+  color: #b0b0b0;
+  margin-top: 4vw;
+  font-size: 4.5vw;
+  font-weight: 600;
+  border-radius: 5vw;
+  align-items: center;
+  background-color: white;
+  border: white;
+  text-decoration: underline;
+}

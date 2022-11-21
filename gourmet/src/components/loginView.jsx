@@ -1,7 +1,10 @@
 import React, { useState } from "react";
+import { useNavigate } from 'react-router-dom';
 import { postUserPetition } from "../utils/petitions.js";
 
 function LoginView() {
+
+    const navigating = useNavigate();
 
     const [emailUser, setEmailUser] = useState('')
 
@@ -30,6 +33,7 @@ function LoginView() {
 
                 if (response.data.user.role === 'admin') {
                     console.log('Tienes acceso')
+                    navigating('/admin-products');
                 }
             })
             .catch((error) => {
@@ -50,8 +54,8 @@ function LoginView() {
         <section className="loginComponent">
 
             <section className="sectionImg">
-                <img src="/burgerQueenThin.png" className="logoMobile" alt="Burger logo" />
-                <img src="/burgerQueenBig.png" className="logoDesk" alt="Burger logo" />
+                <img src="/burgerQueenThin.jpg" className="logoMobile" alt="Burger logo" />
+                <img src="/burgerQueenBig.jpg" className="logoDesk" alt="Burger logo" />
             </section>
             <section className="boxForm">
                 <form className='loginForm' onSubmit={authUser}>
