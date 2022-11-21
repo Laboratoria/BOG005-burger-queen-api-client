@@ -11,7 +11,7 @@ const ItemCart = (props) => {
     setTotalOrder,
   } = React.useContext(CartContext);
 
-  let acum = 1;
+  let acum = 0;
   amountProduct.forEach(element => {
     if (props.id === element) {
       acum += 1
