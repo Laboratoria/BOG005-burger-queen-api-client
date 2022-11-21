@@ -45,8 +45,8 @@ export const Users = () => {
                 'El Usuario se creó con éxito!',
                 'success'
             )
-            console.log(res.data)
-            setListUsersTotal((lista) => [...lista, res.data])
+            console.log(res.data.user)
+            setListUsersTotal((lista) => [...lista, res.data.user])
         } else {
             Swal.fire({
                 icon: 'error',

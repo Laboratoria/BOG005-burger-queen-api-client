@@ -7,7 +7,7 @@ import Modal from './Modal'
 
 const CardListUsers = ({ user, setListUsersTotal }) => {
 
-  console.log(user)
+  
   const [openModal, setOpenModal] = useState(false)
   const [userUpdate, setUserUpdate] = useState({ email: user.email, password: user.password, role: user.role, id:user.id });
 
@@ -81,6 +81,7 @@ const CardListUsers = ({ user, setListUsersTotal }) => {
   return (
     
     <>
+        
     <div className='usersContainer'>
         <p>{user.email}</p>
         <p type='password'>*******</p>
