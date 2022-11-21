@@ -1,13 +1,28 @@
 import React from 'react'
 import { CartContext } from '../../context/cartContext';
+import { BurgerContext } from '../../context/indexContext';
 import { ItemCart } from './itemCart';
+
 
 
 const Cart  = () => {
     const { order,
         // setOrder
     } = React.useContext(CartContext);
-    
+
+    const { 
+      openModal,
+      setOpenModal,
+  } = React.useContext(BurgerContext);
+
+   const cancelOrder =()=>{
+    setOpenModal(false)
+   }
+
+   const sendOrder =()=>{
+    setOpenModal(false)
+       }
+
   return (
     <>
       <div className='container'>
@@ -28,12 +43,13 @@ const Cart  = () => {
             <div className='container_button'>
               <div>
                 <button
-                className='cancelar'
-                >Cancelar pedido</button>
+                className='cancelOrder'
+                onClick={cancelOrder}>Cancelar pedido</button>
               </div>
               <div>
                 <button type= 'submit'
-                className='enviar' 
+                className='sendOrder' 
+                onClick={sendOrder} 
                 >Enviar Pedido</button>
               </div>
             </div>
