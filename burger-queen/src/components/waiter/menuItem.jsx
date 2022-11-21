@@ -23,11 +23,14 @@ const MenuItem = (props) => {
                 [  ...amountProduct,  res.data.id,
                 ])
             }
-            else (
+            else {
                 setOrder([
                     ...order, res.data
                 ])
-            )
+                setAmountProduct(
+                    [  ...amountProduct,  res.data.id,
+                    ])
+                }
             setTotalOrder(parseInt(totalOrder) + parseInt(props.price))
         })
     }
