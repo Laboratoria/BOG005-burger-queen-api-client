@@ -6,6 +6,20 @@ import { faCircleArrowLeft } from '@fortawesome/free-solid-svg-icons';
 import { faCheck } from '@fortawesome/free-solid-svg-icons';
 
 const OrderState = () => {
+
+    // const [orderListState, setorderListState] = useState([])
+    // //const [updateListProducts, setUpdateListProducts] = useState(false)
+
+    // useEffect(() => {
+    //     // todo lo que este aca se ejecutara desde el inicio de la app
+    //     if (listUsersTotal.length === 0) {
+    //         getUsers().then(res => {
+    //             setListUsersTotal(res)
+    //         })
+    //     }
+
+    // }, [listUsersTotal])
+
     return (
         <section >
             <Header />
