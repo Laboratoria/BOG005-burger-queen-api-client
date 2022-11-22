@@ -82,17 +82,16 @@ const postOrder = async (newObject, idWaiter, clients) =>{
         method: "POST",
         url: url+'orders',
         headers: {
-            'content-type': 'application/json',
-                authorization: 'Bearer ' + getToken(),
+            'Content-Type': 'application/json',
+            Authorization: 'Bearer ' + getToken(),
         },
-        data: {
+       data : {
             userId: idWaiter,
             client: clients,
             products: newObject,
             status: 'pending',
-            dateEntry: new Date().toLocaleString('sv'),
+            dataEntry: new Date().toLocaleString('sv'),
         }
-        // body: JSON.stringify(orderPetitionObj),
     })
 }
 

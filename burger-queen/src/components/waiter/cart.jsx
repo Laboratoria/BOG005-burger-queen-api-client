@@ -68,6 +68,7 @@ const Cart = () => {
   // }
   const creatObject =()=>{
     let arrayItems = [];
+    console.log('arrayItems vacio',arrayItems)
      order.forEach((product)=>{
       const acum = amountProduct.filter(element => element === product.id)
       // const oneProduct = order.filter(element => element.id === product.id)
@@ -92,10 +93,12 @@ const Cart = () => {
 
   const sendOrder =() => {
     let idWaiter = JSON.parse(sessionStorage.getItem('user')).user.id
-    const newObject = creatObject();
+    let newObject = creatObject();
+    
     postOrder(newObject, idWaiter, 'andres' )
-          .then(() => {
-            console.log('Orden creada con éxito');
+          .then((res) => {
+            console.log('Orden creada con éxito', res);
+            newObject = '';
           })
           .catch((error) => {
             console.log('Error de Orden', error);
