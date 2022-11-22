@@ -20,8 +20,8 @@ body {
 }
 
 .logoMobile {
-    height: 25vw;
-    margin-bottom: 6vw;
+    height: 55vw;
+    margin-bottom: -3vw;
 
 }
 
@@ -30,7 +30,7 @@ body {
 }
 
 .boxForm {
-    width: 88vw;
+    width: 83vw;
     height: 107vw;
     border-radius: 3vw;
     padding-top: 13vw;
@@ -52,7 +52,7 @@ body {
 }
 
 .emailInput {
-    width: 79vw;
+    width: 74vw;
     height: 9vw;
     color: rgb(64, 64, 64);
     font-size: 4.5vw;
@@ -72,7 +72,7 @@ body {
 }
 
 .passwordInput {
-    width: 79vw;
+    width: 74vw;
     height: 9vw;
     color: rgb(64, 64, 64);
     font-size: 4.5vw;
@@ -92,7 +92,7 @@ body {
 }
 
 .loginBtn {
-    width: 79vw;
+    width: 74vw;
     height: 9vw;
     color: #5271FF;
     margin-top: 8vw;
@@ -119,32 +119,42 @@ p {
 
 @media only screen and (max-width: 829px) and (min-width: 600px) {
     .boxForm {
-        height: 90vw;
-        width: 85vw;
+        height: 87vw;
+        width: 75vw;
         padding-top: 10vw;
+    }
+
+    .loginForm {
+        gap: 3vw;
+    }
+    
+    .logoMobile {
+        height: 55vw;
+        margin-bottom: -5vw;
+        margin-top: -10vw;
     }
 
     .titleLogin {
         font-size: 6vw;
-        margin-bottom: 7vw;
+        margin-bottom: 8vw;
     }
 
     .emailInput {
-        font-size: 4vw;
+        font-size: 3.6vw;
         border: 0.5vw solid white;
-        width: 74vw;
+        width: 67vw;
     }
 
     .passwordInput {
-        font-size: 4vw;
+        font-size: 3.6vw;
         border: 0.5vw solid white;
-        width: 74vw;
+        width: 67vw;
     }
 
     .loginBtn {
-        font-size: 4.5vw;
-        margin-top: 2vw;
-        width: 74vw;
+        font-size: 4vw;
+        margin-top: 6vw;
+        width: 67vw;
     }
 
     p {

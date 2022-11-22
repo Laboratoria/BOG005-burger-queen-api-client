@@ -5,9 +5,7 @@ import { postUserPetition } from "../utils/petitions.js";
 function LoginView() {
 
     const navigating = useNavigate();
-
     const [emailUser, setEmailUser] = useState('')
-
     const [passwordUser, setPasswordUser] = useState('')
 
     function handleChangeEmail(event) {
@@ -19,9 +17,7 @@ function LoginView() {
     }
 
     function authUser(event) {
-
         event.preventDefault()
-
         console.log(emailUser)
         console.log(passwordUser)
 
@@ -46,7 +42,6 @@ function LoginView() {
                     console.log('*Usuario no encontrado')
                     errorMessage.innerHTML = '*Usuario no encontrado'
                 }
-
             })
     }
 
@@ -54,7 +49,7 @@ function LoginView() {
         <section className="loginComponent">
 
             <section className="sectionImg">
-                <img src="/bigFoodsLarge.png" className="logoMobile" alt="Burger logo" />
+                <img src="/bigFoodsLogo.png" className="logoMobile" alt="Burger logo" />
                 <img src="/bigFoodsLogo.png" className="logoDesk" alt="Burger logo" />
             </section>
             <section className="boxForm">

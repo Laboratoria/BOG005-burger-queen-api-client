@@ -2,7 +2,6 @@ import React from 'react'
 import '../styles/modal.css'
 
 function Modal({ isOpen, closeModal, title, children }) {
-
   function handleModalContent(event) {
     event.stopPropagation();
   }
