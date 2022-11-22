@@ -1,5 +1,6 @@
 
 import React, { useEffect } from "react";
+import { useState } from "react";
 import { BurgerContext } from "../../../context/indexContext";
 import { listProducts } from "../../../petitions/productPetition";
 import { MenuItem } from "./menuItem";
@@ -25,15 +26,30 @@ const ProductsWaiter = () => {
         })
     }
     useEffect(() => { getListProducts() } , [])
- 
+
+    const [menu, setMenu]= useState ()
+    let lunch = products.filter(product=> product.type === 'Almuerzo')
+    let breakfast = products.filter(product=> product.type === 'Desayuno')
+
+
+    const viewBreakfastMenu =()=>{
+        setMenu(true)
+    }
+    const viewLunchMenu = ()=>{
+        setMenu(false)
+    }
+
     return (
         <div className="productsWaiter_container">
             <div className="btnMenu">
-            <button className="btnBreakFast">Desayuno</button>
-            <button className="btnLunch">Almuerzo</button>
+            <button className="btnBreakFast" onClick={viewBreakfastMenu}>Desayuno</button>
+            <button className="btnLunch" onClick={viewLunchMenu}>Almuerzo</button>
             </div>
             <div className="menu_container">
-            {products.map(data => (<MenuItem key={data.id} id={data.id} image={data.image} name={data.name} price={data.price} type={data.type}/>))}
+                           { menu ?  breakfast.map(data => (<MenuItem key={data.id} id={data.id} image={data.image} name={data.name} price={data.price} type={data.type}/>))
+                           : 
+                            lunch.map(data => (<MenuItem key={data.id} id={data.id} image={data.image} name={data.name} price={data.price} type={data.type}/>))
+                             }
             </div>
           
         </div>
