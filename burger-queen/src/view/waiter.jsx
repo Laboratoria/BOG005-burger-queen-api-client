@@ -5,6 +5,7 @@ import { BurgerContext } from "../context/indexContext";
 import { Cart } from "../components/waiter/createOrder/cart";
 import { ProductsWaiter } from "../components/waiter/createOrder/waiterProducts";
 import { ViewCartDesktop } from "../components/waiter/createOrder/cartdesktop";
+import { StateOrder } from "../components/waiter/viewOrder/stateOrder";
 
 
 
@@ -13,6 +14,7 @@ const Waiter= () => {
     const { 
         openModal,
         setOpenModal,
+        stateWaiter,
     } = React.useContext(BurgerContext);
 
     const viewCart = ()=>{
@@ -23,7 +25,10 @@ const Waiter= () => {
              <Navbar />
             <h1>vista de mesero en construcción</h1>
             <div className="viewOrder">
-            <ProductsWaiter/>
+            {/* { stateAdmin ?  <AdminProducts />:   <AdminUser />} */}
+            { stateWaiter ?  
+            <React.Fragment>
+                <ProductsWaiter/>
             <button className="btnCart" onClick={viewCart}>carrito</button>
             {!!openModal && (
                     <Modal>
@@ -31,6 +36,8 @@ const Waiter= () => {
                     </Modal>
                 )}
             <ViewCartDesktop/>
+            </React.Fragment>
+            : <StateOrder /> }
             </div>
         </div>
     )
