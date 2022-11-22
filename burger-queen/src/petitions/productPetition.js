@@ -77,25 +77,25 @@ const getOnlyProduct = async (id)=>{
 
 
 // -----Peticion para crear orden -----//
-const PostOrder = async (newObject, clients) =>{
+const postOrder = async (newObject, idWaiter, clients) =>{
     return await axios({
         method: "POST",
-        url:url+'orders',
+        url: url+'orders',
         headers: {
             'content-type': 'application/json',
                 authorization: 'Bearer ' + getToken(),
         },
         data: {
-            userId: getUser(),
+            userId: idWaiter,
             client: clients,
             products: newObject,
             status: 'pending',
             dateEntry: new Date().toLocaleString('sv'),
-
         }
+        // body: JSON.stringify(orderPetitionObj),
     })
 }
 
 
-export {listProducts, createProduct, deleteProduct, editProduct, getOnlyProduct, PostOrder}
+export {listProducts, createProduct, deleteProduct, editProduct, getOnlyProduct, postOrder}
 
