@@ -23,7 +23,7 @@ const [newProduct, setnewProduct] = useState({
   dateEntry: new Date(),
 });
 const [cartItems, setCartItems] = useState([]);
-const [stateWaiter, setStateWaiter]= useState(false);
+const [stateWaiter, setStateWaiter]= useState(true);
 
   
   return (
