@@ -12,9 +12,7 @@ import Swal from 'sweetalert2'
 export const Products = () => {
 
     const { handleSubmit } = useForm()
-
     const [ListProductsTotal, setListProductsTotal] = useState([])
-    //const [updateListProducts, setUpdateListProducts] = useState(false)
     const [newProduct, setNewProduct] = useState({ dateEntry: new Date(), image: "", name: "", price: 0, type: "" })
 
     useEffect(() => {

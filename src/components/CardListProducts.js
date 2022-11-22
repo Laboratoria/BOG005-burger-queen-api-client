@@ -43,7 +43,6 @@ export const CardListProducts = ({ product, setListProductsTotal }) => {
                         })
                     }
                 })
-
             }
         })
     }
@@ -76,9 +75,7 @@ export const CardListProducts = ({ product, setListProductsTotal }) => {
             alert('No se edito el producto')
         }
         closeModal()
-
     }
-
 
     return (
         <>

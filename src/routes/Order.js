@@ -14,20 +14,9 @@ import CardProductsOrder from '../components/CardProductsOrder';
 const Order = () => {
 
     const [productsOptions, setProductsOptions] = useState([])
-    // const [selectState, setSelectState] = useState({ value: 'Seleccione Desayuno/Almuerzo' })
     const [productsList, setProductsList] = useState([])
-
-    // let orderList = []
-
     const [orderList, setOrderList] = useState([])
-
-    // const [productSelect, setProductSelect] = useState({})
-
-    // const [finalPrice, setFinalPrice] = useState()
-
     const [nameClient, setNameClient] = useState('')
-
-
 
     useEffect(() => {
         const getProductsOption = async () => {
@@ -55,20 +44,9 @@ const Order = () => {
         console.log(resultFilter) //productList queda con la seleccion de la lista de desayuno o almuerzo
     }
 
-    // const clickAdd = (props) => {
-    //     console.log("estoy agregando productos")
-    //     setProductSelect(props)
-    // }
-
     // Funcion para agregar productos al pedido
-
     const addProductOrder = (props) => {
         console.log(props)
-        //setProductSelect(props)
-        //orderList.push(props)
-        // setListProductsTotal((lista) => lista.map(p => {
-        //     return (p.id === product.id) ? productUpdate : p
-        // }))
         setOrderList([...orderList, { qty: 1, product: props }])
         console.log(orderList)
     }
@@ -81,16 +59,13 @@ const Order = () => {
         console.log(nameClient)
     }
 
-
     const sendOrderPetition = () => {
         orderPetition(orderList, nameClient)
     }
-    // const priceTotal = orderList.reduce((price1, price2) => price1.price + price2.price , 0)
 
     return (
         <section className='order'>
             <Header />
-            {/* <FontAwesomeIcon icon="fa-solid fa-circle-arrow-right" /> */}
             <Button className='btnStateOrder' text='Estado Pedidos'><FontAwesomeIcon className='iconArrow' icon={faCircleArrowRight} /></Button>
             <div className='containerH1'>
                 <h1>Realizar Pedido</h1>
@@ -138,7 +113,6 @@ const Order = () => {
                     </section>
 
                     {/* informacion de los productos ordenados */}
-
                     <div className='containerProductsAdmin'>
                         {orderList.map((product, id) => (
                             <div key={id}>
