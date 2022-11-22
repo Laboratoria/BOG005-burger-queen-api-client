@@ -17,17 +17,17 @@ const ItemCart = (props) => {
       acum += 1
     }
   });
- 
-  
 
 
 
-//agrega el producto de uno en uno 
+
+
+  //agrega el producto de uno en uno 
   const addProduct = () => {
     setAmountProduct(
       [...amountProduct, props.id,
       ])
-      setTotalOrder(parseInt(totalOrder) + parseInt(props.price))
+    setTotalOrder(parseInt(totalOrder) + parseInt(props.price))
   }
 
   //elimina el producto de uno en uno 
@@ -38,7 +38,10 @@ const ItemCart = (props) => {
       restOneProduct.splice(myIndex, 1)
     }
     setAmountProduct(restOneProduct)
-    if (amountProduct.includes(props.id) === false) {
+    console.log('viendo', amountProduct);
+    let repeat = [...amountProduct]
+    repeat = repeat.filter(element => element === props.id);
+    if (repeat.length === 1) {
       let results = [...order]
       results = results.filter(element => element.id !== props.id);
       setOrder(results)
@@ -66,7 +69,7 @@ const ItemCart = (props) => {
               </button>
             </div>
             <div cla>
-            <h3>Total: $ {acum * props.price}</h3>
+              <h3>Total: $ {acum * props.price}</h3>
             </div>
 
           </div>

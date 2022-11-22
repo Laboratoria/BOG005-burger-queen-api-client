@@ -25,7 +25,6 @@ const Waiter= () => {
              <Navbar />
             <h1>vista de mesero en construcción</h1>
             <div className="viewOrder">
-            {/* { stateAdmin ?  <AdminProducts />:   <AdminUser />} */}
             { stateWaiter ?  
             <React.Fragment>
                 <ProductsWaiter/>
