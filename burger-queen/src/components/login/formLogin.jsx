@@ -31,10 +31,11 @@ const FormLogin = () => {
                 sessionStorage.setItem('user', JSON.stringify(res.data));
                 if(res.data.user.role === 'admin'){
                     navigate('/admin')
-                } else if (res.data.user.role === 'waiter'){
+                } 
+                else if (res.data.user.role === 'waiter'){
                     navigate('/waiter')}
-                    else if (res.data.user.role === 'chef'){
-                        navigate('/chef')}
+                else if (res.data.user.role === 'chef'){
+                     navigate('/chef')}
             })
             .catch((error) => {
 
