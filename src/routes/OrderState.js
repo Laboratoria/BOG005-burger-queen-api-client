@@ -1,24 +1,25 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import Button from '../components/Button'
 import Header from '../components/Header'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCircleArrowLeft } from '@fortawesome/free-solid-svg-icons';
 import { faCheck } from '@fortawesome/free-solid-svg-icons';
+import CardOrderState from '../components/CardOrderState';
+import { viewOrderPending } from '../helpers/axios';
 
 const OrderState = () => {
 
-    // const [orderListState, setorderListState] = useState([])
+    const [orderListPending, setorderListPending] = useState([])
     // //const [updateListProducts, setUpdateListProducts] = useState(false)
 
-    // useEffect(() => {
-    //     // todo lo que este aca se ejecutara desde el inicio de la app
-    //     if (listUsersTotal.length === 0) {
-    //         getUsers().then(res => {
-    //             setListUsersTotal(res)
-    //         })
-    //     }
-
-    // }, [listUsersTotal])
+    useEffect(() => {
+        const viewListOrderPending = async() => {
+            const res = await viewOrderPending()
+            console.log(res)
+            setorderListPending(res)
+        }
+        viewListOrderPending()
+    }, [])
 
     return (
         <section >
@@ -39,24 +40,13 @@ const OrderState = () => {
 
                 <div className='containerGridOrderState'>
                     <div className='pOrderState'>
-                        <div className='greyCont'>
-                            <div className='divNameSend'>
-                                <h3>Adriana Ruiz</h3>
-                                <p>Enviado por: Ibeht Carreño</p>
+                    {orderListPending.map((order, id) => (
+                            <div key={id}>
+                                <CardOrderState
+                                    order={order}
+                                />
                             </div>
-                            <div className='divTime'>
-                                <p>10:00</p>
-                            </div>
-                        </div>
-                        <div className='greyCont'>
-                            <div className='divNameSend'>
-                                <h3>Adriana Ruiz</h3>
-                                <p>Enviado por: Ibeht Carreño</p>
-                            </div>
-                            <div className='divTime'>
-                                <p>10:00</p>
-                            </div>
-                        </div>
+                        ))}
                     </div>
 
                     <div className='pOrderState'>

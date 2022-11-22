@@ -89,20 +89,6 @@ export const deleteProduct = async (objectProduct, idProduct) => {
     return res
 };
 
-// export const updateProduct = async (objectProduct, idProduct) => {
-//     const res = await axios({
-//         method: 'PATCH',
-//         url: baseUrl + '/products/' + idProduct,
-//         headers: {
-//             'Content-Type': 'application/json',
-//             'Authorization': 'Bearer ' + token,
-//         },
-//         data: objectProduct
-//     });
-//     // console.log(res.data)
-//     return res
-// };
-
 export const getUsers = async () => {
     const res = await axios({
         method: 'GET',
@@ -181,41 +167,19 @@ export const orderPetition = async (objectProducts, client) => {
     return res
 };
 
+export const viewOrderPending = async () => {
+    const res = await axios({
+        method: 'GET',
+        url: baseUrl + '/orders',
+        headers: {
+            'Content-Type': 'application/json',
+            'Authorization': 'Bearer ' + token,
+        }
+    });
+    console.log(res.data)
+    return res.data
+};
 
 
-
-
-// export const getListProducts= async (token) => {
-//     const res = await axios({
-//         method: 'GET',
-//         url: baseUrl + '/products',
-//         headers: {
-//             'content-type': 'application/json',
-//             'Authorization': 'Bearer ' + token,
-//         },
-//     });
-//     // console.log(res.data)
-//     return res.data
-// };
-// console.log(getProducts(mitoken));
-
-// loginUser("grace.hopper@systers.xyz", "123456")
-
-//console.log('probando data', loginUser())
-
-// export const dataUser = async () => {
-//     const rest = await axios({
-//         method: 'GET',
-//         url: baseUrl + '/users',
-//         headers: {
-//             'content-type': 'application/json',
-//             'Authorization': 'Bearer ' + token,
-//         },
-//     })
-//     console.log(rest)
-//     //console.log(rest.data.accessToken)
-//     return rest
-// }
-// console.log(dataUser());
 
 export default loginUser
