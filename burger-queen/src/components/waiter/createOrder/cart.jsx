@@ -1,7 +1,7 @@
 import React from 'react'
-import { CartContext } from '../../context/cartContext';
-import { BurgerContext } from '../../context/indexContext';
-import { getOnlyProduct, postOrder, PostOrder } from '../../petitions/productPetition';
+import { CartContext } from '../../../context/cartContext';
+import { BurgerContext } from '../../../context/indexContext';
+import { getOnlyProduct, postOrder, PostOrder } from '../../../petitions/productPetition';
 import { ItemCart } from './itemCart';
 
 

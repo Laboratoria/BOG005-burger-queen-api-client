@@ -1,10 +1,10 @@
 import React from "react";
 import { Navbar } from "../components/header/navBar";
-import { Cart } from "../components/waiter/cart";
-import { ProductsWaiter } from "../components/waiter/waiterProducts";
 import { Modal } from "../components/modal/modal";
 import { BurgerContext } from "../context/indexContext";
-import { ViewCartDesktop } from "../components/waiter/cartdesktop";
+import { Cart } from "../components/waiter/createOrder/cart";
+import { ProductsWaiter } from "../components/waiter/createOrder/waiterProducts";
+import { ViewCartDesktop } from "../components/waiter/createOrder/cartdesktop";
 
 
 

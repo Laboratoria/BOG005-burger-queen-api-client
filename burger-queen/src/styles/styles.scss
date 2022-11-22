@@ -29,11 +29,10 @@ $white: #ffffff;
 @import '../components/admin/adminProducts/infoProducts';
 @import '../components/admin/adminProducts/createProduct';
 @import './components/waiter';
+@import '../components/waiter/createOrder/cart';
+@import '../components/waiter/createOrder/itemCart';
+@import '../components/waiter/createOrder/menuItem';
+@import '../components/waiter/createOrder/viewCartDesktop';
+@import '../components/waiter/createOrder/waiterProducts';
 @import './components/chef';
-@import '../components/waiter/waiterProducts';
-@import '../components/waiter/menuItem';
-@import '../components/waiter/cart.scss';
-@import '../components/waiter/itemCart';
-@import '../components/waiter/viewCartDesktop'
-// @import '../components/waiter/cart.scss';
-// @import '../components/waiter/itemCart.scss'
+// @import '../components/waiter/waiterProducts';

@@ -1,7 +1,7 @@
 
 import React from "react";
-import { getOnlyProduct } from "../../petitions/productPetition";
-import { CartContext } from "../../context/cartContext";
+import { getOnlyProduct } from "../../../petitions/productPetition";
+import { CartContext } from "../../../context/cartContext";
 
 
 const MenuItem = (props) => {

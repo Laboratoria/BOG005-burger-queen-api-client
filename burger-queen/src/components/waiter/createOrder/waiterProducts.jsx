@@ -1,7 +1,7 @@
 
 import React, { useEffect } from "react";
-import { BurgerContext } from "../../context/indexContext";
-import { listProducts } from "../../petitions/productPetition";
+import { BurgerContext } from "../../../context/indexContext";
+import { listProducts } from "../../../petitions/productPetition";
 import { MenuItem } from "./menuItem";
 
 
