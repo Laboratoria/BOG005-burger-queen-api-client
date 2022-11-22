@@ -8,6 +8,7 @@ import { BurgerContext } from "../../context/indexContext";
 function Navbar() {
 	const { 
 		setStateAdmin,
+		setStateWaiter,
 	} = React.useContext(BurgerContext);
 	const navRef = useRef();
 
@@ -24,11 +25,17 @@ function Navbar() {
 	}
 
 	const changeViewProducts = () => {
-	setStateAdmin(true)
+		setStateAdmin(true)
 	}
 	const changeViewUser = () => {
 		setStateAdmin(false)
 		}
+	const changeViewOrder =()=>{
+		setStateWaiter(true)
+	}
+	const changeViewStateOrder =()=>{
+		setStateWaiter(false)
+	}
 
 
 		let checkRole = JSON.parse(sessionStorage.getItem('user'));
@@ -45,8 +52,8 @@ function Navbar() {
 			}
 			{checkRole.user.role === 'waiter' && 
 				<React.Fragment>
-				<button >Pedidos</button>
-				<button >Estados</button>
+				<button onClick={changeViewOrder}>Pedidos</button>
+				<button onClick={changeViewStateOrder}>Estados</button>
 				</React.Fragment>
 			}
 			{checkRole.user.role === 'chef' && 
