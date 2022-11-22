@@ -39,12 +39,12 @@ function LoginView() {
             .catch((error) => {
                 console.log(error)
                 if (error.response.data === 'Incorrect password') {
-                    console.log('Contraseña incorrecta')
-                    errorMessage.innerHTML = 'Contraseña incorrecta'
+                    console.log('*Contraseña incorrecta')
+                    errorMessage.innerHTML = '*Contraseña incorrecta'
                 }
                 else {
-                    console.log('Usuario no encontrado')
-                    errorMessage.innerHTML = 'Usuario no encontrado'
+                    console.log('*Usuario no encontrado')
+                    errorMessage.innerHTML = '*Usuario no encontrado'
                 }
 
             })
@@ -54,8 +54,8 @@ function LoginView() {
         <section className="loginComponent">
 
             <section className="sectionImg">
-                <img src="/burgerQueenThin.png" className="logoMobile" alt="Burger logo" />
-                <img src="/burgerQueenBig.png" className="logoDesk" alt="Burger logo" />
+                <img src="/bigFoodsLarge.png" className="logoMobile" alt="Burger logo" />
+                <img src="/bigFoodsLogo.png" className="logoDesk" alt="Burger logo" />
             </section>
             <section className="boxForm">
                 <form className='loginForm' onSubmit={authUser}>

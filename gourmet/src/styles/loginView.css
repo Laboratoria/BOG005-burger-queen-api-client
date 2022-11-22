@@ -7,6 +7,7 @@
 html,
 body {
     font-family: 'Poppins', sans-serif;
+    background-color: #EC297E;
 }
 
 .loginComponent {
@@ -19,7 +20,8 @@ body {
 }
 
 .logoMobile {
-    height: 42.5vw;
+    height: 25vw;
+    margin-bottom: 6vw;
 
 }
 
@@ -28,39 +30,39 @@ body {
 }
 
 .boxForm {
-    width: 80vw;
-    height: 110vw;
-    border-radius: 5vw;
-    padding-top: 16vw;
-    border: 0.5vw solid #F0B44C;
+    width: 88vw;
+    height: 107vw;
+    border-radius: 3vw;
+    padding-top: 13vw;
+    border: 0.4vw solid white;
 }
 
 .loginForm {
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 3vw;
+    gap: 5vw;
 }
 
 .titleLogin {
-    color: rgb(64, 64, 64);
+    color: white;
     margin-bottom: 13vw;
     font-size: 7vw;
-    font-weight: 600;
+    font-weight: 500;
 }
 
 .emailInput {
-    width: 70vw;
+    width: 79vw;
     height: 9vw;
     color: rgb(64, 64, 64);
     font-size: 4.5vw;
     text-align: center;
-    border-radius: 5vw;
-    border: 0.5vw solid #F0B44C;
+    border-radius: 2vw;
+    border: 0.5vw solid white;
 }
 
 .emailInput:focus {
-    border-color: #F9965E;
+    border-color: #5271FF;
     outline: 0;
 }
 
@@ -70,17 +72,17 @@ body {
 }
 
 .passwordInput {
-    width: 70vw;
+    width: 79vw;
     height: 9vw;
     color: rgb(64, 64, 64);
     font-size: 4.5vw;
     text-align: center;
-    border-radius: 5vw;
-    border: 0.5vw solid #F0B44C;
+    border-radius: 2vw;
+    border: 0.5vw solid white;
 }
 
 .passwordInput:focus {
-    border-color: #F9965E;
+    border-color: #5271FF;
     outline: 0;
 }
 
@@ -90,58 +92,67 @@ body {
 }
 
 .loginBtn {
-    width: 70vw;
+    width: 79vw;
     height: 9vw;
-    color: white;
-    margin-top: 11vw;
+    color: #5271FF;
+    margin-top: 8vw;
     font-size: 5vw;
-    font-weight: 600;
-    border-radius: 5vw;
+    font-weight: 700;
+    border-radius: 2vw;
     align-items: center;
-    background-color: #F0B44C;
+    background-color: #F9DF25;
     border: white;
     font-family: 'Poppins', sans-serif;
     box-shadow: rgb(0 0 0 / 15%) 0 6px 6px;
 }
 
 .loginBtn:hover {
-    background-color: #d78033;
+    color: white;
+    background-color: #5271FF;
 }
 
 p {
     font-family: 'Poppins', sans-serif;
     font-size: 1em;
+    color: white;
 }
 
 @media only screen and (max-width: 829px) and (min-width: 600px) {
     .boxForm {
-        height: 88vw;
-        padding-top: 8vw;
+        height: 90vw;
+        width: 85vw;
+        padding-top: 10vw;
     }
 
     .titleLogin {
-        margin-bottom: 8vw;
+        font-size: 6vw;
+        margin-bottom: 7vw;
     }
 
     .emailInput {
         font-size: 4vw;
-        border: 0.4vw solid #F0B44C;
+        border: 0.5vw solid white;
+        width: 74vw;
     }
 
     .passwordInput {
         font-size: 4vw;
-        border: 0.4vw solid #F0B44C;
+        border: 0.5vw solid white;
+        width: 74vw;
     }
 
     .loginBtn {
         font-size: 4.5vw;
-        margin-top: 8vw;
+        margin-top: 2vw;
+        width: 74vw;
     }
+
     p {
         font-family: 'Poppins', sans-serif;
         font-size: 1.7em;
+        color: white;
     }
-    
+
 }
 
 @media (min-width: 830px) {
@@ -166,51 +177,53 @@ p {
 
     .titleLogin {
         margin-top: 0.5em;
-        margin-bottom: 1.6em;
-        font-size: 3.4vw;
+        margin-bottom: 1.2em;
+        font-size: 3vw;
         font-weight: 600;
     }
 
     .boxForm {
-        width: 45vw;
-        height: 45vw;
-        border-radius: 3vw;
-        padding: 5vw;
-        border: 0.2vw solid #F0B44C;
+        width: 36vw;
+        height: 39vw;
+        border-radius: 2vw;
+        padding: 3vw;
+        border: 0.2vw solid white;
     }
 
     .loginForm {
-        gap: 1vw;
+        gap: 1.1vw;
     }
 
     .emailInput {
-        width: 35vw;
+        width: 30vw;
         height: 4vw;
         color: black;
         font-size: 1.4em;
-        border-radius: 3vw;
-        border: 0.15vw solid #F0B44C;
+        border-radius: 1vw;
+        border: 0.15vw solid white;
     }
 
     .passwordInput {
-        width: 35vw;
+        width: 30vw;
         height: 4vw;
         color: black;
         font-size: 1.4em;
-        border-radius: 3vw;
-        border: 0.15vw solid #F0B44C;
+        border-radius: 1vw;
+        border: 0.15vw solid white;
     }
 
     .loginBtn {
-        width: 35vw;
+        width: 30vw;
         height: 4vw;
-        margin-top: 4vw;
-        font-size: 2.1vw;
+        margin-top: 3vw;
+        font-size: 1.9vw;
         font-weight: 700;
-        border-radius: 3vw;
+        border-radius: 1vw;
     }
+
     p {
         font-family: 'Poppins', sans-serif;
-        font-size: 1.1em;
+        font-size: 1.2em;
+        color: white;
     }
 }
