@@ -1,31 +1,40 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { useModal } from "../hooks/useModal.js";
 import { AddProductModal } from "./addProductModal.jsx"
+import { getProductList } from "../utils/petitions.js";
 
 function AdminView() {
-    const [isOpenAddProductModal, openAddProductModal, closeAddProductModal] = useModal()
-
-    // lista de productos
+    const [isOpenAddProductModal, openAddProductModal, closeAddProductModal] = useModal();
     const [products, setProducts] = useState([]);
+
+    useEffect(() => {
+        // petición de la lista de productos
+        getProductList()
+            .then((response)=> {
+                console.log(response)
+                setProducts(response.data)
+            })
+            .catch((error)=> console.log(error))
+    },[])
+
+    // función para crear productos
     function onSubmitFormHandler(event, name, price, type, image) {
         event.preventDefault();
+        console.log('event, name, price, type, image', event, name, price, type, image)
 
         setProducts([...products, {
             name,
             price,
             type,
-            image
+            image: image.image
         }]);
     };
-
-    //const [isOpenEditProductModal, openEditProductModal, closeEditProductModal] = useModal()
-
+    
+    // Cada uno de los productos 
     function Product (props) {
         return(
-            <article>
-                <section className="sectionImg">
-                <img srcSet="/hamburger.png" className="logoMobile" alt="imgBurger" />
-                </section>
+            <article className="containProduct">
+                <img className="productImage" srcSet={props.image} alt={props.name} />
                 <div>
                     <p>{props.type}</p>
                     <p>{props.name} <span>{props.price}</span></p>
@@ -37,11 +46,11 @@ function AdminView() {
             </article>
         )
     }
-    return (
+    return ( // Maqueta de Admin view
         <div className="adminView">
             <header className="header">
                 <div className="headerImg">
-                    <img src="/bigFoodsLarge.png" className="headerLogoBig" alt="Burger logo" />
+                    <img srcSet="/bigFoodsLarge.png" className="headerLogoBig" alt="Burger logo" />
                 </div>
                 <nav className="navMenu">
                     <ul className="navAMenu">
@@ -52,7 +61,7 @@ function AdminView() {
                 </nav>
         
             </header>
-
+            {/* // Lista de productos */}
             <section className="productsList">
                
                 <h1>Lista de Productos</h1>

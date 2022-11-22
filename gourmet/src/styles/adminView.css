@@ -128,4 +128,14 @@ body {
 .productsList{
     display: flex;
     justify-content: center;
+    flex-direction: column;
 }
+
+.containProduct{
+    display: flex;
+}
+
+.productImage{
+    width: 70px;
+}
+

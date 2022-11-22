@@ -26,7 +26,9 @@ function LoginView() {
                 console.log(response)
                 const errorMessage = document.getElementById('errorMessage')
                 errorMessage.innerHTML = ''
-
+                
+                sessionStorage.setItem('user', JSON.stringify(response.data));
+                
                 if (response.data.user.role === 'admin') {
                     console.log('Tienes acceso')
                     navigating('/admin-products');
