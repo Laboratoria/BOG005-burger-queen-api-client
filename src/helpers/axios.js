@@ -126,7 +126,7 @@ export const deleteUser = async (objectUser, idUser) => {
             'Content-Type': 'application/json',
             'Authorization': 'Bearer ' + token,
         },
-        data: objectUser
+        // data: objectUser
     });
     console.log(res)
     return res
@@ -160,7 +160,7 @@ export const orderPetition = async (objectProducts, client) => {
             client: client,
             products: objectProducts,
             status: 'pending',
-            dateEntry: new Date().toLocaleString('sv')
+            dataEntry: new Date().toLocaleString('sv')
         }
     });
     // console.log(res.data)

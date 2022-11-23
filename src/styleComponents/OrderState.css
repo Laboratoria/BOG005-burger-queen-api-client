@@ -87,9 +87,8 @@
     margin: 5px;
     background-color: #D9D9D9;
     border-radius: 20px;
-    /* height: 55px; */
-    /* line-height: 5px; */
     width: 65%;
+    min-height: 180px;
 }
 
 .divNameSend h3 {
@@ -100,14 +99,17 @@
     font-size: 10px;
 }
 
-.divProductStateOrder{
+.divProductStateOrder {
     display: grid;
     grid-template-columns: 70% 30%;
-    height: 40px;
+    min-height: 40px;
+    border-bottom: solid 1px rgb(175, 175, 175);
+    border-top: solid 1px rgb(175, 175, 175);
+    border-radius: 20px;
     /* border: solid 1px red; */
 }
 
-.divProductStateOrder p{
+.divProductStateOrder p {
     font-size: 14px;
 }
 
@@ -119,7 +121,7 @@
     background-color: #D9D9D9;
     border-radius: 20px;
     width: 30%;
-    height: 55px;
+    min-height: 55px;
     /* line-height: 5px; */
 }
 

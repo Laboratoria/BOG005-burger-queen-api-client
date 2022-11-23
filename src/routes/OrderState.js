@@ -13,7 +13,7 @@ const OrderState = () => {
     // //const [updateListProducts, setUpdateListProducts] = useState(false)
 
     useEffect(() => {
-        const viewListOrderPending = async() => {
+        const viewListOrderPending = async () => {
             const res = await viewOrderPending()
             console.log(res)
             setorderListPending(res)
@@ -40,7 +40,7 @@ const OrderState = () => {
 
                 <div className='containerGridOrderState'>
                     <div className='pOrderState'>
-                    {orderListPending.map((order, id) => (
+                        {orderListPending.map((order, id) => (
                             <div key={id}>
                                 <CardOrderState
                                     order={order}
@@ -70,6 +70,7 @@ const OrderState = () => {
                                 <h3>Adriana Ruiz</h3>
                                 <p>Atendido por: Ibeht Carreño</p>
                             </div>
+
                         </div>
                     </div>
                 </div>
