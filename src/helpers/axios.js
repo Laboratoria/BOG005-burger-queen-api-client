@@ -3,6 +3,7 @@ import axios from "axios";
 const baseUrl = process.env.REACT_APP_API_URL;
 let token = localStorage.getItem('tokenUser')
 let userId = localStorage.getItem('user')
+
 //const token = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImdyYWNlLmhvcHBlckBzeXN0ZXJzLnh5eiIsImlhdCI6MTY2NzE2NTk1OSwiZXhwIjoxNjY3MTY5NTU5LCJzdWIiOiIyIn0.RqYLrbO8Psp6CRGgMAIHveLD8plFy4lrdBHzlyTYSXY'
 
 const loginUser = async (email, password) => {
@@ -164,7 +165,7 @@ export const orderPetition = async (objectProducts, client) => {
         }
     });
     // console.log(res.data)
-    return res
+    return res.status
 };
 
 export const viewOrderPending = async () => {
@@ -178,6 +179,52 @@ export const viewOrderPending = async () => {
     });
     console.log(res.data)
     return res.data
+};
+
+export const changeOrderToDelivering = async (orderId) => {
+    const res = await axios({
+        method: 'PATCH',
+        url: baseUrl + '/orders/' + orderId,
+        headers: {
+            'Content-Type': 'application/json',
+            'Authorization': 'Bearer ' + token,
+        },
+        data: {
+            status: 'delivering',
+            dateProcessed: new Date().toLocaleString('sv'),
+        }
+    });
+    // console.log(res.data)
+    return res
+};
+
+export const changeOrderToDelivered = async (orderId) => {
+    const res = await axios({
+        method: 'PATCH',
+        url: baseUrl + '/orders/' + orderId,
+        headers: {
+            'Content-Type': 'application/json',
+            'Authorization': 'Bearer ' + token,
+        },
+        data: {
+            status: 'delivered',
+        }
+    });
+    // console.log(res.data)
+    return res
+};
+
+export const deleteOrderPending = async (orderId) => {
+    const res = await axios({
+        method: 'DELETE',
+        url: baseUrl + '/orders/' + orderId,
+        headers: {
+            'Content-Type': 'application/json',
+            'Authorization': 'Bearer ' + token,
+        }
+    });
+    console.log(res)
+    return res
 };
 
 

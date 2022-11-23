@@ -8,8 +8,11 @@ import { useForm } from 'react-hook-form'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCircleArrowRight } from '@fortawesome/free-solid-svg-icons';
 import Swal from 'sweetalert2'
+import { useNavigate } from 'react-router-dom'
 
 export const Products = () => {
+
+    const navegate = useNavigate()
 
     const { handleSubmit } = useForm()
     const [ListProductsTotal, setListProductsTotal] = useState([])
@@ -54,7 +57,6 @@ export const Products = () => {
             })
             // alert('No se creo el producto exitosamente')
         }
-
     }
 
     // console.log(new Date())
@@ -65,7 +67,7 @@ export const Products = () => {
             <Header />
             <section className='productsAll'>
                 <div className='containerBtnBack'>
-                    <Button className='btnStateOrder' text='Inicio'><FontAwesomeIcon className='iconArrow' icon={faCircleArrowRight} /></Button>
+                    <Button className='btnStateOrder' text='Inicio' onClick={()=>{navegate('/admin')}}><FontAwesomeIcon className='iconArrow' icon={faCircleArrowRight} /></Button>
                 </div>
                 <h3>Administración de productos</h3>
 
@@ -104,7 +106,7 @@ export const Products = () => {
                             >
                             </FormInput>
                             <select className='SelectTypeProduct' name='type' onChange={handleChange}>
-                                <option value='seleccion tipo' >Selecciona tipo</option>
+                                <option value='selecciona tipo'>Selecciona tipo</option>
                                 <option value='Desayuno'>Desayuno</option>
                                 <option value='Almuerzo'>Almuerzo</option>
                             </select>
