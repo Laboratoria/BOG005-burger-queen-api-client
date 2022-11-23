@@ -3,6 +3,7 @@ import { BurgerContext } from "../../../context/indexContext";
 import { deleteOrder } from "../../../petitions/productPetition";
 import Swal from 'sweetalert2'
 import { OrderProductItem } from "./orderProductsItem";
+import { useState } from "react";
 
 
 const OrderItem = (props) => {
@@ -10,6 +11,8 @@ const OrderItem = (props) => {
         listOrders,
         setListOrders,
     } = React.useContext(BurgerContext);
+
+    const [viewDetailsOrder, setViewDetailsOrder] = useState(false)
 
     const deleteOrderBtn = () => {
         Swal.fire({
@@ -40,6 +43,10 @@ const OrderItem = (props) => {
     let totalOrder = totalProduct.reduce(function(a, b){ return a + b; });
     console.log('totales', totalOrder);
 
+    const viewDetails = ()=>{
+        viewDetailsOrder ? setViewDetailsOrder(false): setViewDetailsOrder(true)
+    }
+
     return (
         <div className="userItem_Container">
             <p className="client">{props.client}</p>
@@ -47,8 +54,11 @@ const OrderItem = (props) => {
             <p className="dataEntry">{props.dataEntry}</p>
             <p className="totalOrder">Total: ${totalOrder}</p>
             <div className="buttonUsers">
-            {props.products.map(data => (<OrderProductItem key={data.id} qty={data.qty} name={data.product.name} price={data.product.price}/>))}
+            <button onClick={viewDetails}>+</button>
             <button className="fa-solid fa-trash btnDelete" onClick={deleteOrderBtn}></button>
+            </div>
+            <div className="details">
+            {viewDetailsOrder ? props.products.map(data => (<OrderProductItem key={data.id} qty={data.qty} name={data.product.name} price={data.product.price}/>)) : null}
             </div>
         </div>
     )
