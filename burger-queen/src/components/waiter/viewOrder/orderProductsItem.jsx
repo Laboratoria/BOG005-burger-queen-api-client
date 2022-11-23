@@ -11,10 +11,10 @@ const OrderProductItem = (props) => {
    console.log('probando props',props);
 let total= props.qty * props.price
     return (
-        <div>
-            <p>{props.name}</p>
-            <p>{props.qty}</p>
-            <p>{total}</p>
+        <div className="orderProductItem">
+            <p>{props.name}  cant: {props.qty} total: {total} </p>
+            {/* <p> cant: {props.qty}</p>
+            <p> total: {total}</p> */}
         </div>
     )
 }
