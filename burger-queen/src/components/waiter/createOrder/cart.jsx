@@ -2,7 +2,7 @@ import React from 'react'
 import { useState } from 'react';
 import { CartContext } from '../../../context/cartContext';
 import { BurgerContext } from '../../../context/indexContext';
-import { getOnlyProduct, postOrder, PostOrder } from '../../../petitions/productPetition';
+import { postOrder } from '../../../petitions/productPetition';
 import { ItemCart } from './itemCart';
 
 
@@ -18,7 +18,6 @@ const Cart = () => {
   } = React.useContext(CartContext);
 
   const {
-    openModal,
     setOpenModal,
   } = React.useContext(BurgerContext);
 

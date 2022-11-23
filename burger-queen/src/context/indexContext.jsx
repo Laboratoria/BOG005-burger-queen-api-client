@@ -24,6 +24,7 @@ const [newProduct, setnewProduct] = useState({
 });
 const [cartItems, setCartItems] = useState([]);
 const [stateWaiter, setStateWaiter]= useState(true);
+const [listOrders, setListOrders]= useState([])
 
   
   return (
@@ -48,6 +49,8 @@ const [stateWaiter, setStateWaiter]= useState(true);
       setCartItems,
       stateWaiter, 
       setStateWaiter,
+      listOrders,
+      setListOrders,
     }}>
       {props.children}
     </BurgerContext.Provider>

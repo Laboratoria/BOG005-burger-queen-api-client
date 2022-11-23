@@ -1,5 +1,7 @@
 .productsWaiter_container{
-width: 100%;
+    margin-top: 5%;
+    width: 100%;
+
     .btnMenu{
         display: flex;
         flex-direction: row;
@@ -20,4 +22,18 @@ width: 100%;
             }
     }
     }
+
+    .btnCart{
+        background-color: #FFD233;
+        border-radius: 50%;
+        width: 10%;
+        font-size: 20px;
+        margin-left: 2%;
+    }
 }
+
+@media(min-width:1023px) {
+    .btnCart {
+        display: none;
+    }
+    }

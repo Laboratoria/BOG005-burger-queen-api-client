@@ -13,22 +13,21 @@ import { StateOrder } from "../components/waiter/viewOrder/stateOrder";
 const Waiter= () => {
     const { 
         openModal,
-        setOpenModal,
+        // setOpenModal,
         stateWaiter,
     } = React.useContext(BurgerContext);
 
-    const viewCart = ()=>{
-        setOpenModal(true)
-    }
+    // const viewCart = ()=>{
+    //     setOpenModal(true)
+    // }
     return (
         <div className="waiter_container" >
              <Navbar />
-            <h1>vista de mesero en construcción</h1>
             <div className="viewOrder">
             { stateWaiter ?  
             <React.Fragment>
                 <ProductsWaiter/>
-            <button className="btnCart" onClick={viewCart}>carrito</button>
+            {/* <button className= "fa-solid fa-cart-shopping btnCart" onClick={viewCart}></button> */}
             {!!openModal && (
                     <Modal>
                         <Cart/>

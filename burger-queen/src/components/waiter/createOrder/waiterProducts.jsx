@@ -10,6 +10,7 @@ const ProductsWaiter = () => {
 
     const {products, 
         setProducts,  
+        setOpenModal,
     } = React.useContext(BurgerContext);
     
     const getListProducts = () => {
@@ -38,12 +39,15 @@ const ProductsWaiter = () => {
     const viewLunchMenu = ()=>{
         setMenu(false)
     }
-
+    const viewCart = ()=>{
+        setOpenModal(true)
+    }
     return (
         <div className="productsWaiter_container">
             <div className="btnMenu">
             <button className="btnBreakFast" onClick={viewBreakfastMenu}>Desayuno</button>
             <button className="btnLunch" onClick={viewLunchMenu}>Almuerzo</button>
+            <button className= "fa-solid fa-cart-shopping btnCart" onClick={viewCart}></button>
             </div>
             <div className="menu_container">
                            { menu ?  breakfast.map(data => (<MenuItem key={data.id} id={data.id} image={data.image} name={data.name} price={data.price} type={data.type}/>))
