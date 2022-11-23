@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { Modal } from './modal.jsx';
 
+// Modal para adicionar productos
 function AddProductModal(props) {
   const [nameProduct, setNameProduct] = useState('')
   const [priceProduct, setPriceProduct] = useState('')
@@ -34,7 +35,7 @@ function AddProductModal(props) {
     
   }
 
-  return (
+  return ( // Formulario para adicionar productos
     <Modal {...props} title='' className="addProdSection">
       
       <section className="addProModal">
@@ -76,7 +77,6 @@ function AddProductModal(props) {
         <button type="submit" className="addProdBtn">
           Agregar Producto
         </button>
-
       </form>
       </section>
 
