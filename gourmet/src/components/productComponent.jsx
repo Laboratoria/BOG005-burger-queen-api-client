@@ -5,9 +5,9 @@ import React from 'react';
         return(
             <article className="containProduct">
                 <img className="productImage" srcSet={props.image} alt={props.name} />
-                <div>
-                    <p>{props.type}</p>
-                    <p>{props.name} <span>{props.price}</span></p>
+                <div className="productText">
+                    <p className="productType">{props.type}</p>
+                    <p>{props.name} <span className="productPrice">${props.price}</span></p>
                 </div>
                 <div>
                     <i className="fa-solid fa-pencil"></i>

@@ -12,15 +12,15 @@ function AdminView() {
     useEffect(() => {
         // petición de la lista de productos
         getProductList()
-            .then((response)=> {
+            .then((response) => {
                 console.log(response)
                 setProducts(response.data)
             })
-            .catch((error)=> console.log(error))
-    },[])
+            .catch((error) => console.log(error))
+    }, [])
 
     // función para crear productos
-    function onSubmitFormHandler(event, nameTyped, priceTyped, typeTyped, imageLoaded ) {
+    function onSubmitFormHandler(event, nameTyped, priceTyped, typeTyped, imageLoaded) {
         event.preventDefault();
         console.log('event, name, price, type, image', nameTyped, priceTyped, typeTyped, imageLoaded)
 
@@ -31,14 +31,14 @@ function AdminView() {
             image: imageLoaded.image
         }]);
     };
-    
 
-    
+
+
 
 
 
     return ( // Maqueta componente Admin view
-        <div className="adminView">
+        <main className="adminView">
             <header className="header">
                 <div className="headerImg">
                     <img srcSet="/bigFoodsLarge.png" className="headerLogoBig" alt="Burger logo" />
@@ -50,25 +50,28 @@ function AdminView() {
                         <li><a className="navLink" href="/">Salir</a></li>
                     </ul>
                 </nav>
-        
             </header>
+
             {/* // Lista de productos */}
             <section className="productsList">
-                <h1>Lista de Productos</h1>
-                {products.map((product) => <ProductComponent key={product.name} name={product.name} price={product.price} type={product.type} image={product.image}  />)}
-               
-                <button onClick={openAddProductModal} className="addProducts">
-                    Agregar Productos
-                </button>
+                <h1 className="titleListProduct">Lista de Productos</h1>
+                {products.map((product) => <ProductComponent key={product.name} name={product.name} price={product.price} type={product.type} image={product.image} />)}
+            </section>
 
+
+            <section className="AdminContBtn">
                 <AddProductModal
                     isOpen={isOpenAddProductModal}
                     closeModal={closeAddProductModal}
                     onSubmit={onSubmitFormHandler}
                 >
                 </AddProductModal>
+                <button onClick={openAddProductModal} className="addProductBtn">
+                    Agregar Producto
+                </button>
             </section>
-        </div>
+
+        </main>
     );
 
 }

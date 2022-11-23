@@ -35,15 +35,15 @@
 }
 
 .closeAddProdBtn {
-  width: 30vw;
-  height: 9vw;
-  color: #b0b0b0;
-  margin-top: 4vw;
-  font-size: 4.5vw;
+  width: 14vw;
+  height: 0vw;
+  color: white;
+  font-size: 3vw;
   font-weight: 600;
-  border-radius: 5vw;
+  margin-top: 2vw;
+  margin-bottom: 7vw;
   align-items: center;
-  background-color: white;
+  background-color: #EC297E;
   border: white;
   text-decoration: underline;
 }

@@ -7,7 +7,7 @@
 html,
 body {
     font-family: 'Poppins', sans-serif;
-    background-color: #EC297E;
+    background-color: #FFF;
 }
 
 .loginComponent {
@@ -17,6 +17,7 @@ body {
     justify-content: center;
     flex-direction: column;
     min-height: 100vh;
+    background-color: #EC297E;
 }
 
 .logoMobile {
