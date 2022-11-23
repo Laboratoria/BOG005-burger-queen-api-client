@@ -2,22 +2,12 @@
 import Button from '../components/Button'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faUsers } from '@fortawesome/free-solid-svg-icons';
-// import { useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 
 
 const Administration = () => {
 
-    // const navegate = useNavigate()
-
-    // deberia meter el navigate en un useEffect es lo que dice en la consola
-    //  si lo dejo asi se ejecuta infinito!!!!!
-
-    // const navegateOrder = () => {
-    //     navegate('/order')
-    // }
-    // navegate()
-
-
+    const navegate = useNavigate()
 
     return (
         <div className='App'>
@@ -25,7 +15,7 @@ const Administration = () => {
 
                 <Button
                     className='btnAdmin'
-                // onClick={navegateOrder}
+                onClick={()=>{navegate('/users')}}
                 >
                     <FontAwesomeIcon className='iconUsers' icon={faUsers} />
                     Administración de personal
@@ -33,7 +23,7 @@ const Administration = () => {
 
                 <Button
                     className='btnAdmin'
-                // onClick={}
+                    onClick={()=>{navegate('/products')}}
                 >
                     <FontAwesomeIcon className='iconUsers' icon={faUsers} />
                     Administración de productos
@@ -41,7 +31,7 @@ const Administration = () => {
 
                 <Button
                     className='btnAdmin'
-                // onClick={}
+                onClick={()=>{navegate('/orderState')}}
                 >
                     <FontAwesomeIcon className='iconUsers' icon={faUsers} />
                     Administración de pedidos

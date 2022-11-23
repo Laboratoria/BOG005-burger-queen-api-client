@@ -9,21 +9,18 @@ import ListProducts from '../components/ListProducts';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCircleArrowRight } from '@fortawesome/free-solid-svg-icons';
 import CardProductsOrder from '../components/CardProductsOrder';
+import { useNavigate } from 'react-router-dom';
 
 
 const Order = () => {
 
+    const navegate = useNavigate()
+
     const [productsOptions, setProductsOptions] = useState([])
-    // const [selectState, setSelectState] = useState({ value: 'Seleccione Desayuno/Almuerzo' })
+
     const [productsList, setProductsList] = useState([])
 
-    // let orderList = []
-
     const [orderList, setOrderList] = useState([])
-
-    // const [productSelect, setProductSelect] = useState({})
-
-    // const [finalPrice, setFinalPrice] = useState()
 
     const [nameClient, setNameClient] = useState('')
 
@@ -76,14 +73,23 @@ const Order = () => {
     const totalPrice = orderList.map((product) => product.product.price * product.qty).reduce((sum,val) => sum + val,0)
 
     const handleChange = (e) => {
-        console.log('me estoy ejecutando')
+        // console.log('me estoy ejecutando')
         setNameClient(e.target.value)
-        console.log(nameClient)
+        // console.log(nameClient)
     }
 
 
-    const sendOrderPetition = () => {
-        orderPetition(orderList, nameClient)
+    const sendOrderPetition = async () => {
+        await orderPetition(orderList, nameClient).then(res => {
+            if (res === 200) {
+                navegate('/orderState')
+                console.log("si se esta creando la orden")
+            }
+        })
+        .catch(e => {
+            alert('La orden no se creo')
+        })
+
     }
     // const priceTotal = orderList.reduce((price1, price2) => price1.price + price2.price , 0)
 
@@ -91,7 +97,14 @@ const Order = () => {
         <section className='order'>
             <Header />
             {/* <FontAwesomeIcon icon="fa-solid fa-circle-arrow-right" /> */}
-            <Button className='btnStateOrder' text='Estado Pedidos'><FontAwesomeIcon className='iconArrow' icon={faCircleArrowRight} /></Button>
+            <Button 
+                className='btnStateOrder' 
+                onClick={()=> {navegate('/orderState')}}
+                text='Estado Pedidos'
+            >
+                
+                <FontAwesomeIcon className='iconArrow' icon={faCircleArrowRight} />
+            </Button>
             <div className='containerH1'>
                 <h1>Realizar Pedido</h1>
             </div>
