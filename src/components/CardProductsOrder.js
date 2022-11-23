@@ -1,4 +1,3 @@
-import React, { useEffect, useState } from 'react'
 import Button from './Button'
 import { faTrash } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
@@ -63,7 +62,7 @@ const CardProductsOrder = ( {productSelect, setOrderList, orderList}) => {
                             <Button type="button" text='+' className='btnAdd' onClick={()=>addQuantityProduct()}/>
                         </div>
                         <div className='btnDelete'>
-                            <Button className='trashContainer' onClick={productDelete}><FontAwesomeIcon icon={faTrash} /></Button>
+                            <Button type="button" className='trashContainer' onClick={productDelete}><FontAwesomeIcon icon={faTrash} /></Button>
                         </div>
     </div>
   )

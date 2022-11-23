@@ -108,7 +108,7 @@ export const Products = () => {
                             >
                             </FormInput>
                             <select className='SelectTypeProduct' name='type' onChange={handleChange}>
-                                <option value='seleccion tipo' >Selecciona tipo</option>
+                                <option value='selecciona tipo'>Selecciona tipo</option>
                                 <option value='Desayuno'>Desayuno</option>
                                 <option value='Almuerzo'>Almuerzo</option>
                             </select>

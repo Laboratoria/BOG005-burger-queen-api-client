@@ -17,16 +17,10 @@ const Order = () => {
     const navegate = useNavigate()
 
     const [productsOptions, setProductsOptions] = useState([])
-    // const [selectState, setSelectState] = useState({ value: 'Seleccione Desayuno/Almuerzo' })
+
     const [productsList, setProductsList] = useState([])
 
-    // let orderList = []
-
     const [orderList, setOrderList] = useState([])
-
-    // const [productSelect, setProductSelect] = useState({})
-
-    // const [finalPrice, setFinalPrice] = useState()
 
     const [nameClient, setNameClient] = useState('')
 
@@ -79,9 +73,9 @@ const Order = () => {
     const totalPrice = orderList.map((product) => product.product.price * product.qty).reduce((sum,val) => sum + val,0)
 
     const handleChange = (e) => {
-        console.log('me estoy ejecutando')
+        // console.log('me estoy ejecutando')
         setNameClient(e.target.value)
-        console.log(nameClient)
+        // console.log(nameClient)
     }
 
 

@@ -2,10 +2,9 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import React from 'react'
 import Button from './Button';
 import { faCheck } from '@fortawesome/free-solid-svg-icons';
-import { faTrashCan } from '@fortawesome/free-solid-svg-icons';
-import { changeOrderToDelivering, deleteOrderPending } from '../helpers/axios';
+import { changeOrderToDelivered } from '../helpers/axios';
 
-const CardOrderState = ({order}) => {
+const CardOrderStateDelivering = ({order}) => {
   console.log(order.id)
 // console.log(order.products[0].product.name)
 console.log(order.dataEntry)
@@ -16,17 +15,12 @@ const arrayForOrder = order.products.map((product) => {
     
 })
 
-const sendToDelivering =  async () => {
- await changeOrderToDelivering(order.id)
- console.log("me estoy cambiando a delivering")
+const sendToDelivered=  async () => {
+ await changeOrderToDelivered(order.id)
+ console.log("me estoy cambiando a delivered")
   // changeOrderToDelivering(orderListPending.id)
 }
 
-const orderPendingDelete = async () => {
-  await deleteOrderPending(order.id)
-  console.log('me estoy borrando order pending')
-
-}
 
 // const timer = order.dataEntry.getTime()
 // console.log(timer)
@@ -55,8 +49,7 @@ console.log(arrayForOrder)
       <p>{order.dataEntry}</p>
       </div>
       <div className='divCheck'>
-        <Button><FontAwesomeIcon icon={faCheck} onClick={sendToDelivering}/></Button>
-        <Button><FontAwesomeIcon icon={faTrashCan} onClick={orderPendingDelete} /></Button>
+        <Button><FontAwesomeIcon icon={faCheck} onClick={sendToDelivered}/></Button>
         </div>
     </div>
     </>
@@ -65,4 +58,4 @@ console.log(arrayForOrder)
   );
 };
 
-export default CardOrderState
+export default CardOrderStateDelivering
