@@ -94,7 +94,32 @@ const postOrder = async (newObject, idWaiter, clients) =>{
         }
     })
 }
+// -----Peticion para ver ordenes -----//
 
+const listOrder = async () => {
+    return await axios({
+        method: 'GET',
+        url: url + 'orders',
+        headers: {
+            'content-type': 'application/json',
+            authorization: 'Bearer ' + getToken(),
+        }
+    })
+}
 
-export {listProducts, createProduct, deleteProduct, editProduct, getOnlyProduct, postOrder}
+const deleteOrder = async (id)=>{
+
+    return await axios({
+        method: "DELETE", 
+        url:url+'orders/'+ id, 
+        headers: {
+            'Content-Type': 'application/json',
+            authorization: 'Bearer ' + getToken(),
+        },
+        data: {         
+            id: id,
+        },         
+    }) }
+
+export {listProducts, createProduct, deleteProduct, editProduct, getOnlyProduct, postOrder, listOrder, deleteOrder}
 
