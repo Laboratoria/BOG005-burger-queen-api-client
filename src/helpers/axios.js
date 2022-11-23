@@ -159,11 +159,11 @@ export const orderPetition = async (objectProducts, client) => {
             client: client,
             products: objectProducts,
             status: 'pending',
-            dateEntry: new Date().toLocaleString('sv')
+            dataEntry: new Date().toLocaleString('sv')
         }
     });
     // console.log(res.data)
-    return res
+    return res.status
 };
 
 export const viewOrderPending = async () => {

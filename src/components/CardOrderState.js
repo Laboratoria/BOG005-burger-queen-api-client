@@ -1,4 +1,7 @@
 import React from 'react'
+import Button from './Button';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faCheck } from '@fortawesome/free-solid-svg-icons';
 
 const CardOrderState = ({order}) => {
 // console.log(order.products[0].product.name)
@@ -36,6 +39,9 @@ console.log(arrayForOrder)
       <div className="divTime">
       <p>{order.dataEntry}</p>
       </div>
+      <div className='divCheck'>
+          <Button><FontAwesomeIcon icon={faCheck} /></Button>
+        </div>
     </div>
     </>
 

@@ -8,9 +8,11 @@ import { useForm } from 'react-hook-form';
 import { createUserPost, getUsers } from '../helpers/axios';
 import Swal from 'sweetalert2'
 import CardListUsers from '../components/CardListUsers';
+import { useNavigate } from 'react-router-dom';
 
 export const Users = () => {
 
+    const navegate = useNavigate()
     const { handleSubmit } = useForm()
     const [listUsersTotal, setListUsersTotal] = useState([])
     //const [updateListProducts, setUpdateListProducts] = useState(false)
@@ -57,6 +59,8 @@ export const Users = () => {
         }
     }
 
+    
+
     // console.log(new Date())
 
 
@@ -65,7 +69,7 @@ export const Users = () => {
             <Header />
             <section className='usersAll'>
                 <div className='containerBtnBack'>
-                    <Button className='btnStateOrder' text='Inicio'><FontAwesomeIcon className='iconArrow' icon={faCircleArrowRight} /></Button>
+                    <Button className='btnStateOrder' text='Inicio' onClick={()=>{navegate('/admin')}}><FontAwesomeIcon className='iconArrow' icon={faCircleArrowRight} /></Button>
                 </div>
                 <h3>Administración de personal</h3>
 

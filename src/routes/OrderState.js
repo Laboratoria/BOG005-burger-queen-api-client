@@ -6,8 +6,11 @@ import { faCircleArrowLeft } from '@fortawesome/free-solid-svg-icons';
 import { faCheck } from '@fortawesome/free-solid-svg-icons';
 import CardOrderState from '../components/CardOrderState';
 import { viewOrderPending } from '../helpers/axios';
+import { useNavigate } from 'react-router-dom';
 
 const OrderState = () => {
+
+    const navegate = useNavigate()
 
     const [orderListPending, setorderListPending] = useState([])
     // //const [updateListProducts, setUpdateListProducts] = useState(false)
@@ -21,12 +24,19 @@ const OrderState = () => {
         viewListOrderPending()
     }, [])
 
+    const orderStatusPending = orderListPending.filter((order) => { 
+      return order.status === 'pending' && order
+    })
+    console.log(orderStatusPending)
+
+
     return (
         <section >
             <Header />
             <section className='containerOrderState'>
                 <div className='containerBtnP'>
-                    <Button className='btnOrderRow'>
+                    <Button className='btnOrderRow'
+                    onClick={()=>{navegate('/order')}}>
                         <FontAwesomeIcon className='iconArrowOrderState' icon={faCircleArrowLeft} />Realizar Pedido
                     </Button>
                     <p>Estado de los Pedidos</p>
@@ -40,13 +50,14 @@ const OrderState = () => {
 
                 <div className='containerGridOrderState'>
                     <div className='pOrderState'>
-                    {orderListPending.map((order, id) => (
+                    {orderStatusPending.map((order, id) => {
+                        return (
                             <div key={id}>
                                 <CardOrderState
                                     order={order}
                                 />
                             </div>
-                        ))}
+                        )})}
                     </div>
 
                     <div className='pOrderState'>
