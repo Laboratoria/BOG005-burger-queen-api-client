@@ -24,9 +24,8 @@ const [newProduct, setnewProduct] = useState({
 });
 const [cartItems, setCartItems] = useState([]);
 const [stateWaiter, setStateWaiter]= useState(true);
-const [listOrders, setListOrders]= useState([])
+const [listOrders, setListOrders]= useState([]);
 
-  
   return (
     <BurgerContext.Provider value={{
       users,
