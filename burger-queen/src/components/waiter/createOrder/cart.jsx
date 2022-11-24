@@ -2,7 +2,11 @@ import React from 'react'
 import { useState } from 'react';
 import { CartContext } from '../../../context/cartContext';
 import { BurgerContext } from '../../../context/indexContext';
+<<<<<<< HEAD
 import { getOnlyProduct, postOrder} from '../../../petitions/productPetition';
+=======
+import { postOrder } from '../../../petitions/productPetition';
+>>>>>>> 9ec3becccfa463a2c7a63334063430374cdec0b5
 import { ItemCart } from './itemCart';
 
 
@@ -18,7 +22,6 @@ const Cart = () => {
   } = React.useContext(CartContext);
 
   const {
-    openModal,
     setOpenModal,
   } = React.useContext(BurgerContext);
 
