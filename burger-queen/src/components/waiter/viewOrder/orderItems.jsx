@@ -56,6 +56,7 @@ const OrderItem = (props) => {
             <div className="buttonUsers">
             <button onClick={viewDetails}>+</button>
             <button className="fa-solid fa-trash btnDelete" onClick={deleteOrderBtn}></button>
+            {props.editStatus? <button>Entregado</button>: null}
             </div>
             <div className="details">
             {viewDetailsOrder ? props.products.map(data => (<OrderProductItem key={data.id} qty={data.qty} name={data.product.name} price={data.product.price}/>)) : null}

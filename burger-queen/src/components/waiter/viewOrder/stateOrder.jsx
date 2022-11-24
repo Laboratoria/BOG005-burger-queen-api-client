@@ -1,5 +1,6 @@
 
 import React, {useEffect } from "react";
+import { useState } from "react";
 import { BurgerContext } from "../../../context/indexContext";
 import { listOrder } from "../../../petitions/productPetition";
 import { OrderItem } from "./orderItems";
@@ -30,10 +31,33 @@ const StateOrder = () => {
 
     useEffect(() => { getListOrders() } , [])
 
+    const [orderFilter, setOrderFilter] = useState([])
+    const [editStatus ,setEditStatus] = useState(false)
+
+    const viewPending =()=>{
+        setOrderFilter(listOrders.filter(order=> order.status === 'pending'))
+        console.log('filtrado',orderFilter);   
+    }
+
+    const viewToDeliver =()=>{
+        // setOrderFilter(listOrders.filter(order=> order.status === 'pending'))
+        console.log('pendiente este estado');  
+        setEditStatus(true)
+    }
+    const viewToDelivered =()=>{
+        setOrderFilter(listOrders.filter(order=> order.status === 'delivered'))
+        console.log('filtrado',orderFilter);   
+    }
+
     return (
         <div className="login_container">
            <h1> estados de las ordenes</h1>
-             {listOrders.map(data => (<OrderItem key={data.id} id={data.id} client={data.client} dataEntry={data.dataEntry} products={data.products} status={data.status} userId={data.userId}/>))}
+           <div className="btnsStates">
+           <button className="btnStatePending" onClick={viewPending}>Pendientes</button>
+           <button className="btnStateToDeliver" onClick={viewToDeliver}>Por Entregar</button>
+           <button className="btnStateDelivered" onClick={viewToDelivered}>Entregados</button>
+           </div>
+             {orderFilter.map(data => (<OrderItem key={data.id} id={data.id} client={data.client} dataEntry={data.dataEntry} products={data.products} status={data.status} userId={data.userId} editStatus={editStatus}/>))}
         </div>
     )
 }

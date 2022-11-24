@@ -107,6 +107,7 @@ const listOrder = async () => {
     })
 }
 
+// -----Peticion para eliminar ordenes -----//
 const deleteOrder = async (id)=>{
 
     return await axios({
@@ -121,5 +122,22 @@ const deleteOrder = async (id)=>{
         },         
     }) }
 
-export {listProducts, createProduct, deleteProduct, editProduct, getOnlyProduct, postOrder, listOrder, deleteOrder}
+
+    const editOrder= async (id, newStatus)=>{
+
+        return await axios({
+            method: "PATCH", 
+            url:url+'products/'+ id, 
+            headers: {
+                'Content-Type': 'application/json',
+                    authorization: 'Bearer ' + getToken(),
+            },
+            data: {
+                status: newStatus,
+            }         
+        })     
+    }
+
+
+export {listProducts, createProduct, deleteProduct, editProduct, getOnlyProduct, postOrder, listOrder, deleteOrder, editOrder}
 
