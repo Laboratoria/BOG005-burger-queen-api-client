@@ -2,7 +2,7 @@ import axios from "axios";
 
 const baseUrl = process.env.REACT_APP_API_URL;
 let token = localStorage.getItem('tokenUser')
-let userId = localStorage.getItem('user')
+let userId = localStorage.getItem('userId')
 
 //const token = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImdyYWNlLmhvcHBlckBzeXN0ZXJzLnh5eiIsImlhdCI6MTY2NzE2NTk1OSwiZXhwIjoxNjY3MTY5NTU5LCJzdWIiOiIyIn0.RqYLrbO8Psp6CRGgMAIHveLD8plFy4lrdBHzlyTYSXY'
 
@@ -22,6 +22,7 @@ const loginUser = async (email, password) => {
     localStorage.setItem('userId', rest.data.user.id)
     userId = rest.data.user.id
     console.log(userId)
+    localStorage.setItem('userRole', rest.data.user.role)
     //console.log(rest.data.accessToken)
     return rest.status
 }
@@ -148,7 +149,7 @@ export const updateUser = async (objectUser, idUser) => {
 };
 
 export const orderPetition = async (objectProducts, client) => {
-    console.log(objectProducts)
+    console.log(userId)
     const res = await axios({
         method: 'POST',
         url: baseUrl + '/orders',

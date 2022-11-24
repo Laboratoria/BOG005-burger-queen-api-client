@@ -17,11 +17,8 @@ const Order = () => {
     const navegate = useNavigate()
 
     const [productsOptions, setProductsOptions] = useState([])
-
     const [productsList, setProductsList] = useState([])
-
     const [orderList, setOrderList] = useState([])
-
     const [nameClient, setNameClient] = useState('')
 
     useEffect(() => {
@@ -40,7 +37,6 @@ const Order = () => {
             if (e.target.value === product.type) {
                 // console.log(product.name)
                 console.log(product)
-                // console.log({ image: product.image, name: product.name, price: product.price })
                 return true
                 // mostrar los almuerzos
             }
@@ -65,24 +61,22 @@ const Order = () => {
         // console.log(nameClient)
     }
 
-
-    const sendOrderPetition = async () => {
-        await orderPetition(orderList, nameClient).then(res => {
-            if (res === 200) {
+    const sendOrderPetition = async (e) => {
+        e.preventDefault()
+        try {
+            const res = await orderPetition(orderList, nameClient)
+            if (res === 201) {
                 navegate('/orderState')
                 console.log("si se esta creando la orden")
             }
-        })
-            .catch(e => {
-                alert('La orden no se creo')
-            })
-
+        } catch {
+            alert('no se creo la orden')
+        }
     }
 
     return (
         <section className='order'>
             <Header />
-            {/* <FontAwesomeIcon icon="fa-solid fa-circle-arrow-right" /> */}
             <Button
                 className='btnStateOrder'
                 onClick={() => { navegate('/orderState') }}
@@ -106,10 +100,7 @@ const Order = () => {
                             return (
                                 <div key={id} className='listProductsOrder'>
                                     <ListProducts
-                                        id={product.id}
-                                        image={product.image}
-                                        name={product.name}
-                                        price={product.price}
+                                        product={product}
                                         dataEntry={new Date()}
                                         clickAdd={() => addProductOrder(product)}>
                                     </ListProducts>
@@ -120,7 +111,7 @@ const Order = () => {
                 {/* <form typeof='submit' className='formOrder' onSubmit={handleSubmit(selectOption)}> */}
 
                 {/* seccion de manejar cantidad de los pedidos */}
-                <form typeof='submit' className='formOrder' >
+                <form typeof='submit' className='formOrder' onSubmit={sendOrderPetition} >
                     <p className='pOrderSummary'>Resumen del pedido</p>
                     <FormInput
                         className='inputNameClient'
@@ -154,7 +145,7 @@ const Order = () => {
                         <p>${totalPrice}</p>
                     </div>
                     <section className='sectionBtn'>
-                        <Button text='Enviar' className='btnEnviar' onClick={sendOrderPetition}></Button>
+                        <Button text='Enviar' className='btnEnviar' ></Button>
                         <Button text='Cancelar' className='btnCancel'></Button>
                     </section>
 

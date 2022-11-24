@@ -49,6 +49,7 @@ export const Users = () => {
             )
             console.log(res.data.user)
             setListUsersTotal((lista) => [...lista, res.data.user])
+            setNewUser({ email: "", password: "", role: "" })
         } else {
             Swal.fire({
                 icon: 'error',
@@ -59,17 +60,17 @@ export const Users = () => {
         }
     }
 
-    
+
 
     // console.log(new Date())
 
 
-  return (
-             <section>
+    return (
+        <section>
             <Header />
             <section className='usersAll'>
                 <div className='containerBtnBack'>
-                    <Button className='btnStateOrder' text='Inicio' onClick={()=>{navegate('/admin')}}><FontAwesomeIcon className='iconArrow' icon={faCircleArrowRight} /></Button>
+                    <Button className='btnStateOrder' text='Inicio' onClick={() => { navegate('/admin') }}><FontAwesomeIcon className='iconArrow' icon={faCircleArrowRight} /></Button>
                 </div>
                 <h3>Administración de personal</h3>
 
@@ -97,8 +98,8 @@ export const Users = () => {
                                 onChange={handleChange}
                             >
                             </FormInput>
-                            <select className='SelectRolUser' name='role' onChange={handleChange} >
-                                <option value='seleccion tipo' >Selecciona tipo</option>
+                            <select defaultValue='Selecciona tipo' className='SelectRolUser' name='role' onChange={handleChange} >
+                                <option value='seleccion tipo' disabled>Selecciona tipo</option>
                                 <option value='Mesero'>Mesero</option>
                                 <option value='Chef'>Chef</option>
                                 <option value='Admin'>Admin</option>
@@ -115,12 +116,12 @@ export const Users = () => {
                         {listUsersTotal.map((user, id) => (
                             <div key={id}>
                                 <CardListUsers
-                                user={user}
-                                setListUsersTotal={setListUsersTotal}
-                                    // id={user.id}
-                                    // email={user.email}
-                                    // password={user.password}
-                                    // role={user.role}
+                                    user={user}
+                                    setListUsersTotal={setListUsersTotal}
+                                // id={user.id}
+                                // email={user.email}
+                                // password={user.password}
+                                // role={user.role}
                                 />
                             </div>
                         ))}
@@ -128,5 +129,5 @@ export const Users = () => {
                 </div>
             </section>
         </section>
-  )
+    )
 }

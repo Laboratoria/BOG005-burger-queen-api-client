@@ -13,17 +13,20 @@ const OrderState = () => {
     // <FontAwesomeIcon icon="fa-solid fa-trash-can" />
     const navegate = useNavigate()
 
+    // const [data, setData] = useState([])
     const [orderListPending, setorderListPending] = useState([])
     // //const [updateListProducts, setUpdateListProducts] = useState(false)
 
     useEffect(() => {
-        const viewListOrderPending = async () => {
-            const res = await viewOrderPending()
-            console.log(res)
-            setorderListPending(res)
+        if (orderListPending.length === 0) {
+            const viewListOrderPending = async () => {
+                const res = await viewOrderPending()
+                console.log(res)
+                setorderListPending(res)
+            }
+            viewListOrderPending()
         }
-        viewListOrderPending()
-    }, [])
+    }, [orderListPending])
 
     const orderStatusPending = orderListPending.filter((order) => {
         return order.status === 'pending' && order

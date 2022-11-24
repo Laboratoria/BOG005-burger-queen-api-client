@@ -48,6 +48,7 @@ export const Products = () => {
                 'success'
             )
             setListProductsTotal((lista) => [...lista, res.data])
+            setNewProduct({ dateEntry: new Date(), image: "", name: "", price: 0, type: "" })
 
         } else {
             Swal.fire({
@@ -67,7 +68,7 @@ export const Products = () => {
             <Header />
             <section className='productsAll'>
                 <div className='containerBtnBack'>
-                    <Button className='btnStateOrder' text='Inicio' onClick={()=>{navegate('/admin')}}><FontAwesomeIcon className='iconArrow' icon={faCircleArrowRight} /></Button>
+                    <Button className='btnStateOrder' text='Inicio' onClick={() => { navegate('/admin') }}><FontAwesomeIcon className='iconArrow' icon={faCircleArrowRight} /></Button>
                 </div>
                 <h3>Administración de productos</h3>
 
@@ -105,11 +106,12 @@ export const Products = () => {
                                 onChange={handleChange}
                             >
                             </FormInput>
-                            <select className='SelectTypeProduct' name='type' onChange={handleChange}>
-                                <option value='selecciona tipo'>Selecciona tipo</option>
+                            <select defaultValue='Selecciona tipo' className='SelectTypeProduct' name='type' onChange={handleChange}>
+                                <option value='Selecciona tipo' disabled>Selecciona tipo</option>
                                 <option value='Desayuno'>Desayuno</option>
                                 <option value='Almuerzo'>Almuerzo</option>
                             </select>
+
                             <section className='sectionBtn'>
                                 <Button text='Agregar' className='btnEnviar'>
                                 </Button>
