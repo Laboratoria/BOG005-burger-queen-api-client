@@ -152,6 +152,16 @@
     font-weight: bold;
 
 }
+.divCheckRed button {
+    background-color: #e40202;
+    border-style: none;
+    border-radius: 50%;
+    height: 45px;
+    width: 45px;
+    margin-right: 5px;
+    font-weight: bold;
+
+}
 
 @media all and (min-width: 768px) {
     .btnOrderRow {

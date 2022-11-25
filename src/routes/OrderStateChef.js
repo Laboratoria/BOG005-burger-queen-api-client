@@ -1,17 +1,11 @@
 import React, { useEffect, useState } from 'react'
-import Button from '../components/Button'
 import Header from '../components/Header'
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faCircleArrowLeft } from '@fortawesome/free-solid-svg-icons';
 import CardOrderState from '../components/CardOrderState';
 import { viewOrderPending } from '../helpers/axios';
-import { useNavigate } from 'react-router-dom';
 import CardOrderStateDelivering from '../components/CardOrderStateDelivering';
 import CardOrderStateDelivered from '../components/CardOrderStateDelivered';
 
-const OrderState = () => {
-    
-    const navegate = useNavigate()
+const OrderStateChef = () => {
 
     const [orderListPending, setorderListPending] = useState([])
 
@@ -43,10 +37,6 @@ const OrderState = () => {
             <Header />
             <section className='containerOrderState'>
                 <div className='containerBtnP'>
-                    <Button className='btnOrderRow'
-                        onClick={() => { navegate('/order') }}>
-                        <FontAwesomeIcon className='iconArrowOrderState' icon={faCircleArrowLeft} />Realizar Pedido
-                    </Button>
                     <p>Estado de los Pedidos</p>
                 </div>
 
@@ -101,4 +91,4 @@ const OrderState = () => {
     )
 }
 
-export default OrderState
+export default OrderStateChef

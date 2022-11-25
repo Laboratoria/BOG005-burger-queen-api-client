@@ -4,12 +4,12 @@ import FormInput from '../components/FormInput'
 import Button from '../components/Button'
 import { useState } from 'react';
 import { getProducts, orderPetition } from '../helpers/axios'
-// import { useForm } from 'react-hook-form'
 import ListProducts from '../components/ListProducts';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCircleArrowRight } from '@fortawesome/free-solid-svg-icons';
 import CardProductsOrder from '../components/CardProductsOrder';
 import { useNavigate } from 'react-router-dom';
+import Swal from 'sweetalert2'
 
 
 const Order = () => {
@@ -24,7 +24,6 @@ const Order = () => {
     useEffect(() => {
         const getProductsOption = async () => {
             const result = await getProducts()
-            // console.log(result)
             setProductsOptions(result)
         }
 
@@ -35,30 +34,33 @@ const Order = () => {
 
         const resultFilter = productsOptions.filter((product) => {
             if (e.target.value === product.type) {
-                // console.log(product.name)
-                console.log(product)
                 return true
-                // mostrar los almuerzos
             }
             return false
         })
         setProductsList(resultFilter)
-        console.log(resultFilter) //productList queda con la seleccion de la lista de desayuno o almuerzo
     }
 
     // Funcion para agregar productos al pedido
     const addProductOrder = (props) => {
-        console.log(props)
-        setOrderList([...orderList, { qty: 1, product: props }])
-        console.log(orderList)
+    
+        let productInOrder = orderList.map((product) => product.product.id).includes(props.id)
+        
+        if(productInOrder){
+            Swal.fire({
+                icon: 'error',
+                title: 'Oops...',
+                text: 'Producto ya agregado a la orden!'
+            })
+        } else {
+            setOrderList([...orderList, { qty: 1, product: props }])
+        }
     }
 
     const totalPrice = orderList.map((product) => product.product.price * product.qty).reduce((sum, val) => sum + val, 0)
 
     const handleChange = (e) => {
-        // console.log('me estoy ejecutando')
         setNameClient(e.target.value)
-        // console.log(nameClient)
     }
 
     const sendOrderPetition = async (e) => {
@@ -67,10 +69,13 @@ const Order = () => {
             const res = await orderPetition(orderList, nameClient)
             if (res === 201) {
                 navegate('/orderState')
-                console.log("si se esta creando la orden")
             }
         } catch {
-            alert('no se creo la orden')
+            Swal.fire({
+                icon: 'error',
+                title: 'Oops...',
+                text: 'Algo ocurrió y no se pudo crear la orden!'
+            })
         }
     }
 
@@ -108,9 +113,6 @@ const Order = () => {
                         })
                     }
                 </div>
-                {/* <form typeof='submit' className='formOrder' onSubmit={handleSubmit(selectOption)}> */}
-
-                {/* seccion de manejar cantidad de los pedidos */}
                 <form typeof='submit' className='formOrder' onSubmit={sendOrderPetition} >
                     <p className='pOrderSummary'>Resumen del pedido</p>
                     <FormInput
@@ -126,8 +128,6 @@ const Order = () => {
                         <p>Cantidad</p>
                         <p>Opciones</p>
                     </section>
-
-                    {/* informacion de los productos ordenados */}
                     <div className='containerProductsAdmin'>
                         {orderList.map((product, id) => (
                             <div key={id}>

@@ -3,6 +3,7 @@ import { Route, Routes } from 'react-router-dom'
 import Administration from './Administration'
 import Order from './Order'
 import OrderState from './OrderState'
+import OrderStateChef from './OrderStateChef'
 import { Products } from './Products'
 import { Users } from './Users'
 
@@ -25,11 +26,7 @@ const RoutesByRole = () => {
                             <Route path='/products' element={<Products />}></Route>
                         </Routes>
                     )
-                    : (
-                        <Routes>
-                            <Route path='/admin' element={< Administration />}></Route>
-                        </Routes>
-                    )
+                    : null
             }
             {
                 userActived === 'Mesero'
@@ -40,27 +37,17 @@ const RoutesByRole = () => {
                         </Routes>
 
                     )
-                    : (
-                        <Routes>
-                            <Route path='/order' element={<Order />}></Route>
-                        </Routes>
-
-                    )
+                    : null
             }
             {
                 userActived === 'Chef'
                     ? (
                         <Routes>
-                            <Route path='/orderState' element={<OrderState />}></Route>
+                            <Route path='/orderStateChef' element={<OrderStateChef />}></Route>
                         </Routes>
 
                     )
-                    : (
-                        <Routes>
-                            <Route path='/orderState' element={<OrderState />}></Route>
-                        </Routes>
-
-                    )
+                    : null
             }
 
         </>

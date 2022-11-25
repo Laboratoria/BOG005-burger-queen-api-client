@@ -15,7 +15,6 @@ export const Users = () => {
     const navegate = useNavigate()
     const { handleSubmit } = useForm()
     const [listUsersTotal, setListUsersTotal] = useState([])
-    //const [updateListProducts, setUpdateListProducts] = useState(false)
     const [newUser, setNewUser] = useState({ email: "", password: "", role: "" })
 
     useEffect(() => {
@@ -29,7 +28,6 @@ export const Users = () => {
     }, [listUsersTotal])
 
     const handleChange = (e) => {
-        console.log('me estoy ejecutando')
         setNewUser({
             ...newUser,
             [e.target.name]: e.target.value
@@ -37,17 +35,14 @@ export const Users = () => {
     }
 
     const createUser = async () => {
-        console.log('enviando formulario')
         const res = await createUserPost(newUser);
-        console.log(res)
+      
         if (res.status === 201) {
-            // alert('Usuario creado')
             Swal.fire(
                 'Bien hecho!',
                 'El Usuario se creó con éxito!',
                 'success'
             )
-            console.log(res.data.user)
             setListUsersTotal((lista) => [...lista, res.data.user])
             setNewUser({ email: "", password: "", role: "" })
         } else {
@@ -56,14 +51,8 @@ export const Users = () => {
                 title: 'Oops...',
                 text: 'Algo ocurrió y no se pudo crear el usuario!'
             })
-            // alert('No se creo el usuario exitosamente')
         }
     }
-
-
-
-    // console.log(new Date())
-
 
     return (
         <section>
@@ -118,10 +107,6 @@ export const Users = () => {
                                 <CardListUsers
                                     user={user}
                                     setListUsersTotal={setListUsersTotal}
-                                // id={user.id}
-                                // email={user.email}
-                                // password={user.password}
-                                // role={user.role}
                                 />
                             </div>
                         ))}

@@ -6,19 +6,13 @@ import { faTrashCan } from '@fortawesome/free-solid-svg-icons';
 import { changeOrderToDelivering, deleteOrderPending } from '../helpers/axios';
 
 const CardOrderState = ({ order }) => {
-  console.log(order.id)
-  // console.log(order.products[0].product.name)
-  console.log(order.dataEntry)
 
   const sendToDelivering = async () => {
     await changeOrderToDelivering(order.id)
-    console.log("me estoy cambiando a delivering")
-    // changeOrderToDelivering(orderListPending.id)
   }
 
   const orderPendingDelete = async () => {
     await deleteOrderPending(order.id)
-    console.log('me estoy borrando order pending')
   }
 
   return (
@@ -43,11 +37,14 @@ const CardOrderState = ({ order }) => {
         <div className="divTime">
           <p>{order.dataEntry}</p>
         </div>
-        <div className='divCheck'>
-          <Button><FontAwesomeIcon icon={faCheck} onClick={sendToDelivering} /></Button>
-          <Button><FontAwesomeIcon icon={faTrashCan} onClick={orderPendingDelete} /></Button>
+        <div>
+          <div className='divCheck'>
+            <Button><FontAwesomeIcon icon={faCheck} onClick={sendToDelivering} /></Button>
+          </div>
+          <div className='divCheckRed'>
+            <Button><FontAwesomeIcon icon={faTrashCan} onClick={orderPendingDelete} /></Button>
+          </div>
         </div>
-
       </div>
     </>
   );

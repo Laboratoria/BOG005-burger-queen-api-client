@@ -23,11 +23,8 @@ const CardListUsers = ({ user, setListUsersTotal }) => {
             confirmButtonText: 'sí, eliminar usuario!'
         }).then((result) => {
             if (result.isConfirmed) {
-                // console.log("eliminando usuario", user.email)
                 deleteUser(user, user.id).then((resDelete) => {
-                    // console.log(resDelete)
                     if (resDelete.status === 200) {
-                        // alert('Producto eliminado')
                         Swal.fire(
                             'Exito!',
                             'El usuario se eliminó correctamente!',
@@ -35,7 +32,6 @@ const CardListUsers = ({ user, setListUsersTotal }) => {
                         )
                         setListUsersTotal((lista) => lista.filter(u => u.id !== user.id))
                     } else {
-                        // alert('No se elimino el producto')
                         Swal.fire({
                             icon: 'error',
                             title: 'Oops...',
@@ -43,7 +39,6 @@ const CardListUsers = ({ user, setListUsersTotal }) => {
                         })
                     }
                 })
-
             }
         })
     }
@@ -53,7 +48,6 @@ const CardListUsers = ({ user, setListUsersTotal }) => {
     }
 
     const handleChange = (e) => {
-        console.log('me estoy ejecutando')
         setUserUpdate({
             ...userUpdate,
             [e.target.name]: e.target.value
@@ -66,9 +60,7 @@ const CardListUsers = ({ user, setListUsersTotal }) => {
 
     const updateUsertNow = async () => {
         const res = await updateUser(userUpdate, user.id)
-        console.log(res)
         if (res.status === 200) {
-            // alert('Usuario editado')
             Swal.fire(
                 'Bien hecho!',
                 'El usuario se editó con éxito!',
@@ -78,7 +70,6 @@ const CardListUsers = ({ user, setListUsersTotal }) => {
                 return (u.id === user.id) ? userUpdate : u
             }))
         } else {
-            // alert('No se edito el usuario')
             Swal.fire({
                 icon: 'error',
                 title: 'Oops...',
@@ -89,9 +80,7 @@ const CardListUsers = ({ user, setListUsersTotal }) => {
     }
 
     return (
-
         <>
-
             <div className='usersContainer'>
                 <p>{user.email}</p>
                 <p type='password'>*******</p>
@@ -131,7 +120,7 @@ const CardListUsers = ({ user, setListUsersTotal }) => {
                         <option value='Admin' >Admin</option>
                     </select>
                     <div className='optionsModal'>
-                        <Button onClick={updateUsertNow} text="Aceptar" className="btnEditAdmonUser" />
+                        <Button onClick={updateUsertNow} text="Aceptar" className="btnEditAdmonUserModal" />
                         <Button onClick={closeModal} text="Cancelar" className="btnEditDeleteUser" />
                     </div>
 
