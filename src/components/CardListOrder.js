@@ -2,8 +2,6 @@ import React from 'react'
 
 const CardListOrder = ({ pr }) => {
 
-    console.log(pr)
-
     return (
         <>
 

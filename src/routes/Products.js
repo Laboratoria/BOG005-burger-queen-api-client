@@ -29,7 +29,6 @@ export const Products = () => {
     }, [ListProductsTotal])
 
     const handleChange = (e) => {
-        console.log('me estoy ejecutando')
         setNewProduct({
             ...newProduct,
             [e.target.name]: e.target.value
@@ -37,11 +36,8 @@ export const Products = () => {
     }
 
     const createProduct = async () => {
-        console.log('enviando formulario')
         const res = await createProductPost(newProduct);
-        console.log(res)
         if (res.status === 201) {
-            // alert('Producto creado')
             Swal.fire(
                 'Bien hecho!',
                 'El producto se creó con éxito!',
@@ -56,12 +52,8 @@ export const Products = () => {
                 title: 'Oops...',
                 text: 'Algo ocurrió y no se pudo crear el producto!'
             })
-            // alert('No se creo el producto exitosamente')
         }
     }
-
-    // console.log(new Date())
-    // console.log(ListProductsTotal)
 
     return (
         <section>

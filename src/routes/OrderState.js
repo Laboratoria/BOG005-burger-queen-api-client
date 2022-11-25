@@ -10,18 +10,15 @@ import CardOrderStateDelivering from '../components/CardOrderStateDelivering';
 import CardOrderStateDelivered from '../components/CardOrderStateDelivered';
 
 const OrderState = () => {
-    // <FontAwesomeIcon icon="fa-solid fa-trash-can" />
+    
     const navegate = useNavigate()
 
-    // const [data, setData] = useState([])
     const [orderListPending, setorderListPending] = useState([])
-    // //const [updateListProducts, setUpdateListProducts] = useState(false)
 
     useEffect(() => {
         if (orderListPending.length === 0) {
             const viewListOrderPending = async () => {
                 const res = await viewOrderPending()
-                console.log(res)
                 setorderListPending(res)
             }
             viewListOrderPending()
@@ -31,17 +28,14 @@ const OrderState = () => {
     const orderStatusPending = orderListPending.filter((order) => {
         return order.status === 'pending' && order
     })
-    console.log(orderStatusPending)
 
     const orderStatusDelivering = orderListPending.filter((order) => {
         return order.status === 'delivering' && order
     })
-    console.log(orderStatusDelivering)
 
     const orderStatusDelivered = orderListPending.filter((order) => {
         return order.status === 'delivered' && order
     })
-    console.log(orderStatusDelivered)
 
 
     return (

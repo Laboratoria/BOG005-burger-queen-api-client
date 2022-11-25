@@ -11,7 +11,6 @@ const RoutesByRole = () => {
 
     const userActived = localStorage.getItem('userRole')
 
-    console.log(userActived)
     return (
         <>
 

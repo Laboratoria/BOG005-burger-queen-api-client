@@ -6,8 +6,6 @@ import { useForm } from 'react-hook-form'
 import loginUser from '../helpers/axios';
 import { useState } from 'react';
 
-
-
 const Login = () => {
 
     const navegate = useNavigate()
@@ -19,15 +17,12 @@ const Login = () => {
     const handleInputChangeEmail = (e) => {
         const text = e.target.value
         setInputEmail(text);
-        console.log(inputEmail)
     }
 
     const handleInputChangePassword = (e) => {
         const text = e.target.value
         setInputPassword(text);
     }
-
-    // prueba ibeht
 
     const validateUser = ()=> {
         loginUser(inputEmail, inputPassword).then( res => {
@@ -40,9 +35,6 @@ const Login = () => {
                 }  
             })
             .catch((error) => {
-                console.log(error.response.data)
-
-                
 
                 if (error.response.data === 'Email and password are required') {
                     setErrorLogin('Ingresa email y contraseña ')

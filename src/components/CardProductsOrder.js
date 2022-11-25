@@ -4,9 +4,6 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 const CardProductsOrder = ({ productSelect, setOrderList, orderList }) => {
 
-  console.log(productSelect.product)
-
-
   function addQuantityProduct() {
     setOrderList((products) => {
       return products.map((product) => {
@@ -29,24 +26,11 @@ const CardProductsOrder = ({ productSelect, setOrderList, orderList }) => {
     })
   }
 
-  // function clickAdd (props) {
-  //     console.log(props)
-  //     console.log("estoy agregando productos")
-  //     setProductSelect(props)
-  // }
   const productDelete = () => {
-    console.log(productSelect.product.id)
-    console.log(orderList)
-    // const newArr = ;
     setOrderList(orderList.filter((item) => item.product.id !== productSelect.product.id));
   }
 
-  // const totalPriceProduct = () => {
-  //     setFinalPrice(productSelect.price*productSelectQuantity)
-  // }
-
   const totalPriceProduct = productSelect.product.price * productSelect.qty
-
 
   return (
     <div className='containerProductOrder'>

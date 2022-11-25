@@ -15,13 +15,11 @@ const loginUser = async (email, password) => {
             password: password
         }
     })
-    //console.log(rest)
-    console.log(rest.data.accessToken)
+   
     localStorage.setItem('tokenUser', rest.data.accessToken)
     token = rest.data.accessToken
     localStorage.setItem('userId', rest.data.user.id)
     userId = rest.data.user.id
-    console.log(userId)
     localStorage.setItem('userRole', rest.data.user.role)
     localStorage.setItem('userEmail', rest.data.user.email)
     return rest
@@ -37,15 +35,10 @@ export const getProducts = async () => {
             'Authorization': 'Bearer ' + token,
         },
     });
-    console.log(res.data)
-    //console.log(res)
-
     return res.data
 };
-// console.log(getProducts(mitoken));
 
 export const createProductPost = async (objectProduct) => {
-    console.log(objectProduct)
     const res = await axios({
         method: 'POST',
         url: baseUrl + '/products',
@@ -55,13 +48,10 @@ export const createProductPost = async (objectProduct) => {
         },
         data: objectProduct
     });
-    // console.log(res.data)
     return res
 };
 
 export const editProduct = async (objectProduct, idProduct) => {
-    console.log('=====>', objectProduct)
-    console.log('id del producto', idProduct)
     const res = await axios({
         method: 'PATCH',
         url: baseUrl + '/products/' + idProduct,
@@ -71,7 +61,6 @@ export const editProduct = async (objectProduct, idProduct) => {
         },
         data: objectProduct
     });
-    // console.log(res.data)
     return res
 };
 
@@ -87,7 +76,6 @@ export const deleteProduct = async (objectProduct, idProduct) => {
         },
         data: objectProduct
     });
-    // console.log(res.data)
     return res
 };
 
@@ -100,13 +88,10 @@ export const getUsers = async () => {
             'Authorization': 'Bearer ' + token,
         },
     });
-    console.log('==================>>>>>>>>>>>>>>>>>>>>>>>', res.data)
-    //console.log(res)
     return res.data
 };
 
 export const createUserPost = async (objectUser) => {
-    console.log(objectUser)
     const res = await axios({
         method: 'POST',
         url: baseUrl + '/users',
@@ -116,7 +101,6 @@ export const createUserPost = async (objectUser) => {
         },
         data: objectUser
     });
-    // console.log(res.data)
     return res
 };
 
@@ -130,7 +114,6 @@ export const deleteUser = async (objectUser, idUser) => {
         },
         // data: objectUser
     });
-    console.log(res)
     return res
 };
 
@@ -144,12 +127,10 @@ export const updateUser = async (objectUser, idUser) => {
         },
         data: objectUser
     });
-    // console.log(res.data)
     return res
 };
 
 export const orderPetition = async (objectProducts, client) => {
-    console.log(userId)
     const res = await axios({
         method: 'POST',
         url: baseUrl + '/orders',
@@ -165,7 +146,6 @@ export const orderPetition = async (objectProducts, client) => {
             dataEntry: new Date().toLocaleString('sv')
         }
     });
-    // console.log(res.data)
     return res.status
 };
 
@@ -178,7 +158,6 @@ export const viewOrderPending = async () => {
             'Authorization': 'Bearer ' + token,
         }
     });
-    console.log(res.data)
     return res.data
 };
 
@@ -195,7 +174,6 @@ export const changeOrderToDelivering = async (orderId) => {
             dateProcessed: new Date().toLocaleString('sv'),
         }
     });
-    // console.log(res.data)
     return res
 };
 
@@ -211,7 +189,6 @@ export const changeOrderToDelivered = async (orderId) => {
             status: 'delivered',
         }
     });
-    // console.log(res.data)
     return res
 };
 
@@ -224,7 +201,6 @@ export const deleteOrderPending = async (orderId) => {
             'Authorization': 'Bearer ' + token,
         }
     });
-    console.log(res)
     return res
 };
 

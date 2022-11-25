@@ -22,9 +22,7 @@ export const CardListProducts = ({ product, setListProductsTotal }) => {
             confirmButtonText: 'sí, eliminar producto!'
         }).then((result) => {
             if (result.isConfirmed) {
-                // console.log("eliminando producto", product.id)
                 deleteProduct(product, product.id).then((resDelete) => {
-                    // console.log(resDelete)
                     if (resDelete.status === 200) {
                         Swal.fire(
                             'Exito!',
@@ -49,7 +47,6 @@ export const CardListProducts = ({ product, setListProductsTotal }) => {
     }
 
     const handleChange = (e) => {
-        console.log('me estoy ejecutando')
         setProductUpdate({
             ...productUpdate,
             [e.target.name]: e.target.value
@@ -62,7 +59,6 @@ export const CardListProducts = ({ product, setListProductsTotal }) => {
 
     const updateProductNow = async () => {
         const res = await editProduct(productUpdate, product.id)
-        console.log(res)
         if (res.status === 200) {
             Swal.fire(
                 'Bien hecho!',
