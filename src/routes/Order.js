@@ -4,12 +4,12 @@ import FormInput from '../components/FormInput'
 import Button from '../components/Button'
 import { useState } from 'react';
 import { getProducts, orderPetition } from '../helpers/axios'
-// import { useForm } from 'react-hook-form'
 import ListProducts from '../components/ListProducts';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCircleArrowRight } from '@fortawesome/free-solid-svg-icons';
 import CardProductsOrder from '../components/CardProductsOrder';
 import { useNavigate } from 'react-router-dom';
+import Swal from 'sweetalert2'
 
 
 const Order = () => {
@@ -17,19 +17,13 @@ const Order = () => {
     const navegate = useNavigate()
 
     const [productsOptions, setProductsOptions] = useState([])
-
     const [productsList, setProductsList] = useState([])
-
     const [orderList, setOrderList] = useState([])
-
     const [nameClient, setNameClient] = useState('')
-
-
 
     useEffect(() => {
         const getProductsOption = async () => {
             const result = await getProducts()
-            // console.log(result)
             setProductsOptions(result)
         }
 
@@ -40,69 +34,60 @@ const Order = () => {
 
         const resultFilter = productsOptions.filter((product) => {
             if (e.target.value === product.type) {
-                // console.log(product.name)
-                console.log(product)
-                // console.log({ image: product.image, name: product.name, price: product.price })
                 return true
-                // mostrar los almuerzos
             }
             return false
         })
         setProductsList(resultFilter)
-        console.log(resultFilter)
     }
-
-    // const clickAdd = (props) => {
-    //     console.log("estoy agregando productos")
-    //     setProductSelect(props)
-    // }
 
     // Funcion para agregar productos al pedido
-
     const addProductOrder = (props) => {
-        console.log(props)
-        //setProductSelect(props)
-        //orderList.push(props)
-        // setListProductsTotal((lista) => lista.map(p => {
-        //     return (p.id === product.id) ? productUpdate : p
-        // }))
-        setOrderList([...orderList, { qty: 1, product: props}])
-        console.log(orderList)
+    
+        let productInOrder = orderList.map((product) => product.product.id).includes(props.id)
+        
+        if(productInOrder){
+            Swal.fire({
+                icon: 'error',
+                title: 'Oops...',
+                text: 'Producto ya agregado a la orden!'
+            })
+        } else {
+            setOrderList([...orderList, { qty: 1, product: props }])
+        }
     }
 
-    const totalPrice = orderList.map((product) => product.product.price * product.qty).reduce((sum,val) => sum + val,0)
+    const totalPrice = orderList.map((product) => product.product.price * product.qty).reduce((sum, val) => sum + val, 0)
 
     const handleChange = (e) => {
-        // console.log('me estoy ejecutando')
         setNameClient(e.target.value)
-        // console.log(nameClient)
     }
 
-
-    const sendOrderPetition = async () => {
-        await orderPetition(orderList, nameClient).then(res => {
-            if (res === 200) {
+    const sendOrderPetition = async (e) => {
+        e.preventDefault()
+        try {
+            const res = await orderPetition(orderList, nameClient)
+            if (res === 201) {
                 navegate('/orderState')
-                console.log("si se esta creando la orden")
             }
-        })
-        .catch(e => {
-            alert('La orden no se creo')
-        })
-
+        } catch {
+            Swal.fire({
+                icon: 'error',
+                title: 'Oops...',
+                text: 'Algo ocurrió y no se pudo crear la orden!'
+            })
+        }
     }
-    // const priceTotal = orderList.reduce((price1, price2) => price1.price + price2.price , 0)
 
     return (
         <section className='order'>
             <Header />
-            {/* <FontAwesomeIcon icon="fa-solid fa-circle-arrow-right" /> */}
-            <Button 
-                className='btnStateOrder' 
-                onClick={()=> {navegate('/orderState')}}
+            <Button
+                className='btnStateOrder'
+                onClick={() => { navegate('/orderState') }}
                 text='Estado Pedidos'
             >
-                
+
                 <FontAwesomeIcon className='iconArrow' icon={faCircleArrowRight} />
             </Button>
             <div className='containerH1'>
@@ -120,25 +105,19 @@ const Order = () => {
                             return (
                                 <div key={id} className='listProductsOrder'>
                                     <ListProducts
-                                        id={product.id}
-                                        image={product.image}
-                                        name={product.name}
-                                        price={product.price} 
+                                        product={product}
                                         dataEntry={new Date()}
-                                        clickAdd= {()=> addProductOrder(product)}>
-                                        </ListProducts>
+                                        clickAdd={() => addProductOrder(product)}>
+                                    </ListProducts>
                                 </div>)
                         })
                     }
                 </div>
-                {/* <form typeof='submit' className='formOrder' onSubmit={handleSubmit(selectOption)}> */}
-
-                {/* seccion de manejar cantidad de los pedidos */}
-                <form typeof='submit' className='formOrder' >
+                <form typeof='submit' className='formOrder' onSubmit={sendOrderPetition} >
                     <p className='pOrderSummary'>Resumen del pedido</p>
                     <FormInput
                         className='inputNameClient'
-                        value= {nameClient}
+                        value={nameClient}
                         required
                         placeholder='Nombre del cliente'
                         onChange={handleChange}>
@@ -149,9 +128,6 @@ const Order = () => {
                         <p>Cantidad</p>
                         <p>Opciones</p>
                     </section>
-
-                    {/* informacion de los productos ordenados */}
-
                     <div className='containerProductsAdmin'>
                         {orderList.map((product, id) => (
                             <div key={id}>
@@ -165,11 +141,11 @@ const Order = () => {
                     </div>
 
                     <div className='totalPrice'>
-                            <p>Total</p>
-                            <p>${totalPrice}</p>
-                        </div>
+                        <p>Total</p>
+                        <p>${totalPrice}</p>
+                    </div>
                     <section className='sectionBtn'>
-                        <Button text='Enviar' className='btnEnviar' onClick={sendOrderPetition}></Button>
+                        <Button text='Enviar' className='btnEnviar' ></Button>
                         <Button text='Cancelar' className='btnCancel'></Button>
                     </section>
 

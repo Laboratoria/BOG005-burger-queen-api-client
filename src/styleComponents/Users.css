@@ -118,6 +118,16 @@
     margin-right: 5px;
 }
 
+.btnEditAdmonUserModal{
+    color: black;
+    width: 60px;
+    height: 30px;
+    background-color: #BCE402;
+    border-radius: 15px;
+    border-style: none;
+    margin-right: 5px;
+}
+
 @media all and (min-width: 768px) {
     .containerFormListUsers {
         /* border: solid 2px rgb(37, 71, 4); */

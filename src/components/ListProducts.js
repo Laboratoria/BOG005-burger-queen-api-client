@@ -1,15 +1,15 @@
 import React from 'react'
 import Button from './Button'
 
-const ListProducts = (props) => {
+const ListProducts = ({ product, clickAdd }) => {
 
 
     return (
         <div className='listProductsContainer'>
-            <img src={props.image} alt={props.name} />
-            <p>{props.name}</p>
-            <p>${props.price}</p>
-            <Button text='agregar' className='btnAdd' onClick={()=>props.clickAdd(props)}/>
+            <img src={product.image} alt={product.name} />
+            <p>{product.name}</p>
+            <p>${product.price}</p>
+            <Button text='agregar' className='btnAdd' onClick={() => clickAdd(product)} />
         </div>
     )
 }

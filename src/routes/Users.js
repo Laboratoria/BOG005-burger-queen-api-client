@@ -15,7 +15,6 @@ export const Users = () => {
     const navegate = useNavigate()
     const { handleSubmit } = useForm()
     const [listUsersTotal, setListUsersTotal] = useState([])
-    //const [updateListProducts, setUpdateListProducts] = useState(false)
     const [newUser, setNewUser] = useState({ email: "", password: "", role: "" })
 
     useEffect(() => {
@@ -29,7 +28,6 @@ export const Users = () => {
     }, [listUsersTotal])
 
     const handleChange = (e) => {
-        console.log('me estoy ejecutando')
         setNewUser({
             ...newUser,
             [e.target.name]: e.target.value
@@ -37,39 +35,31 @@ export const Users = () => {
     }
 
     const createUser = async () => {
-        console.log('enviando formulario')
         const res = await createUserPost(newUser);
-        console.log(res)
+      
         if (res.status === 201) {
-            // alert('Usuario creado')
             Swal.fire(
                 'Bien hecho!',
                 'El Usuario se creó con éxito!',
                 'success'
             )
-            console.log(res.data.user)
             setListUsersTotal((lista) => [...lista, res.data.user])
+            setNewUser({ email: "", password: "", role: "" })
         } else {
             Swal.fire({
                 icon: 'error',
                 title: 'Oops...',
                 text: 'Algo ocurrió y no se pudo crear el usuario!'
             })
-            // alert('No se creo el usuario exitosamente')
         }
     }
 
-    
-
-    // console.log(new Date())
-
-
-  return (
-             <section>
+    return (
+        <section>
             <Header />
             <section className='usersAll'>
                 <div className='containerBtnBack'>
-                    <Button className='btnStateOrder' text='Inicio' onClick={()=>{navegate('/admin')}}><FontAwesomeIcon className='iconArrow' icon={faCircleArrowRight} /></Button>
+                    <Button className='btnStateOrder' text='Inicio' onClick={() => { navegate('/admin') }}><FontAwesomeIcon className='iconArrow' icon={faCircleArrowRight} /></Button>
                 </div>
                 <h3>Administración de personal</h3>
 
@@ -97,8 +87,8 @@ export const Users = () => {
                                 onChange={handleChange}
                             >
                             </FormInput>
-                            <select className='SelectRolUser' name='role' onChange={handleChange} >
-                                <option value='seleccion tipo' >Selecciona tipo</option>
+                            <select defaultValue='Selecciona tipo' className='SelectRolUser' name='role' onChange={handleChange} >
+                                <option value='seleccion tipo' disabled>Selecciona tipo</option>
                                 <option value='Mesero'>Mesero</option>
                                 <option value='Chef'>Chef</option>
                                 <option value='Admin'>Admin</option>
@@ -115,12 +105,8 @@ export const Users = () => {
                         {listUsersTotal.map((user, id) => (
                             <div key={id}>
                                 <CardListUsers
-                                user={user}
-                                setListUsersTotal={setListUsersTotal}
-                                    // id={user.id}
-                                    // email={user.email}
-                                    // password={user.password}
-                                    // role={user.role}
+                                    user={user}
+                                    setListUsersTotal={setListUsersTotal}
                                 />
                             </div>
                         ))}
@@ -128,5 +114,5 @@ export const Users = () => {
                 </div>
             </section>
         </section>
-  )
+    )
 }

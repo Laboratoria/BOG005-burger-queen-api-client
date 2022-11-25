@@ -22,11 +22,8 @@ export const CardListProducts = ({ product, setListProductsTotal }) => {
             confirmButtonText: 'sí, eliminar producto!'
         }).then((result) => {
             if (result.isConfirmed) {
-                // console.log("eliminando producto", product.id)
                 deleteProduct(product, product.id).then((resDelete) => {
-                    // console.log(resDelete)
                     if (resDelete.status === 200) {
-                        // alert('Producto eliminado')
                         Swal.fire(
                             'Exito!',
                             'El producto se eliminó correctamente!',
@@ -34,7 +31,6 @@ export const CardListProducts = ({ product, setListProductsTotal }) => {
                         )
                         setListProductsTotal((lista) => lista.filter(p => p.id !== product.id))
                     } else {
-                        // alert('No se elimino el producto')
                         Swal.fire({
                             icon: 'error',
                             title: 'Oops...',
@@ -42,7 +38,6 @@ export const CardListProducts = ({ product, setListProductsTotal }) => {
                         })
                     }
                 })
-
             }
         })
     }
@@ -52,7 +47,6 @@ export const CardListProducts = ({ product, setListProductsTotal }) => {
     }
 
     const handleChange = (e) => {
-        console.log('me estoy ejecutando')
         setProductUpdate({
             ...productUpdate,
             [e.target.name]: e.target.value
@@ -65,9 +59,12 @@ export const CardListProducts = ({ product, setListProductsTotal }) => {
 
     const updateProductNow = async () => {
         const res = await editProduct(productUpdate, product.id)
-        console.log(res)
         if (res.status === 200) {
-            alert('Producto editado')
+            Swal.fire(
+                'Bien hecho!',
+                'El producto se editó con éxito!',
+                'success'
+            )
             setListProductsTotal((lista) => lista.map(p => {
                 return (p.id === product.id) ? productUpdate : p
             }))
@@ -75,9 +72,7 @@ export const CardListProducts = ({ product, setListProductsTotal }) => {
             alert('No se edito el producto')
         }
         closeModal()
-
     }
-
 
     return (
         <>
@@ -124,10 +119,12 @@ export const CardListProducts = ({ product, setListProductsTotal }) => {
                         onChange={handleChange}
                     >
                     </FormInput>
-                    <select name='type' onChange={handleChange} className="SelectTypeProduct">
-                        <option value='seleccion tipo' >Selecciona tipo</option>
-                        <option value='Desayuno' selected={product.type === 'Desayuno'}>Desayuno</option>
-                        <option value='Almuerzo' selected={product.type === 'Almuerzo'}>Almuerzo</option>
+                    <select defaultValue={product.type} name='type' onChange={handleChange} className="SelectTypeProduct">
+                        <option value={product.type} disabled>{product.type}</option>
+                        <option value='Desayuno'>Desayuno</option>
+                        <option value='Almuerzo'>Almuerzo</option>
+                        {/* <option value='Desayuno' selected={product.type === 'Desayuno'}>Desayuno</option>
+                        <option value='Almuerzo' selected={product.type === 'Almuerzo'}>Almuerzo</option> */}
                     </select>
                     <div className='optionsModal'>
                         <Button onClick={updateProductNow} text="Aceptar" className="btnEditAdmonProduct" />
