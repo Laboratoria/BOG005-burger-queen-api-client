@@ -43,11 +43,14 @@ const CardOrderState = ({ order }) => {
         <div className="divTime">
           <p>{order.dataEntry}</p>
         </div>
-        <div className='divCheck'>
-          <Button><FontAwesomeIcon icon={faCheck} onClick={sendToDelivering} /></Button>
-          <Button><FontAwesomeIcon icon={faTrashCan} onClick={orderPendingDelete} /></Button>
+        <div>
+          <div className='divCheck'>
+            <Button><FontAwesomeIcon icon={faCheck} onClick={sendToDelivering} /></Button>
+          </div>
+          <div className='divCheckRed'>
+            <Button><FontAwesomeIcon icon={faTrashCan} onClick={orderPendingDelete} /></Button>
+          </div>
         </div>
-
       </div>
     </>
   );

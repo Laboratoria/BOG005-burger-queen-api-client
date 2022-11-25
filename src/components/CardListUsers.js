@@ -131,7 +131,7 @@ const CardListUsers = ({ user, setListUsersTotal }) => {
                         <option value='Admin' >Admin</option>
                     </select>
                     <div className='optionsModal'>
-                        <Button onClick={updateUsertNow} text="Aceptar" className="btnEditAdmonUser" />
+                        <Button onClick={updateUsertNow} text="Aceptar" className="btnEditAdmonUserModal" />
                         <Button onClick={closeModal} text="Cancelar" className="btnEditDeleteUser" />
                     </div>
 

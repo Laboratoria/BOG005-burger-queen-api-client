@@ -9,10 +9,12 @@ import { useState } from 'react';
 
 
 const Login = () => {
+
     const navegate = useNavigate()
     const { handleSubmit } = useForm()
     const [inputEmail, setInputEmail] = useState('')
     const [inputPassword, setInputPassword] = useState('')
+    const [errorLogin, setErrorLogin] = useState('')
 
     const handleInputChangeEmail = (e) => {
         const text = e.target.value
@@ -23,23 +25,42 @@ const Login = () => {
     const handleInputChangePassword = (e) => {
         const text = e.target.value
         setInputPassword(text);
-        // console.log(inputPassword)
     }
 
-    const validateUser = async () => {
-        // const mitoken = localStorage.getItem('burguertoken')
-        await loginUser(inputEmail, inputPassword)
-            .then(res => {
-                if (res === 200) {
+    // prueba ibeht
+
+    const validateUser = ()=> {
+        loginUser(inputEmail, inputPassword).then( res => {
+                if(res.data.user.role === 'admin'){
+                    navegate('/admin')
+                } else if (res.data.user.role === 'Mesero'){
                     navegate('/order')
-                }
+                } else if (res.data.user.role === 'Chef'){
+                    navegate('/orderStateChef')
+                }  
             })
-            .catch(e => {
-                alert('usario no encontrado')
-            })
-    }
+            .catch((error) => {
+                console.log(error.response.data)
 
-    // console.log(validateUser("grace.hopper@systers.xyz", "123456"))
+                
+
+                if (error.response.data === 'Email and password are required') {
+                    setErrorLogin('Ingresa email y contraseña ')
+                }
+                else if (error.response.data === 'Cannot find user') {
+                    setErrorLogin('Usuario no encontrado')
+                }
+                else if (error.response.data === 'Email format is invalid') {
+                    setErrorLogin('Intruduce email valido')
+                }
+                else if (error.response.data === 'Incorrect password') {
+                    setErrorLogin('Contraseña invalida')
+                }
+                else if (error.response.data === 'Password is too short') {
+                    setErrorLogin('Introduce contraseña valida')
+                }
+        })
+        }
 
     return (
         <section className="App">
@@ -63,6 +84,7 @@ const Login = () => {
                 </FormInput>
                 <Button text='Ingresar' className='btnStyle'>
                 </Button>
+                <p>{errorLogin}</p>
             </form>
         </section>
     );

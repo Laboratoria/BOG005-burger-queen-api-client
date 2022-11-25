@@ -12,12 +12,8 @@ import './styleComponents/Users.css';
 import './App.css';
 
 import Login from './routes/Login.js'
-import Order from './routes/Order';
-import { Products } from './routes/Products';
-import Administration from './routes/Administration';
-import OrderState from './routes/OrderState';
-import { Users } from './routes/Users';
-// import OrderDupilicated from './routes/OrderDuplicated';
+import RoutesByRole from './routes/RoutesByRole';
+
 
 function App() {
   return (
@@ -26,14 +22,7 @@ function App() {
 
         <Routes>
           <Route path='/' element={<Login />} />
-          <Route path='/order' element={<Order />} />
-          <Route path='/products' element={<Products />} />
-          <Route path='/admin' element={<Administration />} />
-          <Route path='/orderState' element={<OrderState />} />
-          <Route path='/users' element={<Users />} />
-          {/* <Route path='/orderDuplicated' element={<OrderDupilicated />} /> */}
-
-
+          <Route path='/*' element={<RoutesByRole />} />
         </Routes>
 
       </BrowserRouter>

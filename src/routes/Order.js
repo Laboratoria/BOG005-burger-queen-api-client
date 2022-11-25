@@ -10,6 +10,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCircleArrowRight } from '@fortawesome/free-solid-svg-icons';
 import CardProductsOrder from '../components/CardProductsOrder';
 import { useNavigate } from 'react-router-dom';
+import Swal from 'sweetalert2'
 
 
 const Order = () => {
@@ -20,6 +21,7 @@ const Order = () => {
     const [productsList, setProductsList] = useState([])
     const [orderList, setOrderList] = useState([])
     const [nameClient, setNameClient] = useState('')
+    // const [productInOrder, setProductInOrder] = useState(false)
 
     useEffect(() => {
         const getProductsOption = async () => {
@@ -48,8 +50,19 @@ const Order = () => {
 
     // Funcion para agregar productos al pedido
     const addProductOrder = (props) => {
-        console.log(props)
-        setOrderList([...orderList, { qty: 1, product: props }])
+        console.log(props.id)
+    
+        let productInOrder = orderList.map((product) => product.product.id).includes(props.id)
+        
+        if(productInOrder){
+            Swal.fire({
+                icon: 'error',
+                title: 'Oops...',
+                text: 'Producto ya agregado a la orden!'
+            })
+        } else {
+            setOrderList([...orderList, { qty: 1, product: props }])
+        }
         console.log(orderList)
     }
 

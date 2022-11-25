@@ -23,8 +23,8 @@ const loginUser = async (email, password) => {
     userId = rest.data.user.id
     console.log(userId)
     localStorage.setItem('userRole', rest.data.user.role)
-    //console.log(rest.data.accessToken)
-    return rest.status
+    localStorage.setItem('userEmail', rest.data.user.email)
+    return rest
 }
 
 export const getProducts = async () => {

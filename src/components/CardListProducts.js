@@ -64,7 +64,6 @@ export const CardListProducts = ({ product, setListProductsTotal }) => {
         const res = await editProduct(productUpdate, product.id)
         console.log(res)
         if (res.status === 200) {
-            // alert('Producto editado')
             Swal.fire(
                 'Bien hecho!',
                 'El producto se editó con éxito!',
