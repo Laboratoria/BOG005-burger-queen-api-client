@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { useModal } from "../hooks/useModal.js";
 import { AddProductModal } from "../components/addProductModal.jsx"
-import { getProductList } from "../utils/petitions.js";
+import { getProductList, postNewProduct } from "../utils/petitions.js";
 import { ProductComponent } from "../components/productComponent.jsx";
 
 
@@ -22,8 +22,11 @@ function AdminView() {
     // función para crear productos
     function onSubmitFormHandler(event, nameTyped, priceTyped, typeTyped, imageLoaded) {
         event.preventDefault();
-        console.log('event, name, price, type, image', nameTyped, priceTyped, typeTyped, imageLoaded)
-
+        const priceNumber = parseInt(priceTyped);
+        postNewProduct(nameTyped, priceNumber, typeTyped, imageLoaded).then(
+            closeAddProductModal()
+        );
+       
         setProducts([...products, {
             name: nameTyped,
             price: priceTyped,

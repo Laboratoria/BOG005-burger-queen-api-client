@@ -11,7 +11,7 @@ import React from 'react';
                 </div>
                 <div>
                     <i className="fa-solid fa-pencil"></i>
-                    <i className="fa-solid fa-trash-can-xmark"></i>
+                    <i className="fa-solid fa-trash"></i>
                 </div>
             </article>
         )

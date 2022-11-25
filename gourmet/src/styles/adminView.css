@@ -51,9 +51,9 @@
 
 .titleAddProduct {
     color: white;
-    margin: 10vw 0vw 7vw 0vw;
-    font-size: 5vw;
-    font-weight: 500;
+    margin: -4vw 0vw 7vw 0vw;
+    font-size: 6vw;
+    font-weight: 400;
 }
 
 .addProdSection {
@@ -62,37 +62,18 @@
 }
 
 .addProductInput {
-    width: 52vw;
-    height: 7vw;
-    margin: 0.6vw;
+    width: 67vw;
+    height: 10vw;
+    margin: 1vw;
     color: rgb(64, 64, 64);
-    font-size: 3vw;
+    font-size: 4.3vw;
     text-align: center;
     border-radius: 2vw;
     border: 0.5vw solid white;
 }
 
-.addProductLabel {
-    width: 52vw;
-    height: 7vw;
-    margin: 0.6vw;
-    color: rgba(60, 60, 60, 0.8);
-    font-size: 3vw;
-    text-align: center;
-    border-radius: 2vw;
-    border: 0.5vw solid #d5d3d5;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background-color: #d5d3d5;
-}
-
-.addProductImage {
-    display: none;
-}
-
 .addProductInput:focus {
-    border-color: #F9965E;
+    border-color: #5271FF;
     outline: 0;
 }
 
@@ -101,12 +82,37 @@
     color: rgb(172, 172, 172);
 }
 
+.addProductLabel {
+    width: 67vw;
+    height: 10vw;
+    margin: 1vw;
+    color: rgba(60, 60, 60, 0.8);
+    font-size: 4.3vw;
+    text-align: center;
+    border-radius: 2vw;
+    /* border: 0.5vw solid #5271FF; */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #d5d3d5;
+}
+
+.addProductLabel:hover {
+    color: white;
+    background-color: #5271FF;
+}
+
+.addProductImage {
+    display: none;
+}
+
+
 .addProdModalBtn {
-    width: 52vw;
-    height: 7vw;
+    width: 67vw;
+    height: 10vw;
     color: #5271FF;
     margin-top: 10vw;
-    font-size: 3vw;
+    font-size: 4.3vw;
     font-weight: 500;
     border-radius: 2vw;
     align-items: center;
@@ -136,8 +142,8 @@
     box-shadow: rgb(0 0 0 / 15%) 0 3px 4px;
 }
 
-.addProducts:hover {
-    background-color: #d78033;
+.addProductBtn:hover {
+    background-color: #5271FF;
 }
 
 .productsList {
@@ -154,7 +160,7 @@
 
 .titleListProduct{
     color: #EC297E;
-    font-size: 1.4em;
+    font-size: 5vw;
     margin-bottom: 20px;
 }
 
