@@ -34,9 +34,6 @@ function AdminView() {
 
 
 
-
-
-
     return ( // Maqueta componente Admin view
         <main className="adminView">
             <header className="header">

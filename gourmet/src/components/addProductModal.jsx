@@ -36,8 +36,8 @@ function AddProductModal(props) {
   }
 
   return ( // Formulario para adicionar productos
-    <Modal {...props} title='' className="addProdSection">
-
+    <Modal {...props} title='' className="addProdSection"> 
+      {/* //...props, desestructurando los props de addProductModal */}
       <section className="addProModal">
         <h2 className="titleAddProduct">
           Crear Producto
