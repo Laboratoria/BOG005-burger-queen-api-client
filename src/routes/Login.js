@@ -24,16 +24,16 @@ const Login = () => {
         setInputPassword(text);
     }
 
-    const validateUser = ()=> {
-        loginUser(inputEmail, inputPassword).then( res => {
-                if(res.data.user.role === 'admin'){
-                    navegate('/admin')
-                } else if (res.data.user.role === 'Mesero'){
-                    navegate('/order')
-                } else if (res.data.user.role === 'Chef'){
-                    navegate('/orderStateChef')
-                }  
-            })
+    const validateUser = () => {
+        loginUser(inputEmail, inputPassword).then(res => {
+            if (res.data.user.role === 'admin') {
+                navegate('/admin')
+            } else if (res.data.user.role === 'Mesero') {
+                navegate('/order')
+            } else if (res.data.user.role === 'Chef') {
+                navegate('/orderStateChef')
+            }
+        })
             .catch((error) => {
 
                 if (error.response.data === 'Email and password are required') {
@@ -51,8 +51,8 @@ const Login = () => {
                 else if (error.response.data === 'Password is too short') {
                     setErrorLogin('Introduce contraseña valida')
                 }
-        })
-        }
+            })
+    }
 
     return (
         <section className="App">
@@ -74,7 +74,7 @@ const Login = () => {
                     placeholder='Ingresa tu contraseña'
                     label='Contraseña'>
                 </FormInput>
-                <Button text='Ingresar' className='btnStyle'>
+                <Button text='Ingresar' className='btnStyleLogin'>
                 </Button>
                 <p>{errorLogin}</p>
             </form>

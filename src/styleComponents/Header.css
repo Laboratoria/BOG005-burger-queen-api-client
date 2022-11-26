@@ -8,7 +8,7 @@
 }
 
 .headerContainer .App-logo {
-    width: 65px;
+    width: 60px;
     height: auto;
     background: black;
     border-radius: 100px;
@@ -16,23 +16,31 @@
 
 .tittleBQ {
     /* border: solid 1px rgb(245, 14, 245); */
-    line-height: 5px;
+    /* line-height: 12px; */
+    margin: 5px;
 }
 
 .tittleBQ h1 {
     font-size: 14px;
     text-align: center;
+    line-height: 12px;
 }
 
 .tittleBQ h2 {
-    font-size: 12px;
+    font-size: 10px;
+    line-height: 10px;
+    text-align: center;
 }
 
-.headerContainer .btnStyle {
-    background-image: url('../resources/right-from-bracket-solid.svg');
-    background-size: cover;
-    width: 25px;
-    height: 25px;
+.contP {
+    font-size: 10px;
+    text-align: center;
+}
+
+.headerContainer .iconSignOut {
+    /* border-style: solid; */
+    width: 20px;
+    height: 20px;
 }
 
 @media all and (min-width: 768px) {
@@ -52,7 +60,24 @@
         font-size: 20px;
     }
 
-    .headerContainer .btnStyle {
+    .contP {
+        font-size: 16px;
+        font-weight: bold;
+        margin-left: 20px;
+    }
+
+    .headerContainer .iconSignOut {
+        width: 30px;
+        height: 30px;
+    }
+}
+
+@media all and (min-width: 1024px) {
+    .contP {
+        font-size: 20px;
+    }
+
+    .headerContainer .iconSignOut {
         width: 40px;
         height: 40px;
     }
