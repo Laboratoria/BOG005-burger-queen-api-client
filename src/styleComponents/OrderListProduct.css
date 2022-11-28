@@ -37,13 +37,14 @@
 }
 
 .listProductsContainer img {
-    height: 30px;
+    height: 35px;
     width: auto;
     padding: 5px;
 }
 
 .listProductsContainer p {
     font-size: 14px;
+    /* background-color: blueviolet; */
 }
 
 .listProductsContainer .btnAdd {
@@ -58,12 +59,13 @@
 @media all and (min-width: 768px) {
 
     .optionsListContainer select {
-        height: 50px;
-        font-size: 24px;
+        height: 40px;
+        width: 40%;
+        font-size: 18px;
     }
 
     .optionsListContainer option {
-        font-size: 16px;
+        font-size: 14px;
     }
 
     .listProductsOrder {
@@ -73,23 +75,24 @@
     }
 
     .listProductsContainer {
-        width: 90%;
-        height: 100px;
-        grid-template-columns: 10% 40% 15% 20%;
+        width: 80%;
+        height: 70px;
+        grid-template-columns: 10% 30% 10% 20%;
+        min-height: 50px;
     }
 
     .listProductsContainer img {
-        height: 60px;
+        height: 45px;
     }
 
     .listProductsContainer p {
-        font-size: 24px;
+        font-size: 18px;
     }
 
     .listProductsContainer .btnAdd {
-        font-size: 20px;
-        width: 130px;
-        height: 40px;
+        font-size: 18px;
+        width: 110px;
+        height: 35px;
     }
 
 }
@@ -99,18 +102,25 @@
         margin-bottom: 30px;
     }
 
-    .optionsListContainer option {
+    .optionsListContainer select {
+        height: 45px;
+        width: 50%;
         font-size: 20px;
+        font-weight: bold;
+    }
+
+    .optionsListContainer option {
+        font-size: 14px;
     }
 
     .listProductsContainer {
         /* border: solid 1px yellow; */
-        height: 100px;
+        min-height: 90px;
         width: 95%;
     }
 
     .listProductsContainer img {
-        height: 40px;
+        height: 50px;
     }
 
     .listProductsContainer p {

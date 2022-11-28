@@ -10,7 +10,7 @@ import CardOrderStateDelivering from '../components/CardOrderStateDelivering';
 import CardOrderStateDelivered from '../components/CardOrderStateDelivered';
 
 const OrderState = () => {
-    
+
     const navegate = useNavigate()
 
     const [orderListPending, setorderListPending] = useState([])
@@ -50,14 +50,10 @@ const OrderState = () => {
                     <p>Estado de los Pedidos</p>
                 </div>
 
-                <div className='pContainerOrderState'>
-                    <div ><p>Enviados</p></div>
-                    <div ><p>Servidos</p></div>
-                    <div ><p>Entregados</p></div>
-                </div>
-
                 <div className='containerGridOrderState'>
+
                     <div className='pOrderState'>
+                        <div className='pOrderStateSend'><p>Enviados</p></div>
                         {orderStatusPending.map((order, id) => {
                             return (
                                 <div key={id}>
@@ -70,6 +66,7 @@ const OrderState = () => {
                     </div>
 
                     <div className='pOrderState'>
+                        <div className='pOrderStateSend'><p>Servidos</p></div>
                         {orderStatusDelivering.map((order, id) => {
                             return (
                                 <div key={id}>
@@ -82,6 +79,7 @@ const OrderState = () => {
                     </div>
 
                     <div className='pOrderState'>
+                        <div className='pOrderStateSend'><p>Entregados</p></div>
                         {orderStatusDelivered.map((order, id) => {
                             return (
                                 <div key={id}>
