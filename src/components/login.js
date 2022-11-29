@@ -1,9 +1,9 @@
 import "./App.css";
 import { useState } from "react";
 
-function Button() {
+function Button({text}) {
   return (
-    <button>Ingresar</button>
+    <button>{text}</button>
   );
 }
 
@@ -39,11 +39,13 @@ export default function MyForm() {
             onChange={handleChange}
           />
           <div className="buttons-container">
-            <Button 
+            <Button
+            text="Ingresar"
             type="submit"
             className="btn-start" 
             />
             <Button 
+            text="Volver"
             type="submit"
             className="btn-return" 
             />

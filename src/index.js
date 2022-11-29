@@ -8,7 +8,10 @@ const root = ReactDOM.createRoot(document.getElementById('root'));
 
 root.render(
   <React.StrictMode>
+    {/* <App /> */}
     <MyForm />
+    {/* <Button text="Ingresar"/>
+    <Button text="Volver"/> */}
   </React.StrictMode>
   
 );
