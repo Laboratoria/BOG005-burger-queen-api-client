@@ -1,3 +1,14 @@
 .background-img{
     width: 100vw;
 }
+
+
+.login{
+    background-image: url(../img/IMG-BACKGROUND.png);
+    height: 700px;
+
+}
+
+.login .login_title{
+    color: #dd7a1e;
+}
