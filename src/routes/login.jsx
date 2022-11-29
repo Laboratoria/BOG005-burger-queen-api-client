@@ -1,4 +1,4 @@
-import background from "../img/IMG-BACKGROUND.png";
+// import background from "../img/IMG-BACKGROUND.png";
 import "./Login.css";
 export function Login() {
   return (
