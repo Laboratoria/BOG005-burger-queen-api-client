@@ -23,6 +23,7 @@ function AdminView() {
     function onSubmitFormHandler(event, nameTyped, priceTyped, typeTyped, imageLoaded) {
         event.preventDefault();
         const priceNumber = parseInt(priceTyped);
+        console.log('nameTyped, priceNumber, typeTyped, imageLoaded',nameTyped, priceNumber, typeTyped, imageLoaded)
         postNewProduct(nameTyped, priceNumber, typeTyped, imageLoaded).then(
             closeAddProductModal()
         );
@@ -31,7 +32,7 @@ function AdminView() {
             name: nameTyped,
             price: priceTyped,
             type: typeTyped,
-            image: imageLoaded.image
+            image: imageLoaded
         }]);
     };
 
