@@ -1,6 +1,8 @@
-## BURGUER QUEEN | Red Social para los amantes de la comida saludable
+## BURGER QUEEN | La memoria de tu restaurante
 
-<img src="./src/resources/presentacion-readme.png" width="350">
+<p align="center" width="100%">
+    <img width="60%" src="./src/resources/logo-bq-black.png">
+</p>
 
 ## Índice
 
@@ -8,99 +10,96 @@
 * [2. Resumen del proyecto](#2-resumen-del-proyecto)
 * [3. Prototipado](#3-prototipado)
 * [4. Historias de usuario](#4-historias-de-usuario)
-* [5. Autoras](#5-autoras)
+* [5. Acceso a Burger Queen](#5-acceso-a-burger-queen)
+* [6. Autoras](#6-autoras)
 
 ## 1. Preámbulo
 
-En los últimos años la tecnología y la comunicación virtual se han convertido en algo indispensable en el día a día de las personas, las redes sociales forman parte de esta comunicación, ya que las utilizamos con frecuencia para estar interconectados e interactuar con el mundo exterior. 
+Estamos en la era de la tecnología, su uso es indispensable incluso para la administración de negocios y en este caso de un restaurante.
 
-Dada esta necesidad de estar en contacto con nuestros intereses de forma virtual, se desarrolla LovEat red social para los amantes de la comida saludable, en donde los usuarios pueden compartir publicaciones de sus recetas favoritas.
-
-Con LovEat no solamente el usuario podrá ver gran cantidad de recetas, sino que también puede ver cuales recetas están mejor punteadas, permitiéndole saber cuáles son las favoritas.
-
+Burger Queen es una aplicación que colabora en la administración de los diferentes roles que se pueden encontrar en la gestión de un restaurante: Administrador, chef, mesero, la administración de productos, de ordenes entre otros, lo que hace que la gestión y el servicio sea más optimo, se identifique la excelencia en el servicio  y eleve el status del restaurante. 
 
 ## 2. Resumen del proyecto
 
-En este proyecto se construyó una Red Social para los amantes de las recetas. LovEat permite iniciar sesión, si no se tiene una cuenta, permite registrarse ya sea con email y contraseña o autenticándose con Google.
+En este proyecto se construyó una App que gestiona usuarios, productos y ordenes en un restaurante, a continuación damos un vistazo a Burger Queen.
 
-Al iniciar sesión o registrarse la red social lleva al usuario al 'Feed' donde se podrá ver dos secciones; La primera sección muestra el perfil del usuario que inicio sesión, su nombre y dos input que le permiten escribir el titulo y la descripción y/o ingredientes de la receta, si es que este desea publicar.
+<p align="center" width="100%">
+    <img width="90%" src="./src/resources/Pantalla login.png">
+</p>
 
-La segunda sección es el listado de todas las publicaciones de las personas registradas y que publicaron una o más recetas. A cada receta el usuario logueado puede dar 'Like' a la publicación, en este caso cada publicación muestra el total de likes obtenidos.
+<p align="center" width="100%">
+    <img width="90%" src="./src/resources/Pantalla admin.png">
+</p>
 
-Para la persona que publica la receta, la red social le permite editar y/o eliminar la receta. Además, darle like a su propia publicación o a la de otros usuarios.
+<p align="center" width="100%">
+    <img width="90%" src="./src/resources/Pantalla users.png">
+</p>
 
-A continuación damos un vistazo de LovEat:
+<p align="center" width="100%">
+    <img width="90%" src="./src/resources/Pantalla products.png">
+</p>
 
-<img src="./src/resources/Version-Final.JPG" width="500">
+<p align="center" width="100%">
+    <img width="90%" src="./src/resources/Pantalla orderState.png">
+</p>
 
+<p align="center" width="100%">
+    <img width="90%" src="./src/resources/Pantalla order.png">
+</p>
 
 ## 3. Prototipado
 
-Para el desarrollo de LovEat se realizó un prototipado de baja y alta fidelidad, de igual manera estos prototipos tuvieron su respectivo test de usabilidad.
+Para el desarrollo de Burger Queen se realizó un prototipado de baja y alta fidelidad, de igual manera estos prototipos tuvieron su respectivo test de usabilidad.
 
 ### Prototipos de baja fidelidad
 
-#### Pantalla inicial y pantalla feed
-
-<img src="./src/resources/prototipo BF celular PI.png" width="200">
-<img src="./src/resources/prototipo BF celular PF.png" width="200">
+<p align="center" width="100%">
+    <img width="90%" src="./src/resources/prototipo BF.png">
+</p>
 
 ### Prototipos de alta fidelidad
 
-#### Pantalla iniciar sesión 
-
-<img src="./src/resources/prototipo AF Celular PI.png" width="200">
-<img src="./src/resources/prototipo AF ipad PI.png" width="230">
-<img src="./src/resources/prototipo AF computador PI.png" width="450">
-
-#### Pantalla registro
-
-<img src="./src/resources/prototipo AF celular PR.png" width="200">
-<img src="./src/resources/prototipo AF ipad PR.png" width="290">
-<img src="./src/resources//prototipo AF computador PR.png" width="500">
-
-#### Pantalla feed o wall
-
-<img src="./src/resources/prototipo AF celular PF.png" width="200">
-<img src="./src/resources/prototipo AF ipad PF.png" width="300">
-<img src="./src/resources/prototipo AF computador PF.png" width="500">
-
+<p align="center" width="100%">
+    <img width="90%" src="./src/resources/prototipo AF.png">
+</p>
 ## 4. Historias de usuario
 
-Para la selección de la temática de la red social se identificaron las necesidades de cinco (5) personas las cuales coincidieron que es muy atractivo y útil el tema de la comida saludable.
+Para el paso a paso del desarrollo de Burger Queen se definieron las siguientes historias de usuario:
 
-Para el paso a paso del desarrollo de LovEat se definieron las siguientes historias de usuario:
+* _**Historia de usuario No.1**_: Yo Como meser@,
+Quiero poder ingresar al sistema de pedidos.
 
-* _**Historia de usuario No.1**_: Yo Como usuaria
-Quiero crear una cuenta con correo y contraseña
-Para lograr ingresar al muro de la red social
+* _**Historia de usuario No.2**_: Yo como administrador/@,
+Quiero destinar los productos 
+Para mantener actualizado el menú
 
-* _**Historia de usuario No.2**_: Yo como usuaria,
-Quiero poder registrarme con Google,
-Para acceder al muro de la red social.
+* _**Historia de usuario No.3**_: Yo como administrador/@,
+Quiero gestionar a los usuarios de la plataforma 
+Para mantener actualizado la información de mis trabajadorxs.
 
-* _**Historia de usuario No.3**_: Yo como usuaria,
-Quiero poder ingresar al muro de publicaciones,
-Para poder publicar una receta saludable.
+* _**Historia de usuario No.4**_: Yo como meser@,
+Quiero tomar el pedido de unx clientx para no depender de mi mala memoria, 
+Para saber cuánto cobrar, y enviarlo a la cocina para evitar errores y que se puedan ir preparando en orden.
 
-* _**Historia de usuario No.4**_: Yo como usuaria,
-Quiero poder ingresar al muro de publicaciones,
-Para poder ver las publicaciones de otras personas.
+* _**Historia de usuario No.5**_: Yo Como meser@
+Quiero ver los pedidos que están preparados 
+Para entregarlos rápidamente a lxs clientxs que las hicieron.
 
-* _**Historia de usuario No.5**_: Yo Como usuaria
-Quiero poder dar like a mi publicación y a la de otros usuarios
-Para mostrar mi gusto e interés por esta publicación.
+* _**Historia de usuario No.6**_: Yo como jefe/a de cocina,
+Quiero ver los pedidos de lxs clientxs en orden y marcar cuáles están listos 
+Para saber qué se debe cocinar y avisar a lxs meserxs que un pedido está listo para servirlo a un clientx.
 
-* _**Historia de usuario No.6**_: Yo como usuaria,
-Quiero poder editar mi publicación, 
-Para agregar datos que faltaron.
+## 5. Acceso a Burger Queen
 
-* _**Historia de usuario No.7**_: Yo como usuaria,
-Quiero poder eliminar mi publicación,
-Para dejar de compartir recetas que ya no me gustan.
+|Email| Password | Rol             |     Super women porque...              |
+|--------|----------------------------|:--------------------:|------------------|
+|anita.borg@systers.xyz|123456|Administradora|Fue una científica informática de Estados Unidos que dedicó gran parte de su carrera profesional a impulsar la presencia de mujeres en el sector tecnológico.                    |
+|grace.hopper@systers.xyz|123456|Administradora|Fue la creadora del primer compilador de ordenadores en 1952.|
+|mariana.costa@systers.xyz|123456|Chef|Es una científica y empresaria peruana conocida por ser la creadora de Laboratoria, organización de impacto social que trabaja para lograr una economía digital más diversa, inclusiva y competitiva, que abra oportunidades para que cada mujer pueda desarrollar su potencial.|
+|diana.trujillo@systers.xyz|123456|Mesera| Ingeniera aeroespacial Colombiana, hizo parte del equipo que logró la llegada del Rover Perseverance a Marte y actualmente es directora de vuelo en la Nasa.|
 
-## 5. Autoras
 
-*  Luz Adriana Giraldo Gómez 
-*  Erika Nathalia Bravo Calderón
+## 6. Autoras
+
+*  Adriana Maria Ruiz Henao
 *  Ibeht Milady Carreño Avella

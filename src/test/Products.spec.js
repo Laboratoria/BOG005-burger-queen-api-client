@@ -1,13 +1,32 @@
 import { fireEvent, render, screen } from "@testing-library/react"
 import { Products } from "../routes/Products.js"
-import { axios } from '../helpers/axios'
+import { getProducts, createProductPost } from '../helpers/axios'
 import { BrowserRouter, Route, Routes } from "react-router-dom"
 
 jest.mock('../helpers/axios')
 
 describe('Products component test', () => {
 
+    getProducts.mockImplementation(
+        () => {
+            return Promise.resolve(
+                [{dateEntry: "2022-03-05 15:14:10",
+                    id:1,
+                    image:"https://raw.githubusercontent.com/ssinuco/burger-queen-api-mock/main/resources/images/sandwich.png",
+                    name:"Sandwich de jamón y queso",
+                    price:1000,
+                    type:"Desayuno"}]
+            )
+        }
+    )
+
     it('Crear producto correctamente', () => {
+
+        // createProductPost.mockImplementation(
+        //     () => {
+
+        //     }
+        // )
 
         const newProduct = {
             image: 'https://previews.123rf.com/images/olegtoka/olegtoka1704/olegtoka170400048/76634890-ilustraci%C3%B3n-de-la-ensalada-de-frutas-con-yogur-en-un-taz%C3%B3n.jpg',
@@ -24,7 +43,7 @@ describe('Products component test', () => {
         }
 
         render(<BrowserRouter>
-            <Routes>   
+            <Routes> 
                 <Route path="/*" element= {<Products createProduct={createProduct} />}/>
             </Routes>
         </BrowserRouter>)
