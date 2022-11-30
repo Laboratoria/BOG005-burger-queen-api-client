@@ -87,17 +87,6 @@ input:focus {
     box-shadow: 0px 0px 10px #F8B62A;
 }
 
-/* contenedor producto cantidad opciones */
-.containerLabels {
-    display: flex;
-    justify-content: center;
-    /* border: solid 2px rgb(180, 123, 0); */
-}
-
-.containerLabels p {
-    margin: 5px;
-}
-
 .containerPCO {
     display: grid;
     grid-template-columns: 20% 20% 20% 20%;
@@ -223,7 +212,7 @@ input:focus {
 
     /* contenedor del formulario */
     .formOrder {
-        width: 50%;
+        width: 70%;
         /* border: solid 2px rgb(251, 255, 4); */
     }
 
@@ -286,6 +275,7 @@ input:focus {
 
     .formAddProduct {
         width: 100%;
+
     }
 
     .containerProductOrder {

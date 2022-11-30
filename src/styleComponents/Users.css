@@ -10,6 +10,12 @@
     align-items: center;
 }
 
+.divForUsers{
+    /* border: solid 1px rgb(255, 230, 0); */
+    width: 100%;
+    padding-left: 5px;
+}
+
 .containerBtnBack {
     /* border: solid 1px lightblue; */
     width: 88%;
@@ -40,31 +46,36 @@
 .containerUsersAdmin {
     /* border: solid 2px rgb(169, 24, 236); */
     padding-bottom: 20px;
+    width: 90%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 5px;
 }
 
 .usersContainer {
-    /* border: solid 2px yellow; */
+    /* border: solid 2px rgb(14, 194, 226); */
     text-align: center;
     display: grid;
-    min-height: 70px;
-    /* grid-template-columns: 10% 20% 10% 20% 10% 10%; */
-    grid-template-columns: 40% 10% 35%;
-    justify-content: space-around;
-    align-items: center;
+    height: 120px;
+    width: 90%;
+    grid-template-rows: 20% 20% 20%;
     background: white;
     border-radius: 25px;
-    margin: 10px;
+    padding: 5px;
+    margin-top: 10px;
 }
 
 .usersContainer p {
-    font-size: 14px;
+    font-size: 16px;
+    /* border: solid 2px rgb(21, 226, 14); */
 }
 
 /* <p> Agregar Producto </p> */
 .uAddUserForm {
     margin-bottom: 5px;
     font-weight: bold;
-    /* border: solid 2px blueviolet; */
+    /* border: solid 2px rgb(46, 43, 226); */
 }
 
 .inputEmailUser,
@@ -72,7 +83,7 @@
     border-style: none;
     background-color: #D9D9D9;
     border-radius: 25px;
-    height: 30px;
+    height: 40px;
     padding-left: 15px;
 }
 
@@ -112,7 +123,7 @@
     color: white;
     width: 60px;
     height: 30px;
-    background-color: #FF0606;
+    background-color: #ff0606;
     border-radius: 15px;
     border-style: none;
     margin-right: 5px;
@@ -129,6 +140,16 @@
 }
 
 @media all and (min-width: 768px) {
+
+    .usersContainer {
+        grid-template-columns: 50% 30% 20%;
+        justify-content: center;
+        border-radius: 25px;
+        margin: 10px;
+        height: auto;
+        width: 95%;
+    }
+
     .containerFormListUsers {
         /* border: solid 2px rgb(37, 71, 4); */
         width: 90%;
@@ -139,14 +160,12 @@
     }
 
     .containerFormAddUser {
-        /* border: solid 2px rgb(140, 228, 52); */
         display: flex;
         justify-content: center;
     }
 
     .containerUsersAdmin {
-        width: 100%;
-        /* border: solid 2px rgb(169, 24, 236); */
+        width: 90%;
         margin-bottom: 20px;
     }
 
@@ -154,18 +173,22 @@
         grid-template-columns: 40% 30% 15%;
     }
 
-    .usersContainer img {
-        height: 60px;
-    }
-
     .usersContainer p {
-        font-size: 20px;
+        font-size: 18px;
     }
 
-    .btnEditDeleteUser,
-    .btnEditAdmonUser {
-        width: 80px;
-        height: 35px;
+    .SelectRolUser {
+        height: 40px;
+    }
+
+    .btnEditAdmonUsers {
+        width: 95px;
+        height: 40px;
+    }
+
+    .btnEditDeleteUser {
+        width: 95px;
+        height: 40px;
         margin-right: 10px;
     }
 }
@@ -175,11 +198,24 @@
     .containerFormListUsers {
         /* border: solid 2px rgb(37, 71, 4); */
         align-items: flex-start;
+        flex-direction: row;
     }
 
-    .containerFormListUsers {
-        /* border: solid 2px rgb(37, 71, 4); */
-        flex-direction: row;
+    .usersContainer p {
+        font-size: 16px;
+    }
+
+    .btnEditAdmonUsers, .btnEditDeleteUser {
+        width: 90px;
+        height: 40px;
+        font-size: 16px;
+    }
+
+    .inputEmailUser,
+    .inputPasswordUser, 
+    .SelectRolUser {
+        height: 40px;
+        font-size: 18px;
     }
 
 

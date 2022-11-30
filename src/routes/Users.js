@@ -103,7 +103,7 @@ export const Users = () => {
                     </div>
                     <div className='containerUsersAdmin'>
                         {listUsersTotal.map((user, id) => (
-                            <div key={id}>
+                            <div key={id} className='divForUsers'>
                                 <CardListUsers
                                     user={user}
                                     setListUsersTotal={setListUsersTotal}
