@@ -1,0 +1,22 @@
+body {
+    margin: 0;
+    background-image: url(/burgerqueen/src/img/burg.png);
+    background-size: 600px 900px;
+    height: 1000px;
+    background-repeat: no-repeat;
+}
+
+
+.form {
+    display: flex;
+    flex-direction: column;
+    width: 20vw;
+    margin-left: 40%;
+}
+
+
+.tittle-login {
+    text-align: center;
+    color: black;
+}
+
