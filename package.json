@@ -2,6 +2,7 @@
   "name": "burger_queen_bq1",
   "version": "0.1.0",
   "private": true,
+  "homepage": "https://adrianamariaruiz.github.io/BOG005-burger-queen-api-client/",
   "dependencies": {
     "@fortawesome/fontawesome-svg-core": "^6.2.0",
     "@fortawesome/free-regular-svg-icons": "^6.2.0",
