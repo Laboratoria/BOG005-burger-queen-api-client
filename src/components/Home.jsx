@@ -6,7 +6,7 @@ const Start = () => {
 
   return (
     <div className='landing'>
-      <button onClick={() => navigate("/Login")}>INICIO</button>
+      <button onClick={() => navigate("/Login")}>INGRESAR</button>
     </div>
   );
 };

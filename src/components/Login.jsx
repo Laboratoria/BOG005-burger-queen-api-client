@@ -42,7 +42,7 @@ const Login = () => {
           onChange={handleChange}
         />
         <div className='buttons-container'>
-        <button className='btn-start' onClick={() => navigate("/")}>REGRESAR</button>  
+        <button className='btn-start' onClick={() => navigate("/")}>VOLVER</button>  
         <button className='btn-return' onClick={() => navigate("/Admin")}>INGRESAR</button>
         </div>
       </div>
