@@ -64,7 +64,8 @@ const Login = () => {
                     required
                     placeholder='Ingresa tu Email'
                     className='emailInput'
-                    label='Email'>
+                    label='Email'
+                    data-testid='login-email-input'>
                 </FormInput>
                 <FormInput
                     className='passwordInput'
@@ -72,7 +73,8 @@ const Login = () => {
                     onChange={handleInputChangePassword}
                     required
                     placeholder='Ingresa tu contraseña'
-                    label='Contraseña'>
+                    label='Contraseña'
+                    data-testid='login-password-input'>
                 </FormInput>
                 <Button text='Ingresar' className='btnStyleLogin'>
                 </Button>

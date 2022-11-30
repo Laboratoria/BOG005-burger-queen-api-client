@@ -76,6 +76,7 @@ export const Products = () => {
                                 placeholder='cargar imagen'
                                 value={newProduct.image}
                                 onChange={handleChange}
+                                aria-label = 'image'
                             >
                             </FormInput>
                             <FormInput
@@ -86,6 +87,7 @@ export const Products = () => {
                                 placeholder='Nombre del nuevo producto'
                                 value={newProduct.name}
                                 onChange={handleChange}
+                                aria-label = 'name'
                             >
                             </FormInput>
                             <FormInput
@@ -96,9 +98,10 @@ export const Products = () => {
                                 placeholder='Precio del nuevo producto'
                                 value={newProduct.price}
                                 onChange={handleChange}
+                                aria-label = 'price'
                             >
                             </FormInput>
-                            <select defaultValue='Selecciona tipo' className='SelectTypeProduct' name='type' onChange={handleChange}>
+                            <select defaultValue='Selecciona tipo' className='SelectTypeProduct' name='type' onChange={handleChange} aria-label = 'type'>
                                 <option value='Selecciona tipo' disabled>Selecciona tipo</option>
                                 <option value='Desayuno'>Desayuno</option>
                                 <option value='Almuerzo'>Almuerzo</option>
