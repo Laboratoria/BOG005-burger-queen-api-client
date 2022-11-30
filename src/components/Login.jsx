@@ -35,13 +35,15 @@ const Login = () => {
           onChange={handleChange}
         />
         <div className='buttons-container'>
-        <button className='btn-start' onClick={() => navigate("/")}>REGRESAR</button> 
-          
-          <button className='btn-return' onClick={() => navigate("/Admin")}>INGRESAR</button>
+        <button className='btn-start' onClick={() => navigate("/")}>REGRESAR</button>  
+        <button className='btn-return' onClick={() => navigate("/Admin")}>INGRESAR</button>
         </div>
       </div>
     </form>
   );
 };
+
+// email: mesero
+// password: 123456
 
 export default Login;
