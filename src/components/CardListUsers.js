@@ -82,7 +82,7 @@ const CardListUsers = ({ user, setListUsersTotal }) => {
     return (
         <>
             <div className='usersContainer'>
-                <p>{user.email}</p>
+                <p >{user.email}</p>
                 <p type='password'>*******</p>
                 <p>{user.role}</p>
             </div>

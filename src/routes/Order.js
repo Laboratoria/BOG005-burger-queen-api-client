@@ -122,12 +122,6 @@ const Order = () => {
                         placeholder='Nombre del cliente'
                         onChange={handleChange}>
                     </FormInput>
-                    <section className='containerLabels'>
-                        <p>Producto</p>
-                        <p>Precio</p>
-                        <p>Cantidad</p>
-                        <p>Opciones</p>
-                    </section>
                     <div className='containerProductsAdmin'>
                         {orderList.map((product, id) => (
                             <div key={id}>

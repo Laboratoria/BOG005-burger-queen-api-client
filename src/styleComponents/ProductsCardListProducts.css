@@ -172,12 +172,17 @@
     .containerFormListProducts {
         /* border: solid 2px rgb(37, 71, 4); */
         align-items: flex-start;
-    }
-
-    .containerFormListProducts {
-        /* border: solid 2px rgb(37, 71, 4); */
         flex-direction: row;
     }
+
+    .inputCargarImagen,
+    .inputNombreProducto,
+    .inputPrecio, 
+    .SelectTypeProduct {
+        height: 40px;
+        font-size: 18px; 
+    }
+
 
 
 }
