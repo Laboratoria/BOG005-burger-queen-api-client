@@ -1,0 +1,15 @@
+{
+  "files": {
+    "main.css": "/static/css/main.9e52a75c.css",
+    "main.js": "/static/js/main.3a3df4ab.js",
+    "static/media/logo-bq.png": "/static/media/logo-bq.c2c789a2515b5074a0f3.png",
+    "static/media/background-hamburger.png": "/static/media/background-hamburger.cba1369cb002797afcca.png",
+    "index.html": "/index.html",
+    "main.9e52a75c.css.map": "/static/css/main.9e52a75c.css.map",
+    "main.3a3df4ab.js.map": "/static/js/main.3a3df4ab.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.9e52a75c.css",
+    "static/js/main.3a3df4ab.js"
+  ]
+}
