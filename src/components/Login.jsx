@@ -1,6 +1,7 @@
 import "./App.css";
 import { useNavigate } from "react-router-dom";
 import { useState } from "react";
+// import { useForm } from 'react-hook-form';
 
 const Login = () => {
   const navigate = useNavigate();
@@ -20,6 +21,12 @@ const Login = () => {
   return (
     <form onClick={handleSubmit} className='login'>
       <div className='form-container'>
+        <select name="rol">
+          <option value="Rol" autoFocus>Rol</option>
+          <option value="Administración">Administración</option>
+          <option value="Mesas">Mesas</option>
+          <option value="Cocina">Cocina</option>
+        </select>
         <input
           type='email'
           placeholder='Correo'
