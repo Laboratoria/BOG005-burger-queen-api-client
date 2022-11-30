@@ -1,36 +1,4 @@
-.App-logo {
-  width: 200px;
-  height: auto;
-}
-
-
-.App {
-  background: url('./resources/background-hamburger.png');
-  background-size: cover;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  color: white;
-}
-
-.formLogin {
-  /* border: solid 1px yellow; */
-  text-align: center;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  margin: 5px;
-}
-
-.formLogin input {
-  margin: 10px;
-  border: solid 1px white;
-  background-color: black;
-}
-
-.formLogin button {
+.btnStyle {
   width: 150px;
   height: 30px;
   background-color: #F8B62A;

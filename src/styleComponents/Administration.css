@@ -1,0 +1,67 @@
+.containerBtnAdmin {
+    /* border: solid 1px pink; */
+    min-height: 200px;
+    width: 98%;
+}
+
+.btnAdmin {
+    background-color: white;
+    border-radius: 15px;
+    height: 50px;
+    width: 95%;
+    font-size: 18px;
+    margin: 10px;
+    text-align: left;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+}
+
+.btnAdmin:hover {
+    border: solid 2px #F8B62AD9;
+    box-shadow: 0px 0px 10px #F8B62A
+}
+
+.iconUsers {
+    margin-right: 8px;
+    border-radius: 50%;
+    background-color: #F8B62AD9;
+    padding: 8px;
+}
+
+@media all and (min-width: 768px) {
+    .containerBtnAdmin {
+        /* border: solid 1px pink; */
+        width: 70%;
+    }
+
+    .btnAdmin {
+        height: 70px;
+        font-size: 24px;
+    }
+
+    .iconUsers {
+        margin-right: 10px;
+        padding: 10px;
+        height: 25px;
+    }
+}
+
+@media all and (min-width: 1024px) {
+    .containerBtnAdmin {
+        /* border: solid 1px pink; */
+        width: 40%;
+    }
+
+    .btnAdmin {
+        height: 80px;
+        font-size: 26px;
+        margin-top: 20px;
+    }
+
+    .iconUsers {
+        height: 30px;
+        margin-right: 20px;
+        margin-left: 10px;
+    }
+}

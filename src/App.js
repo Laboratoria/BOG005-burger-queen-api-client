@@ -1,17 +1,31 @@
-// import logo from './logo.svg';
-import logo from './resources/logo-bq.png';
+import { Route, Routes, BrowserRouter } from 'react-router-dom';
+import './styleComponents/Login.css';
+import './styleComponents/Header.css';
+import './styleComponents/Order.css';
+import './styleComponents/OrderListProduct.css';
+import './styleComponents/ProductsCardListProducts.css';
+import './styleComponents/Administration.css';
+import './styleComponents/OrderState.css';
+import './styleComponents/Modal.css';
+import './styleComponents/Users.css';
+
 import './App.css';
+
+import Login from './routes/Login.js'
+import RoutesByRole from './routes/RoutesByRole';
 
 function App() {
   return (
-    <section className="App">
-      <img src={logo} className="App-logo" alt="logo" />
-      <form typeof='submit' className='formLogin'>
-        <input className='userName'></input>
-        <input className='passWordUser'></input>
-        <button className='btnLogin'>Ingresar</button>
-      </form>
-    </section>
+    <>
+      <BrowserRouter>
+
+        <Routes>
+          <Route path='/' element={<Login />} />
+          <Route path='/*' element={<RoutesByRole />} />
+        </Routes>
+
+      </BrowserRouter>
+    </>
   );
 }
 

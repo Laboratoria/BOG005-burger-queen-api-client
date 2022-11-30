@@ -1,0 +1,84 @@
+.headerContainer {
+    display: flex;
+    justify-content: space-around;
+    background-color: #F8B62A;
+    padding: 10px;
+    height: 70px;
+    align-items: center;
+}
+
+.headerContainer .App-logo {
+    width: 60px;
+    height: auto;
+    background: black;
+    border-radius: 100px;
+}
+
+.tittleBQ {
+    /* border: solid 1px rgb(245, 14, 245); */
+    /* line-height: 12px; */
+    margin: 5px;
+}
+
+.tittleBQ h1 {
+    font-size: 14px;
+    text-align: center;
+    line-height: 12px;
+}
+
+.tittleBQ h2 {
+    font-size: 10px;
+    line-height: 10px;
+    text-align: center;
+}
+
+.contP {
+    font-size: 10px;
+    text-align: center;
+}
+
+.headerContainer .iconSignOut {
+    /* border-style: solid; */
+    width: 20px;
+    height: 20px;
+}
+
+@media all and (min-width: 768px) {
+    .headerContainer {
+        height: 104px;
+    }
+
+    .headerContainer .App-logo {
+        width: 90px;
+    }
+
+    .tittleBQ h1 {
+        font-size: 26px;
+    }
+
+    .tittleBQ h2 {
+        font-size: 20px;
+    }
+
+    .contP {
+        font-size: 16px;
+        font-weight: bold;
+        margin-left: 20px;
+    }
+
+    .headerContainer .iconSignOut {
+        width: 30px;
+        height: 30px;
+    }
+}
+
+@media all and (min-width: 1024px) {
+    .contP {
+        font-size: 20px;
+    }
+
+    .headerContainer .iconSignOut {
+        width: 40px;
+        height: 40px;
+    }
+}
