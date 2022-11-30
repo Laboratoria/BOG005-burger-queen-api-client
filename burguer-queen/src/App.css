@@ -1,38 +1,69 @@
-.App {
-  text-align: center;
+* {
+  margin: 0;
+  padding: 0;
+  background-color: #e47e10;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
+@media screen and (max-width: 850px) {
+  .form-container {
+    
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    justify-content: center;
+    top: 330px;
+    margin-left: 5px;    
   }
-}
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-}
-
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+  .buttons-container {
+    display: flex;
+    gap: 10px;
+    justify-items: center;
+    margin-left: 40px;
   }
-  to {
-    transform: rotate(360deg);
+
+  input {
+    position: relative;
+    width: 284px;
+    height: 43px;
+    background: #fffeec;
+    border-radius: 10px;
+    margin-left: 50px;
+    margin-bottom: 15px;
+    font-family: "Crete Round";
+    font-size: 24px;
   }
+
+  .btn {
+    position: relative;
+    width: 175px;
+    height: 44px;
+    font-family: "Crete Round";
+    font-size: 24px;
+    background: #001f4e;
+    color: #ffffff;
+    border-radius: 15px;
+    margin-left: 60px;
+  }
+
+  /* @media screen and (max-width: 1850px) { */
+  /* .landing {
+  /* background: #e47e10; */
+
+  /* height: 900;
+  width: 100; */
+  /*} */
+  /*vista web*/
+  /* .landing button {
+  position: relative;
+  top: 650px;
+  left: 900px;
+  /* width: 175px;
+  height: 44px; */
+  /* font-family: 'Crete Round';
+  font-size: 24px;  
+  background: #001f4e;
+  color: #FFFFFF;
+  border-radius: 15px;  
+} */
 }
