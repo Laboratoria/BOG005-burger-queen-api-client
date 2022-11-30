@@ -10,8 +10,10 @@ import React from 'react';
                     <p>{props.name} <span className="productPrice">${props.price}</span></p>
                 </div>
                 <div>
-                    <i className="fa-solid fa-pencil"></i>
-                    <i className="fa-solid fa-trash"></i>
+                    <i onClick={()=> props.onClick(props.id)} className="fa-solid fa-pencil"></i>
+                    <i className="fa-solid fa-trash">
+
+                    </i>
                 </div>
             </article>
         )

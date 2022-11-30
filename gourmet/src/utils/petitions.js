@@ -19,6 +19,15 @@ const getToken = () => {
 function getProductList() {
   return axios.get(urlAPI + 'products', { headers: { Authorization: 'Bearer ' + getToken() } })
 }
+// Obteniendo producto por id
+function getProductById(id) {
+  return axios.get(urlAPI + `products/${id}`, { headers: { Authorization: 'Bearer ' + getToken() } })
+}
+// Editando la información del nuevo producto
+function patchProduct(name, price, type, image, id) {
+  console.log('aksjds', id)
+  return axios.patch(urlAPI + `products/${id}`, { name, price, image, type }, { headers: { Authorization: 'Bearer ' + getToken() } })
+}
 // Enviando la información para crear el nuevo producto
 function postNewProduct(name, price, type, image) {
   return axios.post(urlAPI + 'products', { name, price, image, type }, { headers: { Authorization: 'Bearer ' + getToken() } })
@@ -44,4 +53,4 @@ async function obtainImgURL(img) {
 
 
 
-export { postUserPetition, getProductList, getUser, getToken, postNewProduct, obtainImgURL }
+export { postUserPetition, getProductList, getProductById, patchProduct, getUser, getToken, postNewProduct, obtainImgURL }
