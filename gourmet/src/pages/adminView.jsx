@@ -20,7 +20,7 @@ function AdminView() {
                 setProducts(response.data)
             })
             .catch((error) => console.log(error))
-    }, [])
+    }, [products])
 
     // función para crear productos
     function onSubmitCreateFormHandler(event, nameTyped, priceTyped, typeTyped, imageLoaded) {
@@ -43,15 +43,15 @@ function AdminView() {
         event.preventDefault();
         const priceNumber = parseInt(priceTyped);
         patchProduct(nameTyped, priceNumber, typeTyped, imageLoaded, idProduct).then(
-            closeAddProductModal()
+            closeEditProductModal()
         );
        
-        // setProducts([...products, {
-        //     name: nameTyped,
-        //     price: priceTyped,
-        //     type: typeTyped,
-        //     image: imageLoaded
-        // }]);
+        setProducts([...products, {
+            name: nameTyped,
+            price: priceTyped,
+            type: typeTyped,
+            image: imageLoaded
+        }]);
     };
     
 
