@@ -1,28 +1,19 @@
-* {
-    margin: 0;
-    padding: 0;
-}
-
-html,
-body {
-    font-family: 'Poppins', sans-serif;
-}
-
 .header {
     height: 40vw;
     display: flex;
     flex-direction: column;
     align-items: center;
     padding: 10px;
-    background-color: #F7CB58;
-
+    background-color: #EC297E;
+    width: 100vw;
+    margin-bottom: 40px;
 }
 
 .navAMenu {
     display: flex;
     justify-content: space-between;
     font-family: 'Poppins', sans-serif;
-    font-weight: 600;
+    font-weight: 500;
     list-style-type: none;
 }
 
@@ -36,6 +27,12 @@ body {
 .headerLogoBig {
     width: 70vw;
     margin: 20px 0px 5px 0px;
+}
+
+.adminView{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 .addProModal {
@@ -53,10 +50,10 @@ body {
 }
 
 .titleAddProduct {
-    color: rgb(64, 64, 64);
-    margin: 6vw 0vw 6vw 0vw;
-    font-size: 6.5vw;
-    font-weight: 600;
+    color: white;
+    margin: -4vw 0vw 7vw 0vw;
+    font-size: 6vw;
+    font-weight: 400;
 }
 
 .addProdSection {
@@ -65,18 +62,18 @@ body {
 }
 
 .addProductInput {
-    width: 70vw;
-    height: 9vw;
-    margin: 1.6vw;
+    width: 67vw;
+    height: 10vw;
+    margin: 1vw;
     color: rgb(64, 64, 64);
-    font-size: 4.5vw;
+    font-size: 4.3vw;
     text-align: center;
-    border-radius: 5vw;
-    border: 0.5vw solid #F7CB58;
+    border-radius: 2vw;
+    border: 0.5vw solid white;
 }
 
 .addProductInput:focus {
-    border-color: #F9965E;
+    border-color: #5271FF;
     outline: 0;
 }
 
@@ -85,45 +82,112 @@ body {
     color: rgb(172, 172, 172);
 }
 
-.addProdBtn {
+.addProductLabel {
+    width: 67vw;
+    height: 10vw;
+    margin: 1vw;
+    color: rgba(60, 60, 60, 0.8);
+    font-size: 4.3vw;
+    text-align: center;
+    border-radius: 2vw;
+    /* border: 0.5vw solid #5271FF; */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #d5d3d5;
+}
+
+.addProductLabel:hover {
+    color: white;
+    background-color: #5271FF;
+}
+
+.addProductImage {
+    display: none;
+}
+
+
+.addProdModalBtn {
+    width: 67vw;
+    height: 10vw;
+    color: #5271FF;
+    margin-top: 10vw;
+    font-size: 4.3vw;
+    font-weight: 500;
+    border-radius: 2vw;
+    align-items: center;
+    background-color: #FADF25;
+    border: white;
+    font-family: 'Poppins', sans-serif;
+    box-shadow: rgb(0 0 0 / 30%) 0 3px 4px;
+}
+
+.addProdModalBtn:hover {
+    color: white;
+    background-color: #5271FF;
+}
+
+.addProductBtn {
     width: 70vw;
     height: 10vw;
     color: white;
     margin-top: 10vw;
     font-size: 4.5vw;
     font-weight: 500;
-    border-radius: 5vw;
+    border-radius: 2vw;
     align-items: center;
-    background-color: #F0B44C;
+    background-color: #EC297E;
     border: white;
     font-family: 'Poppins', sans-serif;
     box-shadow: rgb(0 0 0 / 15%) 0 3px 4px;
 }
 
-.addProdBtn:hover {
-    background-color: #d78033;
+.addProductBtn:hover {
+    background-color: #5271FF;
 }
 
-.addProducts {
-    width: 70vw;
-    height: 10vw;
-    color: white;
-    margin-top: 10vw;
-    font-size: 4.5vw;
-    font-weight: 500;
-    border-radius: 5vw;
-    align-items: center;
-    background-color: #F0B44C;
-    border: white;
-    font-family: 'Poppins', sans-serif;
-    box-shadow: rgb(0 0 0 / 15%) 0 3px 4px;
-}
-
-.addProducts:hover {
-    background-color: #d78033;
-}
-
-.productsList{
+.productsList {
     display: flex;
     justify-content: center;
+    text-align: center;
+    flex-direction: column;
+    width: 90%;
+    padding: 3vw;
+    background-color: #E9E8E9;
+    border-radius: 2vw;
+    border: 0.6vw solid #EC297E;
+}
+
+.titleListProduct{
+    color: #EC297E;
+    font-size: 5vw;
+    margin-bottom: 20px;
+}
+
+.containProduct{
+    display: flex;
+    text-align: left;
+    padding: 10px 20px;
+    background: white;
+    border-radius: 20px;
+    margin: 10px 0;
+    align-items: center;
+}
+
+.productImage{
+    width: 70px;
+}
+
+.productText {
+    padding-left: 4vw;
+}
+
+.productText p{
+    color: #404040;
+}
+.productType {
+    font-weight: 600;
+}
+.productPrice {
+    padding-left: 2vw;
 }

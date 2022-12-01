@@ -3,11 +3,11 @@ import { Modal } from './modal.jsx';
 import { obtainImgURL } from '../utils/petitions.js';
 
 // Modal para adicionar productos
-function AddProductModal(props) {
-  const [nameProduct, setNameProduct] = useState('')
-  const [priceProduct, setPriceProduct] = useState('')
-  const [typeMenu, setTypeMenu] = useState('')
-  const [imgProduct, setImgProduct] = useState('')
+function EditProductModal(props) {
+  const [nameProduct, setNameProduct] = useState(props.product.name)
+  const [priceProduct, setPriceProduct] = useState(props.product.price)
+  const [typeMenu, setTypeMenu] = useState(props.product.type)
+  const [imgProduct, setImgProduct] = useState(props.product.urlImage)
 
   function nameProductHandler(event) {
     setNameProduct(event.target.value)
@@ -33,7 +33,6 @@ function AddProductModal(props) {
     const urlUpload = await onChangeImg(event, setImgProduct)
     console.log('urlUpload', urlUpload)
     const urlImage = await obtainImgURL(urlUpload)
-    console.log('urlUpload', urlImage)
     setImgProduct(
       urlImage
     )
@@ -45,16 +44,17 @@ return ( // Formulario para adicionar productos
     {/* //...props, desestructurando los props de addProductModal */}
     <section className="addProModal">
       <h2 className="titleAddProduct">
-        Crear Producto
+        Editar Producto
       </h2>
 
-      <form className='addProductForm' onSubmit={(event) => props.onSubmit(event, nameProduct, priceProduct, typeMenu, imgProduct)} >
+      <form className='addProductForm' onSubmit={(event) => props.onSubmit(event, nameProduct, priceProduct, typeMenu, imgProduct, props.product.id)} >
         <input
           className="addProductInput"
           type='text'
           placeholder="Nombre de producto"
           name="nameProduct"
           onChange={nameProductHandler}
+          value={nameProduct}
         />
 
         <input
@@ -63,6 +63,7 @@ return ( // Formulario para adicionar productos
           placeholder="Precio del Producto"
           name="priceProduct"
           onChange={priceProductHandler}
+          value={priceProduct}
         />
 
         <input
@@ -71,6 +72,7 @@ return ( // Formulario para adicionar productos
           placeholder="Tipo de Menú"
           name="typeMenu"
           onChange={typeMenuHandler}
+          value={typeMenu}
         />
         <label className="addProductLabel">
           + Agregar Imagen
@@ -80,10 +82,11 @@ return ( // Formulario para adicionar productos
             name="imgProduct"
             onChange={imgProdctHandler}
             className="addProductImage"
+            value={imgProduct}
           />
         </label>
         <button type="submit" className="addProdModalBtn">
-          Agregar Producto
+          Editar Producto
         </button>
 
       </form>
@@ -93,4 +96,4 @@ return ( // Formulario para adicionar productos
 )
 }
 
-export { AddProductModal }
+export { EditProductModal }

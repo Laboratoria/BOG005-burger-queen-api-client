@@ -5,9 +5,7 @@ import { postUserPetition } from "../utils/petitions.js";
 function LoginView() {
 
     const navigating = useNavigate();
-
     const [emailUser, setEmailUser] = useState('')
-
     const [passwordUser, setPasswordUser] = useState('')
 
     function handleChangeEmail(event) {
@@ -19,9 +17,7 @@ function LoginView() {
     }
 
     function authUser(event) {
-
         event.preventDefault()
-
         console.log(emailUser)
         console.log(passwordUser)
 
@@ -30,7 +26,9 @@ function LoginView() {
                 console.log(response)
                 const errorMessage = document.getElementById('errorMessage')
                 errorMessage.innerHTML = ''
-
+                
+                sessionStorage.setItem('user', JSON.stringify(response.data));
+                
                 if (response.data.user.role === 'admin') {
                     console.log('Tienes acceso')
                     navigating('/admin-products');
@@ -39,14 +37,13 @@ function LoginView() {
             .catch((error) => {
                 console.log(error)
                 if (error.response.data === 'Incorrect password') {
-                    console.log('Contraseña incorrecta')
-                    errorMessage.innerHTML = 'Contraseña incorrecta'
+                    console.log('*Contraseña incorrecta')
+                    errorMessage.innerHTML = '*Contraseña incorrecta'
                 }
                 else {
-                    console.log('Usuario no encontrado')
-                    errorMessage.innerHTML = 'Usuario no encontrado'
+                    console.log('*Usuario no encontrado')
+                    errorMessage.innerHTML = '*Usuario no encontrado'
                 }
-
             })
     }
 
@@ -54,8 +51,8 @@ function LoginView() {
         <section className="loginComponent">
 
             <section className="sectionImg">
-                <img src="/burgerQueenThin.jpg" className="logoMobile" alt="Burger logo" />
-                <img src="/burgerQueenBig.jpg" className="logoDesk" alt="Burger logo" />
+                <img src="/bigFoodsLogo.png" className="logoMobile" alt="Burger logo" />
+                <img src="/bigFoodsLogo.png" className="logoDesk" alt="Burger logo" />
             </section>
             <section className="boxForm">
                 <form className='loginForm' onSubmit={authUser}>

@@ -18,16 +18,16 @@
 }
 
 .modal-content {
-  width: 80vw;
-  height: 110vw;
-  padding: 10px;
+  width: 77vw;
+  height: 118vw;
+  padding: 13px;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  border-radius: 5vw;
-  border: 0.5vw solid #F0B44C;
-  background-color: white;
+  border-radius: 2vw;
+  border: 0.5vw solid white;
+  background-color: #EC297E;
 }
 
 .modal-open {
@@ -35,15 +35,21 @@
 }
 
 .closeAddProdBtn {
-  width: 30vw;
-  height: 9vw;
-  color: #b0b0b0;
-  margin-top: 4vw;
-  font-size: 4.5vw;
-  font-weight: 600;
-  border-radius: 5vw;
+  width: 67vw;
+  height: 10vw;
+  color: white;
+  margin-top: 3vw;
+  font-size: 4.3vw;
+  font-weight: 500;
+  border-radius: 2vw;
   align-items: center;
-  background-color: white;
+  background-color: #5271FF;
   border: white;
-  text-decoration: underline;
+  font-family: 'Poppins', sans-serif;
+  box-shadow: rgb(0 0 0 / 30%) 0 3px 4px;
+}
+
+.closeAddProdBtn:hover {
+  color:#5271FF;
+  background-color: #FADF25;
 }

@@ -4,8 +4,8 @@ import reactLogo from './assets/react.svg'
 import './App.css'
 import './styles/loginView.css'
 import './styles/adminView.css'
-import { LoginView } from './components/loginView.jsx'
-import { AdminView } from './components/adminView.jsx'
+import { LoginView } from './pages/loginView.jsx'
+import { AdminView } from './pages/adminView.jsx'
 
 
 function App() {

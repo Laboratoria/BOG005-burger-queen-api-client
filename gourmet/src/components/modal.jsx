@@ -2,22 +2,19 @@ import React from 'react'
 import '../styles/modal.css'
 
 function Modal({ isOpen, closeModal, title, children }) {
-
   function handleModalContent(event) {
-    event.stopPropagation();
+    event.stopPropagation(); //evita la propagación del evento padre
   }
-
   return (
-    <div className={`modal ${isOpen && 'modal-open'}`} onClick={closeModal} >
-
-      <div className='modal-content' onClick={handleModalContent}>
+    // cerrando modal al dar clik fuera del modal con onClick
+    <div className={`modal ${isOpen && 'modal-open'}`} onClick={closeModal} > 
+      {/* evento para evitar que se cierre con click dentro del modal */}
+      <div className='modal-content' onClick={handleModalContent}> 
 
         <h2>{title}</h2>
-
         {children}
-
         <button onClick={closeModal} className="closeAddProdBtn">
-          Cerrar
+          Cancelar
         </button>
 
       </div>
