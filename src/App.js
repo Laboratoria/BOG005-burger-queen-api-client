@@ -3,6 +3,7 @@ import {BrowserRouter,Routes,Route} from "react-router-dom";
 import Start from "./components/Home";
 import Login from "./components/Login";
 import Admin from "./components/Admin";
+import Waiters from "./components/Waiters";
   
 function App() {
     
