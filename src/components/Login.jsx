@@ -42,14 +42,14 @@ const Login = () => {
       })
       .catch((error) => {
         console.log(error)
-        if (error.response.request.status === 400 ) {
-          alert('Credenciales no válidas')
+        if (error.response.data === "Incorrect password" ) {
+          alert('Por favor verifica tu contraseña')
           //errorMessage.innerHTML = 'Contraseña incorrecta';
         }
-        // else {
-        //   console.log('Usuario no encontrado')
-        //   // errorMessage.innerHTML = 'Usuario no encontrado';
-        // }
+        else {
+          alert('Usuario no encontrado')
+          // errorMessage.innerHTML = 'Usuario no encontrado';
+        }
       })
   } 
 
@@ -74,14 +74,13 @@ const Login = () => {
         <div className='buttons-container'>
         <button className='btn-start' onClick={() => navigate("/")}>REGRESAR</button> 
         <button className='btn-return'onClick={ userAuth }>INGRESAR</button>
-        
         </div>
       </div>
     </form>
   );
 };
 
-// email: mesero
+// email: mesero@burger.com
 // password: 123456
 
 export default Login;
