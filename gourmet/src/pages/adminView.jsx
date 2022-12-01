@@ -20,7 +20,7 @@ function AdminView() {
                 setProducts(response.data)
             })
             .catch((error) => console.log(error))
-    }, [products])
+    }, [])
 
     // función para crear productos
     function onSubmitCreateFormHandler(event, nameTyped, priceTyped, typeTyped, imageLoaded) {
