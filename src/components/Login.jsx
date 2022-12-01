@@ -68,6 +68,12 @@ const Login = () => {
   return (
     <form onClick={userAuth} className='login'>
       <div className='form-container'>
+        <select name="rol">
+          <option value="Rol" autoFocus>Rol</option>
+          <option value="Administración">Administración</option>
+          <option value="Mesas">Mesas</option>
+          <option value="Cocina">Cocina</option>
+        </select>
         <input
           type='email'
           placeholder='Correo'
@@ -91,5 +97,8 @@ const Login = () => {
     </form>
   );
 };
+
+// email: mesero
+// password: 123456
 
 export default Login;
