@@ -37,43 +37,21 @@ const Login = () => {
         }
       })
       .catch((error) => {
-        //console.log(error)
-        if (error.response.post === 'Incorrect password') {
-          //console.log('Contraseña incorrecta')
-          //errorMessage.innerHTML = 'Contraseña incorrecta';
-        }
-        else {
-          //console.log('Usuario no encontrado')
-          //errorMessage.innerHTML = 'Usuario no encontrado';
-        }
+        console.log(error)
+        // if (error.response.post ) {
+        //   console.log('Contraseña incorrecta')
+        //   //errorMessage.innerHTML = 'Contraseña incorrecta';
+        // }
+        // else {
+        //   console.log('Usuario no encontrado')
+        //   // errorMessage.innerHTML = 'Usuario no encontrado';
+        // }
       })
   } 
 
-
-
-
-  /*const [inputs, setInputs] = useState({});
-
-  const handleChange = (event) => {
-    const name = event.target.name;
-    const value = event.target.value;
-    setInputs((values) => ({ ...values, [name]: value }));
-  };
-
-  const handleSubmit = (event) => {
-    event.preventDefault();
-    console.log(inputs);
-  };*/
-
   return (
-    <form onClick={userAuth} className='login'>
+    <form className='login'>
       <div className='form-container'>
-        <select name="rol">
-          <option value="Rol" autoFocus>Rol</option>
-          <option value="Administración">Administración</option>
-          <option value="Mesas">Mesas</option>
-          <option value="Cocina">Cocina</option>
-        </select>
         <input
           type='email'
           placeholder='Correo'
@@ -91,7 +69,8 @@ const Login = () => {
         <p id="errorMessage"></p>
         <div className='buttons-container'>
         <button className='btn-start' onClick={() => navigate("/")}>REGRESAR</button> 
-        <button className='btn-return' onClick={() => navigate("/Admin")}>INGRESAR</button>
+        <button className='btn-return'onClick={ userAuth }>INGRESAR</button>
+        
         </div>
       </div>
     </form>
