@@ -13,7 +13,8 @@ function App() {
       <Routes>
         <Route exact path="/" element={<Start/>}/>
         <Route exact path="/Login" element={<Login/>}/>
-        <Route exact path="/Admin" element={<Waiters/>}/>
+        <Route exact path="/Admin" element={<Admin/>}/>
+        <Route exact path="/Waiters" element={<Waiters/>}/>
       </Routes>
       </BrowserRouter>
       </>

@@ -31,17 +31,21 @@ const Login = () => {
         const errorMessage = document.getElementById("errorMessage")
         errorMessage.innerHTML = "";
 
-        if (response.post.user.role === "mesero") {
-        console.log('Tienes acceso', 35)
-        navigate('/');
+        if (response.status === 200){
+          navigate('/Admin')
+          alert('Bienvenida, Grace')
         }
+        // if (response.post.user.role === "mesero") {
+        // console.log('Tienes acceso', 35)
+        // navigate('/');
+        // }
       })
       .catch((error) => {
         console.log(error)
-        // if (error.response.post ) {
-        //   console.log('Contraseña incorrecta')
-        //   //errorMessage.innerHTML = 'Contraseña incorrecta';
-        // }
+        if (error.response.request.status === 400 ) {
+          alert('Credenciales no válidas')
+          //errorMessage.innerHTML = 'Contraseña incorrecta';
+        }
         // else {
         //   console.log('Usuario no encontrado')
         //   // errorMessage.innerHTML = 'Usuario no encontrado';
