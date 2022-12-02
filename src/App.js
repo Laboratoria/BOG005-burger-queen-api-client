@@ -8,7 +8,6 @@ import Waiters from "./components/Waiters"
 function App() {
     
   return (
-      <>
       <BrowserRouter>
       <Routes>
         <Route exact path="/" element={<Start/>}/>
@@ -17,7 +16,6 @@ function App() {
         <Route exact path="/Waiters" element={<Waiters/>}/>
       </Routes>
       </BrowserRouter>
-      </>
   );
 }
   
