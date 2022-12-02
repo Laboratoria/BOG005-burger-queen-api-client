@@ -38,7 +38,4 @@ const Waiters = () => {
   );
 }
 
-// email: mesero
-// password: 123456
-
 export default Waiters;
