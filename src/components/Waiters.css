@@ -1,0 +1,91 @@
+@import url('https://fonts.googleapis.com/css2?family=Cantora+One&family=Combo&family=DM+Mono:wght@300&family=Montserrat:wght@500&family=Reem+Kufi+Fun&family=Roboto:wght@300;400&family=Yantramanav:wght@300&display=swap');
+
+*{
+    font-family: 'Cantora One', sans-serif;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+.waiterOrders {
+    background-image: url("../img/waitersBackground.jpeg");
+    background-size: 600px 900px;
+    height: 900px;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+.linkOrders {
+    color: white;
+    text-decoration: none;
+    margin-left: 4px;
+}
+
+.linkStatus {
+    color: white;
+    text-decoration: none;
+    margin-left: 6px;
+}
+
+.linkWaiter {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
+
+.buttonsWaiter {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    
+}
+
+.pedidos {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    background-color: #D9D9D9;
+    border-radius: 10px;
+    margin-left: 90px;
+    margin-right: 30px;
+    margin-top: 300px;
+}
+
+.hola {
+    background-color: #2E303E;
+    color: white;
+    border-radius: 15px;
+    border-color: white;
+    font-size: 13px;
+}
+
+.takeOrders {
+    display: flex;
+    flex-direction: row;
+    margin-left: 63px;
+    margin-top: 5px;
+}
+
+.orderNum {
+    margin-right: 150px;
+    margin-left: 20px;
+}
+
+.orderNumber {
+    width: 25px;
+    margin-left: 120px;
+    margin-top: -16px;    
+}
+
+.buttonProducts {
+    display: flex;
+    flex-direction: column  ;
+    justify-content: space-around;
+    align-items: flex-start;
+}
+
+.buttonProducts button {
+    background-color: palevioletred;
+    height: 40px;
+    width: 100px;
+}
