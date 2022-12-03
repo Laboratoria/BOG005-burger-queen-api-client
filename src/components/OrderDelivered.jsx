@@ -1,5 +1,5 @@
 
-export function Productos(){
+export function OrderDelivered(){
     return (
         <h1>
             Productos

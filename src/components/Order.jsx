@@ -1,6 +1,6 @@
 
 
-export function Pedido(){
+export function Order(){
     return(
         <h1>
             Pedido
