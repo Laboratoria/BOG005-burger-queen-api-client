@@ -6,6 +6,7 @@ import "../Styles/Login.css";
 import React, { useState } from "react";
 import { useNavigate } from "react-router";
 import { order, orderDelivered } from "../routes/routes";
+import axios from 'axios'
 
 const url = "http://localhost:8080/login";
 
@@ -23,16 +24,15 @@ export function Login() {
   };
 
   const loginSesion = () => {
-    fetch(url, {
-      method: 'post',
+    axios.post(url, {
         email: email,
         password: password,
         headers: {
           "content-type": "application/json",
-        },
+        }
       })
       .then((response) => {
-        const role = response.data.role;
+        const role = response.data.user.role;
         switch (role) {
           case 'admin':
             navigate(orderDelivered)
