@@ -1,0 +1,37 @@
+.containe{
+    background-image: url(https://thumbs.dreamstime.com/b/hamburguesas-deliciosas-con-la-empanada-de-carne-de-vaca-93856260.jpg);
+    opacity: 0.8;
+    height: 85%;
+    width: 60%;
+    margin-top: 35px;
+}
+.heade{
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content:space-between;
+    border-bottom:2px solid #d10a0a8f;
+}
+.ulHerder {
+    display: flex;
+    flex-direction: row;
+    width: 80%;
+    margin-top: revert;
+    justify-content: space-evenly;
+    align-items: baseline;
+}
+.divInfo{
+    display: flex;
+    justify-content: center;
+}
+.infoUsuario{
+    display: inline-block;
+    width: 40%;
+    text-align: center;
+    color: cornflowerblue;
+    margin-top: 15px;
+    margin-left: 10px;
+}
+.info{
+    width: 20%;
+}
