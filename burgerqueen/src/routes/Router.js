@@ -6,9 +6,10 @@ import {
     Route,
     Navigate
   } from "react-router-dom";
-import Admin from "../Containers/Admin";
-import Login from "../Containers/Login";
-import Orders from "../Containers/Orders";
+import Admin from "../Componentes/Admin";
+import Login from "../Componentes/Login";
+import Orders from "../Componentes/Orders";
+
 
 
 
