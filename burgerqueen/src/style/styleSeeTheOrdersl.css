@@ -2,7 +2,7 @@
     background-image: url(https://thumbs.dreamstime.com/b/hamburguesas-deliciosas-con-la-empanada-de-carne-de-vaca-93856260.jpg);
     opacity: 0.8;
     height: 85%;
-    width: 60%;
+    width: 80%;
     margin-top: 35px;
 }
 .heade{
@@ -34,4 +34,18 @@
 }
 .info{
     width: 20%;
+}
+.botones{
+    display: flex;
+    justify-content: space-evenly;
+    width: 30%;
+    /* background-color: aliceblue; */
+    margin: auto;
+}
+.confirmar{
+    background-color: rgb(8, 167, 101);
+
+}
+.cancelar{
+    background-color: red;
 }

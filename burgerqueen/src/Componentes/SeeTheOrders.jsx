@@ -14,9 +14,13 @@ const SeeTheOrders = () => {
                 </label>
             </div>
             <section className="vistaOrdenes">
-
             </section>
 
+           <div className='botones'>
+            <button className='confirmar'>Confirmas</button>
+            <button className='cancelar'>Cancelar</button>
+
+           </div>
         </section>
 
     )

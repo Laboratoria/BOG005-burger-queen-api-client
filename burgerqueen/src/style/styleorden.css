@@ -2,7 +2,7 @@
     background-image: url(https://thumbs.dreamstime.com/b/hamburguesas-deliciosas-con-la-empanada-de-carne-de-vaca-93856260.jpg);
     opacity: 0.9;
     height: 85%;
-    width: 60%;
+    width: 70%;
     margin-top: 35px;
 }
 
@@ -47,17 +47,19 @@
 
 }
 
-.liOrdenes {
-    list-style: none;
-    border: 2px;
+.butonPro {
+    height: 30px;
     color: azure;
+    background-color: #ED3539;
+    margin: auto;
+
 }
 
 .vistaOrdenes {
     margin-top: 30px;
-    height: 370px;
+    height: 375px;
     background-color: #ffb835;
-    width: 80%;
+    width: 95%;
     border-radius:20%;
     border-radius:  10px;
 }
@@ -79,6 +81,7 @@ a{
     flex-wrap: wrap;
     width: 95%;
     height: 305px;
+    margin-top: 10px;
 }
 
 .cardProducto{

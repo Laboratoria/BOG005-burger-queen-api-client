@@ -7,12 +7,19 @@ import '../style/styleorden.css';
 
 const Orders = () => {
 
-    const [producto, setproducto] = useState(null)
-
+    const [producto, setproducto] = useState(null);
+    const [menu, setmenu] = useState([]);
     // useEffect accede a las variables del estado
     useEffect(() => {
         Productos(setproducto);
     }, [])
+
+    const cambiaMenu = (event) =>{
+        // console.log(producto)
+        const result = producto.filter(item => item.type.toLowerCase() === event.target.id);
+        // console.log(result)
+        setmenu(result)
+    }
 
 
     return (
@@ -29,20 +36,20 @@ const Orders = () => {
             </div>
 
             <section className="vistaOrdenes">
-                <ul className="ulOrdenes">
-                    <li className="liOrdenes">Desayuno</li>
-                    <li className="liOrdenes">Almuerzo</li>
-                </ul>
+                <div className="ulOrdenes">
+                <button type="button" className="butonPro" id="desayuno" onClick={cambiaMenu}>Desayunos</button>
+                <button type="button" className="butonPro" id="almuerzo" onClick={cambiaMenu}>Almuerzo</button>
+                </div>
 
                 <section className="sectionProducto">
-                    {producto !== null ? (
-                        producto.map(produc => (
+                    {menu !== null ? (
+                        menu.map(produc => (
                             <section className="cardProducto">
                                 <img src={produc.image} alt="" className="imgProduct" />
                                 <p className="nombreProducto" >{produc.name} </p>
                             </section>
                         ))
-                    ) :  ('El token ha expirado, Porfvaor vuelva a entrar para generar un nuevo token')
+                    ) :  ('El token ha expirado, Porfvaor vuelva a entrar para generar un nuevo')
                     }
                 </section>
 
