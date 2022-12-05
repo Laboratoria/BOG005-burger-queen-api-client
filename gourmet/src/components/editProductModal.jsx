@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { Modal } from './modal.jsx';
 import { obtainImgURL } from '../utils/petitions.js';
 
-// Modal para adicionar productos
+// Modal para editar los productos
 function EditProductModal(props) {
   const [nameProduct, setNameProduct] = useState(props.product.name)
   const [priceProduct, setPriceProduct] = useState(props.product.price)

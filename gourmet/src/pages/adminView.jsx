@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from "react";
 import { useModal } from "../hooks/useModal.js";
-import { AddProductModal } from "../components/addProductModal.jsx"
-import { EditProductModal } from "../components/editProductModal.jsx"
+import { AddProductModal } from "../components/addProductModal.jsx";
+import { EditProductModal } from "../components/editProductModal.jsx";
+import { EraseProductModal } from "../components/eraseProductModal.jsx";
 import { getProductList, postNewProduct, getProductById, patchProduct } from "../utils/petitions.js";
 import { ProductComponent } from "../components/productComponent.jsx";
 
@@ -10,7 +11,7 @@ function AdminView() {
     const [isOpenAddProductModal, openAddProductModal, closeAddProductModal] = useModal();
     const [isOpenEditProductModal, openEditProductModal, closeEditProductModal] = useModal();
     const [products, setProducts] = useState([]);
-    const [productToEditModal, setProductToEditModal] = useState()
+    const [productToEditModal, setProductToEditModal] = useState();
 
     useEffect(() => {
         // petición de la lista de productos

@@ -25,9 +25,16 @@ function getProductById(id) {
 }
 // Editando la información del nuevo producto
 function patchProduct(name, price, type, image, id) {
-  console.log('aksjds', id)
+  console.log('patch', id)
   return axios.patch(urlAPI + `products/${id}`, { name, price, image, type }, { headers: { Authorization: 'Bearer ' + getToken() } })
 }
+
+// Eliminando la información del nuevo producto
+function eraseProduct(name, price, type, image, id) {
+  console.log('erase', id)
+  return axios.delete(urlAPI + `products/${id}`, { name, price, image, type }, { headers: { Authorization: 'Bearer ' + getToken() } })
+}
+
 // Enviando la información para crear el nuevo producto
 function postNewProduct(name, price, type, image) {
   return axios.post(urlAPI + 'products', { name, price, image, type }, { headers: { Authorization: 'Bearer ' + getToken() } })
@@ -53,4 +60,4 @@ async function obtainImgURL(img) {
 
 
 
-export { postUserPetition, getProductList, getProductById, patchProduct, getUser, getToken, postNewProduct, obtainImgURL }
+export { postUserPetition, getProductList, getProductById, patchProduct, getUser, getToken, postNewProduct, obtainImgURL, eraseProduct }
