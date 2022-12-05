@@ -1,6 +1,37 @@
 import "./Waiters.css";
 import { useNavigate } from "react-router-dom";
 import { Link } from "react-router-dom";
+import { products } from "./products";
+
+const product = [ {
+    id: 1,
+    name: "Café Americano",
+    price: 5,
+    image:"../img/cafeamericano.jpeg",
+    type: "Desayuno",
+  },
+  {
+    id: 2,
+    name: "Café con leche",
+    price: 7,
+    image: "https://ibb.co/HXnKndy",
+    type: "Desayuno",
+  },
+  {
+    id: 3,
+    name: "Sandwich de jamón y queso",
+    price: 10,
+    image:"../img/sandwich.jpeg",
+    type: "Desayuno",
+  },
+  {
+    id: 4,
+    name: "Hamburguesa simple",
+    price: 10,
+    image:"../img/burger.png",
+    type: "Almuerzo",
+  },]
+
 
 const Waiters = () => {
     const navigate = useNavigate();
@@ -16,22 +47,11 @@ const Waiters = () => {
                 <h4 className="orderNum">Nº de orden</h4>
                 <input className="orderNumber" type="number"></input>
                 <div className="buttonProducts">
-                    <button>Café americano</button>
-                    <button>Café con leche</button>
-                    <button>Sandwich de jamón y queso</button>
-                    <button>Jugo de frutas natural</button>
-                    <button>Hamburguesa simple</button>
-                    <button>Hamburguesa doble</button>
-                    <button>Papas fritas</button>
-                    <button>Aros de cebolla</button>
-                    <button>Agua 500ml</button>
-                    <button>Agua 750ml</button>
-                    <button>Bebida/gaseosa 500ml</button>
-                    <button>Bebida/gaseosa 750ml</button>
+                    <p>{products(product[1])}</p> 
                 </div>
             <div className="buttonsWaiter">
         <button className="hola" onClick={() => navigate("/Login")}>REGRESAR</button>
-        <button className="hola" onClick={() => navigate("/")}>CONFIRMAR</button>
+        <button className="hola" onClick={() => alert('Producto cargado')}>CONFIRMAR</button>
         </div>
         </div>
     </section>
