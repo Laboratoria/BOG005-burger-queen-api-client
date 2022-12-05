@@ -21,16 +21,16 @@ function AddProductModal(props) {
     setTypeMenu(event.target.value)
   }
 
- async function onChangeImg(event , setImgProduct) {
+  // Consumiendo la petición de imágen para tomar la URL
+ async function changeImgURL(event , setImgProduct) {
     const uploadedImg = await event.target.files[0]
         const fr = new FileReader()
         fr.readAsDataURL(uploadedImg)
         fr.onload = () => setImgProduct(fr.result)
         return uploadedImg
   }
-
   const imgProdctHandler = async (event) => {
-    const urlUpload = await onChangeImg(event, setImgProduct)
+    const urlUpload = await changeImgURL(event, setImgProduct)
     console.log('urlUpload', urlUpload)
     const urlImage = await obtainImgURL(urlUpload)
     console.log('urlUpload', urlImage)

@@ -30,9 +30,9 @@ function patchProduct(name, price, type, image, id) {
 }
 
 // Eliminando la información del nuevo producto
-function eraseProduct(name, price, type, image, id) {
+function eraseProduct(id) {
   console.log('erase', id)
-  return axios.delete(urlAPI + `products/${id}`, { name, price, image, type }, { headers: { Authorization: 'Bearer ' + getToken() } })
+  return axios.delete(urlAPI + `products/${id}`, { headers: { Authorization: 'Bearer ' + getToken() } })
 }
 
 // Enviando la información para crear el nuevo producto

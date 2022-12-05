@@ -50,6 +50,62 @@
 }
 
 .closeAddProdBtn:hover {
-  color:#5271FF;
-  background-color: #FADF25;
+  color:white;
+  background-color: black;
+}
+
+@media only screen and (max-width: 829px) and (min-width: 600px) {
+
+  .modal-content {
+      width: 77vw;
+      height: 107vw;
+      padding: 13px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      border-radius: 3vw;
+      border: 0.4vw solid white;
+      background-color: #EC297E;
+  }
+  .closeAddProdBtn {
+    width: 67vw;
+    height: 10vw;
+    margin-top: 2vw;
+    font-size: 4.3vw;
+    font-weight: 500;
+    border: white;
+    border-radius: 2vw;
+    box-shadow: rgb(0 0 0 / 30%) 0 2px 3px;
+  }
+
+}
+
+@media (min-width: 830px) {
+
+  .modal-content {
+    width: 37vw;
+    height: 47vw;
+    padding: 13px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    border-radius: 1.3vw;
+    border: 0.2vw solid white;
+    background-color: #EC297E;
+}
+
+.closeAddProdBtn {
+  width: 29vw;
+  height: 4vw;
+  margin-top: 1vw;
+  font-size: 2vw;
+  font-weight: 500;
+  border: white;
+  border-radius: 1vw;
+  box-shadow: rgb(0 0 0 / 30%) 0 2px 3px;
+}
+
+
 }

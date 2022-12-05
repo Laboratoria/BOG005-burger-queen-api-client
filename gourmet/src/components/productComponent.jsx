@@ -10,9 +10,9 @@ function ProductComponent(props) {
                 <p className="productType">{props.type}</p>
                 <p>{props.name} <span className="productPrice">${props.price}</span></p>
             </div>
-            <div>
+            <div className='iconContainer'>
                 <i onClick={() => props.onClick(props.id)} className="fa-solid fa-pencil"></i>
-                <i onClick={eraseProduct} className="fa-solid fa-trash"></i>
+                <i onClick={() => eraseProduct(props.id)} className="fa-solid fa-trash"></i>
             </div>
         </article>
     )
