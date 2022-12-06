@@ -339,6 +339,10 @@
         font-size: 1.9vw;
         border-radius: 1vw;
     }
+    
+    .addProductInput:focus {
+        border: 0.2vw solid #5271FF;
+    }
 
     .addProductLabel {
         width: 29vw;

@@ -2,7 +2,14 @@ import React, { useState, useEffect } from "react";
 import { useModal } from "../hooks/useModal.js";
 import { AddProductModal } from "../components/addProductModal.jsx";
 import { EditProductModal } from "../components/editProductModal.jsx";
-import { getProductList, postNewProduct, getProductById, patchProduct } from "../utils/petitions.js";
+import {
+    getProductList,
+    postNewProduct,
+    getProductById,
+    patchProduct,
+    eraseProduct,
+    obtainImgURL
+} from "../utils/petitions.js";
 import { ProductComponent } from "../components/productComponent.jsx";
 
 
@@ -62,16 +69,10 @@ function AdminView() {
         event.preventDefault();
         const priceNumber = parseInt(priceTyped);
         console.log('nameTyped, priceNumber, typeTyped, imageLoaded', nameTyped, priceNumber, typeTyped, imageLoaded)
-        postNewProduct(nameTyped, priceNumber, typeTyped, imageLoaded).then(
+        postNewProduct(nameTyped, priceNumber, typeTyped, imageLoaded).then(() => {
             closeAddProductModal()
-        );
-
-        setProducts([...products, {
-            name: nameTyped,
-            price: priceTyped,
-            type: typeTyped,
-            image: imageLoaded
-        }]);
+            setReloadProducts(!reloadProducts);
+        });
     };
 
     function onSubmitEditFormHandler(event, nameTyped, priceTyped, typeTyped, imageLoaded, idProduct) {
@@ -83,14 +84,17 @@ function AdminView() {
         });
     };
 
-
-    const handelEdit = (id) => {
+    const handleEdit = (id) => {
         console.log('id', id)
         getProductById(id).then((response) => {
             console.log('response', response.data)
             setProductToEditModal(response.data)
             openEditProductModal(true)
         })
+    }
+
+    const handleDelete = (id) => {
+        eraseProduct(id).then(() => setReloadProducts(!reloadProducts))
     }
 
     return ( // Maqueta componente Admin view
@@ -112,7 +116,18 @@ function AdminView() {
                 {/* // Lista de productos */}
                 <section className="productsList">
                     <h1 className="titleListProduct">Lista de Productos</h1>
-                    {products.map((product) => <ProductComponent onClick={handelEdit} key={product.id} id={product.id} name={product.name} price={product.price} type={product.type} image={product.image} />)}
+                    {products.map((product, index) => (
+                        <ProductComponent
+                            handleEdit={handleEdit}
+                            handleDelete={handleDelete}
+                            key={product.id + index}
+                            id={product.id}
+                            name={product.name}
+                            price={product.price}
+                            type={product.type}
+                            image={product.image}
+                        />
+                    ))}
                 </section>
                 {productToEditModal && (<section className="AdminContBtn">
                     <EditProductModal
@@ -141,7 +156,7 @@ function AdminView() {
                             Crear Producto
                         </h2>
 
-                        <form className="addProductForm" onSubmit={(event) => props.onSubmit(event, nameProduct, priceProduct, typeMenu, imgProduct)} >
+                        <form className="addProductForm" onSubmit={(event) => onSubmitCreateFormHandler(event, nameProduct, priceProduct, typeMenu, imgProduct)} >
                             <input
                                 className="addProductInput"
                                 type='text'

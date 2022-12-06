@@ -1,14 +1,24 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Modal } from './modal.jsx';
 import { obtainImgURL } from '../utils/petitions.js';
 
 // Modal para editar los productos
 function EditProductModal(props) {
-  const [nameProduct, setNameProduct] = useState(props.product.name)
-  const [priceProduct, setPriceProduct] = useState(props.product.price)
-  const [typeMenu, setTypeMenu] = useState(props.product.type)
-  const [imgProduct, setImgProduct] = useState(props.product.urlImage)
+  const [nameProduct, setNameProduct] = useState('');
+  const [priceProduct, setPriceProduct] = useState('');
+  const [typeMenu, setTypeMenu] = useState('');
+  const [imgProduct, setImgProduct] = useState('');
+  console.log('props.product', props.product)
 
+  useEffect((() => {
+    if(props.product){
+      setNameProduct(props.product.name)
+      setPriceProduct(props.product.price)
+      setTypeMenu(props.product.type)
+      setImgProduct(props.product.urlImage)
+    }
+  }), [])
+  
   function nameProductHandler(event) {
     setNameProduct(event.target.value)
   }
