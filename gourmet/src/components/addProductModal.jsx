@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { Modal } from './modal.jsx';
 import { obtainImgURL } from '../utils/petitions.js';
 
+
 // Modal para adicionar productos
 function AddProductModal(props) {
   const [nameProduct, setNameProduct] = useState('')

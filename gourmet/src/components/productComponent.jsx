@@ -17,5 +17,4 @@ function ProductComponent(props) {
     )
 }
 
-
 export { ProductComponent }

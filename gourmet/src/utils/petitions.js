@@ -60,4 +60,5 @@ async function obtainImgURL(img) {
 
 
 
-export { postUserPetition, getProductList, getProductById, patchProduct, getUser, getToken, postNewProduct, obtainImgURL, eraseProduct }
+export { postUserPetition, getProductList, getProductById, patchProduct, 
+  getUser, getToken, postNewProduct, obtainImgURL, eraseProduct }

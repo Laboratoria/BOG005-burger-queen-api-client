@@ -75,7 +75,7 @@
     font-size: 4.3vw;
     text-align: center;
     border-radius: 2vw;
-    border: 0.5vw solid white;
+    border: 0.1vw solid white;
 }
 
 .addProductInput:focus {
