@@ -11,6 +11,7 @@ import {
     obtainImgURL
 } from "../utils/petitions.js";
 import { ProductComponent } from "../components/productComponent.jsx";
+import { Header } from "../components/header";
 
 
 function AdminView() {
@@ -99,10 +100,7 @@ function AdminView() {
 
     return ( // Maqueta componente Admin view
         <main className="adminView">
-            <header className="header">
-                <div className="headerImg">
-                    <img srcSet="/bigFoodsLarge.png" className="headerLogoBig" alt="Burger logo" />
-                </div>
+            <Header>
                 <nav className="navMenu">
                     <ul className="navAMenu">
                         <li><a className="navLink" href="/admin-products">Productos</a></li>
@@ -110,7 +108,7 @@ function AdminView() {
                         <li><a className="navLink" href="/">Salir</a></li>
                     </ul>
                 </nav>
-            </header>
+            </Header>
 
             <section className="producSect">
                 {/* // Lista de productos */}
