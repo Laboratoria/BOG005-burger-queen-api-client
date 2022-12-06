@@ -1,5 +1,5 @@
 .order {
-  background-image: url(../img/background-productos.png);
+  background-image: url(../img/Background-pedidos.png);
   background-repeat: no-repeat;
   height: 99.9vh;
 }
@@ -14,7 +14,24 @@
 }
 .order .input-name{
  width: 40vw;
+ margin-top: 20vh;
+ margin-left: 22vh;
 }
+.order .card{
+  display:flex; 
+ justify-content: space-between; 
+  width: 30rem;
+   align-items: center; 
+   margin-left: 22vw;
+   margin-top: 25vw;
+}
+.order .img-mesero{
+    width: 30vw;
+}
+.order .list-pasos.text-cards{
+   font-size: 3em; 
+}
+
 nav .btn-cocina{
   font-size: 1.5em;
   background-color: #dd7a1e;
