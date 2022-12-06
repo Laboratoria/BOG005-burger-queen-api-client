@@ -11,10 +11,10 @@
 
 .login .login_title {
   color: #dd7a1e;
-  margin-bottom: 10vh;
   font-family: "Aleo", serif;
   font-weight: 900;
   font-size: 7vh;
+  margin-bottom: 10vh;
 }
 
 .login_form {
