@@ -24,7 +24,7 @@ nav .btn-cocina{
   width: 20vw;
   height: 6vh;
 }
-.order .nav{
+.order-breakfast .nav{
     display:flex;
     justify-content: space-between;
     align-items: center;
@@ -39,10 +39,34 @@ nav .btn-cocina{
   font-size: 1.5em;
 }
 
-.title-desayuno{
+.title-pedido{
   font-size: 2em;
-  color: #dd7a1e;
+  color: black;
   font-family: "Aleo", serif;
+}
+
+.icon-back{
+  width: 10vw;
+}
+
+.order-breakfast{
+  background-image: url(../img/Background-pedidos.png);
+  background-repeat: no-repeat;
+  height: 99.9vh;
+}
+
+.order-lounch .nav{
+  display:flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-top: 1vh;
+}
+
+.order-lounch{
+  background-image: url(../img/Background-pedidos.png);
+  background-repeat: no-repeat;
+  height: 99.9vh;
+
 }
 
 @media (max-width: 600px){
