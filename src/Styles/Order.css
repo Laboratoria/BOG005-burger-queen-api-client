@@ -1,0 +1,29 @@
+.order {
+  background-image: url(../img/background-productos.png);
+  background-repeat: no-repeat;
+  height: 99.9vh;
+}
+.order .title{
+   color: #dd7a1e;
+  margin-bottom: 4vh;
+  font-family: "Aleo", serif;
+  font-weight: 900;
+  font-size: 4vh; 
+  padding-top: 30px;
+  /* margin-top: 10px; */
+}
+.order .input-name{
+ width: 40vw;
+}
+nav .btn-cocina{
+  font-size: 2em;
+  background-color: #dd7a1e;
+  color: black;
+  border-color: #dd7a1e;
+  border-radius: 10px;
+  width: 20vw;
+  height: 9vh;
+}
+.order nav{
+    display:flex;
+}

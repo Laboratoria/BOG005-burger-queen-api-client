@@ -74,21 +74,7 @@ export function Login() {
     e.preventDefault();
   };
 
-  // useEffect(() => {
-  //   Data();
-  // }, []);
-  // const Data = async () => {
-  //   const data = await fetch("http://localhost:8080/users", {
-  //     method: "get",
-  //     headers: {
-  //       Authorization:
-  //         "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImdyYWNlLmhvcHBlckBzeXN0ZXJzLnh5eiIsImlhdCI6MTY3MDAxMzkzMiwiZXhwIjoxNjcwMDE3NTMyLCJzdWIiOiIyIn0.urbNxk3hcwDCurvLY7oZCZ36MD9VvvGIkWlH1b1u0m4",
-  //       "Content-Type": "application/json",
-  //     },
-  //   });
-  //   const users = await data.json();
-  //   console.log("esta es mi data", users);
-  // };
+ 
 
   return (
     <main>
