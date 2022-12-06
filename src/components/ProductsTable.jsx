@@ -35,6 +35,7 @@ const ProductTable = (props) => (
             <td>{product.name}</td>
             <td>{product.price}</td>
             <td>
+            <button className="button muted-button">Add</button>
               <button className="button muted-button">Edit</button>
               <button className="button muted-button">Delete</button>
             </td>

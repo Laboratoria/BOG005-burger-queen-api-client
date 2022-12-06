@@ -1,4 +1,5 @@
 import '../components/Waiters.css';
+import '../components/App.css';
 import { useNavigate } from "react-router-dom";
 import { Link } from "react-router-dom";
 import React, { useState } from "react";
@@ -43,7 +44,7 @@ const Waiters = () => {
   return (
     <section className='waiterOrders'>
       <h1>BURGER QUEEN TELECOMANDA </h1>
-      <div className='linkWaiter'>
+      <div className='link-container'>
         <Link className='linkOrders' to='/Waiters'>
           Pedidos
         </Link>{" "}
@@ -54,17 +55,18 @@ const Waiters = () => {
       <div className='takeOrders'>
         <h2>AGREGAR PRODUCTOS</h2>
       </div>
-      <h4 className='orderNum'>Nº de orden</h4>
-      <input className='orderNumber' type='number'></input>
-      <div className='flex-large'>
-        <h2>View products</h2>
+      <div className='order-counter'>
+        <h4 className='orderNum'>Nº de orden</h4>
+        <input className='orderNumber' type='number'></input>
+      </div>  
+      <div className='dataProducts'>
         <ProductTable products={products} />
       </div>
-      <div className='buttonsWaiter'>
+      <div className='buttons-container'>
         <button className='hola' onClick={() => navigate("/Login")}>
           REGRESAR
         </button>
-        <button className='hola' onClick={() => alert("Producto cargado")}>
+        <button className='hola' onClick={() => alert("Producto agregado")}>
           CONFIRMAR
         </button>
       </div>
