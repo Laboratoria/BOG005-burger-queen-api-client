@@ -11,22 +11,22 @@ function Order() {
                 </h2>
 
                 <form className="orderForm" onSubmit={(event) => onSubmitCreateFormHandler(event, nameProduct, priceProduct, typeMenu, imgProduct)} >
-
-                    <label id="textOrder">Número de la orden</label>
-                    <input
-                        className="orderProductInput"
-                        type='text'
-                        name="numOrder"
-                    // onChange={numOrderHandler}
-                    />
-                    <label id="nameOrder">Nombre del cliente</label>
-                    <input
-                        className="orderProductInput"
-                        type='text'
-                        name="nameClientOrder"
-                    // onChange={nameOrderHandler}
-                    />
-
+                    <div className="orderDetailsCont">
+                        <label id="textOrder">Número de la orden</label>
+                        <input
+                            className="orderProductInput"
+                            type='text'
+                            name="numOrder"
+                        // onChange={numOrderHandler}
+                        />
+                        <label id="nameOrder">Nombre del cliente</label>
+                        <input
+                            className="orderProductInput"
+                            type='text'
+                            name="nameClientOrder"
+                        // onChange={nameOrderHandler}
+                        />
+                    </div>
                     <section className="boxOrderSection">
                         <table className="boxOrder">
                             <thead className="tableOrder">
@@ -45,8 +45,8 @@ function Order() {
                                 </tr>
                             </tbody>
                         </table>
+                        <section className="tableOrderTotal">Total: $0.00</section>
                     </section>
-                    <section className="tableOrderTotal">Total: $0.00</section>
                     <button type="submit" className="orderAddBtn">
                         Agregar Producto
                     </button>

@@ -5,7 +5,7 @@ import {
 import { Header } from "../components/header";
 import { Order } from "../components/ordenPedido";
 import { OrderMenu } from "../components/orderMenu.jsx";
-
+import '../styles/waiterView.css'
 
 
 function WaiterView() {
