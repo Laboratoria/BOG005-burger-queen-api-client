@@ -78,7 +78,6 @@ export function Login() {
 
   return (
     <main>
-     
       <div className="login">
          <img src={logo} alt="logo" className="logo_imagen" />
         <section className="container_form">
