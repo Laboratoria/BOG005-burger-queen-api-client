@@ -3,49 +3,36 @@ import { Modal } from './modal.jsx';
 import { obtainImgURL } from '../utils/petitions.js';
 
 // Modal para editar los productos
-function EditProductModal(props) {
-  const [nameProduct, setNameProduct] = useState('');
-  const [priceProduct, setPriceProduct] = useState('');
-  const [typeMenu, setTypeMenu] = useState('');
-  const [imgProduct, setImgProduct] = useState('');
-  console.log('props.product', props.product)
-
-  useEffect((() => {
-    if(props.product){
-      setNameProduct(props.product.name)
-      setPriceProduct(props.product.price)
-      setTypeMenu(props.product.type)
-      setImgProduct(props.product.urlImage)
-    }
-  }), [])
+function EditProductModal({ product, setProduct, onSubmit, ...props }) { 
   
   function nameProductHandler(event) {
-    setNameProduct(event.target.value)
+    setProduct((prevState) => ({...prevState, name: event.target.value}))
   }
-
+  
   function priceProductHandler(event) {
-    setPriceProduct(event.target.value)
+    setProduct((prevState) => ({...prevState, price: event.target.value}))
   }
-
+  
   function typeMenuHandler(event) {
-    setTypeMenu(event.target.value)
+    setProduct((prevState) => ({...prevState, type: event.target.value}))
   }
-
- async function onChangeImg(event , setImgProduct) {
+  
+  async function onChangeImg(event , setImgProduct) {
     const uploadedImg = await event.target.files[0]
-        const fr = new FileReader()
-        fr.readAsDataURL(uploadedImg)
-        fr.onload = () => setImgProduct(fr.result)
-        return uploadedImg
+    const fr = new FileReader()
+    fr.readAsDataURL(uploadedImg)
+    fr.onload = () => setImgProduct(fr.result)
+    return uploadedImg
   }
-
+  
   const imgProdctHandler = async (event) => {
     const urlUpload = await onChangeImg(event, setImgProduct)
     console.log('urlUpload', urlUpload)
     const urlImage = await obtainImgURL(urlUpload)
     setImgProduct(
       urlImage
-    )
+      )
+    setProduct((prevState) => ({...prevState, urlImage: event.target.value}))
   }
 
 
@@ -57,14 +44,14 @@ return ( // Formulario para adicionar productos
         Editar Producto
       </h2>
 
-      <form className='addProductForm' onSubmit={(event) => props.onSubmit(event, nameProduct, priceProduct, typeMenu, imgProduct, props.product.id)} >
+      <form className='addProductForm' onSubmit={(event) => onSubmit(event, product.name, product.price, product.type, product.urlImage, product.id)} >
         <input
           className="addProductInput"
           type='text'
           placeholder="Nombre de producto"
           name="nameProduct"
           onChange={nameProductHandler}
-          value={nameProduct}
+          value={product.name}
         />
 
         <input
@@ -73,7 +60,7 @@ return ( // Formulario para adicionar productos
           placeholder="Precio del Producto"
           name="priceProduct"
           onChange={priceProductHandler}
-          value={priceProduct}
+          value={product.price}
         />
 
         <input
@@ -82,7 +69,7 @@ return ( // Formulario para adicionar productos
           placeholder="Tipo de Menú"
           name="typeMenu"
           onChange={typeMenuHandler}
-          value={typeMenu}
+          value={product.type}
         />
         <label className="addProductLabel">
           + Agregar Imagen
@@ -92,7 +79,7 @@ return ( // Formulario para adicionar productos
             name="imgProduct"
             onChange={imgProdctHandler}
             className="addProductImage"
-            value={imgProduct}
+            value={product.urlImage}
           />
         </label>
         <button type="submit" className="addProdModalBtn">

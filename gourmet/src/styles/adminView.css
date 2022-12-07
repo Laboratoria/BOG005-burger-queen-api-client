@@ -181,10 +181,16 @@
     border-radius: 20px;
     margin: 10px 0;
     align-items: center;
+    justify-content: space-between;
+}
+
+.productDetails{
+    display: flex;
 }
 
 .productImage {
     width: 70px;
+    height: 70px;
 }
 
 .productText {

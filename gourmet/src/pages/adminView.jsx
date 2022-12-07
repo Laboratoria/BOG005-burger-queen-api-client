@@ -15,10 +15,10 @@ import { Header } from "../components/header";
 
 
 function AdminView() {
-    const [isOpenAddProductModal, openAddProductModal, closeAddProductModal] = useModal();
-    const [isOpenEditProductModal, openEditProductModal, closeEditProductModal] = useModal();
+    const [isOpenAddProductModal, openAddProductModal, closeAddProductModal] = useModal('');
+    const [isOpenEditProductModal, openEditProductModal, closeEditProductModal] = useModal('');
     const [products, setProducts] = useState([]);
-    const [productToEditModal, setProductToEditModal] = useState();
+    const [productToEditModal, setProductToEditModal] = useState({ id: '', name:'', price:'', type:'', urlImage:''});
     const [reloadProducts, setReloadProducts] = useState(false);
     const [nameProduct, setNameProduct] = useState('')
     const [priceProduct, setPriceProduct] = useState('')
@@ -133,6 +133,7 @@ function AdminView() {
                         closeModal={closeEditProductModal}
                         onSubmit={onSubmitEditFormHandler}
                         product={productToEditModal}
+                        setProduct={setProductToEditModal}
                     >
                     </EditProductModal>
                 </section>)}
