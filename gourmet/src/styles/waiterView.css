@@ -1,3 +1,11 @@
+.navLink{
+    text-decoration: none;
+    color: white;
+    margin: 15px;
+    font-size: 4.6vw;
+    font-weight: 300;
+}
+
 .orderProdSect {
     display: flex;
     justify-content: center;
@@ -7,21 +15,35 @@
     padding: 3vw;
     background-color: #E9E8E9;
     border-radius: 2vw;
-    border: 0.6vw solid #EC297E;
+    border: 0.4vw solid #EC297E;
     font-size: 12px;
 }
-/* .orderDetailsCont {
-    display: flex;
-    flex-direction: column;
-} */
+
+.titleOrderProduct{
+    color: #454343;
+    font-size: 4.2vw;
+    font-weight: 400;
+}
+
+.orderProductInput{
+    width: 49vw;
+    height: 7vw;
+    margin: 0.5vw;
+    color: #454343;
+    font-size: 4.3vw;
+    text-align: center;
+    border-radius: 2vw;
+    border: 0.1vw solid white;
+}
 
 .orderDetailsCont  {
     display: grid;
-    grid-template-columns: 1fr 3fr;
-    grid-template-rows: 1fr 1fr; 
+    grid-template-columns: 2fr 3fr;
+    grid-template-rows: 1fr 1fr;
     text-align: left;
-    gap: 5px 5px;
+    gap: 2px;
     margin: 10px 0;
+    align-items: center;
 }
 .boxOrderSection {
     background-color: #ffffff;
@@ -29,6 +51,7 @@
 }
 .boxOrder {
     width: 100%;
+    border-spacing: 0px;
 }
 .rowOrder {
     background: #EC297E;
@@ -46,6 +69,10 @@
     border-radius: 0 5px 5px 0;
     border: 0 solid;
     border-color: inherit;
+}
+
+.textOrder{
+    color:#454343; 
 }
 
 tbody, td, tfoot, th, thead, tr {
@@ -69,6 +96,36 @@ th {
     align-content: center;
     justify-content: center;
     flex-wrap: wrap;
+}
+
+.orderAddBtn{
+    width: 30vw;
+    height: 7vw;
+    color: white;
+    margin-top: 3vw;
+    font-size: 3vw;
+    font-weight: 400;
+    border-radius: 1vw;
+    align-items: center;
+    border: white;
+    font-family: 'Poppins', sans-serif;
+    background-color: #EC297E;
+    box-shadow: rgb(0 0 0 / 30%) 0 1px 2px;
+}
+
+.cancelOrderBtn{
+    width: 30vw;
+    height: 7vw;
+    color: white;
+    margin: 3vw 0vw 0vw 7vw;
+    font-size: 3vw;
+    font-weight: 400;
+    border-radius: 1vw;
+    align-items: center;
+    border: white;
+    font-family: 'Poppins', sans-serif;
+    background-color: gray;
+    box-shadow: rgb(0 0 0 / 30%) 0 1px 2px;
 }
 /* 
 
