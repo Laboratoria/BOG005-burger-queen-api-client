@@ -1,7 +1,6 @@
 import "../Styles/Order.css";
 import Button from "react-bootstrap/Button";
 import Nav from "react-bootstrap/Nav";
-// import { IconName } from "react-icons/bs";
 import icon from "../img/button-back.png";
 import axios from "axios";
 import React, { useEffect, useState } from "react";
