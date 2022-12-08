@@ -10,26 +10,21 @@ import React, { useEffect, useState } from "react";
 export function Breakfast() {
   const url = "http://localhost:8080/products";
   const [product, setProducts] = useState([]);
-// const userData = () =>{
-//     return JSON.parse(sessionStorage.getItem('user'))
-// }
-// const getToken = () =>{
-//     return userData().accessToken
 
-// }
   useEffect(() => {
     axios
       .get(url, {
         headers: {
           "content-type": "application/json",
-          authorization: `Bearer ${localStorage.getItem('accessToken')}`
+          authorization: `Bearer ${localStorage.getItem("Token")}`,
         },
       })
-      .then(response => {
+      .then((response) => {
         setProducts(response.data);
-        console.log(response.data)
-      } )
-      .catch(err => {
+
+        console.log(response.data);
+      })
+      .catch((err) => {
         console.log(err);
       });
   }, []);
