@@ -1,7 +1,5 @@
 import React from "react";
 
-
-
 function Order() {
     return (
         <section className="orderProdSect">

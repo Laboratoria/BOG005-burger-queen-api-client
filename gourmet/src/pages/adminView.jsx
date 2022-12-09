@@ -148,6 +148,7 @@ function AdminView() {
                 <button onClick={openAddProductModal} className="addProductBtn">
                     Agregar Producto
                 </button>
+                
                 {/* Formulario para agregar productos */}
                 <section className="addProdForm">
                     <section className="addProModal">
