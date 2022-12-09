@@ -8,7 +8,21 @@ import React, { useEffect, useState } from "react";
 
 export function Breakfast() {
   const url = "http://localhost:8080/products";
-  const [product, setProducts] = useState([]);
+  const [products, setProducts] = useState([]);
+
+  function  Prueba(props){
+    const elementos = props.product
+    const itemsProducts = elementos.map((item) => (
+      <li key={item}> name:{item.name} tipo: {item.type}</li>)
+      
+      )
+      // console.log(itemsProducts[0])
+     
+
+  }
+  console.log(Prueba)
+
+
 
   useEffect(() => {
     axios
@@ -28,6 +42,8 @@ export function Breakfast() {
       });
   }, []);
 
+
+
   return (
     <section className="order-breakfast">
       <Nav className="nav">
@@ -36,11 +52,18 @@ export function Breakfast() {
             <img src={icon} alt="icon-back" className="icon-back" />
           </Nav.Link>
         </Nav.Item>
-        <Nav.Link className="title-pedido">DESAYUNO</Nav.Link>
+        <Nav.Item className="title-pedido">DESAYUNO</Nav.Item>
         <Nav.Item>
           <Button variant="success">Enviar</Button>{" "}
         </Nav.Item>
       </Nav>
+      <main>
+        {
+          products.map((item) => (
+            <li key={item.id}> Producto: {item.name}, Precio: {item.price}</li>
+          ))
+        }
+      </main>
     </section>
   );
 }
