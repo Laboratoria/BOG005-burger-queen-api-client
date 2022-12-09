@@ -1,0 +1,264 @@
+.order {
+  background-image: url(../img/Background-pedidos.png);
+  background-repeat: no-repeat;
+  height: 99.9vh;
+}
+.order .title {
+  color: #dd7a1e;
+  margin-bottom: 4vh;
+  font-family: "Aleo", serif;
+  font-weight: 900;
+  font-size: 4vh;
+  padding-top: 30px;
+  /* margin-top: 10px; */
+}
+.order .input-name {
+  width: 40vw;
+  margin-top: 20vh;
+  margin-left: 22vh;
+}
+.order .card {
+  display: flex;
+  justify-content: space-between;
+  width: 30rem;
+  align-items: center;
+  margin-left: 22vw;
+  margin-top: 25vw;
+}
+.order .img-mesero {
+  width: 30vw;
+}
+.order .list-pasos.text-cards {
+  font-size: 3em;
+}
+
+nav .btn-cocina {
+  font-size: 1.5em;
+  background-color: #dd7a1e;
+  color: black;
+  border-color: #dd7a1e;
+  border-radius: 10px;
+  width: 20vw;
+  height: 6vh;
+}
+.order-breakfast .nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-top: 1vh;
+}
+
+.btn-success {
+  height: 6vh;
+  padding-top: 0;
+  margin-right: 1vh;
+  width: 17vw;
+  font-size: 1.5em;
+}
+
+.title-pedido {
+  font-size: 2em;
+  color: black;
+  font-family: "Aleo", serif;
+}
+
+.icon-back {
+  width: 10vw;
+}
+
+.order-breakfast {
+  background-image: url(../img/Background-pedidos.png);
+  background-repeat: no-repeat;
+  height: 99.9vh;
+}
+
+.order-lounch .nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-top: 1vh;
+}
+
+.order-lounch {
+  background-image: url(../img/Background-pedidos.png);
+  background-repeat: no-repeat;
+  height: 99.9vh;
+}
+
+@media (max-width: 600px) {
+  .order {
+    background-image: url(../img/Background-pedidos.png);
+    background-repeat: no-repeat;
+    height: 99.9vh;
+  }
+  .order .title {
+    color: #dd7a1e;
+    margin-bottom: 4vh;
+    font-family: "Aleo", serif;
+    font-weight: 900;
+    font-size: 4vh;
+    padding-top: 30px;
+    /* margin-top: 10px; */
+  }
+
+  .order .input-name {
+    width: 40vw;
+    margin-top: 6vh;
+    margin-left: 10vw;
+  }
+  .order .card {
+    display: flex;
+    justify-content: space-between;
+    width: 60vw;
+    align-items: center;
+    margin-left: 22vw;
+    margin-top: 5vh;
+  }
+  .order .img-mesero {
+    width: 30vw;
+  }
+  .order .list-pasos.text-cards {
+    font-size: 3em;
+  }
+  nav .btn-cocina {
+    font-size: 1.5em;
+    background-color: #dd7a1e;
+    color: black;
+    border-color: #dd7a1e;
+    border-radius: 10px;
+    width: 20vw;
+    height: 5vh;
+  }
+  .order .nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .btn-success {
+    height: 4vh;
+    padding: 0;
+    margin-right: 1vh;
+    font-size: 1em;
+  }
+  .title-pedido {
+    font-size: 2em;
+    color: black;
+    font-family: "Aleo", serif;
+  }
+
+  .icon-back {
+    width: 10vw;
+  }
+
+  .order-breakfast {
+    background-image: url(../img/Background-pedidos.png);
+    background-repeat: no-repeat;
+    height: 99.9vh;
+  }
+
+  .order-lounch .nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: 1vh;
+  }
+
+  .order-lounch {
+    background-image: url(../img/Background-pedidos.png);
+    background-repeat: no-repeat;
+    height: 99.9vh;
+  }
+}
+
+@media only screen and (min-width: 768px) {
+  .order {
+    background-image: url(../img/1.png);
+    background-repeat: no-repeat;
+    height: 99.9vh;
+
+    background-size: cover;
+  }
+  .order .input-name {
+    width: 40vw;
+    margin-top: 10vh;
+    margin-left: 8vw;
+  }
+  .order .title {
+    color: #dd7a1e;
+    margin-bottom: 4vh;
+    font-family: "Aleo", serif;
+    font-weight: 900;
+    font-size: 4vh;
+    padding-top: 30px;
+    /* margin-top: 10px; */
+  }
+  .order .card {
+    display: flex;
+    justify-content: center;
+    width: 50vw;
+    align-items: center;
+    margin-top: 7vh;
+  }
+  .order .img-mesero {
+    width: 20vw;
+  }
+  .order .list-pasos.text-cards {
+    font-size: 3em;
+  }
+  .order .input-name {
+    width: 40vw;
+  }
+  nav .btn-cocina {
+    font-size: 1.5em;
+    background-color: #dd7a1e;
+    color: black;
+    border-color: #dd7a1e;
+    border-radius: 10px;
+    width: 20vw;
+    height: 6vh;
+  }
+  .order .nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .btn-success {
+    height: 5vh;
+    padding-top: 0;
+    margin-right: 1vh;
+    /* margin-bottom: 1vh; */
+  }
+  .title-pedido {
+    font-size: 2em;
+    color: black;
+    font-family: "Aleo", serif;
+  }
+
+  .icon-back {
+    width: 8vw;
+  }
+
+  .order-breakfast {
+    background-image: url(../img/1.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+    /* width: 250vw; */
+    height: 99.9vh;
+  }
+
+  .order-lounch .nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: 1vh;
+  }
+
+  .order-lounch {
+    background-image: url(../img/Background-pedidos.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 99.9vh;
+  }
+}
