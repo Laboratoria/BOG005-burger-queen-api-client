@@ -1,9 +1,9 @@
 import React from "react";
 import {BrowserRouter,Routes,Route} from "react-router-dom";
-import Start from "./components/Home";
-import Login from "./components/Login";
-import Admin from "./components/Admin";
-import Waiters from "./components/Waiters"
+import Start from "./routes/Home";
+import Login from "./routes/Login";
+import Admin from "./routes/Admin";
+import Waiters from "./routes/Waiters";
   
 function App() {
     

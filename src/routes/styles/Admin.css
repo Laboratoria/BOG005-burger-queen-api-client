@@ -7,7 +7,7 @@
 }
 
 .adminView {
-    background-image: url("../img/waitersBackground.jpeg");
+    background-image: url("../../img/waitersBackground.jpeg");
     background-size: 600px 900px;
     height: 900px;
     background-repeat: no-repeat;

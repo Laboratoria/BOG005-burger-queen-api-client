@@ -1,4 +1,4 @@
-import "./App.css";
+import "./styles/App.css";
 import { useEffect } from "react";
 import Swal from "sweetalert2";
 import { useNavigate } from "react-router-dom";

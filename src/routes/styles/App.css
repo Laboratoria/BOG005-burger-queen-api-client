@@ -4,7 +4,7 @@
 }
 
 .landing {
-  background-image: url('../img/landing-background.png');
+  background-image: url('../../img/landing-background.png');
   background-size: 600px 900px;
   height: 900px;
   width: 100;
@@ -28,7 +28,7 @@
 }
 
 .login {
-  background-image: url('../img/login-background.png');
+  background-image: url('../../img/landing-background.png');
   background-size: 600px 900px;
   height: 1000px;
   background-repeat: no-repeat;

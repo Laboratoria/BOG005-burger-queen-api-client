@@ -1,0 +1,42 @@
+@import url("https://fonts.googleapis.com/css2?family=Cantora+One&family=Combo&family=DM+Mono:wght@300&family=Montserrat:wght@500&family=Reem+Kufi+Fun&family=Roboto:wght@300;400&family=Yantramanav:wght@300&display=swap");
+
+* {
+    font-family: "Cantora One", sans-serif;
+    margin: 0;
+}
+
+.hifivelogo .logohifive {
+    display: flex;
+    height: 200px;
+    margin: 0;
+}
+
+.orders {
+    margin: 0;
+    display: flex;
+    justify-content: space-around;
+    color: #f3b05a;
+    font-size: 40px;
+    margin-top: -243px;
+}
+
+.now {
+    margin-left: 348px;
+    color: aliceblue;
+    margin: 0;
+    display: flex;
+    justify-content: space-around;
+}
+
+.buttonLogout {
+    margin: 0;
+    display: flex;
+    justify-content: space-around;
+    border-radius: 5px;
+    width: 20px;
+    height: 20px;
+    margin-left: 700px;
+    margin-top: -54px;
+    border: none;
+    background: none;
+}
