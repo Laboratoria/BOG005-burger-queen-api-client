@@ -14,34 +14,54 @@ const Products = () => {
     // useEffect accede a las variables del estado
     useEffect(() => {
         Productos(setproducto);
-    }, [])
+        if(agregado.length){
+
+            setTotal(agregado.reduce((acumulador, { price, quantity }) => acumulador + (price * quantity), 0))
+        }
+
+    }, [agregado])
 
     const cambiaMenu = (event) => {
         // console.log(producto)
         const result = producto.filter(item => item.type.toLowerCase() === event.target.id);
         // console.log(result)
         setmenu(result)
+        console.log()
     }
 
     const agregarPoductos = (produc) => {
 
-        if (agregado.find(item => item.id === produc.id)) {
-            const product = agregado.map(item =>
-                item.id === produc.id
-                    ? { ...item, quantity: item.quantity + 1 }
-                    : item
-            );
-            return setagregado([...product])
-        }
+        if (agregado.length) {
+            if (agregado.find(item => item.id === produc.id)) {
+                const product = agregado.map(item =>
+                    item.id === produc.id
+                        ? { ...item, quantity: item.quantity + 1 }
+                        : item
+                );
 
-        setagregado([...agregado, { ...produc, quantity: 1 }])
+                // return 
+                setagregado([...product])
+            } else {
+                setagregado([...agregado, { ...produc, quantity: 1 }])
+            }
+
+
+        } else {
+            setagregado([...agregado, { ...produc, quantity: 1 }])
+            setTotal(produc.price)
+        }
+        
+        
+        
     }
+    console.log(agregado)
+    console.log(agregado.reduce((acumulador, { price, quantity }) => acumulador + (price * quantity), 0));
+
 
     const remove = (produc) => {
         console.log('remover')
 
     }
-
 
     return (
 
@@ -90,6 +110,7 @@ const Products = () => {
                                     <div className="conCantidad">
                                         <button className="cantidades" onClick={remove}>-</button><p className="cantidad">{producAdd.quantity}</p><button className="cantidades">+</button>
                                         <button className="eliminarProducto">Elimina</button>
+
                                     </div>
                                     <hr />
                                 </div>
@@ -107,9 +128,7 @@ const Products = () => {
 
         </section>
 
-
     )
 }
 
 export default Products;
-
