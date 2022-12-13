@@ -1,8 +1,8 @@
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import {  breakfast, login, lounch, order, orderDelivered } from "./routes/routes";
 import "./App.css";
+import {Order} from "./components/Order";
 import { Login } from "./components/Login.jsx";
-import { Order } from "./components/Order.jsx";
 import {OrderDelivered} from "./components/OrderDelivered.jsx";
 import { Breakfast } from "./components/Breakfast";
 import { Lounch } from "./components/Lounch";

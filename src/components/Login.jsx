@@ -51,6 +51,10 @@ export function Login() {
         }
         localStorage.setItem("Token", response.data.accessToken);
         localStorage.setItem("userId", response.data.user.id);
+        localStorage.setItem("email", response.data.user.email);
+        localStorage.setItem("role", response.data.user.role);
+
+
       })
       .catch((err) => {
         if (email === "" || password === "") {

@@ -4,7 +4,6 @@
   height: 99.9vh;
 }
 .order .title {
-  color: #dd7a1e;
   margin-bottom: 4vh;
   font-family: "Aleo", serif;
   font-weight: 900;
@@ -19,17 +18,16 @@
 }
 .order .card {
   display: flex;
-  justify-content: space-between;
-  width: 30rem;
   align-items: center;
-  margin-left: 22vw;
+  margin-left: auto;
+  margin-right: auto;
   margin-top: 25vw;
 }
 .order .img-mesero {
-  width: 30vw;
+  width: 10vw;
 }
-.order .list-pasos.text-cards {
-  font-size: 3em;
+.order .text-cards {
+  font-size: 1.5em;
 }
 
 nav .btn-cocina {
@@ -84,15 +82,28 @@ nav .btn-cocina {
   background-repeat: no-repeat;
   height: 99.9vh;
 }
+.order .btn {
+    
+  background-color: #dd7a1e;
+  color: black;
+  border-color: #dd7a1e;
+  border-radius: 20px;
+  width: 40vw;
+}
 
-@media (max-width: 600px) {
+.order .btn:hover {
+  color: rgba(255, 255, 255, 1) !important;
+  box-shadow: 0 4px 16px black;
+  transition: all 0.2s ease;
+}
+
+@media only screen and (max-width: 600px) {
   .order {
     background-image: url(../img/Background-pedidos.png);
     background-repeat: no-repeat;
     height: 99.9vh;
   }
   .order .title {
-    color: #dd7a1e;
     margin-bottom: 4vh;
     font-family: "Aleo", serif;
     font-weight: 900;
@@ -100,6 +111,11 @@ nav .btn-cocina {
     padding-top: 30px;
     /* margin-top: 10px; */
   }
+    .usuario-email {
+    font-size: 1rem;
+
+  }
+
 
   .order .input-name {
     width: 40vw;
@@ -113,12 +129,18 @@ nav .btn-cocina {
     align-items: center;
     margin-left: 22vw;
     margin-top: 5vh;
+
+}
+
+  .card-body{
+    height: 10vh;
+
   }
   .order .img-mesero {
     width: 30vw;
   }
-  .order .list-pasos.text-cards {
-    font-size: 3em;
+  .order .text-cards {
+    font-size: 2rem;
   }
   nav .btn-cocina {
     font-size: 1.5em;
@@ -136,10 +158,11 @@ nav .btn-cocina {
   }
 
   .btn-success {
-    height: 4vh;
+    height: 5vh;
     padding: 0;
     margin-right: 1vh;
     font-size: 1em;
+    width: 20vw;
   }
   .title-pedido {
     font-size: 2em;
@@ -169,6 +192,33 @@ nav .btn-cocina {
     background-repeat: no-repeat;
     height: 99.9vh;
   }
+
+  .order .btn {
+    
+    background-color: #dd7a1e;
+    color: black;
+    border-color: #dd7a1e;
+    border-radius: 20px;
+    width: 40vw;
+  }
+
+  .order .btn:hover {
+    color: rgba(255, 255, 255, 1) !important;
+    box-shadow: 0 4px 16px black;
+    transition: all 0.2s ease;
+  }
+  .options-buttons-order{
+    margin-top: 3vh;
+    
+  }
+
+  .button-desayuno{
+    margin-bottom: 2vh;
+    margin-top: 2vh;
+    text-decoration: none;
+  }
+
+
 }
 
 @media only screen and (min-width: 768px) {
@@ -176,39 +226,36 @@ nav .btn-cocina {
     background-image: url(../img/1.png);
     background-repeat: no-repeat;
     height: 99.9vh;
-
     background-size: cover;
   }
-  .order .input-name {
-    width: 40vw;
-    margin-top: 10vh;
-    margin-left: 8vw;
-  }
+
   .order .title {
-    color: #dd7a1e;
     margin-bottom: 4vh;
     font-family: "Aleo", serif;
     font-weight: 900;
     font-size: 4vh;
     padding-top: 30px;
-    /* margin-top: 10px; */
   }
+  .usuario-email {
+    font-size: 2rem;
+
+  }
+
   .order .card {
     display: flex;
     justify-content: center;
-    width: 50vw;
+    width: 60vw;
     align-items: center;
-    margin-top: 7vh;
+    margin-top: 5vh;
+    border-radius: 30px;
   }
   .order .img-mesero {
-    width: 20vw;
+    width: 12vw;
   }
-  .order .list-pasos.text-cards {
-    font-size: 3em;
+  .order .text-cards {
+    font-size: 1.5em;
   }
-  .order .input-name {
-    width: 40vw;
-  }
+
   nav .btn-cocina {
     font-size: 1.5em;
     background-color: #dd7a1e;
@@ -217,6 +264,7 @@ nav .btn-cocina {
     border-radius: 10px;
     width: 20vw;
     height: 6vh;
+ 
   }
   .order .nav {
     display: flex;
@@ -225,9 +273,11 @@ nav .btn-cocina {
   }
 
   .btn-success {
-    height: 5vh;
+    height: 4vh;
     padding-top: 0;
-    margin-right: 1vh;
+    margin-right: 2vh;
+    width: 95px;
+    font-size: 20px;
     /* margin-bottom: 1vh; */
   }
   .title-pedido {
@@ -237,7 +287,8 @@ nav .btn-cocina {
   }
 
   .icon-back {
-    width: 8vw;
+    width: 6vw;
+    margin-left: 1vw;
   }
 
   .order-breakfast {
@@ -260,5 +311,11 @@ nav .btn-cocina {
     background-repeat: no-repeat;
     background-size: cover;
     height: 99.9vh;
+  }
+
+    .button-desayuno{
+    margin-bottom: 2vh;
+    margin-top: 2vh;
+    text-decoration: none;
   }
 }
