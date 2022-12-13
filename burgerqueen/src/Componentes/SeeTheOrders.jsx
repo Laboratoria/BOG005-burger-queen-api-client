@@ -1,7 +1,10 @@
-import React from 'react';
-import '../style/styleSeeTheOrdersl.css'
+import React from 'react'
 
 const SeeTheOrders = () => {
+
+    const deleteProduct = (deleteFomCart)=>{
+
+    }
 
     return (
         <section className="containe">
@@ -14,13 +17,14 @@ const SeeTheOrders = () => {
                 </label>
             </div>
             <section className="vistaOrdenes">
+
             </section>
 
-           <div className='botones'>
-            <button className='confirmar'>Confirmas</button>
-            <button className='cancelar'>Cancelar</button>
+            <div className='botones'>
+                <button className='confirmar'>Confirmar</button>
+                <button className='cancelar' onClick={() => deleteProduct()}>Cancelar</button>
 
-           </div>
+            </div>
         </section>
 
     )
