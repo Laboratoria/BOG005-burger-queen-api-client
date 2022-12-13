@@ -40,7 +40,7 @@ const Login = () => {
           onChange={handleChange}
         />
         <div className='button-container-login'>
-          <button className='btn-login' onClick={() => navigate("/Orders")}>INGRESAR</button>
+          <button className='btn-login' onClick={() => navigate("/Products")}>INGRESAR</button>
         </div>
       </div>
     </form>
