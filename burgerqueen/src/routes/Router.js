@@ -5,12 +5,11 @@ import {
     Route,
     Navigate
 } from "react-router-dom";
-import Orders from "../Componentes/Orders";
+import Products from "../Componentes/Products";
 import SeeTheOrders from "../Componentes/SeeTheOrders";
-import '../style/styleorden.css'
-import '../style/styleSeeTheOrdersl.css'
 import Admin from "../Componentes/Admin";
 import Login from "../Componentes/Login";
+import Orders from "../Componentes/Orders";
 
 
 const Router = () => {
@@ -20,8 +19,9 @@ const Router = () => {
                 <Routes>
                 <Route exact path="/" element={<Login />}/>
                 <Route exact path="/Admin" element={<Admin />}/>
-                    <Route exact path="/Orders" element={<Orders />} />
+                    <Route exact path="/Products" element={<Products/>} />
                     <Route exact path="/VerOrden" element={<SeeTheOrders/>} />
+                    <Route exact path="/orders" element={<Orders/>} />
                     <Route exact path="*" element={<Navigate replace to="/" />} />
                 </Routes>
             </BrowserRouter>
