@@ -6,4 +6,5 @@ const Productos = async (state) => {
     state(peticion.data)
 }
 
+
 export default Productos;

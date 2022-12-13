@@ -1,51 +1,107 @@
  import React from "react";
  import { useNavigate } from "react-router-dom";
- import { useState } from "react";
-//  import axios from 'axios';
-import logo from "../img/logo.png"
+ import { useState, useEffect} from "react";
+ import logo from "../img/logo.png"
+ import loginUser from "../petitions/axios"
+ import Swal from "sweetalert2";
+ 
 
-const Login = () => {
+ 
+
+ const Login = () => {
+  useEffect(() => {
+    showAlert();
+  }, []);
+
+  const showAlert = () => {
+    // Swal.fire("Bienvenida, por favor ingresa tus credenciales")
+  };
+
   const navigate = useNavigate();
-  const [inputs, setInputs] = useState({});
 
-  const handleChange = (event) => {
-    const name = event.target.name;
-    const value = event.target.value;
-    setInputs((values) => ({ ...values, [name]: value }));
+  const [userEmail, setUserEmail] = useState("");
+  const [userPassword, setUserPassword] = useState("");
+
+  const handleChangeEmail = (event) => {
+    setUserEmail(event.target.value);
   };
 
-  const handleSubmit = (event) => {
+  const handleChangePassword = (event) => {
+    setUserPassword(event.target.value);
+  };
+
+  const userAuth = (event) => {
     event.preventDefault();
-    console.log(inputs);
+
+    console.log(userEmail);
+    console.log(userPassword);
+
+    loginUser(userEmail, userPassword)
+      .then((response) => {
+        console.log(response);
+
+        const errorMessage = document.getElementById("errorMessage");
+        errorMessage.innerHTML = "";
+
+        if (response.status === 200) {
+          if (response.data.user.role === "admin") {
+            navigate("/Admin");
+            Swal.fire("Ten un excelente turno, admin!");
+          } 
+          else if (response.data.user.role === "mesero") {
+            navigate("/Orders");
+            Swal.fire("Ten un excelente turno, mesero!");
+          }
+        }
+      })
+      .catch((error) => {
+        console.log(error);
+        if (error.response.data === "Incorrect password"){
+          Swal.fire("Contraseña incorrecta", "Intenta de nuevo", "error");
+        } else {
+          Swal.fire(
+            "Usuario no encontrado",
+            "Comunícate con la administración",
+            "warning"
+          );
+        }
+      });
   };
 
-     return (
-      <article className="principal-login">
-      <img src={logo} alt="logotipo"/>       
-       <form onClick={handleSubmit} className='login'>
+  return (
+    <article className="principal-login">
+      <img src={logo} alt="logotipo"/>
+    <form className='login'>
       <div className='form-container'>
-        <h1 className="tittle-login">LOGIN</h1>
+      <h1 className="tittle-login">LOGIN</h1>
         <input
           type='email'
-          placeholder='Correo Electrónico'
+          placeholder='Correo'
           name='username'
-          value={inputs.username || ""}
-          onChange={handleChange}
+          value={userEmail}
+          onChange={handleChangeEmail}
         />
         <input
           type='password'
           placeholder='Contraseña'
           name='pass'
-          value={inputs.pass || ""}
-          onChange={handleChange}
+          value={userPassword}
+          onChange={handleChangePassword}
         />
+        <p id='errorMessage'></p>
         <div className='button-container-login'>
-          <button className='btn-login' onClick={() => navigate("/Orders")}>INGRESAR</button>
+          <button className='btn-login' onClick={userAuth}>
+            INGRESAR
+          </button>
         </div>
       </div>
     </form>
-     </article>
-    )
- }
+    </article>
+  );
+};
 
- export default Login;
+// email: mesero@burger.com
+// password: 123456
+
+
+export default Login;
