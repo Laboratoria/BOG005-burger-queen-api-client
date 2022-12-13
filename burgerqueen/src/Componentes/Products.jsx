@@ -26,6 +26,7 @@ const Products = () => {
         const result = producto.filter(item => item.type.toLowerCase() === event.target.id);
         // console.log(result)
         setmenu(result)
+        console.log()
     }
 
     const agregarPoductos = (produc) => {
