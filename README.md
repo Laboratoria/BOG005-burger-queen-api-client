@@ -1,6 +1,6 @@
 # Burger Queen (API Client)
 
-## Índice
+## Índicee
 
 * [1. Preámbulo](#1-preámbulo)
 * [2. Resumen del proyecto](#2-resumen-del-proyecto)
@@ -11,7 +11,7 @@
 
 ***
 
-## 1. Preámbulo
+## 1. Preámbulo 1
 
 [React](https://reactjs.org/) y [Angular](https://angular.io/)
 son algunos de los _frameworks_ y _librerías_ de JavaScript más utilizados por
