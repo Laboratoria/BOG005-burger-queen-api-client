@@ -53,6 +53,7 @@ export function Login() {
         localStorage.setItem("userId", response.data.user.id);
         localStorage.setItem("email", response.data.user.email);
         localStorage.setItem("role", response.data.user.role);
+   
 
 
       })
@@ -93,6 +94,7 @@ export function Login() {
                 name="email"
                 placeholder="Correo electrónico"
                 onChange={managementEmail}
+                value={email}
               />
             </Form.Group>
 

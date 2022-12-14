@@ -4,16 +4,24 @@ import Nav from "react-bootstrap/Nav";
 import icon from "../img/button-back.png";
 import axios from "axios";
 import React, { useEffect, useState } from "react";
-import {Link} from 'react-router-dom'
-import Container from "react-bootstrap/Container";
-import Navbar from "react-bootstrap/Navbar";
-
-
+import { Link } from "react-router-dom";
+import { Navbar, Container, ListGroup, Card } from "react-bootstrap";
 
 export function Breakfast() {
-  const url = "http://localhost:8080/products";
-  const [products, setProducts] = useState([]);
 
+  const url = "http://localhost:8080/products";
+  const order = " http://localhost:8080/orders";
+
+  const [products, setProducts] = useState([]);
+  const [orders, setOrders] = useState([]);
+  console.log(orders)
+  const [productosAgregados, setProductosAgregados] = useState([]);
+  const [nombreCliente, setNombreCliente] = useState('');
+  
+  const [allproducts, setAllproducts] = useState([]);
+  const [total, setTotal] = useState(0);
+  const [countProducts, setCountProducts] = useState(0);
+  const [active, setActive] = useState(false);
 
   useEffect(() => {
     axios
@@ -33,25 +41,83 @@ export function Breakfast() {
       });
   }, []);
 
+  const addProduct = (filterType) => {
+    console.log("yo soy filter",filterType)
+    if (allproducts.find((item) => item.id === filterType.id)) {
+      const products = allproducts.map((item) =>
+        item.id === filterType.id
+          ? { ...item, qty: item.qty + 1 }
+          : item
+      );
+
+      return setAllproducts([...products]);
+    }
+    setAllproducts([...allproducts, filterType]);
+  };
+  console.log("añadido", allproducts);
 
 
+    const pedidoCrear = {
+      userId: localStorage.getItem('userId'),
+      client: nombreCliente,
+      products:
+        productosAgregados.map(producto => {
+          return {
+            qty: 1,
+            product: {
+              ...producto
+            }
+          }
+        }),
+      status: "pending",
+      dateEntry: "2022-03-05 15:14:10"
+    };
+   
+
+  useEffect(() => {
+    axios
+      ( {
+        method: 'POST',
+          url: order,
+          data: pedidoCrear,
+        headers: {
+          "content-type": "application/json",
+          Authorization: `Bearer ${localStorage.getItem("Token")}`,
+        }
+      })
+      .then((response) => {
+        setOrders(response.data);
+
+        console.log(response.data);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  }, []);
+   
   return (
-
     <section className="order-breakfast">
-          <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark">
-    <Container>
-      <Navbar.Brand href="">Pedido</Navbar.Brand>
-      <Navbar.Toggle aria-controls="responsive-navbar-nav" />
-      <Navbar.Collapse id="responsive-navbar-nav">
-        <Nav>
-        <Nav.Link > <Link to="/lounch" >Almuerzo</Link></Nav.Link>
-        </Nav>
-      </Navbar.Collapse>
-    </Container>
-  </Navbar>
+      <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark">
+        <Container>
+          <Navbar.Brand href="">Pedido</Navbar.Brand>
+          <Navbar.Toggle aria-controls="responsive-navbar-nav" />
+          <Navbar.Collapse id="responsive-navbar-nav">
+            <Nav>
+              <Nav.Link>
+                {" "}
+                <Link to="/lounch">Almuerzo</Link>
+              </Nav.Link>
+            </Nav>
+          </Navbar.Collapse>
+        </Container>
+      </Navbar>
       <Nav className="nav">
         <Nav.Item>
-        <Nav.Link ><Link to="/order" ><img src={icon} alt="icon-back" className="icon-back" /></Link></Nav.Link>
+          <Nav.Link>
+            <Link to="/order">
+              <img src={icon} alt="icon-back" className="icon-back" />
+            </Link>
+          </Nav.Link>
         </Nav.Item>
         <h1 className="title-pedido">Desayuno</h1>
         <Nav.Item>
@@ -59,12 +125,81 @@ export function Breakfast() {
         </Nav.Item>
       </Nav>
       <main>
-        {
-          products.map((item) => (
-            <li key={item.id}> Producto: {item.name}, Precio: {item.price}</li>
-          ))
-        }
+        <div>
+          {products
+            .filter((product) => product.type.includes("Desayuno"))
+            .map((filterType) => (
+              <ListGroup className="cards-products" key={filterType.id}>
+                <ListGroup.Item onClick={() => setActive(!active)}>
+                  {" "}
+                  {filterType.name}
+                </ListGroup.Item>
+                <ListGroup.Item>${filterType.price}</ListGroup.Item>
+                <Button onClick={() => addProduct(filterType)}>
+                  {" "}
+                  Añadir al pedido{" "}
+                </Button>
+              </ListGroup>
+            ))}
+        </div>
       </main>
+      <section className="container-card-products">
+        {/* <Card className="row-product hidden"> 
+      <div className="count-products"> 
+      <Card.Text id =" contador-productos"> 0 </Card.Text>
+      </div>
+      </Card> */}
+        <div className={`container-cart-products`}>
+          {allproducts.length ? (
+            <>
+              <div className="row-product">
+                {allproducts.map((filterType) => (
+                  <div className="cart-product" key={filterType.id}>
+                    <div className="info-cart-product">
+                      <span className="cantidad-producto-carrito">
+                        {filterType.qty}
+
+                      </span>
+
+                      <p className="titulo-producto-carrito">
+                        {filterType.name}
+                      </p>
+
+                      <span className="precio-producto-carrito">
+                        ${filterType.price}
+                      </span>
+                    </div>
+                    {/* <svg
+                       
+                        fill="none"
+                        viewBox="0 0 24 24"
+                        strokeWidth="1.5"
+                        stroke="currentColor"
+                        className="icon-close"
+                        onClick={() => onDeleteProduct(product)}
+                      >
+                        <path
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                          d="M6 18L18 6M6 6l12 12"
+                        />
+                      </svg> */}
+                  </div>
+                ))}
+              </div>
+              <div className="cart-total">
+                <h3>Total:</h3>
+                <span className="total-pagar">${total}</span>
+              </div>
+              {/* <button className='btn-clear-all' onClick={onCleanCart}>
+                Vaciar Carrito
+              </button> */}
+            </>
+          ) : (
+            <p className="cart-empty">El carrito está vacío</p>
+          )}
+        </div>
+      </section>
     </section>
   );
 }
