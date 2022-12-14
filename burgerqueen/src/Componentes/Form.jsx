@@ -49,7 +49,7 @@
             Swal.fire("Ten un excelente turno, admin!");
           } 
           else if (response.data.user.role === "mesero") {
-            navigate("/Orders");
+            navigate("Products/");
             Swal.fire("Ten un excelente turno, mesero!");
           }
         }
