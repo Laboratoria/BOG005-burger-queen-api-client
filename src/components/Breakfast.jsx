@@ -8,19 +8,19 @@ import { Link } from "react-router-dom";
 import { Navbar, Container, ListGroup, Card } from "react-bootstrap";
 
 export function Breakfast() {
-
   const url = "http://localhost:8080/products";
   const order = " http://localhost:8080/orders";
 
   const [products, setProducts] = useState([]);
   const [orders, setOrders] = useState([]);
-  console.log(orders)
+  console.log(orders);
   const [productosAgregados, setProductosAgregados] = useState([]);
-  const [nombreCliente, setNombreCliente] = useState('');
-  
+  const [nombreCliente, setNombreCliente] = useState("");
+
   const [allproducts, setAllproducts] = useState([]);
   const [total, setTotal] = useState(0);
   const [countProducts, setCountProducts] = useState(0);
+   const [quantity, setQuantity] = useState(1);
   const [active, setActive] = useState(false);
 
   useEffect(() => {
@@ -41,60 +41,61 @@ export function Breakfast() {
       });
   }, []);
 
+  //  let quantity = 1;
+ 
   const addProduct = (filterType) => {
-    console.log("yo soy filter",filterType)
+    
+    console.log("yo soy filter", filterType);
     if (allproducts.find((item) => item.id === filterType.id)) {
       const products = allproducts.map((item) =>
         item.id === filterType.id
-          ? { ...item, qty: item.qty + 1 }
+          ? { ...item, quantity:setQuantity(quantity+1) }
           : item
+      
+      
       );
-
+     
+       console.log("este es qunantity 1", quantity);
       return setAllproducts([...products]);
     }
     setAllproducts([...allproducts, filterType]);
   };
-  console.log("añadido", allproducts);
 
+  // const pedidoCrear = {
+  //   userId: localStorage.getItem("userId"),
+  //   client: nombreCliente,
+  //   products: productosAgregados.map((producto) => {
+  //     return {
+  //       quantity: 1,
+  //       product: {
+  //         ...producto,
+  //       },
+  //     };
+  //   }),
+  //   status: "pending",
+  //   dateEntry: "2022-03-05 15:14:10",
+  // };
 
-    const pedidoCrear = {
-      userId: localStorage.getItem('userId'),
-      client: nombreCliente,
-      products:
-        productosAgregados.map(producto => {
-          return {
-            qty: 1,
-            product: {
-              ...producto
-            }
-          }
-        }),
-      status: "pending",
-      dateEntry: "2022-03-05 15:14:10"
-    };
-   
+  // useEffect(() => {
+  //   axios({
+  //     method: "POST",
+  //     url: order,
+  //     data: pedidoCrear,
+  //     headers: {
+  //       "content-type": "application/json",
+  //       Authorization: `Bearer ${localStorage.getItem("Token")}`,
+  //     },
+  //   })
+  //     .then((response) => {
+  //       setOrders(response.data);
 
-  useEffect(() => {
-    axios
-      ( {
-        method: 'POST',
-          url: order,
-          data: pedidoCrear,
-        headers: {
-          "content-type": "application/json",
-          Authorization: `Bearer ${localStorage.getItem("Token")}`,
-        }
-      })
-      .then((response) => {
-        setOrders(response.data);
+  //       console.log(response.data);
+  //     })
+  //     .catch((err) => {
+  //       console.log(err);
+  //     });
+  // }, []);
 
-        console.log(response.data);
-      })
-      .catch((err) => {
-        console.log(err);
-      });
-  }, []);
-   
   return (
     <section className="order-breakfast">
       <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark">
@@ -125,21 +126,25 @@ export function Breakfast() {
         </Nav.Item>
       </Nav>
       <main>
-        <div>
+        <div className="container-product">
           {products
             .filter((product) => product.type.includes("Desayuno"))
             .map((filterType) => (
-              <ListGroup className="cards-products" key={filterType.id}>
-                <ListGroup.Item onClick={() => setActive(!active)}>
+              <Card className="cards-products" key={filterType.id}>
+                <Card.Text onClick={() => setActive(!active)}>
                   {" "}
                   {filterType.name}
-                </ListGroup.Item>
-                <ListGroup.Item>${filterType.price}</ListGroup.Item>
+                </Card.Text>
+                {/* <figure>
+                  <img src={filterType.image} alt={filterType.nameProduct} />
+                </figure> */}
+
+                <Card.Text>${filterType.price}</Card.Text>
                 <Button onClick={() => addProduct(filterType)}>
                   {" "}
                   Añadir al pedido{" "}
                 </Button>
-              </ListGroup>
+              </Card>
             ))}
         </div>
       </main>
@@ -157,10 +162,8 @@ export function Breakfast() {
                   <div className="cart-product" key={filterType.id}>
                     <div className="info-cart-product">
                       <span className="cantidad-producto-carrito">
-                        {filterType.qty}
-
+                        {filterType.quantity}
                       </span>
-
                       <p className="titulo-producto-carrito">
                         {filterType.name}
                       </p>
@@ -169,21 +172,20 @@ export function Breakfast() {
                         ${filterType.price}
                       </span>
                     </div>
-                    {/* <svg
-                       
-                        fill="none"
-                        viewBox="0 0 24 24"
-                        strokeWidth="1.5"
-                        stroke="currentColor"
-                        className="icon-close"
-                        onClick={() => onDeleteProduct(product)}
-                      >
-                        <path
+                    <svg
+                      fill="none"
+                      viewBox="0 0 24 24"
+                      strokeWidth="1.5"
+                      stroke="currentColor"
+                      className="icon-close"
+                      // onClick={() => onDeleteProduct(product)}
+                    >
+                      {/* <path
                           strokeLinecap="round"
                           strokeLinejoin="round"
                           d="M6 18L18 6M6 6l12 12"
-                        />
-                      </svg> */}
+                        /> */}
+                    </svg>
                   </div>
                 ))}
               </div>
