@@ -152,9 +152,9 @@
   } */
 
   .login .logo_imagen {
-    width: 30vw;
+    width: 20vw;
     margin-top: 40px;
-    margin-left: -220px;
+    margin-left: -45vw ;
   }
   .container_form {
     display: flex;
@@ -166,11 +166,7 @@
     margin-top: 10vh;
   }
   
-  .logo_imagen {
-    width: 30vw;
-    margin-left: -540px;
-    margin-top: 40px;
-  }
+
 
   .form-control {
     height: 6vh;
@@ -195,7 +191,7 @@
   }
 }
 
-@media only screen and (max-width: 600px) {
+@media only screen and (max-width: 780px) {
   .login {
     background-image: url(../img/background-mobile.png);
     height: 99.9vh;
@@ -204,6 +200,11 @@
   .login h1 {
     text-align: center;
     align-items: center;
+  }
+  .login .logo_imagen {
+    width: 20vw;
+    margin-top: 40px;
+    margin-right: -50vw ;
   }
 
   .login .login_title {

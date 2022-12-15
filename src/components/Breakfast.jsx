@@ -8,19 +8,18 @@ import { Link } from "react-router-dom";
 import { Navbar, Container, ListGroup, Card } from "react-bootstrap";
 
 export function Breakfast() {
-
   const url = "http://localhost:8080/products";
-  const order = " http://localhost:8080/orders";
+  const order = "http://localhost:8080/orders";
 
   const [products, setProducts] = useState([]);
   const [orders, setOrders] = useState([]);
-  console.log(orders)
+  console.log('Orders es: ',orders);
   const [productosAgregados, setProductosAgregados] = useState([]);
-  const [nombreCliente, setNombreCliente] = useState('');
-  
+  const [nombreCliente, setNombreCliente] = useState("");
+
   const [allproducts, setAllproducts] = useState([]);
   const [total, setTotal] = useState(0);
-  const [countProducts, setCountProducts] = useState(0);
+  // const [countProducts, setCountProducts] = useState(0);
   const [active, setActive] = useState(false);
 
   useEffect(() => {
@@ -42,12 +41,10 @@ export function Breakfast() {
   }, []);
 
   const addProduct = (filterType) => {
-    console.log("yo soy filter",filterType)
+    console.log("yo soy filter", filterType);
     if (allproducts.find((item) => item.id === filterType.id)) {
       const products = allproducts.map((item) =>
-        item.id === filterType.id
-          ? { ...item, qty: item.qty + 1 }
-          : item
+        item.id === filterType.id ? { ...item, qty: item.qty + 1 } : item
       );
 
       return setAllproducts([...products]);
@@ -56,34 +53,29 @@ export function Breakfast() {
   };
   console.log("añadido", allproducts);
 
-
-    const pedidoCrear = {
-      userId: localStorage.getItem('userId'),
-      client: nombreCliente,
-      products:
-        productosAgregados.map(producto => {
-          return {
-            qty: 1,
-            product: {
-              ...producto
-            }
-          }
-        }),
-      status: "pending",
-      dateEntry: "2022-03-05 15:14:10"
-    };
-   
+  const pedidoCrear = {
+    userId: localStorage.getItem("userId"),
+    client: nombreCliente,
+    products: productosAgregados.map((producto) => {
+      return {
+        qty: 1,
+        product: {
+          ...producto,
+        },
+      };
+    }),
+    status: "pending",
+    dateEntry: "2022-03-05 15:14:10",
+  };
 
   useEffect(() => {
     axios
-      ( {
-        method: 'POST',
-          url: order,
-          data: pedidoCrear,
+      .get(order, {
+        data: pedidoCrear,
         headers: {
           "content-type": "application/json",
-          Authorization: `Bearer ${localStorage.getItem("Token")}`,
-        }
+          authorization: `Bearer ${localStorage.getItem("Token")}`,
+        },
       })
       .then((response) => {
         setOrders(response.data);
@@ -94,7 +86,7 @@ export function Breakfast() {
         console.log(err);
       });
   }, []);
-   
+
   return (
     <section className="order-breakfast">
       <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark">
@@ -125,21 +117,21 @@ export function Breakfast() {
         </Nav.Item>
       </Nav>
       <main>
-        <div>
+        <div className="container-product">
           {products
             .filter((product) => product.type.includes("Desayuno"))
             .map((filterType) => (
-              <ListGroup className="cards-products" key={filterType.id}>
-                <ListGroup.Item onClick={() => setActive(!active)}>
+              <Card className="cards-products" key={filterType.id}>
+                <Card.Text onClick={() => setActive(!active)}>
                   {" "}
                   {filterType.name}
-                </ListGroup.Item>
-                <ListGroup.Item>${filterType.price}</ListGroup.Item>
+                </Card.Text>
+                <Card.Text>${filterType.price}</Card.Text>
                 <Button onClick={() => addProduct(filterType)}>
                   {" "}
                   Añadir al pedido{" "}
                 </Button>
-              </ListGroup>
+              </Card>
             ))}
         </div>
       </main>
@@ -154,21 +146,21 @@ export function Breakfast() {
             <>
               <div className="row-product">
                 {allproducts.map((filterType) => (
-                  <div className="cart-product" key={filterType.id}>
-                    <div className="info-cart-product">
-                      <span className="cantidad-producto-carrito">
+                  <Card className="cart-product" key={filterType.id}>
+                 
+                      {/* <span className="cantidad-producto-carrito">
                         {filterType.qty}
 
-                      </span>
+                      </span> */}
 
                       <p className="titulo-producto-carrito">
                         {filterType.name}
                       </p>
 
-                      <span className="precio-producto-carrito">
-                        ${filterType.price}
-                      </span>
-                    </div>
+                      <p className="precio-producto-carrito">
+                        {filterType.price}$
+                      </p>
+                  
                     {/* <svg
                        
                         fill="none"
@@ -184,7 +176,7 @@ export function Breakfast() {
                           d="M6 18L18 6M6 6l12 12"
                         />
                       </svg> */}
-                  </div>
+                  </Card>
                 ))}
               </div>
               <div className="cart-total">
@@ -196,7 +188,7 @@ export function Breakfast() {
               </button> */}
             </>
           ) : (
-            <p className="cart-empty">El carrito está vacío</p>
+            <p className="cart-empty">Pedido vacío</p>
           )}
         </div>
       </section>

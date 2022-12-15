@@ -69,8 +69,8 @@ nav .btn-cocina {
   background-repeat: no-repeat;
   height: 99.9vh;
 }
-.order-breakfast.card-prouct{
-  height:40vh;
+.order-breakfast.card-prouct {
+  height: 40vh;
 }
 
 .order-lounch .nav {
@@ -86,7 +86,6 @@ nav .btn-cocina {
   height: 99.9vh;
 }
 .order .btn {
-    
   background-color: #dd7a1e;
   color: black;
   border-color: #dd7a1e;
@@ -114,11 +113,9 @@ nav .btn-cocina {
     padding-top: 30px;
     /* margin-top: 10px; */
   }
-    .usuario-email {
+  .usuario-email {
     font-size: 1rem;
-
   }
-
 
   .order .input-name {
     width: 40vw;
@@ -132,12 +129,11 @@ nav .btn-cocina {
     align-items: center;
     margin-left: 22vw;
     margin-top: 5vh;
+    height: 70vh;
+  }
 
-}
-
-  .card-body{
+  .card-body {
     height: 10vh;
-
   }
   .order .img-mesero {
     width: 30vw;
@@ -182,10 +178,9 @@ nav .btn-cocina {
     background-repeat: no-repeat;
     height: 99.9vh;
   }
-  .order-breakfast .card-prouct{
-  height:40vh;
-  
- }
+  .order-breakfast .card-prouct {
+    height: 40vh;
+  }
 
   .order-lounch .nav {
     display: flex;
@@ -201,7 +196,6 @@ nav .btn-cocina {
   }
 
   .order .btn {
-    
     background-color: #dd7a1e;
     color: black;
     border-color: #dd7a1e;
@@ -214,18 +208,15 @@ nav .btn-cocina {
     box-shadow: 0 4px 16px black;
     transition: all 0.2s ease;
   }
-  .options-buttons-order{
+  .options-buttons-order {
     margin-top: 3vh;
-    
   }
 
-  .button-desayuno{
+  .button-desayuno {
     margin-bottom: 2vh;
     margin-top: 2vh;
     text-decoration: none;
   }
-
-
 }
 
 @media only screen and (min-width: 768px) {
@@ -245,7 +236,6 @@ nav .btn-cocina {
   }
   .usuario-email {
     font-size: 2rem;
-
   }
 
   .order .card {
@@ -271,7 +261,6 @@ nav .btn-cocina {
     border-radius: 10px;
     width: 20vw;
     height: 6vh;
- 
   }
   .order .nav {
     display: flex;
@@ -320,9 +309,44 @@ nav .btn-cocina {
     height: 99.9vh;
   }
 
-    .button-desayuno{
+  .button-desayuno {
     margin-bottom: 2vh;
     margin-top: 2vh;
     text-decoration: none;
+  }
+  .cards-products {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .row-product {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: auto;
+  }
+  .container-product {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .cards-products  {
+    width:30vw;
+    height: 20vh;
+    margin: 6vh;
+
+    
+  }
+  .cart-product .list-group-item {
+    width: 60vw;
+    margin-top: 20vh;
+  }
+  .cart-product {
+    width: 40vw;
+    display: block;
+  }
+  .row-product .cart-product {
+    margin-top: 5vh;
+    display: block;
   }
 }
