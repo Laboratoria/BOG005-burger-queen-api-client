@@ -122,7 +122,7 @@ nav .btn-cocina {
     margin-top: 6vh;
     margin-left: 10vw;
   }
-  .order .card {
+.order .card {
     display: flex;
     justify-content: space-between;
     width: 60vw;
@@ -131,6 +131,7 @@ nav .btn-cocina {
     margin-top: 5vh;
     height: 70vh;
   }
+
 
   .card-body {
     height: 10vh;
@@ -237,32 +238,21 @@ nav .btn-cocina {
   .usuario-email {
     font-size: 2rem;
   }
-
-  .order .card {
+ 
+ .order .card {
     display: flex;
-    justify-content: center;
+    justify-content: space-between;
     width: 60vw;
     align-items: center;
+    margin-left: 22vw;
     margin-top: 5vh;
-    border-radius: 30px;
+    height: 70vh;
   }
-  .order .img-mesero {
-    width: 12vw;
-  }
-  .order .text-cards {
-    font-size: 1.5em;
+.order-breakfast .card-prouct {
+    height: 40vh;
   }
 
-  nav .btn-cocina {
-    font-size: 1.5em;
-    background-color: #dd7a1e;
-    color: black;
-    border-color: #dd7a1e;
-    border-radius: 10px;
-    width: 20vw;
-    height: 6vh;
-  }
-  .order .nav {
+.order .nav {
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -301,8 +291,7 @@ nav .btn-cocina {
     align-items: center;
     padding-top: 1vh;
   }
-
-  .order-lounch {
+ .order-lounch {
     background-image: url(../img/Background-pedidos.png);
     background-repeat: no-repeat;
     background-size: cover;
@@ -330,7 +319,7 @@ nav .btn-cocina {
     justify-content: center;
     align-items: center;
   }
-  .cards-products  {
+ .cards-products  {
     width:30vw;
     height: 20vh;
     margin: 6vh;
@@ -349,4 +338,5 @@ nav .btn-cocina {
     margin-top: 5vh;
     display: block;
   }
+
 }
