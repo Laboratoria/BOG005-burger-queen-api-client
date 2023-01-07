@@ -30,7 +30,6 @@ const Products = () => {
     }
 
     const agregarPoductos = (produc) => {
-
         if (agregado.length) {
             if (agregado.find(item => item.id === produc.id)) {
                 const product = agregado.map(item =>
@@ -49,13 +48,12 @@ const Products = () => {
         } else {
             setagregado([...agregado, { ...produc, quantity: 1 }])
             setTotal(produc.price)
-        }
-        
-        
-        
+        }     
+
     }
-    console.log(agregado)
-    console.log(agregado.reduce((acumulador, { price, quantity }) => acumulador + (price * quantity), 0));
+
+    // console.log(agregado)
+    // console.log(agregado.reduce((acumulador, { price, quantity }) => acumulador + (price * quantity), 0));
 
 
     const remove = (produc) => {
@@ -63,9 +61,14 @@ const Products = () => {
 
     }
 
+    const agre = (produc) => {
+        console.log('agregar')
+
+    }
+
     return (
 
-        <section className="container" >
+        <section className="h-100" >
 
             <div className="header">
                 <div>
@@ -108,9 +111,8 @@ const Products = () => {
                                     <p className="nombreProductoAdd" >{producAdd.name} </p>
                                     <p className="precioProducAdd">${producAdd.price} </p>
                                     <div className="conCantidad">
-                                        <button className="cantidades" onClick={remove}>-</button><p className="cantidad">{producAdd.quantity}</p><button className="cantidades">+</button>
-                                        <button className="eliminarProducto">Elimina</button>
-
+                                        <button className="cantidades" onClick={remove}>-</button><p className="cantidad">{producAdd.quantity}</p><button className="cantidades" onClick={agre}>+</button>
+                                        <button className="eliminarProducto" >Elimina</button>
                                     </div>
                                     <hr />
                                 </div>

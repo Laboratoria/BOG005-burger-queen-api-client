@@ -1,14 +1,14 @@
- import React from "react";
- import { useNavigate } from "react-router-dom";
- import { useState, useEffect} from "react";
- import logo from "../img/logo.png"
- import loginUser from "../petitions/axios"
- import Swal from "sweetalert2";
- 
+import React from "react";
+import { useNavigate } from "react-router-dom";
+import { useState, useEffect } from "react";
+import logo from "../img/logo.png"
+import loginUser from "../petitions/axios"
+import Swal from "sweetalert2";
 
- 
 
- const Login = () => {
+
+
+const Login = () => {
   useEffect(() => {
     showAlert();
   }, []);
@@ -47,7 +47,7 @@
           if (response.data.user.role === "admin") {
             navigate("/Admin");
             Swal.fire("Ten un excelente turno, admin!");
-          } 
+          }
           else if (response.data.user.role === "mesero") {
             navigate("Products/");
             Swal.fire("Ten un excelente turno, mesero!");
@@ -56,7 +56,7 @@
       })
       .catch((error) => {
         console.log(error);
-        if (error.response.data === "Incorrect password"){
+        if (error.response.data === "Incorrect password") {
           Swal.fire("Contraseña incorrecta", "Intenta de nuevo", "error");
         } else {
           Swal.fire(
@@ -69,34 +69,42 @@
   };
 
   return (
-    <article className="principal-login">
-      <img src={logo} alt="logotipo"/>
-    <form className='login'>
-      <div className='form-container'>
-      <h1 className="tittle-login">LOGIN</h1>
-        <input
-          type='email'
-          placeholder='Correo'
-          name='username'
-          value={userEmail}
-          onChange={handleChangeEmail}
-        />
-        <input
-          type='password'
-          placeholder='Contraseña'
-          name='pass'
-          value={userPassword}
-          onChange={handleChangePassword}
-        />
-        <p id='errorMessage'></p>
-        <div className='button-container-login'>
-          <button className='btn-login' onClick={userAuth}>
-            INGRESAR
-          </button>
-        </div>
+    <div className="h-100 contForm ">
+      <div >
+        <img src={logo} alt={logo} className="logoForm" />
       </div>
-    </form>
-    </article>
+
+      <form className='card  h-50 w-50 shadow-lg p-3 mb-5 bg-white rounded  opacity-0.5;'>
+        <div className='form-container text-center'>
+          <h2 className="tittle-login">LOGIN</h2>
+          <div className="form-group input-group p-2"  >
+            <input className="form-control"
+              type='email'
+              placeholder='Correo'
+              name='username'
+              value={userEmail}
+              onChange={handleChangeEmail}
+            />
+          </div>
+
+          <div className="form-group input-group p-2"  >
+            <input
+              type='password'
+              placeholder='Contraseña'
+              name='pass'
+              value={userPassword}
+              onChange={handleChangePassword}
+            />
+          </div>
+          <p id='errorMessage'></p>
+          <div className='button-container-login'>
+            <button className='btn-login bg-warning text-dark bg-opacity-50' onClick={userAuth}>
+              INGRESAR
+            </button>
+          </div>
+        </div>
+      </form>
+    </div>
   );
 };
 

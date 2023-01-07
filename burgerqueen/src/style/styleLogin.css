@@ -1,69 +1,19 @@
-.principal-login {
-    margin: 0;
-    background-image: url(../img/descarga.jpg);
-    background-size: 770px 1021px;
-    height: 1000px;
-    background-repeat: no-repeat;
-}
-
-
-article img {
+.contForm{
   display: flex;
   flex-direction: column;
-  position: absolute;
+  align-items: center;
   justify-content: center;
-  top: 70px;
-  left: 60px;
+}
+.logoForm{
+  height: 130px;
+}
+.formComponent{
+  background-image: url('../img/Fondo\ de\ Pantalla\ para\ Celular\ Motivacional\ Azul\ de\ Nubes.jpg');
+  background-color: #ffd88b;
+}
+.tittle-login{
+  margin-top: 20px;
 }
 
-.form-container {
-  display: flex;
-  flex-direction: column;
-  position: relative;
-  background-color: rgba(221, 218, 218, 0.5);
-  width: 500px;
-  height: 320px;
-  border-radius: 30px;
-  padding: 50px;
-  justify-content: center;
-  top: 250px;
-  left: 160px;
-  top: 400px;
+.form-control{margin-top: 50px;
 }
-
-.form-container h1 {
-  text-align: center;
-  font-size: 30px;
-  padding: 1px 20px 20px 20px;
-}
-
-.login input {
-  background: #fffdfde1;
-  box-shadow: 2px 2px 2px 2px rgba(44, 43, 43, 0.295);
-  border-radius: 50px;
-  border: none;
-  width: 400px;
-  height: 100px;
-  margin: 10px;
-  margin-left: -10px;
-  font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
-  font-size: 20px;
-  font-weight: 300;
-}
-
-.btn-login{
-  background-color: #FFB936;
-  box-shadow: 2px 2px 2px 2px rgba(44, 43, 43, 0.295);
-width: 200px;
-height: 50px;
-margin-left: 80px;
-margin-top: 40px;
-color: #FFFFFF;
-border-radius: 50px;
-border: none;
-font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
-font-size: 20px;
-font-weight: bold;
-}
-
-
