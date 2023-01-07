@@ -1,0 +1,19 @@
+.contForm{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.logoForm{
+  height: 130px;
+}
+.formComponent{
+  background-image: url('../img/Fondo\ de\ Pantalla\ para\ Celular\ Motivacional\ Azul\ de\ Nubes.jpg');
+  background-color: #ffd88b;
+}
+.tittle-login{
+  margin-top: 20px;
+}
+
+.form-control{margin-top: 50px;
+}
