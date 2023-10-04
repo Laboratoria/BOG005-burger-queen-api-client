@@ -1,0 +1,137 @@
+.optionMenu {
+    width: 50%;
+    margin: 0;
+    padding: 10px;
+}
+
+.optionsListContainer {
+    padding-left: 5px;
+    width: 98%;
+    /* border: solid 1px rgb(0, 47, 255); */
+    text-align: center;
+}
+
+.optionsListContainer select {
+    background-color: #ED751E;
+    border-radius: 15px;
+    border-style: none;
+    margin-bottom: 10px;
+}
+
+.optionsListContainer option {
+    font-weight: bold;
+}
+
+.listProductsContainer {
+    width: 98%;
+    min-height: 70px;
+    text-align: center;
+    display: grid;
+    grid-template-columns: 10% 30% 15% 20%;
+    justify-content: space-around;
+    align-items: center;
+    background: white;
+    color: black;
+    border-radius: 25px;
+    margin-top: 10px;
+}
+
+.listProductsContainer img {
+    height: 35px;
+    width: auto;
+    padding: 5px;
+}
+
+.listProductsContainer p {
+    font-size: 14px;
+    /* background-color: blueviolet; */
+}
+
+.listProductsContainer .btnAdd {
+    font-size: 12px;
+    background: #BCE402;
+    width: 60px;
+    height: 30px;
+    border-radius: 15px;
+    border-style: none;
+}
+
+@media all and (min-width: 768px) {
+
+    .optionsListContainer select {
+        height: 40px;
+        width: 40%;
+        font-size: 18px;
+    }
+
+    .optionsListContainer option {
+        font-size: 14px;
+    }
+
+    .listProductsOrder {
+        /* border: solid 1px yellow; */
+        display: flex;
+        justify-content: center;
+    }
+
+    .listProductsContainer {
+        width: 80%;
+        height: 70px;
+        grid-template-columns: 10% 30% 10% 20%;
+        min-height: 50px;
+    }
+
+    .listProductsContainer img {
+        height: 45px;
+    }
+
+    .listProductsContainer p {
+        font-size: 18px;
+    }
+
+    .listProductsContainer .btnAdd {
+        font-size: 18px;
+        width: 110px;
+        height: 35px;
+    }
+
+}
+
+@media all and (min-width: 1024px) {
+    .optionsListContainer {
+        margin-bottom: 30px;
+    }
+
+    .optionsListContainer select {
+        height: 45px;
+        width: 50%;
+        font-size: 20px;
+        font-weight: bold;
+    }
+
+    .optionsListContainer option {
+        font-size: 14px;
+    }
+
+    .listProductsContainer {
+        /* border: solid 1px yellow; */
+        min-height: 90px;
+        width: 95%;
+    }
+
+    .listProductsContainer img {
+        height: 50px;
+    }
+
+    .listProductsContainer p {
+        font-size: 20px;
+    }
+
+    .listProductsContainer .btnAdd {
+        font-size: 18px;
+        width: 95px;
+        height: 35px;
+    }
+
+
+}

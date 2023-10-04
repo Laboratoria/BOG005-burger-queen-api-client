@@ -1,0 +1,188 @@
+/* lista de productos */
+
+.productsAll {
+    background: url('../resources/background-hamburger.png');
+    background-size: contain;
+    min-height: 100vh;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.containerBtnBack {
+    /* border: solid 1px lightblue; */
+    width: 88%;
+    margin-top: 10px;
+}
+
+/* texto administrador de productos */
+.productsAll h3 {
+    color: white;
+    text-align: center;
+    font-size: 18px;
+}
+
+.containerFormListProducts {
+    /* border: solid 2px rgb(37, 71, 4); */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.containerFormAddProduct {
+    /* border: solid 2px rgb(140, 228, 52); */
+    height: 100%;
+    width: 100%;
+}
+
+.containerProductsAdmin {
+    /* border: solid 2px rgb(169, 24, 236); */
+    padding-bottom: 20px;
+}
+
+.productsContainer {
+    /* border: solid 2px yellow; */
+    text-align: center;
+    display: grid;
+    min-height: 70px;
+    /* grid-template-columns: 10% 20% 10% 20% 10% 10%; */
+    grid-template-columns: 10% 30% 15% 20%;
+    justify-content: space-around;
+    align-items: center;
+    background: white;
+    border-radius: 25px;
+    margin: 10px;
+}
+
+.productsContainer img {
+    height: 40px;
+    width: auto;
+    padding: 5px;
+}
+
+.productsContainer p {
+    font-size: 14px;
+}
+
+/* <p> Agregar Producto </p> */
+.pAddProductForm {
+    margin-bottom: 5px;
+    font-weight: bold;
+    /* border: solid 2px blueviolet; */
+}
+
+.inputCargarImagen,
+.inputNombreProducto,
+.inputPrecio {
+    border-style: none;
+    background-color: #D9D9D9;
+    border-radius: 25px;
+    height: 30px;
+    padding-left: 15px;
+}
+
+.SelectTypeProduct {
+    height: 30px;
+    padding-left: 10px;
+    /* background-color: #ED751E; */
+    background-color: #F8B62AD9;
+    color: rgb(65, 64, 64);
+    border-radius: 15px;
+    border-style: none;
+    margin-top: 5px;
+}
+
+.sectionBtn {
+    /* border: solid 2px blueviolet; */
+    margin-top: 10px;
+}
+
+.btnContainerProducts {
+    text-align: right;
+    margin-right: 25px;
+    margin-top: -20px;
+}
+
+.btnEditAdmonProduct {
+    color: black;
+    width: 60px;
+    height: 30px;
+    background-color: #BCE402;
+    border-radius: 15px;
+    border-style: none;
+    margin-right: 5px;
+}
+
+.btnEditDeleteProduct {
+    color: white;
+    width: 60px;
+    height: 30px;
+    background-color: #FF0606;
+    border-radius: 15px;
+    border-style: none;
+    margin-right: 5px;
+}
+
+@media all and (min-width: 768px) {
+    .containerFormListProducts {
+        /* border: solid 2px rgb(37, 71, 4); */
+        width: 90%;
+    }
+
+    .productsAll h3 {
+        font-size: 32px;
+    }
+
+    .containerFormAddProduct {
+        /* border: solid 2px rgb(140, 228, 52); */
+        display: flex;
+        justify-content: center;
+    }
+
+    .containerProductsAdmin {
+        width: 100%;
+        /* border: solid 2px rgb(169, 24, 236); */
+        /* margin-bottom: 10px; */
+    }
+
+    .productsContainer {
+        grid-template-columns: 15% 30% 15% 20%;
+    }
+
+    .productsContainer img {
+        height: 60px;
+    }
+
+    .productsContainer p {
+        font-size: 20px;
+    }
+
+    .btnEditDeleteProduct,
+    .btnEditAdmonProduct {
+        width: 80px;
+        height: 35px;
+        margin-right: 10px;
+    }
+}
+
+@media all and (min-width: 1024px) {
+
+    .containerFormListProducts {
+        /* border: solid 2px rgb(37, 71, 4); */
+        align-items: flex-start;
+        flex-direction: row;
+    }
+
+    .inputCargarImagen,
+    .inputNombreProducto,
+    .inputPrecio, 
+    .SelectTypeProduct {
+        height: 40px;
+        font-size: 18px; 
+    }
+
+
+
+}

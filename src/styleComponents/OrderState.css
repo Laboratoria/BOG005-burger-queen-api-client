@@ -1,0 +1,291 @@
+.containerOrderState {
+    background: url('../resources/background-hamburger.png');
+    background-size: cover;
+    min-height: 100vh;
+    /* color: white; */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.containerBtnP {
+    color: white;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    /* margin: 10px; */
+    width: 90%;
+    /* border: solid 2px rgb(248, 8, 60); */
+}
+
+.btnOrderRow {
+    font-size: 14px;
+    background: #BCE402;
+    width: 100px;
+    height: 34px;
+    border-radius: 15px;
+    border-style: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.iconArrowOrderState {
+    font-size: 18px;
+}
+
+.containerBtnP p {
+    /* border: solid 2px rgb(213, 47, 255); */
+    text-align: center;
+}
+
+.pContainerOrderState {
+    border: solid 2px rgb(36, 11, 253);
+    color: white;
+    width: 95%;
+    line-height: 5px;
+    display: flex;
+    justify-content: space-around;
+    padding-left: 40px;
+}
+
+.containerGridOrderState {
+    display: grid;
+    grid-template-rows: 2fr 2.3fr 1.5fr;
+    text-align: center;
+    border-radius: 20px 20px;
+    width: 90%;
+    gap: 10px;
+    padding: 8px;
+}
+
+.pOrderState {
+    /* border: solid 2px rgb(255, 47, 245); */
+    background-color: white;
+    border-radius: 20px;
+    /* display: flex;
+    align-items: center;
+    flex-direction: column; */
+    padding-top: 10px;
+}
+
+.pOrderStateSend {
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.greyCont {
+    /* border: solid 1px rgb(3, 233, 156); */
+    width: 95%;
+    border-radius: 20px;
+    display: flex;
+    flex-direction: column;
+    padding: 5px;
+    /* justify-content: flex-start; */
+    align-items: center;
+}
+
+.divNameSend {
+    /* border: solid 2px rgb(255, 47, 193); */
+    margin: 5px;
+    padding: 5px;
+    background-color: #D9D9D9;
+    border-radius: 20px;
+    width: 90%;
+    min-height: 180px;
+}
+
+/* .divNameSend {
+    margin: 5px;
+    background-color: #D9D9D9;
+    border-radius: 20px;
+    width: 65%;
+    min-height: 180px;
+} */
+
+.divNameSend h3 {
+    font-size: 18px;
+}
+
+.divNameSend p {
+    font-size: 16px;
+}
+
+.divProductStateOrder {
+    display: grid;
+    grid-template-columns: 70% 30%;
+    min-height: 40px;
+    border-bottom: solid 1px rgb(175, 175, 175);
+    border-top: solid 1px rgb(175, 175, 175);
+    border-radius: 10px;
+
+    /* border: solid 1px red; */
+}
+
+.divProductStateOrder p {
+    font-size: 14px;
+}
+
+.divTime {
+    margin-bottom: 5px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #D9D9D9;
+    border-radius: 20px;
+    width: 90%;
+    min-height: 40px;
+    /* line-height: 5px; */
+}
+
+.divTime p {
+    font-size: 16px;
+}
+
+.btnContOrderState {
+    display: flex;
+    /* border: solid 2px rgb(115, 55, 255); */
+}
+
+/* .divTime {
+    margin: 5px 5px 5px 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 20px;
+    width: 30%;
+    min-height: 55px;
+} */
+
+.divNameAttended {
+    margin: 5px;
+    background-color: #d9d9d9;
+    border-radius: 20px;
+    width: 100%;
+    height: 55px;
+    line-height: 5px;
+}
+
+.divNameAttended h3 {
+    font-size: 16px;
+}
+
+.divNameAttended p {
+    font-size: 10px;
+}
+
+.divCheck button {
+    background-color: #BCE402;
+    border-style: none;
+    border-radius: 50%;
+    height: 45px;
+    width: 45px;
+    margin-right: 5px;
+    font-weight: bold;
+
+}
+
+.divCheckRed button {
+    background-color: #e40202;
+    color: white;
+    border-style: none;
+    border-radius: 50%;
+    height: 45px;
+    width: 45px;
+    margin-right: 5px;
+    font-size: 18px;
+
+}
+
+@media all and (min-width: 768px) {
+    .btnOrderRow {
+        font-size: 14px;
+        font-weight: bold;
+        width: 150px;
+        height: 34px;
+    }
+
+    .iconArrowOrderState {
+        font-size: 20px;
+        margin-right: 5px;
+    }
+
+    .containerGridOrderState {
+        grid-template-columns: 2.5fr 2.5fr 2fr;
+        grid-template-rows: 1fr;
+        width: 90%;
+        gap: 5px;
+    }
+
+    .greyCont {
+        width: 95%;
+        justify-content: flex-start;
+        align-items: center;
+        margin: 5px;
+    }
+
+    .containerBtnP p {
+        font-size: 28px;
+        font-weight: bold;
+    }
+
+    .pOrderState {
+        /* border: solid 2px rgb(255, 47, 245); */
+        min-height: 200px;
+        align-items: flex-start;
+        display: flex;
+        padding: 5px;
+        flex-direction: column;
+        align-items: center;
+    }
+
+}
+
+@media all and (min-width: 1024px) {
+    .btnOrderRow {
+        font-size: 20px;
+        font-weight: bold;
+        width: 210px;
+        height: 50px;
+    }
+
+    .iconArrowOrderState {
+        font-size: 24px;
+    }
+
+    .containerBtnP p {
+        font-size: 30px;
+        font-weight: bold;
+    }
+
+    .greyCont {
+        width: 95%;
+    }
+
+    .pOrderState {
+        /* border: solid 2px rgb(255, 47, 245); */
+        min-height: 200px;
+        padding: 5px;
+        align-items: stretch;
+    }
+
+    .divNameSend p {
+        font-size: 20px;
+    }
+
+    .divNameAttended {
+        margin: 5px;
+        background-color: #D9D9D9;
+        border-radius: 20px;
+        line-height: 5px;
+    }
+
+    .divNameAttended h3 {
+        font-size: 24px;
+    }
+
+    .divNameAttended p {
+        font-size: 18px;
+    }
+
+}
